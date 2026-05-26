@@ -24,6 +24,8 @@ Use this checklist before starting and before closing any conversion packet.
 - Prefer explicit, small data models and helper types.
 - Do not introduce broad architecture before the source responsibility is understood.
 - Separate decoded source data from runtime behavior that consumes it.
+- Before choosing JSON/YAML/or another format, identify which source structures must remain intact: ordering, slot counts, fixed-width rows, pointer families, packed record shapes, or grouped tables.
+- Do not reshape assembly-derived data into a convenience format if that loses meaningful source structure.
 - Leave comments only where they add source intent, invariants, or parity reasoning.
 - Use names that are explicit and C#-idiomatic.
 - Follow `docs/coding-standards.md` for file/type layout and naming.

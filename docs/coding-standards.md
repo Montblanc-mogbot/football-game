@@ -210,6 +210,25 @@ float snapWindowSeconds = 1.0f;
 
 Structure the code so those boundaries remain visible.
 
+## Source-data representation policy
+
+For assembly-derived data, prefer **structure preservation first** over convenience-first reshaping.
+
+- Do not flatten or normalize source data just because JSON/YAML makes it tempting.
+- Preserve original grouping, ordering, fixed-width tables, slot counts, pointer families, and position-specific record shapes whenever those structures carry meaning.
+- Treat the original assembly layout as a semantic contract, not just raw bytes to be reformatted.
+- If JSON or YAML can express the source structure cleanly without hiding that contract, it is acceptable.
+- If JSON or YAML would force awkward reshaping, loss of ordering meaning, or premature abstraction, use a different representation.
+- Prefer a representation that makes source-to-artifact comparison easy during parity review.
+- Separate three layers clearly when possible:
+  1. raw/source-faithful extracted structure
+  2. decoded semantic model
+  3. runtime-consumption model
+- Do not skip directly from assembly bytes to a convenience runtime model when the intermediate semantic structure is important.
+- For behavior-touching banks, document what structural properties must remain stable before choosing a serialization format.
+
+Practical rule: the data format serves the source structure — the source structure does not get bent to fit the data format.
+
 ## Error handling
 
 - Fail loudly on invalid internal assumptions.

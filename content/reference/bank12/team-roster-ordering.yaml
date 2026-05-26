@@ -1,0 +1,122 @@
+teamPointerTableLabel: STARTING_ADDR_FOR_TEAM_PLAYER_NAMES_PTR_TABLE
+teamCount: 28
+rosterSlotCount: 30
+rosterSlots:
+  - QB1
+  - QB2
+  - RB1
+  - RB2
+  - RB3
+  - RB4
+  - WR1
+  - WR2
+  - WR3
+  - WR4
+  - TE1
+  - TE2
+  - C
+  - LG
+  - RG
+  - LT
+  - RT
+  - RE
+  - NT
+  - LE
+  - ROLB
+  - RILB
+  - LILB
+  - LOLB
+  - RCB
+  - LCB
+  - FS
+  - SS
+  - K
+  - P
+teams:
+  - order: 1
+    teamListLabel: BUFFALO_LIST
+    identityPrefix: BUFFALO_
+  - order: 2
+    teamListLabel: INDIANAPOLIS_LIST
+    identityPrefix: INDIANAPOLIS_
+  - order: 3
+    teamListLabel: MIAMI_LIST
+    identityPrefix: MIAMI_
+  - order: 4
+    teamListLabel: NEW_ENGLAND_LIST
+    identityPrefix: NEW_ENGLAND_
+  - order: 5
+    teamListLabel: NEW_YORK_JETS_LIST
+    identityPrefix: NEW_YORK_JETS_
+  - order: 6
+    teamListLabel: CINCINNATI_LIST
+    identityPrefix: CINCINNATI_
+  - order: 7
+    teamListLabel: CLEVELAND_LIST
+    identityPrefix: CLEVELAND_
+  - order: 8
+    teamListLabel: HOUSTON_LIST
+    identityPrefix: HOUSTON_
+  - order: 9
+    teamListLabel: PITTSBURGH_LIST
+    identityPrefix: PITTSBURGH_
+  - order: 10
+    teamListLabel: DENVER_LIST
+    identityPrefix: DENVER_
+  - order: 11
+    teamListLabel: KANSAS_CITY_LIST
+    identityPrefix: KANSAS_CITY_
+  - order: 12
+    teamListLabel: LOS_ANGELES_RAIDERS_LIST
+    identityPrefix: LOS_ANGELES_RAIDERS_
+  - order: 13
+    teamListLabel: SAN_DIEGO_LIST
+    identityPrefix: SAN_DIEGO_
+  - order: 14
+    teamListLabel: SEATTLE_LIST
+    identityPrefix: SEATTLE_
+  - order: 15
+    teamListLabel: WASHINGTON_LIST
+    identityPrefix: WASHINGTON_
+  - order: 16
+    teamListLabel: NEW_YORK_GIANTS_LIST
+    identityPrefix: NEW_YORK_GIANTS_
+  - order: 17
+    teamListLabel: PHILADELPHIA_LIST
+    identityPrefix: PHILADELPHIA_
+  - order: 18
+    teamListLabel: PHOENIX_LIST
+    identityPrefix: PHOENIX_
+  - order: 19
+    teamListLabel: DALLAS_LIST
+    identityPrefix: DALLAS_
+  - order: 20
+    teamListLabel: CHICAGO_LIST
+    identityPrefix: CHICAGO_
+  - order: 21
+    teamListLabel: DETROIT_LIST
+    identityPrefix: DETROIT_
+  - order: 22
+    teamListLabel: GREEN_BAY_LIST
+    identityPrefix: GREEN_BAY_
+  - order: 23
+    teamListLabel: MINNESOTA_LIST
+    identityPrefix: MINNESOTA_
+  - order: 24
+    teamListLabel: TAMPA_BAY_LIST
+    identityPrefix: TAMPA_BAY_
+  - order: 25
+    teamListLabel: SAN_FRANCISCO_LIST
+    identityPrefix: SAN_FRANCISCO_
+  - order: 26
+    teamListLabel: LOS_ANGELES_RAMS_LIST
+    identityPrefix: LOS_ANGELES_RAMS_
+  - order: 27
+    teamListLabel: NEW_ORLEANS_LIST
+    identityPrefix: NEW_ORLEANS_
+  - order: 28
+    teamListLabel: ATLANTA_LIST
+    identityPrefix: ATLANTA_
+notes:
+  - Preserves canonical team order and canonical 30-slot roster order from Bank1_2.
+  - This is a source-faithful structure artifact, not a runtime-friendly flattened roster model.

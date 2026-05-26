@@ -1,0 +1,151 @@
+sectionLabel: _F{_PLAYER_ABILITIES
+layoutEnumBase: "$00"
+attributeScale:
+  - nibble: 0x0
+    sourceLabel: ATTRIBUTE_6
+    value: 6
+  - nibble: 0x1
+    sourceLabel: ATTRIBUTE_13
+    value: 13
+  - nibble: 0x2
+    sourceLabel: ATTRIBUTE_19
+    value: 19
+  - nibble: 0x3
+    sourceLabel: ATTRIBUTE_25
+    value: 25
+  - nibble: 0x4
+    sourceLabel: ATTRIBUTE_31
+    value: 31
+  - nibble: 0x5
+    sourceLabel: ATTRIBUTE_38
+    value: 38
+  - nibble: 0x6
+    sourceLabel: ATTRIBUTE_44
+    value: 44
+  - nibble: 0x7
+    sourceLabel: ATTRIBUTE_50
+    value: 50
+  - nibble: 0x8
+    sourceLabel: ATTRIBUTE_56
+    value: 56
+  - nibble: 0x9
+    sourceLabel: ATTRIBUTE_63
+    value: 63
+  - nibble: 0xA
+    sourceLabel: ATTRIBUTE_69
+    value: 69
+  - nibble: 0xB
+    sourceLabel: ATTRIBUTE_75
+    value: 75
+  - nibble: 0xC
+    sourceLabel: ATTRIBUTE_81
+    value: 81
+  - nibble: 0xD
+    sourceLabel: ATTRIBUTE_88
+    value: 88
+  - nibble: 0xE
+    sourceLabel: ATTRIBUTE_94
+    value: 94
+  - nibble: 0xF
+    sourceLabel: ATTRIBUTE_100
+    value: 100
+recordLayouts:
+  quarterback:
+    widthBytes: 5
+    fields:
+      - packedNibblePair: [RushingPower, RunningSpeed]
+      - packedNibblePair: [MaximumSpeed, HittingPower]
+      - byte: FaceIdentifier
+      - packedNibblePair: [PassingSpeed, PassControl]
+      - packedNibblePair: [AccuracyOfPassing, AvoidPassBlock]
+  skillPosition:
+    widthBytes: 4
+    fields:
+      - packedNibblePair: [RushingPower, RunningSpeed]
+      - packedNibblePair: [MaximumSpeed, HittingPower]
+      - byte: FaceIdentifier
+      - packedNibblePair: [BallControl, Receptions]
+  offensiveLine:
+    widthBytes: 3
+    fields:
+      - packedNibblePair: [RushingPower, RunningSpeed]
+      - packedNibblePair: [MaximumSpeed, HittingPower]
+      - byte: FaceIdentifier
+  defender:
+    widthBytes: 4
+    fields:
+      - packedNibblePair: [RushingPower, RunningSpeed]
+      - packedNibblePair: [MaximumSpeed, HittingPower]
+      - byte: FaceIdentifier
+      - packedNibblePair: [PassInterceptions, Quickness]
+  kickerOrPunter:
+    widthBytes: 4
+    fields:
+      - packedNibblePair: [RushingPower, RunningSpeed]
+      - packedNibblePair: [MaximumSpeed, HittingPower]
+      - byte: FaceIdentifier
+      - packedNibblePair: [KickOrPuntAbility, AvoidKickBlock]
+slotLayout:
+  - slot: QB1
+    recordLayout: quarterback
+  - slot: QB2
+    recordLayout: quarterback
+  - slot: RB1
+    recordLayout: skillPosition
+  - slot: RB2
+    recordLayout: skillPosition
+  - slot: RB3
+    recordLayout: skillPosition
+  - slot: RB4
+    recordLayout: skillPosition
+  - slot: WR1
+    recordLayout: skillPosition
+  - slot: WR2
+    recordLayout: skillPosition
+  - slot: WR3
+    recordLayout: skillPosition
+  - slot: WR4
+    recordLayout: skillPosition
+  - slot: TE1
+    recordLayout: skillPosition
+  - slot: TE2
+    recordLayout: skillPosition
+  - slot: C
+    recordLayout: offensiveLine
+  - slot: LG
+    recordLayout: offensiveLine
+  - slot: RG
+    recordLayout: offensiveLine
+  - slot: LT
+    recordLayout: offensiveLine
+  - slot: RT
+    recordLayout: offensiveLine
+  - slot: RE
+    recordLayout: defender
+  - slot: NT
+    recordLayout: defender
+  - slot: LE
+    recordLayout: defender
+  - slot: ROLB
+    recordLayout: defender
+  - slot: RILB
+    recordLayout: defender
+  - slot: LILB
+    recordLayout: defender
+  - slot: LOLB
+    recordLayout: defender
+  - slot: RCB
+    recordLayout: defender
+  - slot: LCB
+    recordLayout: defender
+  - slot: FS
+    recordLayout: defender
+  - slot: SS
+    recordLayout: defender
+  - slot: K
+    recordLayout: kickerOrPunter
+  - slot: P
+    recordLayout: kickerOrPunter
+notes:
+  - Preserves the Bank1_2 ability-layout contract without carrying assembly pointer mechanics into C#.
+  - Raw nibble grade semantics should remain available alongside decoded values during later runtime integration.

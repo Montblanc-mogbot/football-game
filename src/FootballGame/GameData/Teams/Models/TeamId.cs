@@ -1,4 +1,4 @@
-namespace FootballGame.Conversion.Bank12.Models;
+namespace FootballGame.GameData.Teams.Models;
 
 /// <summary>
 /// Canonical Bank1_2 team order from STARTING_ADDR_FOR_TEAM_PLAYER_NAMES_PTR_TABLE.

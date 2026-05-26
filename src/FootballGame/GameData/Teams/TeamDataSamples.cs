@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 
-using FootballGame.Conversion.Bank12.Models;
+using FootballGame.GameData.Teams.Models;
 
-namespace FootballGame.Conversion.Bank12;
+namespace FootballGame.GameData.Teams;
 
 /// <summary>
-/// Small hand-authored sample artifacts for Bank1_2 review.
+/// Small hand-authored team-data samples for review.
 /// These are not a full parser; they prove the intended decoded model shape.
 /// </summary>
-public static class Bank12Samples
+public static class TeamDataSamples
 {
     public static TeamRosterRecord BuffaloRoster => new()
     {

@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 
-using FootballGame.Conversion.Bank12.Models;
+using FootballGame.GameData.Teams.Models;
 
-namespace FootballGame.Conversion.Bank12;
+namespace FootballGame.GameData.Teams;
 
 /// <summary>
-/// Fully loaded Bank1_2 semantic data set.
+/// Fully loaded team-data semantic data set derived from Bank1_2.
 /// </summary>
-public sealed record Bank12DataSet
+public sealed record TeamDataSet
 {
     public required IReadOnlyList<TeamRosterRecord> TeamRosters { get; init; }
 

@@ -9,14 +9,14 @@ This note validates the first full-bank conversion artifacts for `Bank1_2_team_d
 ## Artifacts covered
 
 - `docs/planning/banks/Bank1_2-structure-and-representation.md`
-- `content/reference/bank12/team-roster-ordering.yaml`
-- `content/reference/bank12/ability-layout.yaml`
-- `content/reference/bank12/generated/team-identities.json`
-- `content/reference/bank12/generated/team-abilities.json`
-- `content/reference/bank12/generated/ability-metadata.json`
-- `content/reference/bank12/generated/summary.json`
-- `tools/extract_bank12.py`
-- `src/FootballGame/Conversion/Bank12/Models/*.cs`
+- `content/game-data/teams/roster-ordering.yaml`
+- `content/game-data/teams/ability-layout.yaml`
+- `content/game-data/teams/generated/team-identities.json`
+- `content/game-data/teams/generated/team-abilities.json`
+- `content/game-data/teams/generated/ability-metadata.json`
+- `content/game-data/teams/generated/summary.json`
+- `development-tools/bank1_2/extract_bank1_2.py`
+- `src/FootballGame/GameData/Teams/Models/*.cs`
 
 ## Validation checks
 

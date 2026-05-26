@@ -1,4 +1,4 @@
-namespace FootballGame.Conversion.Bank12.Models;
+namespace FootballGame.GameData.Teams.Models;
 
 /// <summary>
 /// Source-faithful 16-step Bank1_2 attribute grade scale.

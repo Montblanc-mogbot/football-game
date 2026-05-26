@@ -5,9 +5,9 @@ import json
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 ASM_PATH = ROOT / "reference" / "Tecmo_Super_Bowl_NES_Disassembly" / "Bank1_2_team_data.asm"
-OUT_DIR = ROOT / "content" / "reference" / "bank12" / "generated"
+OUT_DIR = ROOT / "content" / "game-data" / "teams" / "generated"
 
 ROSTER_SLOTS = [
     "QB1", "QB2", "RB1", "RB2", "RB3", "RB4", "WR1", "WR2", "WR3", "WR4",

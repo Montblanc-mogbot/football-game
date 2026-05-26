@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace FootballGame.Conversion.Bank12.Models;
+namespace FootballGame.GameData.Teams.Models;
 
 /// <summary>
 /// Bank1_2 team roster preserving canonical team order and slot identity.

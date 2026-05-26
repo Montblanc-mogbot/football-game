@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace FootballGame.Conversion.Bank12.Models;
+namespace FootballGame.GameData.Teams.Models;
 
 /// <summary>
 /// Decoded Bank1_2 team ability container keyed by canonical roster slots.

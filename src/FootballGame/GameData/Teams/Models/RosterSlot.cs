@@ -1,4 +1,4 @@
-namespace FootballGame.Conversion.Bank12.Models;
+namespace FootballGame.GameData.Teams.Models;
 
 /// <summary>
 /// Canonical Bank1_2 roster slot order.

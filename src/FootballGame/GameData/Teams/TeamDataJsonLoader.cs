@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
-using FootballGame.Conversion.Bank12.Models;
+using FootballGame.GameData.Teams.Models;
 
-namespace FootballGame.Conversion.Bank12;
+namespace FootballGame.GameData.Teams;
 
 /// <summary>
 /// Loads the generated Bank1_2 JSON artifacts into the decoded semantic models.
 /// </summary>
-public static class Bank12JsonLoader
+public static class TeamDataJsonLoader
 {
-    public static Bank12DataSet LoadFromGeneratedDirectory(string generatedDirectoryPath)
+    public static TeamDataSet LoadFromGeneratedDirectory(string generatedDirectoryPath)
     {
         ArgumentException.ThrowIfNullOrEmpty(generatedDirectoryPath);
 
@@ -34,7 +33,7 @@ public static class Bank12JsonLoader
             .Select(MapTeamAbilitySet)
             .ToArray();
 
-        return new Bank12DataSet
+        return new TeamDataSet
         {
             TeamRosters = teamRosters,
             TeamAbilities = teamAbilitySets,

@@ -1,4 +1,4 @@
-namespace FootballGame.Conversion.Bank12.Models;
+namespace FootballGame.GameData.Teams.Models;
 
 public abstract record BaseAbilityRecord
 {

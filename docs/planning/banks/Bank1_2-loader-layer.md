@@ -8,14 +8,14 @@ This note describes the bridge between the generated Bank1_2 source-faithful art
 
 ## Loader entry point
 
-- `src/FootballGame/Conversion/Bank12/Bank12JsonLoader.cs`
-- returns `Bank12DataSet`
+- `src/FootballGame/GameData/Teams/TeamDataJsonLoader.cs`
+- returns `TeamDataSet`
 
 ## Input artifacts
 
 The loader consumes:
-- `content/reference/bank12/generated/team-identities.json`
-- `content/reference/bank12/generated/team-abilities.json`
+- `content/game-data/teams/generated/team-identities.json`
+- `content/game-data/teams/generated/team-abilities.json`
 
 ## Output semantic layer
 

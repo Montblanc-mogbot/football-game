@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace FootballGame.Conversion.Bank12.Models;
 
 /// <summary>

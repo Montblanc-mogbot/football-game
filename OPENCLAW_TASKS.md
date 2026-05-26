@@ -46,6 +46,8 @@ If old code is ever consulted or imported from a separate repo, that must be an 
   - Evidence: `content/reference/bank12/ability-layout.yaml` preserves the slot-aligned ability contract, `tools/extract_bank12.py` generates `content/reference/bank12/generated/team-abilities.json` plus `ability-metadata.json`, `AttributeGrade` preserves nibble semantics, and `AbilityRecords.cs` / `TeamAbilitySet.cs` provide the decoded typed records across all 28 team ability blobs / 840 slot records.
 - [x] Keep packet `5A` aligned with the full-bank Bank1_2 conversion. Acceptance: reconcile `docs/planning/packets/5A-team-data-semantics.md` and `src/FootballGame/Conversion/PlayScripts/OffensivePitchPlayFamily.cs` against the final Bank1_2 models without consulting the older MonoGame repo.
   - Evidence: the existing `5A` team-data note now matches the canonical `RosterSlot` / `TeamId` / Bank1_2 ability-schema direction introduced in the new Bank1_2 models, and no old-repo code was consulted.
+- [x] Add a loader/decoder bridge from generated Bank1_2 artifacts into the semantic C# models. Acceptance: one loader reads the generated Bank1_2 JSON artifacts and returns typed roster/ability data without reintroducing pointer mechanics.
+  - Evidence: added `src/FootballGame/Conversion/Bank12/Bank12JsonLoader.cs`, `src/FootballGame/Conversion/Bank12/Bank12DataSet.cs`, and `docs/planning/banks/Bank1_2-loader-layer.md`.
 
 ## Notes
 - This task file intentionally avoids carrying forward old completed tasks, old validation campaigns, or old architecture milestones.

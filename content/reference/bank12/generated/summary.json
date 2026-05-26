@@ -1,0 +1,8 @@
+{
+  "sourceFile": "reference/Tecmo_Super_Bowl_NES_Disassembly/Bank1_2_team_data.asm",
+  "teamCount": 28,
+  "rosterSlotCount": 30,
+  "identityRecordCount": 840,
+  "abilityTeamCount": 28,
+  "abilitySlotCount": 840
+}

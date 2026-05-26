@@ -11,6 +11,11 @@ This note validates the first full-bank conversion artifacts for `Bank1_2_team_d
 - `docs/planning/banks/Bank1_2-structure-and-representation.md`
 - `content/reference/bank12/team-roster-ordering.yaml`
 - `content/reference/bank12/ability-layout.yaml`
+- `content/reference/bank12/generated/team-identities.json`
+- `content/reference/bank12/generated/team-abilities.json`
+- `content/reference/bank12/generated/ability-metadata.json`
+- `content/reference/bank12/generated/summary.json`
+- `tools/extract_bank12.py`
 - `src/FootballGame/Conversion/Bank12/Models/*.cs`
 
 ## Validation checks
@@ -25,6 +30,7 @@ Validated:
 - 28-team canonical order is preserved in the extracted roster artifact
 - 30-slot canonical roster order is preserved explicitly, not implied
 - slot names remain stable and reviewable
+- generated extractor output reports `teamCount = 28`, `rosterSlotCount = 30`, and `identityRecordCount = 840`
 
 ### Player identity semantics
 Checked against:
@@ -49,15 +55,15 @@ Validated:
 - nibble-grade scale remains explicit
 - face byte remains separate from packed nibble fields
 - role-specific tail fields remain distinct in the decoded model
+- generated extractor output reports `abilityTeamCount = 28` and `abilitySlotCount = 840`
 
 ## Important non-goals of this pass
 
 This pass does **not** yet provide:
-- a full automatic parser for the assembly file
 - runtime loading/gameplay integration
 - full behavior-side consumers of the ability data
 - display-name normalization beyond preserving source payloads
 
 ## Outcome
 
-The first Bank1_2 conversion pass preserves the bank’s meaningful structure while removing pointer mechanics from the semantic C# layer.
+The Bank1_2 conversion now includes a full automatic extractor for the bank’s roster/identity and ability data, while still preserving the bank’s meaningful structure and removing pointer mechanics from the semantic C# layer.

@@ -1,0 +1,266 @@
+{
+  "sourceFile": "reference/Tecmo_Super_Bowl_NES_Disassembly/Bank1_2_team_data.asm",
+  "sectionLabel": "_F{_PLAYER_ABILITIES",
+  "attributeScale": [
+    {
+      "nibble": 0,
+      "sourceLabel": "ATTRIBUTE_6",
+      "value": 6
+    },
+    {
+      "nibble": 1,
+      "sourceLabel": "ATTRIBUTE_13",
+      "value": 13
+    },
+    {
+      "nibble": 2,
+      "sourceLabel": "ATTRIBUTE_19",
+      "value": 19
+    },
+    {
+      "nibble": 3,
+      "sourceLabel": "ATTRIBUTE_25",
+      "value": 25
+    },
+    {
+      "nibble": 4,
+      "sourceLabel": "ATTRIBUTE_31",
+      "value": 31
+    },
+    {
+      "nibble": 5,
+      "sourceLabel": "ATTRIBUTE_38",
+      "value": 38
+    },
+    {
+      "nibble": 6,
+      "sourceLabel": "ATTRIBUTE_44",
+      "value": 44
+    },
+    {
+      "nibble": 7,
+      "sourceLabel": "ATTRIBUTE_50",
+      "value": 50
+    },
+    {
+      "nibble": 8,
+      "sourceLabel": "ATTRIBUTE_56",
+      "value": 56
+    },
+    {
+      "nibble": 9,
+      "sourceLabel": "ATTRIBUTE_63",
+      "value": 63
+    },
+    {
+      "nibble": 10,
+      "sourceLabel": "ATTRIBUTE_69",
+      "value": 69
+    },
+    {
+      "nibble": 11,
+      "sourceLabel": "ATTRIBUTE_75",
+      "value": 75
+    },
+    {
+      "nibble": 12,
+      "sourceLabel": "ATTRIBUTE_81",
+      "value": 81
+    },
+    {
+      "nibble": 13,
+      "sourceLabel": "ATTRIBUTE_88",
+      "value": 88
+    },
+    {
+      "nibble": 14,
+      "sourceLabel": "ATTRIBUTE_94",
+      "value": 94
+    },
+    {
+      "nibble": 15,
+      "sourceLabel": "ATTRIBUTE_100",
+      "value": 100
+    }
+  ],
+  "commonFields": [
+    "RushingPower",
+    "RunningSpeed",
+    "MaximumSpeed",
+    "HittingPower",
+    "FaceIdentifier"
+  ],
+  "roleFields": {
+    "QB": [
+      "PassingSpeed",
+      "PassControl",
+      "AccuracyOfPassing",
+      "AvoidPassBlock"
+    ],
+    "SKILL": [
+      "BallControl",
+      "Receptions"
+    ],
+    "OL": [],
+    "DEF": [
+      "PassInterceptions",
+      "Quickness"
+    ],
+    "KP": [
+      "KickOrPuntAbility",
+      "AvoidKickBlock"
+    ]
+  },
+  "rosterSlots": [
+    {
+      "slot": "QB1",
+      "role": "QB",
+      "tokenWidth": 5
+    },
+    {
+      "slot": "QB2",
+      "role": "QB",
+      "tokenWidth": 5
+    },
+    {
+      "slot": "RB1",
+      "role": "SKILL",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "RB2",
+      "role": "SKILL",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "RB3",
+      "role": "SKILL",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "RB4",
+      "role": "SKILL",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "WR1",
+      "role": "SKILL",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "WR2",
+      "role": "SKILL",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "WR3",
+      "role": "SKILL",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "WR4",
+      "role": "SKILL",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "TE1",
+      "role": "SKILL",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "TE2",
+      "role": "SKILL",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "C",
+      "role": "OL",
+      "tokenWidth": 3
+    },
+    {
+      "slot": "LG",
+      "role": "OL",
+      "tokenWidth": 3
+    },
+    {
+      "slot": "RG",
+      "role": "OL",
+      "tokenWidth": 3
+    },
+    {
+      "slot": "LT",
+      "role": "OL",
+      "tokenWidth": 3
+    },
+    {
+      "slot": "RT",
+      "role": "OL",
+      "tokenWidth": 3
+    },
+    {
+      "slot": "RE",
+      "role": "DEF",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "NT",
+      "role": "DEF",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "LE",
+      "role": "DEF",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "ROLB",
+      "role": "DEF",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "RILB",
+      "role": "DEF",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "LILB",
+      "role": "DEF",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "LOLB",
+      "role": "DEF",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "RCB",
+      "role": "DEF",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "LCB",
+      "role": "DEF",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "FS",
+      "role": "DEF",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "SS",
+      "role": "DEF",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "K",
+      "role": "KP",
+      "tokenWidth": 4
+    },
+    {
+      "slot": "P",
+      "role": "KP",
+      "tokenWidth": 4
+    }
+  ]
+}

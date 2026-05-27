@@ -1,0 +1,11 @@
+{
+  "sourceFile": "reference/Tecmo_Super_Bowl_NES_Disassembly/Bank4_def_spec_play_pointers_data.asm",
+  "defensiveExecutionTableCount": 255,
+  "defensiveExecutionEntryCounts": [
+    11
+  ],
+  "specialDefensePlayTableCount": 16,
+  "specialDefensePlayEntryCounts": [
+    12
+  ]
+}

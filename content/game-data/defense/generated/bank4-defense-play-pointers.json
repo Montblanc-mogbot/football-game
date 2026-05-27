@@ -1,0 +1,5180 @@
+{
+  "sourceFile": "reference/Tecmo_Super_Bowl_NES_Disassembly/Bank4_def_spec_play_pointers_data.asm",
+  "defensiveExecutionTableCount": 255,
+  "defensiveExecutionEntryCounts": [
+    11
+  ],
+  "specialDefensePlayTableCount": 16,
+  "specialDefensePlayEntryCounts": [
+    12
+  ],
+  "defensiveExecutionTables": [
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_1",
+      "line": 8,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_002",
+        "DEFENSE_PLAYER_REACTION_003",
+        "DEFENSE_PLAYER_REACTION_004",
+        "DEFENSE_PLAYER_REACTION_005",
+        "DEFENSE_PLAYER_REACTION_006",
+        "DEFENSE_PLAYER_REACTION_007",
+        "DEFENSE_PLAYER_REACTION_008",
+        "DEFENSE_PLAYER_REACTION_009",
+        "DEFENSE_PLAYER_REACTION_010",
+        "DEFENSE_PLAYER_REACTION_011"
+      ],
+      "order": 0,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_2",
+      "line": 20,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_050",
+        "DEFENSE_PLAYER_REACTION_069",
+        "DEFENSE_PLAYER_REACTION_012",
+        "DEFENSE_PLAYER_REACTION_013",
+        "DEFENSE_PLAYER_REACTION_014",
+        "DEFENSE_PLAYER_REACTION_015"
+      ],
+      "order": 1,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_3",
+      "line": 32,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_018",
+        "DEFENSE_PLAYER_REACTION_019",
+        "DEFENSE_PLAYER_REACTION_020",
+        "DEFENSE_PLAYER_REACTION_021",
+        "DEFENSE_PLAYER_REACTION_022",
+        "DEFENSE_PLAYER_REACTION_023",
+        "DEFENSE_PLAYER_REACTION_024",
+        "DEFENSE_PLAYER_REACTION_025",
+        "DEFENSE_PLAYER_REACTION_026",
+        "DEFENSE_PLAYER_REACTION_027",
+        "DEFENSE_PLAYER_REACTION_028"
+      ],
+      "order": 2,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_4",
+      "line": 44,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_018",
+        "DEFENSE_PLAYER_REACTION_019",
+        "DEFENSE_PLAYER_REACTION_020",
+        "DEFENSE_PLAYER_REACTION_021",
+        "DEFENSE_PLAYER_REACTION_022",
+        "DEFENSE_PLAYER_REACTION_023",
+        "DEFENSE_PLAYER_REACTION_024",
+        "DEFENSE_PLAYER_REACTION_025",
+        "DEFENSE_PLAYER_REACTION_026",
+        "DEFENSE_PLAYER_REACTION_027",
+        "DEFENSE_PLAYER_REACTION_028"
+      ],
+      "order": 3,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_5",
+      "line": 56,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_032",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_035",
+        "DEFENSE_PLAYER_REACTION_036",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 4,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_6",
+      "line": 68,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_039",
+        "DEFENSE_PLAYER_REACTION_040",
+        "DEFENSE_PLAYER_REACTION_041",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_042",
+        "DEFENSE_PLAYER_REACTION_043"
+      ],
+      "order": 5,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_7",
+      "line": 80,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_032",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_035",
+        "DEFENSE_PLAYER_REACTION_036",
+        "DEFENSE_PLAYER_REACTION_037",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 6,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_8",
+      "line": 92,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_032",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_035",
+        "DEFENSE_PLAYER_REACTION_036",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 7,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_9",
+      "line": 104,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_032",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_035",
+        "DEFENSE_PLAYER_REACTION_036",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 8,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_10",
+      "line": 116,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_018",
+        "DEFENSE_PLAYER_REACTION_019",
+        "DEFENSE_PLAYER_REACTION_020",
+        "DEFENSE_PLAYER_REACTION_021",
+        "DEFENSE_PLAYER_REACTION_022",
+        "DEFENSE_PLAYER_REACTION_023",
+        "DEFENSE_PLAYER_REACTION_024",
+        "DEFENSE_PLAYER_REACTION_025",
+        "DEFENSE_PLAYER_REACTION_026",
+        "DEFENSE_PLAYER_REACTION_027",
+        "DEFENSE_PLAYER_REACTION_028"
+      ],
+      "order": 9,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_11",
+      "line": 128,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_032",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_035",
+        "DEFENSE_PLAYER_REACTION_036",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 10,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_12",
+      "line": 140,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_032",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_035",
+        "DEFENSE_PLAYER_REACTION_036",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 11,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_13",
+      "line": 152,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_032",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_035",
+        "DEFENSE_PLAYER_REACTION_036",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 12,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_14",
+      "line": 164,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 13,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_15",
+      "line": 176,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_248",
+        "DEFENSE_PLAYER_REACTION_249"
+      ],
+      "order": 14,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_16",
+      "line": 188,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_242",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_245",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_248",
+        "DEFENSE_PLAYER_REACTION_249"
+      ],
+      "order": 15,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_17",
+      "line": 200,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_082",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_083",
+        "DEFENSE_PLAYER_REACTION_084",
+        "DEFENSE_PLAYER_REACTION_085",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_248",
+        "DEFENSE_PLAYER_REACTION_249"
+      ],
+      "order": 16,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_18",
+      "line": 212,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_082",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_083",
+        "DEFENSE_PLAYER_REACTION_084",
+        "DEFENSE_PLAYER_REACTION_085",
+        "DEFENSE_PLAYER_REACTION_226",
+        "DEFENSE_PLAYER_REACTION_227",
+        "DEFENSE_PLAYER_REACTION_248",
+        "DEFENSE_PLAYER_REACTION_249"
+      ],
+      "order": 17,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_19",
+      "line": 224,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_082",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_220",
+        "DEFENSE_PLAYER_REACTION_084",
+        "DEFENSE_PLAYER_REACTION_221",
+        "DEFENSE_PLAYER_REACTION_222",
+        "DEFENSE_PLAYER_REACTION_223",
+        "DEFENSE_PLAYER_REACTION_224",
+        "DEFENSE_PLAYER_REACTION_225"
+      ],
+      "order": 18,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_20",
+      "line": 236,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_465",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_459",
+        "DEFENSE_PLAYER_REACTION_288",
+        "DEFENSE_PLAYER_REACTION_417",
+        "DEFENSE_PLAYER_REACTION_413"
+      ],
+      "order": 19,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_21",
+      "line": 248,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_465",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_440",
+        "DEFENSE_PLAYER_REACTION_313",
+        "DEFENSE_PLAYER_REACTION_417",
+        "DEFENSE_PLAYER_REACTION_413"
+      ],
+      "order": 20,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_22",
+      "line": 260,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_410",
+        "DEFENSE_PLAYER_REACTION_465",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_440",
+        "DEFENSE_PLAYER_REACTION_313",
+        "DEFENSE_PLAYER_REACTION_441",
+        "DEFENSE_PLAYER_REACTION_416"
+      ],
+      "order": 21,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_23",
+      "line": 272,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_495",
+        "DEFENSE_PLAYER_REACTION_460",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_287",
+        "DEFENSE_PLAYER_REACTION_288",
+        "DEFENSE_PLAYER_REACTION_392",
+        "DEFENSE_PLAYER_REACTION_290"
+      ],
+      "order": 22,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_24",
+      "line": 284,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_495",
+        "DEFENSE_PLAYER_REACTION_460",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_442",
+        "DEFENSE_PLAYER_REACTION_365",
+        "DEFENSE_PLAYER_REACTION_392",
+        "DEFENSE_PLAYER_REACTION_290"
+      ],
+      "order": 23,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_25",
+      "line": 296,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_410",
+        "DEFENSE_PLAYER_REACTION_460",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_442",
+        "DEFENSE_PLAYER_REACTION_365",
+        "DEFENSE_PLAYER_REACTION_330",
+        "DEFENSE_PLAYER_REACTION_416"
+      ],
+      "order": 24,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_26",
+      "line": 308,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_465",
+        "DEFENSE_PLAYER_REACTION_286",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_287",
+        "DEFENSE_PLAYER_REACTION_288",
+        "DEFENSE_PLAYER_REACTION_387",
+        "DEFENSE_PLAYER_REACTION_413"
+      ],
+      "order": 25,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_27",
+      "line": 320,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_465",
+        "DEFENSE_PLAYER_REACTION_286",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_420",
+        "DEFENSE_PLAYER_REACTION_443",
+        "DEFENSE_PLAYER_REACTION_387",
+        "DEFENSE_PLAYER_REACTION_413"
+      ],
+      "order": 26,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_28",
+      "line": 332,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_465",
+        "DEFENSE_PLAYER_REACTION_286",
+        "DEFENSE_PLAYER_REACTION_437",
+        "DEFENSE_PLAYER_REACTION_420",
+        "DEFENSE_PLAYER_REACTION_443",
+        "DEFENSE_PLAYER_REACTION_428",
+        "DEFENSE_PLAYER_REACTION_416"
+      ],
+      "order": 27,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_29",
+      "line": 344,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_444",
+        "DEFENSE_PLAYER_REACTION_092",
+        "DEFENSE_PLAYER_REACTION_093",
+        "DEFENSE_PLAYER_REACTION_466",
+        "DEFENSE_PLAYER_REACTION_467",
+        "DEFENSE_PLAYER_REACTION_468",
+        "DEFENSE_PLAYER_REACTION_469"
+      ],
+      "order": 28,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_30",
+      "line": 356,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_444",
+        "DEFENSE_PLAYER_REACTION_092",
+        "DEFENSE_PLAYER_REACTION_093",
+        "DEFENSE_PLAYER_REACTION_466",
+        "DEFENSE_PLAYER_REACTION_399",
+        "DEFENSE_PLAYER_REACTION_445",
+        "DEFENSE_PLAYER_REACTION_469"
+      ],
+      "order": 29,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_31",
+      "line": 368,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_444",
+        "DEFENSE_PLAYER_REACTION_092",
+        "DEFENSE_PLAYER_REACTION_093",
+        "DEFENSE_PLAYER_REACTION_466",
+        "DEFENSE_PLAYER_REACTION_399",
+        "DEFENSE_PLAYER_REACTION_445",
+        "DEFENSE_PLAYER_REACTION_446"
+      ],
+      "order": 30,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_32",
+      "line": 380,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_465",
+        "DEFENSE_PLAYER_REACTION_473",
+        "DEFENSE_PLAYER_REACTION_499",
+        "DEFENSE_PLAYER_REACTION_470",
+        "DEFENSE_PLAYER_REACTION_471",
+        "DEFENSE_PLAYER_REACTION_472",
+        "DEFENSE_PLAYER_REACTION_310"
+      ],
+      "order": 31,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_33",
+      "line": 392,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_465",
+        "DEFENSE_PLAYER_REACTION_473",
+        "DEFENSE_PLAYER_REACTION_499",
+        "DEFENSE_PLAYER_REACTION_447",
+        "DEFENSE_PLAYER_REACTION_448",
+        "DEFENSE_PLAYER_REACTION_472",
+        "DEFENSE_PLAYER_REACTION_310"
+      ],
+      "order": 32,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_34",
+      "line": 404,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_465",
+        "DEFENSE_PLAYER_REACTION_473",
+        "DEFENSE_PLAYER_REACTION_449",
+        "DEFENSE_PLAYER_REACTION_447",
+        "DEFENSE_PLAYER_REACTION_448",
+        "DEFENSE_PLAYER_REACTION_450",
+        "DEFENSE_PLAYER_REACTION_451"
+      ],
+      "order": 33,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_35",
+      "line": 416,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_128",
+        "DEFENSE_PLAYER_REACTION_129",
+        "DEFENSE_PLAYER_REACTION_130",
+        "DEFENSE_PLAYER_REACTION_131",
+        "DEFENSE_PLAYER_REACTION_452",
+        "DEFENSE_PLAYER_REACTION_133",
+        "DEFENSE_PLAYER_REACTION_134",
+        "DEFENSE_PLAYER_REACTION_368",
+        "DEFENSE_PLAYER_REACTION_369",
+        "DEFENSE_PLAYER_REACTION_370",
+        "DEFENSE_PLAYER_REACTION_371"
+      ],
+      "order": 34,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_36",
+      "line": 428,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_285",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_093",
+        "DEFENSE_PLAYER_REACTION_287",
+        "DEFENSE_PLAYER_REACTION_457",
+        "DEFENSE_PLAYER_REACTION_387",
+        "DEFENSE_PLAYER_REACTION_413"
+      ],
+      "order": 35,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_37",
+      "line": 440,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_285",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_093",
+        "DEFENSE_PLAYER_REACTION_453",
+        "DEFENSE_PLAYER_REACTION_334",
+        "DEFENSE_PLAYER_REACTION_387",
+        "DEFENSE_PLAYER_REACTION_413"
+      ],
+      "order": 36,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_38",
+      "line": 452,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_285",
+        "DEFENSE_PLAYER_REACTION_384",
+        "DEFENSE_PLAYER_REACTION_093",
+        "DEFENSE_PLAYER_REACTION_453",
+        "DEFENSE_PLAYER_REACTION_334",
+        "DEFENSE_PLAYER_REACTION_325",
+        "DEFENSE_PLAYER_REACTION_350"
+      ],
+      "order": 37,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_39",
+      "line": 464,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_475",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_474",
+        "DEFENSE_PLAYER_REACTION_372",
+        "DEFENSE_PLAYER_REACTION_288",
+        "DEFENSE_PLAYER_REACTION_387",
+        "DEFENSE_PLAYER_REACTION_413"
+      ],
+      "order": 38,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_40",
+      "line": 476,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_475",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_474",
+        "DEFENSE_PLAYER_REACTION_357",
+        "DEFENSE_PLAYER_REACTION_409",
+        "DEFENSE_PLAYER_REACTION_387",
+        "DEFENSE_PLAYER_REACTION_413"
+      ],
+      "order": 39,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_41",
+      "line": 488,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_359",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_474",
+        "DEFENSE_PLAYER_REACTION_357",
+        "DEFENSE_PLAYER_REACTION_409",
+        "DEFENSE_PLAYER_REACTION_424",
+        "DEFENSE_PLAYER_REACTION_412"
+      ],
+      "order": 40,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_42",
+      "line": 500,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_496",
+        "DEFENSE_PLAYER_REACTION_460",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_474",
+        "DEFENSE_PLAYER_REACTION_459",
+        "DEFENSE_PLAYER_REACTION_288",
+        "DEFENSE_PLAYER_REACTION_417",
+        "DEFENSE_PLAYER_REACTION_397"
+      ],
+      "order": 41,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_43",
+      "line": 512,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_496",
+        "DEFENSE_PLAYER_REACTION_460",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_474",
+        "DEFENSE_PLAYER_REACTION_454",
+        "DEFENSE_PLAYER_REACTION_334",
+        "DEFENSE_PLAYER_REACTION_417",
+        "DEFENSE_PLAYER_REACTION_397"
+      ],
+      "order": 42,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_44",
+      "line": 524,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_496",
+        "DEFENSE_PLAYER_REACTION_359",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_474",
+        "DEFENSE_PLAYER_REACTION_454",
+        "DEFENSE_PLAYER_REACTION_334",
+        "DEFENSE_PLAYER_REACTION_455",
+        "DEFENSE_PLAYER_REACTION_456"
+      ],
+      "order": 43,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_45",
+      "line": 536,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_100",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_118",
+        "DEFENSE_PLAYER_REACTION_119",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_248",
+        "DEFENSE_PLAYER_REACTION_249"
+      ],
+      "order": 44,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_46",
+      "line": 548,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_124",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_125",
+        "DEFENSE_PLAYER_REACTION_126",
+        "DEFENSE_PLAYER_REACTION_104",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_248",
+        "DEFENSE_PLAYER_REACTION_249"
+      ],
+      "order": 45,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_47",
+      "line": 560,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_120",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_121",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_122",
+        "DEFENSE_PLAYER_REACTION_123"
+      ],
+      "order": 46,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_48",
+      "line": 572,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_127",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_089",
+        "DEFENSE_PLAYER_REACTION_090",
+        "DEFENSE_PLAYER_REACTION_091",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_248",
+        "DEFENSE_PLAYER_REACTION_029"
+      ],
+      "order": 47,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_49",
+      "line": 584,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_002",
+        "DEFENSE_PLAYER_REACTION_242",
+        "DEFENSE_PLAYER_REACTION_004",
+        "DEFENSE_PLAYER_REACTION_005",
+        "DEFENSE_PLAYER_REACTION_006",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 48,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_50",
+      "line": 596,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_100",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 49,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_51",
+      "line": 608,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_108",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_109",
+        "DEFENSE_PLAYER_REACTION_107",
+        "DEFENSE_PLAYER_REACTION_110",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 50,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_52",
+      "line": 620,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_078",
+        "DEFENSE_PLAYER_REACTION_079",
+        "DEFENSE_PLAYER_REACTION_080",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 51,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_53",
+      "line": 632,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_095",
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_076",
+        "DEFENSE_PLAYER_REACTION_006",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 52,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_54",
+      "line": 644,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_002",
+        "DEFENSE_PLAYER_REACTION_003",
+        "DEFENSE_PLAYER_REACTION_004",
+        "DEFENSE_PLAYER_REACTION_005",
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_245",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 53,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_55",
+      "line": 656,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 54,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_56",
+      "line": 668,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_002",
+        "DEFENSE_PLAYER_REACTION_003",
+        "DEFENSE_PLAYER_REACTION_101",
+        "DEFENSE_PLAYER_REACTION_005",
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_117",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 55,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_57",
+      "line": 680,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_081",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_245",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 56,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_58",
+      "line": 692,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_011",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_005",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 57,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_59",
+      "line": 704,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 58,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_60",
+      "line": 716,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 59,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_61",
+      "line": 728,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 60,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_62",
+      "line": 740,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 61,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_63",
+      "line": 752,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 62,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_64",
+      "line": 764,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 63,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_65",
+      "line": 776,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_002",
+        "DEFENSE_PLAYER_REACTION_242",
+        "DEFENSE_PLAYER_REACTION_004",
+        "DEFENSE_PLAYER_REACTION_005",
+        "DEFENSE_PLAYER_REACTION_006",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 64,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_66",
+      "line": 788,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_011",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_060",
+        "DEFENSE_PLAYER_REACTION_061",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 65,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_67",
+      "line": 800,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 66,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_68",
+      "line": 812,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 67,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_69",
+      "line": 824,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_002",
+        "DEFENSE_PLAYER_REACTION_003",
+        "DEFENSE_PLAYER_REACTION_101",
+        "DEFENSE_PLAYER_REACTION_005",
+        "DEFENSE_PLAYER_REACTION_490",
+        "DEFENSE_PLAYER_REACTION_117",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 68,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_70",
+      "line": 836,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_095",
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_076",
+        "DEFENSE_PLAYER_REACTION_006",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 69,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_71",
+      "line": 848,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 70,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_72",
+      "line": 860,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 71,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_73",
+      "line": 872,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 72,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_74",
+      "line": 884,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 73,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_75",
+      "line": 896,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_244",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 74,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_76",
+      "line": 908,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_089",
+        "DEFENSE_PLAYER_REACTION_092",
+        "DEFENSE_PLAYER_REACTION_093",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 75,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_77",
+      "line": 920,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_421",
+        "DEFENSE_PLAYER_REACTION_092",
+        "DEFENSE_PLAYER_REACTION_093",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 76,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_78",
+      "line": 932,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_089",
+        "DEFENSE_PLAYER_REACTION_092",
+        "DEFENSE_PLAYER_REACTION_093",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 77,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_79",
+      "line": 944,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_089",
+        "DEFENSE_PLAYER_REACTION_092",
+        "DEFENSE_PLAYER_REACTION_093",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 78,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_80",
+      "line": 956,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_089",
+        "DEFENSE_PLAYER_REACTION_092",
+        "DEFENSE_PLAYER_REACTION_093",
+        "DEFENSE_PLAYER_REACTION_422",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 79,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_81",
+      "line": 968,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_038",
+        "DEFENSE_PLAYER_REACTION_039",
+        "DEFENSE_PLAYER_REACTION_040",
+        "DEFENSE_PLAYER_REACTION_041",
+        "DEFENSE_PLAYER_REACTION_144",
+        "DEFENSE_PLAYER_REACTION_042",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_044",
+        "DEFENSE_PLAYER_REACTION_141",
+        "DEFENSE_PLAYER_REACTION_046"
+      ],
+      "order": 80,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_82",
+      "line": 980,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_038",
+        "DEFENSE_PLAYER_REACTION_039",
+        "DEFENSE_PLAYER_REACTION_040",
+        "DEFENSE_PLAYER_REACTION_151",
+        "DEFENSE_PLAYER_REACTION_140",
+        "DEFENSE_PLAYER_REACTION_139",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_145",
+        "DEFENSE_PLAYER_REACTION_044",
+        "DEFENSE_PLAYER_REACTION_146",
+        "DEFENSE_PLAYER_REACTION_046"
+      ],
+      "order": 81,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_83",
+      "line": 992,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_038",
+        "DEFENSE_PLAYER_REACTION_039",
+        "DEFENSE_PLAYER_REACTION_143",
+        "DEFENSE_PLAYER_REACTION_151",
+        "DEFENSE_PLAYER_REACTION_147",
+        "DEFENSE_PLAYER_REACTION_148",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_142",
+        "DEFENSE_PLAYER_REACTION_149",
+        "DEFENSE_PLAYER_REACTION_146",
+        "DEFENSE_PLAYER_REACTION_150"
+      ],
+      "order": 82,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_84",
+      "line": 1004,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_128",
+        "DEFENSE_PLAYER_REACTION_129",
+        "DEFENSE_PLAYER_REACTION_130",
+        "DEFENSE_PLAYER_REACTION_131",
+        "DEFENSE_PLAYER_REACTION_132",
+        "DEFENSE_PLAYER_REACTION_133",
+        "DEFENSE_PLAYER_REACTION_134",
+        "DEFENSE_PLAYER_REACTION_135",
+        "DEFENSE_PLAYER_REACTION_136",
+        "DEFENSE_PLAYER_REACTION_137",
+        "DEFENSE_PLAYER_REACTION_138"
+      ],
+      "order": 83,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_85",
+      "line": 1016,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_047",
+        "DEFENSE_PLAYER_REACTION_153",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_050",
+        "DEFENSE_PLAYER_REACTION_051",
+        "DEFENSE_PLAYER_REACTION_052",
+        "DEFENSE_PLAYER_REACTION_053",
+        "DEFENSE_PLAYER_REACTION_154",
+        "DEFENSE_PLAYER_REACTION_055"
+      ],
+      "order": 84,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_86",
+      "line": 1028,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_047",
+        "DEFENSE_PLAYER_REACTION_151",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_050",
+        "DEFENSE_PLAYER_REACTION_051",
+        "DEFENSE_PLAYER_REACTION_155",
+        "DEFENSE_PLAYER_REACTION_159",
+        "DEFENSE_PLAYER_REACTION_054",
+        "DEFENSE_PLAYER_REACTION_152"
+      ],
+      "order": 85,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_87",
+      "line": 1040,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_047",
+        "DEFENSE_PLAYER_REACTION_157",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_050",
+        "DEFENSE_PLAYER_REACTION_051",
+        "DEFENSE_PLAYER_REACTION_155",
+        "DEFENSE_PLAYER_REACTION_158",
+        "DEFENSE_PLAYER_REACTION_054",
+        "DEFENSE_PLAYER_REACTION_249"
+      ],
+      "order": 86,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_88",
+      "line": 1052,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_160",
+        "DEFENSE_PLAYER_REACTION_047",
+        "DEFENSE_PLAYER_REACTION_157",
+        "DEFENSE_PLAYER_REACTION_161",
+        "DEFENSE_PLAYER_REACTION_162",
+        "DEFENSE_PLAYER_REACTION_163",
+        "DEFENSE_PLAYER_REACTION_135",
+        "DEFENSE_PLAYER_REACTION_136",
+        "DEFENSE_PLAYER_REACTION_137",
+        "DEFENSE_PLAYER_REACTION_138"
+      ],
+      "order": 87,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_89",
+      "line": 1064,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_476",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_035",
+        "DEFENSE_PLAYER_REACTION_036",
+        "DEFENSE_PLAYER_REACTION_037",
+        "DEFENSE_PLAYER_REACTION_165",
+        "DEFENSE_PLAYER_REACTION_166"
+      ],
+      "order": 88,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_90",
+      "line": 1076,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_151",
+        "DEFENSE_PLAYER_REACTION_156",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_168",
+        "DEFENSE_PLAYER_REACTION_167",
+        "DEFENSE_PLAYER_REACTION_037",
+        "DEFENSE_PLAYER_REACTION_165",
+        "DEFENSE_PLAYER_REACTION_166"
+      ],
+      "order": 89,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_91",
+      "line": 1088,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_173",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_169",
+        "DEFENSE_PLAYER_REACTION_170",
+        "DEFENSE_PLAYER_REACTION_167",
+        "DEFENSE_PLAYER_REACTION_171",
+        "DEFENSE_PLAYER_REACTION_164",
+        "DEFENSE_PLAYER_REACTION_172"
+      ],
+      "order": 90,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_92",
+      "line": 1100,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_177",
+        "DEFENSE_PLAYER_REACTION_178",
+        "DEFENSE_PLAYER_REACTION_179",
+        "DEFENSE_PLAYER_REACTION_180",
+        "DEFENSE_PLAYER_REACTION_181",
+        "DEFENSE_PLAYER_REACTION_182",
+        "DEFENSE_PLAYER_REACTION_170",
+        "DEFENSE_PLAYER_REACTION_135",
+        "DEFENSE_PLAYER_REACTION_136",
+        "DEFENSE_PLAYER_REACTION_137",
+        "DEFENSE_PLAYER_REACTION_138"
+      ],
+      "order": 91,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_93",
+      "line": 1112,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_047",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_060",
+        "DEFENSE_PLAYER_REACTION_061",
+        "DEFENSE_PLAYER_REACTION_062",
+        "DEFENSE_PLAYER_REACTION_063",
+        "DEFENSE_PLAYER_REACTION_064",
+        "DEFENSE_PLAYER_REACTION_065"
+      ],
+      "order": 92,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_94",
+      "line": 1124,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_047",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_174",
+        "DEFENSE_PLAYER_REACTION_175",
+        "DEFENSE_PLAYER_REACTION_062",
+        "DEFENSE_PLAYER_REACTION_063",
+        "DEFENSE_PLAYER_REACTION_188",
+        "DEFENSE_PLAYER_REACTION_176"
+      ],
+      "order": 93,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_95",
+      "line": 1136,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_047",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_183",
+        "DEFENSE_PLAYER_REACTION_187",
+        "DEFENSE_PLAYER_REACTION_184",
+        "DEFENSE_PLAYER_REACTION_185",
+        "DEFENSE_PLAYER_REACTION_186",
+        "DEFENSE_PLAYER_REACTION_176"
+      ],
+      "order": 94,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_96",
+      "line": 1148,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_177",
+        "DEFENSE_PLAYER_REACTION_178",
+        "DEFENSE_PLAYER_REACTION_179",
+        "DEFENSE_PLAYER_REACTION_180",
+        "DEFENSE_PLAYER_REACTION_181",
+        "DEFENSE_PLAYER_REACTION_182",
+        "DEFENSE_PLAYER_REACTION_170",
+        "DEFENSE_PLAYER_REACTION_135",
+        "DEFENSE_PLAYER_REACTION_136",
+        "DEFENSE_PLAYER_REACTION_137",
+        "DEFENSE_PLAYER_REACTION_138"
+      ],
+      "order": 95,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_97",
+      "line": 1160,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_067",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_068",
+        "DEFENSE_PLAYER_REACTION_069",
+        "DEFENSE_PLAYER_REACTION_209",
+        "DEFENSE_PLAYER_REACTION_063",
+        "DEFENSE_PLAYER_REACTION_072",
+        "DEFENSE_PLAYER_REACTION_073"
+      ],
+      "order": 96,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_98",
+      "line": 1172,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_067",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_071",
+        "DEFENSE_PLAYER_REACTION_228",
+        "DEFENSE_PLAYER_REACTION_209",
+        "DEFENSE_PLAYER_REACTION_063",
+        "DEFENSE_PLAYER_REACTION_239",
+        "DEFENSE_PLAYER_REACTION_235"
+      ],
+      "order": 97,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_99",
+      "line": 1184,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_067",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_196",
+        "DEFENSE_PLAYER_REACTION_229",
+        "DEFENSE_PLAYER_REACTION_070",
+        "DEFENSE_PLAYER_REACTION_063",
+        "DEFENSE_PLAYER_REACTION_186",
+        "DEFENSE_PLAYER_REACTION_235"
+      ],
+      "order": 98,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_100",
+      "line": 1196,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_128",
+        "DEFENSE_PLAYER_REACTION_178",
+        "DEFENSE_PLAYER_REACTION_179",
+        "DEFENSE_PLAYER_REACTION_131",
+        "DEFENSE_PLAYER_REACTION_132",
+        "DEFENSE_PLAYER_REACTION_182",
+        "DEFENSE_PLAYER_REACTION_170",
+        "DEFENSE_PLAYER_REACTION_135",
+        "DEFENSE_PLAYER_REACTION_136",
+        "DEFENSE_PLAYER_REACTION_137",
+        "DEFENSE_PLAYER_REACTION_138"
+      ],
+      "order": 99,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_101",
+      "line": 1208,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_095",
+        "DEFENSE_PLAYER_REACTION_041",
+        "DEFENSE_PLAYER_REACTION_096",
+        "DEFENSE_PLAYER_REACTION_076",
+        "DEFENSE_PLAYER_REACTION_097",
+        "DEFENSE_PLAYER_REACTION_052",
+        "DEFENSE_PLAYER_REACTION_053",
+        "DEFENSE_PLAYER_REACTION_154",
+        "DEFENSE_PLAYER_REACTION_055"
+      ],
+      "order": 100,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_102",
+      "line": 1220,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_095",
+        "DEFENSE_PLAYER_REACTION_201",
+        "DEFENSE_PLAYER_REACTION_197",
+        "DEFENSE_PLAYER_REACTION_203",
+        "DEFENSE_PLAYER_REACTION_097",
+        "DEFENSE_PLAYER_REACTION_198",
+        "DEFENSE_PLAYER_REACTION_199",
+        "DEFENSE_PLAYER_REACTION_202",
+        "DEFENSE_PLAYER_REACTION_200"
+      ],
+      "order": 101,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_103",
+      "line": 1232,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_095",
+        "DEFENSE_PLAYER_REACTION_204",
+        "DEFENSE_PLAYER_REACTION_205",
+        "DEFENSE_PLAYER_REACTION_206",
+        "DEFENSE_PLAYER_REACTION_097",
+        "DEFENSE_PLAYER_REACTION_207",
+        "DEFENSE_PLAYER_REACTION_199",
+        "DEFENSE_PLAYER_REACTION_202",
+        "DEFENSE_PLAYER_REACTION_200"
+      ],
+      "order": 102,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_104",
+      "line": 1244,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_128",
+        "DEFENSE_PLAYER_REACTION_178",
+        "DEFENSE_PLAYER_REACTION_130",
+        "DEFENSE_PLAYER_REACTION_131",
+        "DEFENSE_PLAYER_REACTION_132",
+        "DEFENSE_PLAYER_REACTION_133",
+        "DEFENSE_PLAYER_REACTION_208",
+        "DEFENSE_PLAYER_REACTION_135",
+        "DEFENSE_PLAYER_REACTION_136",
+        "DEFENSE_PLAYER_REACTION_137",
+        "DEFENSE_PLAYER_REACTION_138"
+      ],
+      "order": 103,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_105",
+      "line": 1256,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_078",
+        "DEFENSE_PLAYER_REACTION_079",
+        "DEFENSE_PLAYER_REACTION_080",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_209",
+        "DEFENSE_PLAYER_REACTION_063",
+        "DEFENSE_PLAYER_REACTION_072",
+        "DEFENSE_PLAYER_REACTION_073"
+      ],
+      "order": 104,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_106",
+      "line": 1268,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_078",
+        "DEFENSE_PLAYER_REACTION_079",
+        "DEFENSE_PLAYER_REACTION_210",
+        "DEFENSE_PLAYER_REACTION_175",
+        "DEFENSE_PLAYER_REACTION_209",
+        "DEFENSE_PLAYER_REACTION_063",
+        "DEFENSE_PLAYER_REACTION_188",
+        "DEFENSE_PLAYER_REACTION_176"
+      ],
+      "order": 105,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_107",
+      "line": 1280,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_078",
+        "DEFENSE_PLAYER_REACTION_211",
+        "DEFENSE_PLAYER_REACTION_196",
+        "DEFENSE_PLAYER_REACTION_170",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_063",
+        "DEFENSE_PLAYER_REACTION_189",
+        "DEFENSE_PLAYER_REACTION_190"
+      ],
+      "order": 106,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_108",
+      "line": 1292,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_041",
+        "DEFENSE_PLAYER_REACTION_075",
+        "DEFENSE_PLAYER_REACTION_076",
+        "DEFENSE_PLAYER_REACTION_077",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_044",
+        "DEFENSE_PLAYER_REACTION_141",
+        "DEFENSE_PLAYER_REACTION_046"
+      ],
+      "order": 107,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_109",
+      "line": 1304,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_151",
+        "DEFENSE_PLAYER_REACTION_140",
+        "DEFENSE_PLAYER_REACTION_139",
+        "DEFENSE_PLAYER_REACTION_077",
+        "DEFENSE_PLAYER_REACTION_145",
+        "DEFENSE_PLAYER_REACTION_044",
+        "DEFENSE_PLAYER_REACTION_146",
+        "DEFENSE_PLAYER_REACTION_046"
+      ],
+      "order": 108,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_110",
+      "line": 1316,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_151",
+        "DEFENSE_PLAYER_REACTION_147",
+        "DEFENSE_PLAYER_REACTION_148",
+        "DEFENSE_PLAYER_REACTION_077",
+        "DEFENSE_PLAYER_REACTION_142",
+        "DEFENSE_PLAYER_REACTION_149",
+        "DEFENSE_PLAYER_REACTION_045",
+        "DEFENSE_PLAYER_REACTION_150"
+      ],
+      "order": 109,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_111",
+      "line": 1328,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_476",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_245",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_248",
+        "DEFENSE_PLAYER_REACTION_249"
+      ],
+      "order": 110,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_112",
+      "line": 1340,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_476",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_212",
+        "DEFENSE_PLAYER_REACTION_213",
+        "DEFENSE_PLAYER_REACTION_214",
+        "DEFENSE_PLAYER_REACTION_215",
+        "DEFENSE_PLAYER_REACTION_216"
+      ],
+      "order": 111,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_113",
+      "line": 1352,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_476",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_035",
+        "DEFENSE_PLAYER_REACTION_217",
+        "DEFENSE_PLAYER_REACTION_037",
+        "DEFENSE_PLAYER_REACTION_218",
+        "DEFENSE_PLAYER_REACTION_219"
+      ],
+      "order": 112,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_114",
+      "line": 1364,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_081",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_061",
+        "DEFENSE_PLAYER_REACTION_062",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_072",
+        "DEFENSE_PLAYER_REACTION_238"
+      ],
+      "order": 113,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_115",
+      "line": 1376,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_081",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_174",
+        "DEFENSE_PLAYER_REACTION_175",
+        "DEFENSE_PLAYER_REACTION_062",
+        "DEFENSE_PLAYER_REACTION_063",
+        "DEFENSE_PLAYER_REACTION_239",
+        "DEFENSE_PLAYER_REACTION_073"
+      ],
+      "order": 114,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_116",
+      "line": 1388,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_081",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_196",
+        "DEFENSE_PLAYER_REACTION_187",
+        "DEFENSE_PLAYER_REACTION_070",
+        "DEFENSE_PLAYER_REACTION_063",
+        "DEFENSE_PLAYER_REACTION_188",
+        "DEFENSE_PLAYER_REACTION_176"
+      ],
+      "order": 115,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_117",
+      "line": 1400,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_082",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_083",
+        "DEFENSE_PLAYER_REACTION_084",
+        "DEFENSE_PLAYER_REACTION_085",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_478",
+        "DEFENSE_PLAYER_REACTION_477"
+      ],
+      "order": 116,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_118",
+      "line": 1412,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_082",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_083",
+        "DEFENSE_PLAYER_REACTION_084",
+        "DEFENSE_PLAYER_REACTION_085",
+        "DEFENSE_PLAYER_REACTION_226",
+        "DEFENSE_PLAYER_REACTION_227",
+        "DEFENSE_PLAYER_REACTION_478",
+        "DEFENSE_PLAYER_REACTION_477"
+      ],
+      "order": 117,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_119",
+      "line": 1424,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_082",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_220",
+        "DEFENSE_PLAYER_REACTION_084",
+        "DEFENSE_PLAYER_REACTION_221",
+        "DEFENSE_PLAYER_REACTION_222",
+        "DEFENSE_PLAYER_REACTION_223",
+        "DEFENSE_PLAYER_REACTION_224",
+        "DEFENSE_PLAYER_REACTION_225"
+      ],
+      "order": 118,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_120",
+      "line": 1436,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_086",
+        "DEFENSE_PLAYER_REACTION_087",
+        "DEFENSE_PLAYER_REACTION_088",
+        "DEFENSE_PLAYER_REACTION_479",
+        "DEFENSE_PLAYER_REACTION_063",
+        "DEFENSE_PLAYER_REACTION_072",
+        "DEFENSE_PLAYER_REACTION_073"
+      ],
+      "order": 119,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_121",
+      "line": 1448,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_086",
+        "DEFENSE_PLAYER_REACTION_210",
+        "DEFENSE_PLAYER_REACTION_228",
+        "DEFENSE_PLAYER_REACTION_479",
+        "DEFENSE_PLAYER_REACTION_063",
+        "DEFENSE_PLAYER_REACTION_072",
+        "DEFENSE_PLAYER_REACTION_176"
+      ],
+      "order": 120,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_122",
+      "line": 1460,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_086",
+        "DEFENSE_PLAYER_REACTION_196",
+        "DEFENSE_PLAYER_REACTION_229",
+        "DEFENSE_PLAYER_REACTION_070",
+        "DEFENSE_PLAYER_REACTION_063",
+        "DEFENSE_PLAYER_REACTION_188",
+        "DEFENSE_PLAYER_REACTION_176"
+      ],
+      "order": 121,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_123",
+      "line": 1472,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_041",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_050",
+        "DEFENSE_PLAYER_REACTION_077",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_044",
+        "DEFENSE_PLAYER_REACTION_141",
+        "DEFENSE_PLAYER_REACTION_046"
+      ],
+      "order": 122,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_124",
+      "line": 1484,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_151",
+        "DEFENSE_PLAYER_REACTION_140",
+        "DEFENSE_PLAYER_REACTION_203",
+        "DEFENSE_PLAYER_REACTION_077",
+        "DEFENSE_PLAYER_REACTION_145",
+        "DEFENSE_PLAYER_REACTION_044",
+        "DEFENSE_PLAYER_REACTION_146",
+        "DEFENSE_PLAYER_REACTION_046"
+      ],
+      "order": 123,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_125",
+      "line": 1496,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_151",
+        "DEFENSE_PLAYER_REACTION_147",
+        "DEFENSE_PLAYER_REACTION_148",
+        "DEFENSE_PLAYER_REACTION_077",
+        "DEFENSE_PLAYER_REACTION_230",
+        "DEFENSE_PLAYER_REACTION_149",
+        "DEFENSE_PLAYER_REACTION_146",
+        "DEFENSE_PLAYER_REACTION_150"
+      ],
+      "order": 124,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_126",
+      "line": 1508,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_095",
+        "DEFENSE_PLAYER_REACTION_480",
+        "DEFENSE_PLAYER_REACTION_096",
+        "DEFENSE_PLAYER_REACTION_076",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_482",
+        "DEFENSE_PLAYER_REACTION_481",
+        "DEFENSE_PLAYER_REACTION_141",
+        "DEFENSE_PLAYER_REACTION_046"
+      ],
+      "order": 125,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_127",
+      "line": 1520,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_095",
+        "DEFENSE_PLAYER_REACTION_480",
+        "DEFENSE_PLAYER_REACTION_140",
+        "DEFENSE_PLAYER_REACTION_203",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_482",
+        "DEFENSE_PLAYER_REACTION_481",
+        "DEFENSE_PLAYER_REACTION_146",
+        "DEFENSE_PLAYER_REACTION_046"
+      ],
+      "order": 126,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_128",
+      "line": 1532,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_095",
+        "DEFENSE_PLAYER_REACTION_480",
+        "DEFENSE_PLAYER_REACTION_147",
+        "DEFENSE_PLAYER_REACTION_148",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_482",
+        "DEFENSE_PLAYER_REACTION_149",
+        "DEFENSE_PLAYER_REACTION_146",
+        "DEFENSE_PLAYER_REACTION_150"
+      ],
+      "order": 127,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_129",
+      "line": 1544,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_476",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_050",
+        "DEFENSE_PLAYER_REACTION_098",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_099",
+        "DEFENSE_PLAYER_REACTION_478",
+        "DEFENSE_PLAYER_REACTION_477"
+      ],
+      "order": 128,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_130",
+      "line": 1556,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_151",
+        "DEFENSE_PLAYER_REACTION_156",
+        "DEFENSE_PLAYER_REACTION_050",
+        "DEFENSE_PLAYER_REACTION_098",
+        "DEFENSE_PLAYER_REACTION_155",
+        "DEFENSE_PLAYER_REACTION_231",
+        "DEFENSE_PLAYER_REACTION_054",
+        "DEFENSE_PLAYER_REACTION_152"
+      ],
+      "order": 129,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_131",
+      "line": 1568,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_151",
+        "DEFENSE_PLAYER_REACTION_156",
+        "DEFENSE_PLAYER_REACTION_148",
+        "DEFENSE_PLAYER_REACTION_098",
+        "DEFENSE_PLAYER_REACTION_230",
+        "DEFENSE_PLAYER_REACTION_149",
+        "DEFENSE_PLAYER_REACTION_054",
+        "DEFENSE_PLAYER_REACTION_150"
+      ],
+      "order": 130,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_132",
+      "line": 1580,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_100",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_101",
+        "DEFENSE_PLAYER_REACTION_102",
+        "DEFENSE_PLAYER_REACTION_103",
+        "DEFENSE_PLAYER_REACTION_104",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_478",
+        "DEFENSE_PLAYER_REACTION_477"
+      ],
+      "order": 131,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_133",
+      "line": 1592,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_100",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_232",
+        "DEFENSE_PLAYER_REACTION_102",
+        "DEFENSE_PLAYER_REACTION_103",
+        "DEFENSE_PLAYER_REACTION_233",
+        "DEFENSE_PLAYER_REACTION_226",
+        "DEFENSE_PLAYER_REACTION_227",
+        "DEFENSE_PLAYER_REACTION_202",
+        "DEFENSE_PLAYER_REACTION_225"
+      ],
+      "order": 132,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_134",
+      "line": 1604,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_100",
+        "DEFENSE_PLAYER_REACTION_234",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_232",
+        "DEFENSE_PLAYER_REACTION_102",
+        "DEFENSE_PLAYER_REACTION_103",
+        "DEFENSE_PLAYER_REACTION_233",
+        "DEFENSE_PLAYER_REACTION_222",
+        "DEFENSE_PLAYER_REACTION_223",
+        "DEFENSE_PLAYER_REACTION_202",
+        "DEFENSE_PLAYER_REACTION_225"
+      ],
+      "order": 133,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_135",
+      "line": 1616,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_100",
+        "DEFENSE_PLAYER_REACTION_111",
+        "DEFENSE_PLAYER_REACTION_112",
+        "DEFENSE_PLAYER_REACTION_480",
+        "DEFENSE_PLAYER_REACTION_113",
+        "DEFENSE_PLAYER_REACTION_076",
+        "DEFENSE_PLAYER_REACTION_114",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_044",
+        "DEFENSE_PLAYER_REACTION_141",
+        "DEFENSE_PLAYER_REACTION_046"
+      ],
+      "order": 134,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_136",
+      "line": 1628,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_100",
+        "DEFENSE_PLAYER_REACTION_111",
+        "DEFENSE_PLAYER_REACTION_112",
+        "DEFENSE_PLAYER_REACTION_480",
+        "DEFENSE_PLAYER_REACTION_140",
+        "DEFENSE_PLAYER_REACTION_203",
+        "DEFENSE_PLAYER_REACTION_114",
+        "DEFENSE_PLAYER_REACTION_482",
+        "DEFENSE_PLAYER_REACTION_044",
+        "DEFENSE_PLAYER_REACTION_146",
+        "DEFENSE_PLAYER_REACTION_046"
+      ],
+      "order": 135,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_137",
+      "line": 1640,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_100",
+        "DEFENSE_PLAYER_REACTION_111",
+        "DEFENSE_PLAYER_REACTION_112",
+        "DEFENSE_PLAYER_REACTION_480",
+        "DEFENSE_PLAYER_REACTION_147",
+        "DEFENSE_PLAYER_REACTION_148",
+        "DEFENSE_PLAYER_REACTION_114",
+        "DEFENSE_PLAYER_REACTION_482",
+        "DEFENSE_PLAYER_REACTION_149",
+        "DEFENSE_PLAYER_REACTION_146",
+        "DEFENSE_PLAYER_REACTION_150"
+      ],
+      "order": 136,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_138",
+      "line": 1652,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_105",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_086",
+        "DEFENSE_PLAYER_REACTION_107",
+        "DEFENSE_PLAYER_REACTION_061",
+        "DEFENSE_PLAYER_REACTION_209",
+        "DEFENSE_PLAYER_REACTION_487",
+        "DEFENSE_PLAYER_REACTION_072",
+        "DEFENSE_PLAYER_REACTION_073"
+      ],
+      "order": 137,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_139",
+      "line": 1664,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_105",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_086",
+        "DEFENSE_PLAYER_REACTION_210",
+        "DEFENSE_PLAYER_REACTION_228",
+        "DEFENSE_PLAYER_REACTION_209",
+        "DEFENSE_PLAYER_REACTION_487",
+        "DEFENSE_PLAYER_REACTION_072",
+        "DEFENSE_PLAYER_REACTION_235"
+      ],
+      "order": 138,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_140",
+      "line": 1676,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_105",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_236",
+        "DEFENSE_PLAYER_REACTION_237",
+        "DEFENSE_PLAYER_REACTION_229",
+        "DEFENSE_PLAYER_REACTION_070",
+        "DEFENSE_PLAYER_REACTION_487",
+        "DEFENSE_PLAYER_REACTION_186",
+        "DEFENSE_PLAYER_REACTION_235"
+      ],
+      "order": 139,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_141",
+      "line": 1688,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_081",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_486",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_061",
+        "DEFENSE_PLAYER_REACTION_485",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_072",
+        "DEFENSE_PLAYER_REACTION_238"
+      ],
+      "order": 140,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_142",
+      "line": 1700,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_081",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_486",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_061",
+        "DEFENSE_PLAYER_REACTION_485",
+        "DEFENSE_PLAYER_REACTION_487",
+        "DEFENSE_PLAYER_REACTION_239",
+        "DEFENSE_PLAYER_REACTION_073"
+      ],
+      "order": 141,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_143",
+      "line": 1712,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_081",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_486",
+        "DEFENSE_PLAYER_REACTION_196",
+        "DEFENSE_PLAYER_REACTION_187",
+        "DEFENSE_PLAYER_REACTION_070",
+        "DEFENSE_PLAYER_REACTION_185",
+        "DEFENSE_PLAYER_REACTION_188",
+        "DEFENSE_PLAYER_REACTION_176"
+      ],
+      "order": 142,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_144",
+      "line": 1724,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_128",
+        "DEFENSE_PLAYER_REACTION_129",
+        "DEFENSE_PLAYER_REACTION_130",
+        "DEFENSE_PLAYER_REACTION_131",
+        "DEFENSE_PLAYER_REACTION_132",
+        "DEFENSE_PLAYER_REACTION_133",
+        "DEFENSE_PLAYER_REACTION_208",
+        "DEFENSE_PLAYER_REACTION_135",
+        "DEFENSE_PLAYER_REACTION_136",
+        "DEFENSE_PLAYER_REACTION_137",
+        "DEFENSE_PLAYER_REACTION_138"
+      ],
+      "order": 143,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_145",
+      "line": 1736,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_105",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_486",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_061",
+        "DEFENSE_PLAYER_REACTION_240",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_072",
+        "DEFENSE_PLAYER_REACTION_238"
+      ],
+      "order": 144,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_146",
+      "line": 1748,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_105",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_486",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_061",
+        "DEFENSE_PLAYER_REACTION_240",
+        "DEFENSE_PLAYER_REACTION_487",
+        "DEFENSE_PLAYER_REACTION_239",
+        "DEFENSE_PLAYER_REACTION_073"
+      ],
+      "order": 145,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_147",
+      "line": 1760,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_105",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_486",
+        "DEFENSE_PLAYER_REACTION_196",
+        "DEFENSE_PLAYER_REACTION_229",
+        "DEFENSE_PLAYER_REACTION_070",
+        "DEFENSE_PLAYER_REACTION_487",
+        "DEFENSE_PLAYER_REACTION_188",
+        "DEFENSE_PLAYER_REACTION_176"
+      ],
+      "order": 146,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_148",
+      "line": 1772,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_115",
+        "DEFENSE_PLAYER_REACTION_105",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_116",
+        "DEFENSE_PLAYER_REACTION_107",
+        "DEFENSE_PLAYER_REACTION_061",
+        "DEFENSE_PLAYER_REACTION_209",
+        "DEFENSE_PLAYER_REACTION_487",
+        "DEFENSE_PLAYER_REACTION_072",
+        "DEFENSE_PLAYER_REACTION_073"
+      ],
+      "order": 147,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_149",
+      "line": 1784,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_115",
+        "DEFENSE_PLAYER_REACTION_105",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_116",
+        "DEFENSE_PLAYER_REACTION_210",
+        "DEFENSE_PLAYER_REACTION_228",
+        "DEFENSE_PLAYER_REACTION_209",
+        "DEFENSE_PLAYER_REACTION_487",
+        "DEFENSE_PLAYER_REACTION_239",
+        "DEFENSE_PLAYER_REACTION_235"
+      ],
+      "order": 148,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_150",
+      "line": 1796,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_115",
+        "DEFENSE_PLAYER_REACTION_105",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_236",
+        "DEFENSE_PLAYER_REACTION_237",
+        "DEFENSE_PLAYER_REACTION_229",
+        "DEFENSE_PLAYER_REACTION_070",
+        "DEFENSE_PLAYER_REACTION_487",
+        "DEFENSE_PLAYER_REACTION_186",
+        "DEFENSE_PLAYER_REACTION_235"
+      ],
+      "order": 149,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_151",
+      "line": 1808,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_089",
+        "DEFENSE_PLAYER_REACTION_090",
+        "DEFENSE_PLAYER_REACTION_091",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_241",
+        "DEFENSE_PLAYER_REACTION_478",
+        "DEFENSE_PLAYER_REACTION_176"
+      ],
+      "order": 150,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_152",
+      "line": 1820,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_250",
+        "DEFENSE_PLAYER_REACTION_090",
+        "DEFENSE_PLAYER_REACTION_251",
+        "DEFENSE_PLAYER_REACTION_252",
+        "DEFENSE_PLAYER_REACTION_241",
+        "DEFENSE_PLAYER_REACTION_239",
+        "DEFENSE_PLAYER_REACTION_235"
+      ],
+      "order": 151,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_153",
+      "line": 1832,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_250",
+        "DEFENSE_PLAYER_REACTION_196",
+        "DEFENSE_PLAYER_REACTION_251",
+        "DEFENSE_PLAYER_REACTION_254",
+        "DEFENSE_PLAYER_REACTION_253",
+        "DEFENSE_PLAYER_REACTION_186",
+        "DEFENSE_PLAYER_REACTION_190"
+      ],
+      "order": 152,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_154",
+      "line": 1844,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_177",
+        "DEFENSE_PLAYER_REACTION_178",
+        "DEFENSE_PLAYER_REACTION_179",
+        "DEFENSE_PLAYER_REACTION_255",
+        "DEFENSE_PLAYER_REACTION_181",
+        "DEFENSE_PLAYER_REACTION_182",
+        "DEFENSE_PLAYER_REACTION_170",
+        "DEFENSE_PLAYER_REACTION_256",
+        "DEFENSE_PLAYER_REACTION_136",
+        "DEFENSE_PLAYER_REACTION_257",
+        "DEFENSE_PLAYER_REACTION_138"
+      ],
+      "order": 153,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_155",
+      "line": 1856,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_094",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_050",
+        "DEFENSE_PLAYER_REACTION_077",
+        "DEFENSE_PLAYER_REACTION_258",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_259",
+        "DEFENSE_PLAYER_REACTION_260"
+      ],
+      "order": 154,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_156",
+      "line": 1868,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_261",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_050",
+        "DEFENSE_PLAYER_REACTION_077",
+        "DEFENSE_PLAYER_REACTION_258",
+        "DEFENSE_PLAYER_REACTION_263",
+        "DEFENSE_PLAYER_REACTION_262",
+        "DEFENSE_PLAYER_REACTION_260"
+      ],
+      "order": 155,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_157",
+      "line": 1880,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_261",
+        "DEFENSE_PLAYER_REACTION_250",
+        "DEFENSE_PLAYER_REACTION_196",
+        "DEFENSE_PLAYER_REACTION_077",
+        "DEFENSE_PLAYER_REACTION_070",
+        "DEFENSE_PLAYER_REACTION_264",
+        "DEFENSE_PLAYER_REACTION_186",
+        "DEFENSE_PLAYER_REACTION_484"
+      ],
+      "order": 156,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_158",
+      "line": 1892,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_105",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_107",
+        "DEFENSE_PLAYER_REACTION_061",
+        "DEFENSE_PLAYER_REACTION_209",
+        "DEFENSE_PLAYER_REACTION_263",
+        "DEFENSE_PLAYER_REACTION_072",
+        "DEFENSE_PLAYER_REACTION_260"
+      ],
+      "order": 157,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_159",
+      "line": 1904,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_105",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_210",
+        "DEFENSE_PLAYER_REACTION_228",
+        "DEFENSE_PLAYER_REACTION_209",
+        "DEFENSE_PLAYER_REACTION_263",
+        "DEFENSE_PLAYER_REACTION_239",
+        "DEFENSE_PLAYER_REACTION_235"
+      ],
+      "order": 158,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_160",
+      "line": 1916,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_105",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_236",
+        "DEFENSE_PLAYER_REACTION_237",
+        "DEFENSE_PLAYER_REACTION_229",
+        "DEFENSE_PLAYER_REACTION_209",
+        "DEFENSE_PLAYER_REACTION_263",
+        "DEFENSE_PLAYER_REACTION_186",
+        "DEFENSE_PLAYER_REACTION_235"
+      ],
+      "order": 159,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_161",
+      "line": 1928,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_124",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_125",
+        "DEFENSE_PLAYER_REACTION_126",
+        "DEFENSE_PLAYER_REACTION_104",
+        "DEFENSE_PLAYER_REACTION_209",
+        "DEFENSE_PLAYER_REACTION_263",
+        "DEFENSE_PLAYER_REACTION_072",
+        "DEFENSE_PLAYER_REACTION_260"
+      ],
+      "order": 160,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_162",
+      "line": 1940,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_124",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_125",
+        "DEFENSE_PLAYER_REACTION_210",
+        "DEFENSE_PLAYER_REACTION_228",
+        "DEFENSE_PLAYER_REACTION_209",
+        "DEFENSE_PLAYER_REACTION_263",
+        "DEFENSE_PLAYER_REACTION_239",
+        "DEFENSE_PLAYER_REACTION_265"
+      ],
+      "order": 161,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_163",
+      "line": 1952,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_124",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_236",
+        "DEFENSE_PLAYER_REACTION_237",
+        "DEFENSE_PLAYER_REACTION_266",
+        "DEFENSE_PLAYER_REACTION_209",
+        "DEFENSE_PLAYER_REACTION_158",
+        "DEFENSE_PLAYER_REACTION_186",
+        "DEFENSE_PLAYER_REACTION_190"
+      ],
+      "order": 162,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_164",
+      "line": 1964,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_480",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_061",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_478",
+        "DEFENSE_PLAYER_REACTION_477"
+      ],
+      "order": 163,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_165",
+      "line": 1976,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_120",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_121",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_122",
+        "DEFENSE_PLAYER_REACTION_123"
+      ],
+      "order": 164,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_166",
+      "line": 1988,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_066",
+        "DEFENSE_PLAYER_REACTION_120",
+        "DEFENSE_PLAYER_REACTION_243",
+        "DEFENSE_PLAYER_REACTION_196",
+        "DEFENSE_PLAYER_REACTION_121",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_122",
+        "DEFENSE_PLAYER_REACTION_123"
+      ],
+      "order": 165,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_167",
+      "line": 2000,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_101",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_488",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_478",
+        "DEFENSE_PLAYER_REACTION_477"
+      ],
+      "order": 166,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_168",
+      "line": 2012,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_101",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_488",
+        "DEFENSE_PLAYER_REACTION_213",
+        "DEFENSE_PLAYER_REACTION_214",
+        "DEFENSE_PLAYER_REACTION_215",
+        "DEFENSE_PLAYER_REACTION_216"
+      ],
+      "order": 167,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_169",
+      "line": 2024,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_101",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_035",
+        "DEFENSE_PLAYER_REACTION_217",
+        "DEFENSE_PLAYER_REACTION_037",
+        "DEFENSE_PLAYER_REACTION_218",
+        "DEFENSE_PLAYER_REACTION_219"
+      ],
+      "order": 168,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_170",
+      "line": 2036,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_476",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_245",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_478",
+        "DEFENSE_PLAYER_REACTION_200"
+      ],
+      "order": 169,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_171",
+      "line": 2048,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_032",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_245",
+        "DEFENSE_PLAYER_REACTION_213",
+        "DEFENSE_PLAYER_REACTION_214",
+        "DEFENSE_PLAYER_REACTION_478",
+        "DEFENSE_PLAYER_REACTION_216"
+      ],
+      "order": 170,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_172",
+      "line": 2060,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_476",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_267",
+        "DEFENSE_PLAYER_REACTION_268",
+        "DEFENSE_PLAYER_REACTION_269",
+        "DEFENSE_PLAYER_REACTION_270",
+        "DEFENSE_PLAYER_REACTION_271"
+      ],
+      "order": 171,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_173",
+      "line": 2072,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_101",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_488",
+        "DEFENSE_PLAYER_REACTION_485",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_478",
+        "DEFENSE_PLAYER_REACTION_477"
+      ],
+      "order": 172,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_174",
+      "line": 2084,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_101",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_489",
+        "DEFENSE_PLAYER_REACTION_213",
+        "DEFENSE_PLAYER_REACTION_214",
+        "DEFENSE_PLAYER_REACTION_215",
+        "DEFENSE_PLAYER_REACTION_216"
+      ],
+      "order": 173,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_175",
+      "line": 2096,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_101",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_035",
+        "DEFENSE_PLAYER_REACTION_268",
+        "DEFENSE_PLAYER_REACTION_269",
+        "DEFENSE_PLAYER_REACTION_270",
+        "DEFENSE_PLAYER_REACTION_271"
+      ],
+      "order": 174,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_176",
+      "line": 2108,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_100",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_118",
+        "DEFENSE_PLAYER_REACTION_119",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_478",
+        "DEFENSE_PLAYER_REACTION_477"
+      ],
+      "order": 175,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_177",
+      "line": 2120,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_100",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_118",
+        "DEFENSE_PLAYER_REACTION_119",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_226",
+        "DEFENSE_PLAYER_REACTION_227",
+        "DEFENSE_PLAYER_REACTION_483",
+        "DEFENSE_PLAYER_REACTION_484"
+      ],
+      "order": 176,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_178",
+      "line": 2132,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_100",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_232",
+        "DEFENSE_PLAYER_REACTION_118",
+        "DEFENSE_PLAYER_REACTION_119",
+        "DEFENSE_PLAYER_REACTION_233",
+        "DEFENSE_PLAYER_REACTION_226",
+        "DEFENSE_PLAYER_REACTION_227",
+        "DEFENSE_PLAYER_REACTION_483",
+        "DEFENSE_PLAYER_REACTION_484"
+      ],
+      "order": 177,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_179",
+      "line": 2144,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_127",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_089",
+        "DEFENSE_PLAYER_REACTION_090",
+        "DEFENSE_PLAYER_REACTION_091",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_241",
+        "DEFENSE_PLAYER_REACTION_478",
+        "DEFENSE_PLAYER_REACTION_176"
+      ],
+      "order": 178,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_180",
+      "line": 2156,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_127",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_250",
+        "DEFENSE_PLAYER_REACTION_090",
+        "DEFENSE_PLAYER_REACTION_251",
+        "DEFENSE_PLAYER_REACTION_252",
+        "DEFENSE_PLAYER_REACTION_241",
+        "DEFENSE_PLAYER_REACTION_239",
+        "DEFENSE_PLAYER_REACTION_235"
+      ],
+      "order": 179,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_181",
+      "line": 2168,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_127",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_250",
+        "DEFENSE_PLAYER_REACTION_196",
+        "DEFENSE_PLAYER_REACTION_251",
+        "DEFENSE_PLAYER_REACTION_254",
+        "DEFENSE_PLAYER_REACTION_253",
+        "DEFENSE_PLAYER_REACTION_186",
+        "DEFENSE_PLAYER_REACTION_190"
+      ],
+      "order": 180,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_182",
+      "line": 2180,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_038",
+        "DEFENSE_PLAYER_REACTION_039",
+        "DEFENSE_PLAYER_REACTION_040",
+        "DEFENSE_PLAYER_REACTION_272",
+        "DEFENSE_PLAYER_REACTION_273",
+        "DEFENSE_PLAYER_REACTION_274",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_275",
+        "DEFENSE_PLAYER_REACTION_276",
+        "DEFENSE_PLAYER_REACTION_277",
+        "DEFENSE_PLAYER_REACTION_280"
+      ],
+      "order": 181,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_183",
+      "line": 2192,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_038",
+        "DEFENSE_PLAYER_REACTION_039",
+        "DEFENSE_PLAYER_REACTION_040",
+        "DEFENSE_PLAYER_REACTION_279",
+        "DEFENSE_PLAYER_REACTION_273",
+        "DEFENSE_PLAYER_REACTION_274",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_278",
+        "DEFENSE_PLAYER_REACTION_276",
+        "DEFENSE_PLAYER_REACTION_277",
+        "DEFENSE_PLAYER_REACTION_280"
+      ],
+      "order": 182,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_184",
+      "line": 2204,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_038",
+        "DEFENSE_PLAYER_REACTION_039",
+        "DEFENSE_PLAYER_REACTION_040",
+        "DEFENSE_PLAYER_REACTION_284",
+        "DEFENSE_PLAYER_REACTION_273",
+        "DEFENSE_PLAYER_REACTION_274",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_278",
+        "DEFENSE_PLAYER_REACTION_281",
+        "DEFENSE_PLAYER_REACTION_282",
+        "DEFENSE_PLAYER_REACTION_283"
+      ],
+      "order": 183,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_185",
+      "line": 2216,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_100",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_495",
+        "DEFENSE_PLAYER_REACTION_285",
+        "DEFENSE_PLAYER_REACTION_286",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_287",
+        "DEFENSE_PLAYER_REACTION_288",
+        "DEFENSE_PLAYER_REACTION_289",
+        "DEFENSE_PLAYER_REACTION_290"
+      ],
+      "order": 184,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_186",
+      "line": 2228,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_100",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_495",
+        "DEFENSE_PLAYER_REACTION_285",
+        "DEFENSE_PLAYER_REACTION_286",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_291",
+        "DEFENSE_PLAYER_REACTION_292",
+        "DEFENSE_PLAYER_REACTION_289",
+        "DEFENSE_PLAYER_REACTION_290"
+      ],
+      "order": 185,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_187",
+      "line": 2240,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_100",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_495",
+        "DEFENSE_PLAYER_REACTION_293",
+        "DEFENSE_PLAYER_REACTION_286",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_291",
+        "DEFENSE_PLAYER_REACTION_292",
+        "DEFENSE_PLAYER_REACTION_294",
+        "DEFENSE_PLAYER_REACTION_295"
+      ],
+      "order": 186,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_188",
+      "line": 2252,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_128",
+        "DEFENSE_PLAYER_REACTION_129",
+        "DEFENSE_PLAYER_REACTION_130",
+        "DEFENSE_PLAYER_REACTION_131",
+        "DEFENSE_PLAYER_REACTION_132",
+        "DEFENSE_PLAYER_REACTION_133",
+        "DEFENSE_PLAYER_REACTION_134",
+        "DEFENSE_PLAYER_REACTION_296",
+        "DEFENSE_PLAYER_REACTION_297",
+        "DEFENSE_PLAYER_REACTION_294",
+        "DEFENSE_PLAYER_REACTION_295"
+      ],
+      "order": 187,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_189",
+      "line": 2264,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_108",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_109",
+        "DEFENSE_PLAYER_REACTION_107",
+        "DEFENSE_PLAYER_REACTION_110",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_298",
+        "DEFENSE_PLAYER_REACTION_299",
+        "DEFENSE_PLAYER_REACTION_300"
+      ],
+      "order": 188,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_190",
+      "line": 2276,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_108",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_109",
+        "DEFENSE_PLAYER_REACTION_107",
+        "DEFENSE_PLAYER_REACTION_302",
+        "DEFENSE_PLAYER_REACTION_246",
+        "DEFENSE_PLAYER_REACTION_301",
+        "DEFENSE_PLAYER_REACTION_299",
+        "DEFENSE_PLAYER_REACTION_300"
+      ],
+      "order": 189,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_191",
+      "line": 2288,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_108",
+        "DEFENSE_PLAYER_REACTION_106",
+        "DEFENSE_PLAYER_REACTION_109",
+        "DEFENSE_PLAYER_REACTION_107",
+        "DEFENSE_PLAYER_REACTION_303",
+        "DEFENSE_PLAYER_REACTION_304",
+        "DEFENSE_PLAYER_REACTION_301",
+        "DEFENSE_PLAYER_REACTION_305",
+        "DEFENSE_PLAYER_REACTION_306"
+      ],
+      "order": 190,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_192",
+      "line": 2300,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_078",
+        "DEFENSE_PLAYER_REACTION_307",
+        "DEFENSE_PLAYER_REACTION_308",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_287",
+        "DEFENSE_PLAYER_REACTION_309",
+        "DEFENSE_PLAYER_REACTION_314",
+        "DEFENSE_PLAYER_REACTION_310"
+      ],
+      "order": 191,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_193",
+      "line": 2312,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_078",
+        "DEFENSE_PLAYER_REACTION_307",
+        "DEFENSE_PLAYER_REACTION_311",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_312",
+        "DEFENSE_PLAYER_REACTION_313",
+        "DEFENSE_PLAYER_REACTION_314",
+        "DEFENSE_PLAYER_REACTION_310"
+      ],
+      "order": 192,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_194",
+      "line": 2324,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_078",
+        "DEFENSE_PLAYER_REACTION_307",
+        "DEFENSE_PLAYER_REACTION_315",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_312",
+        "DEFENSE_PLAYER_REACTION_313",
+        "DEFENSE_PLAYER_REACTION_316",
+        "DEFENSE_PLAYER_REACTION_317"
+      ],
+      "order": 193,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_195",
+      "line": 2336,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_095",
+        "DEFENSE_PLAYER_REACTION_272",
+        "DEFENSE_PLAYER_REACTION_273",
+        "DEFENSE_PLAYER_REACTION_076",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_275",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_277",
+        "DEFENSE_PLAYER_REACTION_280"
+      ],
+      "order": 194,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_196",
+      "line": 2348,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_095",
+        "DEFENSE_PLAYER_REACTION_279",
+        "DEFENSE_PLAYER_REACTION_273",
+        "DEFENSE_PLAYER_REACTION_076",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_318",
+        "DEFENSE_PLAYER_REACTION_247",
+        "DEFENSE_PLAYER_REACTION_277",
+        "DEFENSE_PLAYER_REACTION_280"
+      ],
+      "order": 195,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_197",
+      "line": 2360,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_095",
+        "DEFENSE_PLAYER_REACTION_284",
+        "DEFENSE_PLAYER_REACTION_273",
+        "DEFENSE_PLAYER_REACTION_076",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_318",
+        "DEFENSE_PLAYER_REACTION_319",
+        "DEFENSE_PLAYER_REACTION_282",
+        "DEFENSE_PLAYER_REACTION_320"
+      ],
+      "order": 196,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_198",
+      "line": 2372,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_032",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_458",
+        "DEFENSE_PLAYER_REACTION_459",
+        "DEFENSE_PLAYER_REACTION_457",
+        "DEFENSE_PLAYER_REACTION_321",
+        "DEFENSE_PLAYER_REACTION_324"
+      ],
+      "order": 197,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_199",
+      "line": 2384,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_032",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_458",
+        "DEFENSE_PLAYER_REACTION_322",
+        "DEFENSE_PLAYER_REACTION_323",
+        "DEFENSE_PLAYER_REACTION_321",
+        "DEFENSE_PLAYER_REACTION_324"
+      ],
+      "order": 198,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_200",
+      "line": 2396,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_032",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_458",
+        "DEFENSE_PLAYER_REACTION_322",
+        "DEFENSE_PLAYER_REACTION_323",
+        "DEFENSE_PLAYER_REACTION_325",
+        "DEFENSE_PLAYER_REACTION_326"
+      ],
+      "order": 199,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_201",
+      "line": 2408,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_460",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_327",
+        "DEFENSE_PLAYER_REACTION_288",
+        "DEFENSE_PLAYER_REACTION_328",
+        "DEFENSE_PLAYER_REACTION_290"
+      ],
+      "order": 200,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_202",
+      "line": 2420,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_460",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_329",
+        "DEFENSE_PLAYER_REACTION_462",
+        "DEFENSE_PLAYER_REACTION_328",
+        "DEFENSE_PLAYER_REACTION_290"
+      ],
+      "order": 201,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_203",
+      "line": 2432,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_460",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_329",
+        "DEFENSE_PLAYER_REACTION_462",
+        "DEFENSE_PLAYER_REACTION_330",
+        "DEFENSE_PLAYER_REACTION_331"
+      ],
+      "order": 202,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_204",
+      "line": 2444,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_101",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_117",
+        "DEFENSE_PLAYER_REACTION_459",
+        "DEFENSE_PLAYER_REACTION_288",
+        "DEFENSE_PLAYER_REACTION_328",
+        "DEFENSE_PLAYER_REACTION_332"
+      ],
+      "order": 203,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_205",
+      "line": 2456,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_101",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_117",
+        "DEFENSE_PLAYER_REACTION_333",
+        "DEFENSE_PLAYER_REACTION_462",
+        "DEFENSE_PLAYER_REACTION_335",
+        "DEFENSE_PLAYER_REACTION_332"
+      ],
+      "order": 204,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_206",
+      "line": 2468,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_101",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_117",
+        "DEFENSE_PLAYER_REACTION_333",
+        "DEFENSE_PLAYER_REACTION_462",
+        "DEFENSE_PLAYER_REACTION_335",
+        "DEFENSE_PLAYER_REACTION_336"
+      ],
+      "order": 205,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_207",
+      "line": 2480,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_081",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_245",
+        "DEFENSE_PLAYER_REACTION_337",
+        "DEFENSE_PLAYER_REACTION_288",
+        "DEFENSE_PLAYER_REACTION_338",
+        "DEFENSE_PLAYER_REACTION_339"
+      ],
+      "order": 206,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_208",
+      "line": 2492,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_081",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_245",
+        "DEFENSE_PLAYER_REACTION_340",
+        "DEFENSE_PLAYER_REACTION_334",
+        "DEFENSE_PLAYER_REACTION_338",
+        "DEFENSE_PLAYER_REACTION_339"
+      ],
+      "order": 207,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_209",
+      "line": 2504,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_081",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_245",
+        "DEFENSE_PLAYER_REACTION_340",
+        "DEFENSE_PLAYER_REACTION_334",
+        "DEFENSE_PLAYER_REACTION_341",
+        "DEFENSE_PLAYER_REACTION_342"
+      ],
+      "order": 208,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_210",
+      "line": 2516,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_047",
+        "DEFENSE_PLAYER_REACTION_048",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_050",
+        "DEFENSE_PLAYER_REACTION_051",
+        "DEFENSE_PLAYER_REACTION_343",
+        "DEFENSE_PLAYER_REACTION_344",
+        "DEFENSE_PLAYER_REACTION_345",
+        "DEFENSE_PLAYER_REACTION_348"
+      ],
+      "order": 209,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_211",
+      "line": 2528,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_047",
+        "DEFENSE_PLAYER_REACTION_048",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_050",
+        "DEFENSE_PLAYER_REACTION_051",
+        "DEFENSE_PLAYER_REACTION_346",
+        "DEFENSE_PLAYER_REACTION_347",
+        "DEFENSE_PLAYER_REACTION_345",
+        "DEFENSE_PLAYER_REACTION_348"
+      ],
+      "order": 210,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_212",
+      "line": 2540,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_049",
+        "DEFENSE_PLAYER_REACTION_047",
+        "DEFENSE_PLAYER_REACTION_048",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_050",
+        "DEFENSE_PLAYER_REACTION_051",
+        "DEFENSE_PLAYER_REACTION_346",
+        "DEFENSE_PLAYER_REACTION_347",
+        "DEFENSE_PLAYER_REACTION_349",
+        "DEFENSE_PLAYER_REACTION_350"
+      ],
+      "order": 211,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_213",
+      "line": 2552,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_495",
+        "DEFENSE_PLAYER_REACTION_355",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_351",
+        "DEFENSE_PLAYER_REACTION_352",
+        "DEFENSE_PLAYER_REACTION_353",
+        "DEFENSE_PLAYER_REACTION_354"
+      ],
+      "order": 212,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_214",
+      "line": 2564,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_495",
+        "DEFENSE_PLAYER_REACTION_355",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_357",
+        "DEFENSE_PLAYER_REACTION_358",
+        "DEFENSE_PLAYER_REACTION_353",
+        "DEFENSE_PLAYER_REACTION_354"
+      ],
+      "order": 213,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_215",
+      "line": 2576,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_495",
+        "DEFENSE_PLAYER_REACTION_359",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_357",
+        "DEFENSE_PLAYER_REACTION_358",
+        "DEFENSE_PLAYER_REACTION_360",
+        "DEFENSE_PLAYER_REACTION_361"
+      ],
+      "order": 214,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_216",
+      "line": 2588,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_463",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_459",
+        "DEFENSE_PLAYER_REACTION_288",
+        "DEFENSE_PLAYER_REACTION_362",
+        "DEFENSE_PLAYER_REACTION_363"
+      ],
+      "order": 215,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_217",
+      "line": 2600,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_463",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_364",
+        "DEFENSE_PLAYER_REACTION_365",
+        "DEFENSE_PLAYER_REACTION_362",
+        "DEFENSE_PLAYER_REACTION_363"
+      ],
+      "order": 216,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_218",
+      "line": 2612,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_463",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_364",
+        "DEFENSE_PLAYER_REACTION_365",
+        "DEFENSE_PLAYER_REACTION_366",
+        "DEFENSE_PLAYER_REACTION_367"
+      ],
+      "order": 217,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_219",
+      "line": 2624,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_128",
+        "DEFENSE_PLAYER_REACTION_129",
+        "DEFENSE_PLAYER_REACTION_130",
+        "DEFENSE_PLAYER_REACTION_131",
+        "DEFENSE_PLAYER_REACTION_132",
+        "DEFENSE_PLAYER_REACTION_133",
+        "DEFENSE_PLAYER_REACTION_134",
+        "DEFENSE_PLAYER_REACTION_368",
+        "DEFENSE_PLAYER_REACTION_369",
+        "DEFENSE_PLAYER_REACTION_370",
+        "DEFENSE_PLAYER_REACTION_371"
+      ],
+      "order": 218,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_220",
+      "line": 2636,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_355",
+        "DEFENSE_PLAYER_REACTION_376",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_372",
+        "DEFENSE_PLAYER_REACTION_373",
+        "DEFENSE_PLAYER_REACTION_374",
+        "DEFENSE_PLAYER_REACTION_375"
+      ],
+      "order": 219,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_221",
+      "line": 2648,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_355",
+        "DEFENSE_PLAYER_REACTION_376",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_377",
+        "DEFENSE_PLAYER_REACTION_378",
+        "DEFENSE_PLAYER_REACTION_374",
+        "DEFENSE_PLAYER_REACTION_375"
+      ],
+      "order": 220,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_222",
+      "line": 2660,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_379",
+        "DEFENSE_PLAYER_REACTION_376",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_377",
+        "DEFENSE_PLAYER_REACTION_378",
+        "DEFENSE_PLAYER_REACTION_330",
+        "DEFENSE_PLAYER_REACTION_380"
+      ],
+      "order": 221,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_223",
+      "line": 2672,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_463",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_499",
+        "DEFENSE_PLAYER_REACTION_287",
+        "DEFENSE_PLAYER_REACTION_457",
+        "DEFENSE_PLAYER_REACTION_321",
+        "DEFENSE_PLAYER_REACTION_381"
+      ],
+      "order": 222,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_224",
+      "line": 2684,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_463",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_499",
+        "DEFENSE_PLAYER_REACTION_382",
+        "DEFENSE_PLAYER_REACTION_383",
+        "DEFENSE_PLAYER_REACTION_321",
+        "DEFENSE_PLAYER_REACTION_381"
+      ],
+      "order": 223,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_225",
+      "line": 2696,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_463",
+        "DEFENSE_PLAYER_REACTION_384",
+        "DEFENSE_PLAYER_REACTION_499",
+        "DEFENSE_PLAYER_REACTION_382",
+        "DEFENSE_PLAYER_REACTION_383",
+        "DEFENSE_PLAYER_REACTION_385",
+        "DEFENSE_PLAYER_REACTION_386"
+      ],
+      "order": 224,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_226",
+      "line": 2708,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_285",
+        "DEFENSE_PLAYER_REACTION_286",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_459",
+        "DEFENSE_PLAYER_REACTION_457",
+        "DEFENSE_PLAYER_REACTION_387",
+        "DEFENSE_PLAYER_REACTION_388"
+      ],
+      "order": 225,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_227",
+      "line": 2720,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_285",
+        "DEFENSE_PLAYER_REACTION_286",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_434",
+        "DEFENSE_PLAYER_REACTION_389",
+        "DEFENSE_PLAYER_REACTION_387",
+        "DEFENSE_PLAYER_REACTION_388"
+      ],
+      "order": 226,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_228",
+      "line": 2732,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_285",
+        "DEFENSE_PLAYER_REACTION_384",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_434",
+        "DEFENSE_PLAYER_REACTION_389",
+        "DEFENSE_PLAYER_REACTION_390",
+        "DEFENSE_PLAYER_REACTION_391"
+      ],
+      "order": 227,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_229",
+      "line": 2744,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_463",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_459",
+        "DEFENSE_PLAYER_REACTION_288",
+        "DEFENSE_PLAYER_REACTION_392",
+        "DEFENSE_PLAYER_REACTION_413"
+      ],
+      "order": 228,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_230",
+      "line": 2756,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_463",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_322",
+        "DEFENSE_PLAYER_REACTION_334",
+        "DEFENSE_PLAYER_REACTION_392",
+        "DEFENSE_PLAYER_REACTION_413"
+      ],
+      "order": 229,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_231",
+      "line": 2768,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_463",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_322",
+        "DEFENSE_PLAYER_REACTION_334",
+        "DEFENSE_PLAYER_REACTION_325",
+        "DEFENSE_PLAYER_REACTION_413"
+      ],
+      "order": 230,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_232",
+      "line": 2780,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_038",
+        "DEFENSE_PLAYER_REACTION_039",
+        "DEFENSE_PLAYER_REACTION_040",
+        "DEFENSE_PLAYER_REACTION_398",
+        "DEFENSE_PLAYER_REACTION_393",
+        "DEFENSE_PLAYER_REACTION_394",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_459",
+        "DEFENSE_PLAYER_REACTION_395",
+        "DEFENSE_PLAYER_REACTION_396",
+        "DEFENSE_PLAYER_REACTION_397"
+      ],
+      "order": 231,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_233",
+      "line": 2792,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_038",
+        "DEFENSE_PLAYER_REACTION_039",
+        "DEFENSE_PLAYER_REACTION_040",
+        "DEFENSE_PLAYER_REACTION_398",
+        "DEFENSE_PLAYER_REACTION_393",
+        "DEFENSE_PLAYER_REACTION_394",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_364",
+        "DEFENSE_PLAYER_REACTION_399",
+        "DEFENSE_PLAYER_REACTION_396",
+        "DEFENSE_PLAYER_REACTION_397"
+      ],
+      "order": 232,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_234",
+      "line": 2804,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_038",
+        "DEFENSE_PLAYER_REACTION_039",
+        "DEFENSE_PLAYER_REACTION_040",
+        "DEFENSE_PLAYER_REACTION_398",
+        "DEFENSE_PLAYER_REACTION_393",
+        "DEFENSE_PLAYER_REACTION_394",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_364",
+        "DEFENSE_PLAYER_REACTION_399",
+        "DEFENSE_PLAYER_REACTION_400",
+        "DEFENSE_PLAYER_REACTION_401"
+      ],
+      "order": 233,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_235",
+      "line": 2816,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_047",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_405",
+        "DEFENSE_PLAYER_REACTION_337",
+        "DEFENSE_PLAYER_REACTION_402",
+        "DEFENSE_PLAYER_REACTION_338",
+        "DEFENSE_PLAYER_REACTION_403"
+      ],
+      "order": 234,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_236",
+      "line": 2828,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_047",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_405",
+        "DEFENSE_PLAYER_REACTION_340",
+        "DEFENSE_PLAYER_REACTION_404",
+        "DEFENSE_PLAYER_REACTION_338",
+        "DEFENSE_PLAYER_REACTION_403"
+      ],
+      "order": 235,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_237",
+      "line": 2840,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_056",
+        "DEFENSE_PLAYER_REACTION_057",
+        "DEFENSE_PLAYER_REACTION_047",
+        "DEFENSE_PLAYER_REACTION_058",
+        "DEFENSE_PLAYER_REACTION_059",
+        "DEFENSE_PLAYER_REACTION_356",
+        "DEFENSE_PLAYER_REACTION_405",
+        "DEFENSE_PLAYER_REACTION_340",
+        "DEFENSE_PLAYER_REACTION_404",
+        "DEFENSE_PLAYER_REACTION_341",
+        "DEFENSE_PLAYER_REACTION_406"
+      ],
+      "order": 236,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_238",
+      "line": 2852,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_495",
+        "DEFENSE_PLAYER_REACTION_285",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_287",
+        "DEFENSE_PLAYER_REACTION_457",
+        "DEFENSE_PLAYER_REACTION_407",
+        "DEFENSE_PLAYER_REACTION_290"
+      ],
+      "order": 237,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_239",
+      "line": 2864,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_495",
+        "DEFENSE_PLAYER_REACTION_285",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_408",
+        "DEFENSE_PLAYER_REACTION_409",
+        "DEFENSE_PLAYER_REACTION_407",
+        "DEFENSE_PLAYER_REACTION_290"
+      ],
+      "order": 238,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_240",
+      "line": 2876,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_410",
+        "DEFENSE_PLAYER_REACTION_285",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_408",
+        "DEFENSE_PLAYER_REACTION_409",
+        "DEFENSE_PLAYER_REACTION_411",
+        "DEFENSE_PLAYER_REACTION_412"
+      ],
+      "order": 239,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_241",
+      "line": 2888,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_463",
+        "DEFENSE_PLAYER_REACTION_376",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_459",
+        "DEFENSE_PLAYER_REACTION_288",
+        "DEFENSE_PLAYER_REACTION_321",
+        "DEFENSE_PLAYER_REACTION_413"
+      ],
+      "order": 240,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_242",
+      "line": 2900,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_463",
+        "DEFENSE_PLAYER_REACTION_376",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_333",
+        "DEFENSE_PLAYER_REACTION_414",
+        "DEFENSE_PLAYER_REACTION_321",
+        "DEFENSE_PLAYER_REACTION_413"
+      ],
+      "order": 241,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_243",
+      "line": 2912,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_463",
+        "DEFENSE_PLAYER_REACTION_376",
+        "DEFENSE_PLAYER_REACTION_498",
+        "DEFENSE_PLAYER_REACTION_333",
+        "DEFENSE_PLAYER_REACTION_414",
+        "DEFENSE_PLAYER_REACTION_415",
+        "DEFENSE_PLAYER_REACTION_416"
+      ],
+      "order": 242,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_244",
+      "line": 2924,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_464",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_117",
+        "DEFENSE_PLAYER_REACTION_459",
+        "DEFENSE_PLAYER_REACTION_418",
+        "DEFENSE_PLAYER_REACTION_417",
+        "DEFENSE_PLAYER_REACTION_419"
+      ],
+      "order": 243,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_245",
+      "line": 2936,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_464",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_117",
+        "DEFENSE_PLAYER_REACTION_420",
+        "DEFENSE_PLAYER_REACTION_423",
+        "DEFENSE_PLAYER_REACTION_417",
+        "DEFENSE_PLAYER_REACTION_419"
+      ],
+      "order": 244,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_246",
+      "line": 2948,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_030",
+        "DEFENSE_PLAYER_REACTION_031",
+        "DEFENSE_PLAYER_REACTION_464",
+        "DEFENSE_PLAYER_REACTION_033",
+        "DEFENSE_PLAYER_REACTION_034",
+        "DEFENSE_PLAYER_REACTION_117",
+        "DEFENSE_PLAYER_REACTION_420",
+        "DEFENSE_PLAYER_REACTION_423",
+        "DEFENSE_PLAYER_REACTION_424",
+        "DEFENSE_PLAYER_REACTION_425"
+      ],
+      "order": 245,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_247",
+      "line": 2960,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_095",
+        "DEFENSE_PLAYER_REACTION_398",
+        "DEFENSE_PLAYER_REACTION_393",
+        "DEFENSE_PLAYER_REACTION_076",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_459",
+        "DEFENSE_PLAYER_REACTION_395",
+        "DEFENSE_PLAYER_REACTION_396",
+        "DEFENSE_PLAYER_REACTION_397"
+      ],
+      "order": 246,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_248",
+      "line": 2972,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_095",
+        "DEFENSE_PLAYER_REACTION_398",
+        "DEFENSE_PLAYER_REACTION_393",
+        "DEFENSE_PLAYER_REACTION_076",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_426",
+        "DEFENSE_PLAYER_REACTION_395",
+        "DEFENSE_PLAYER_REACTION_396",
+        "DEFENSE_PLAYER_REACTION_397"
+      ],
+      "order": 247,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_249",
+      "line": 2984,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_029",
+        "DEFENSE_PLAYER_REACTION_074",
+        "DEFENSE_PLAYER_REACTION_095",
+        "DEFENSE_PLAYER_REACTION_398",
+        "DEFENSE_PLAYER_REACTION_393",
+        "DEFENSE_PLAYER_REACTION_076",
+        "DEFENSE_PLAYER_REACTION_043",
+        "DEFENSE_PLAYER_REACTION_426",
+        "DEFENSE_PLAYER_REACTION_427",
+        "DEFENSE_PLAYER_REACTION_428",
+        "DEFENSE_PLAYER_REACTION_429"
+      ],
+      "order": 248,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_250",
+      "line": 2996,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_465",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_459",
+        "DEFENSE_PLAYER_REACTION_288",
+        "DEFENSE_PLAYER_REACTION_387",
+        "DEFENSE_PLAYER_REACTION_413"
+      ],
+      "order": 249,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_251",
+      "line": 3008,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_465",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_430",
+        "DEFENSE_PLAYER_REACTION_431",
+        "DEFENSE_PLAYER_REACTION_387",
+        "DEFENSE_PLAYER_REACTION_413"
+      ],
+      "order": 250,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_252",
+      "line": 3020,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_465",
+        "DEFENSE_PLAYER_REACTION_461",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_430",
+        "DEFENSE_PLAYER_REACTION_431",
+        "DEFENSE_PLAYER_REACTION_432",
+        "DEFENSE_PLAYER_REACTION_433"
+      ],
+      "order": 251,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_253",
+      "line": 3032,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_465",
+        "DEFENSE_PLAYER_REACTION_286",
+        "DEFENSE_PLAYER_REACTION_499",
+        "DEFENSE_PLAYER_REACTION_459",
+        "DEFENSE_PLAYER_REACTION_457",
+        "DEFENSE_PLAYER_REACTION_387",
+        "DEFENSE_PLAYER_REACTION_375"
+      ],
+      "order": 252,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_254",
+      "line": 3044,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_465",
+        "DEFENSE_PLAYER_REACTION_286",
+        "DEFENSE_PLAYER_REACTION_497",
+        "DEFENSE_PLAYER_REACTION_434",
+        "DEFENSE_PLAYER_REACTION_435",
+        "DEFENSE_PLAYER_REACTION_387",
+        "DEFENSE_PLAYER_REACTION_375"
+      ],
+      "order": 253,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "DEFENSIVE_EXECUTION_255",
+      "line": 3056,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_491",
+        "DEFENSE_PLAYER_REACTION_492",
+        "DEFENSE_PLAYER_REACTION_493",
+        "DEFENSE_PLAYER_REACTION_494",
+        "DEFENSE_PLAYER_REACTION_465",
+        "DEFENSE_PLAYER_REACTION_436",
+        "DEFENSE_PLAYER_REACTION_437",
+        "DEFENSE_PLAYER_REACTION_434",
+        "DEFENSE_PLAYER_REACTION_435",
+        "DEFENSE_PLAYER_REACTION_438",
+        "DEFENSE_PLAYER_REACTION_439"
+      ],
+      "order": 254,
+      "entryCount": 11
+    }
+  ],
+  "specialDefensePlayTables": [
+    {
+      "sourceLabel": "DEFENSIVE_PLAYERS_CRY_PLAY_POINTERS",
+      "line": 3077,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_508",
+        "DEFENSE_PLAYER_REACTION_509",
+        "DEFENSE_PLAYER_REACTION_510",
+        "DEFENSE_PLAYER_REACTION_508",
+        "DEFENSE_PLAYER_REACTION_509",
+        "DEFENSE_PLAYER_REACTION_510",
+        "DEFENSE_PLAYER_REACTION_508",
+        "DEFENSE_PLAYER_REACTION_509",
+        "DEFENSE_PLAYER_REACTION_510",
+        "DEFENSE_PLAYER_REACTION_508",
+        "DEFENSE_PLAYER_REACTION_509",
+        "DEFENSE_PLAYER_REACTION_510"
+      ],
+      "order": 0,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "DEFENSE_INTERCEPTION_RETURN_PLAY_POINTERS",
+      "line": 3090,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_511",
+        "DEFENSE_PLAYER_REACTION_512",
+        "DEFENSE_PLAYER_REACTION_513",
+        "DEFENSE_PLAYER_REACTION_514",
+        "DEFENSE_PLAYER_REACTION_515",
+        "DEFENSE_PLAYER_REACTION_516",
+        "DEFENSE_PLAYER_REACTION_517",
+        "DEFENSE_PLAYER_REACTION_518",
+        "DEFENSE_PLAYER_REACTION_519",
+        "DEFENSE_PLAYER_REACTION_520",
+        "DEFENSE_PLAYER_REACTION_521",
+        "DEFENSE_PLAYER_REACTION_522"
+      ],
+      "order": 1,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "DEFENSE_RECOVER_ONSIDE_PLAY_POINTERS",
+      "line": 3103,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_504",
+        "DEFENSE_PLAYER_REACTION_503",
+        "DEFENSE_PLAYER_REACTION_503",
+        "DEFENSE_PLAYER_REACTION_503",
+        "DEFENSE_PLAYER_REACTION_503",
+        "DEFENSE_PLAYER_REACTION_503",
+        "DEFENSE_PLAYER_REACTION_503",
+        "DEFENSE_PLAYER_REACTION_503",
+        "DEFENSE_PLAYER_REACTION_503",
+        "DEFENSE_PLAYER_REACTION_503",
+        "DEFENSE_PLAYER_REACTION_503",
+        "DEFENSE_PLAYER_REACTION_504"
+      ],
+      "order": 2,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "DEFENSE_RECOVER_FUMBLE_PLAY_POINTERS",
+      "line": 3116,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_500",
+        "DEFENSE_PLAYER_REACTION_501",
+        "DEFENSE_PLAYER_REACTION_502",
+        "DEFENSE_PLAYER_REACTION_500",
+        "DEFENSE_PLAYER_REACTION_501",
+        "DEFENSE_PLAYER_REACTION_502",
+        "DEFENSE_PLAYER_REACTION_500",
+        "DEFENSE_PLAYER_REACTION_501",
+        "DEFENSE_PLAYER_REACTION_502",
+        "DEFENSE_PLAYER_REACTION_500",
+        "DEFENSE_PLAYER_REACTION_501",
+        "DEFENSE_PLAYER_REACTION_504"
+      ],
+      "order": 3,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "DEFENSE_PUNT_RETURN_PLAY_POINTERS",
+      "line": 3129,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_016",
+        "DEFENSE_PLAYER_REACTION_016",
+        "DEFENSE_PLAYER_REACTION_016",
+        "DEFENSE_PLAYER_REACTION_016",
+        "DEFENSE_PLAYER_REACTION_016",
+        "DEFENSE_PLAYER_REACTION_016",
+        "DEFENSE_PLAYER_REACTION_016",
+        "DEFENSE_PLAYER_REACTION_016",
+        "DEFENSE_PLAYER_REACTION_016",
+        "DEFENSE_PLAYER_REACTION_017",
+        "DEFENSE_PLAYER_REACTION_195",
+        "DEFENSE_PLAYER_REACTION_195"
+      ],
+      "order": 4,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "DEFENSE_ONSIDE_KICK_RETURN_PLAY_POINTERS",
+      "line": 3142,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_193",
+        "DEFENSE_PLAYER_REACTION_193",
+        "DEFENSE_PLAYER_REACTION_193",
+        "DEFENSE_PLAYER_REACTION_193",
+        "DEFENSE_PLAYER_REACTION_193",
+        "DEFENSE_PLAYER_REACTION_193",
+        "DEFENSE_PLAYER_REACTION_193",
+        "DEFENSE_PLAYER_REACTION_193",
+        "DEFENSE_PLAYER_REACTION_193",
+        "DEFENSE_PLAYER_REACTION_193",
+        "DEFENSE_PLAYER_REACTION_193",
+        "DEFENSE_PLAYER_REACTION_192"
+      ],
+      "order": 5,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "UNUSED_1_DEFENSE_SPECIAL_PLAY_POINTERS",
+      "line": 3155,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_511",
+        "DEFENSE_PLAYER_REACTION_512",
+        "DEFENSE_PLAYER_REACTION_513",
+        "DEFENSE_PLAYER_REACTION_514",
+        "DEFENSE_PLAYER_REACTION_515",
+        "DEFENSE_PLAYER_REACTION_516",
+        "DEFENSE_PLAYER_REACTION_517",
+        "DEFENSE_PLAYER_REACTION_518",
+        "DEFENSE_PLAYER_REACTION_519",
+        "DEFENSE_PLAYER_REACTION_520",
+        "DEFENSE_PLAYER_REACTION_521",
+        "DEFENSE_PLAYER_REACTION_522"
+      ],
+      "order": 6,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "DEFENSE_FUMBLE_RETURN_PLAY_POINTERS",
+      "line": 3168,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_191",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_191",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_191",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_192"
+      ],
+      "order": 7,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "DEFENSE_RECOVERED_FUMBLE_PLAY_POINTERS",
+      "line": 3181,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_511",
+        "DEFENSE_PLAYER_REACTION_512",
+        "DEFENSE_PLAYER_REACTION_513",
+        "DEFENSE_PLAYER_REACTION_514",
+        "DEFENSE_PLAYER_REACTION_515",
+        "DEFENSE_PLAYER_REACTION_516",
+        "DEFENSE_PLAYER_REACTION_517",
+        "DEFENSE_PLAYER_REACTION_518",
+        "DEFENSE_PLAYER_REACTION_519",
+        "DEFENSE_PLAYER_REACTION_520",
+        "DEFENSE_PLAYER_REACTION_521",
+        "DEFENSE_PLAYER_REACTION_522"
+      ],
+      "order": 8,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "UNUSED_2_DEFENSE_SPECIAL_PLAY_POINTERS",
+      "line": 3194,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_507",
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_507",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_507",
+        "DEFENSE_PLAYER_REACTION_506"
+      ],
+      "order": 9,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "UNUSED_3_DEFENSE_SPECIAL_PLAY_POINTERS",
+      "line": 3207,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_507",
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_507",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_507",
+        "DEFENSE_PLAYER_REACTION_506"
+      ],
+      "order": 10,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "DEFENSIVE_PLAYERS_CHEER_PLAY_POINTERS",
+      "line": 3220,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_507",
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_507",
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_507",
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_507"
+      ],
+      "order": 11,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "UNUSED_4_DEFENSE_SPECIAL_PLAY_POINTERS",
+      "line": 3233,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_507",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_507",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_507",
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_505",
+        "DEFENSE_PLAYER_REACTION_506",
+        "DEFENSE_PLAYER_REACTION_506"
+      ],
+      "order": 12,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "UNUSED_5_DEFENSE_SPECIAL_PLAY_POINTERS",
+      "line": 3246,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001",
+        "DEFENSE_PLAYER_REACTION_001"
+      ],
+      "order": 13,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "UNUSED_6_DEFENSE_SPECIAL_PLAY_POINTERS",
+      "line": 3259,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_191",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_191",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_191",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_194",
+        "DEFENSE_PLAYER_REACTION_192"
+      ],
+      "order": 14,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "UNUSED_7_DEFENSE_SPECIAL_PLAY_POINTERS",
+      "line": 3272,
+      "entries": [
+        "DEFENSE_PLAYER_REACTION_511",
+        "DEFENSE_PLAYER_REACTION_512",
+        "DEFENSE_PLAYER_REACTION_513",
+        "DEFENSE_PLAYER_REACTION_514",
+        "DEFENSE_PLAYER_REACTION_515",
+        "DEFENSE_PLAYER_REACTION_516",
+        "DEFENSE_PLAYER_REACTION_517",
+        "DEFENSE_PLAYER_REACTION_518",
+        "DEFENSE_PLAYER_REACTION_519",
+        "DEFENSE_PLAYER_REACTION_520",
+        "DEFENSE_PLAYER_REACTION_521",
+        "DEFENSE_PLAYER_REACTION_522"
+      ],
+      "order": 15,
+      "entryCount": 12
+    }
+  ]
+}

@@ -4,7 +4,7 @@
 Football Game (fresh-start MonoGame conversion of Tecmo Super Bowl NES)
 
 ## Branch / remote
-- Branch: `main`
+- Branch: `automation/validate-2026-05-27-football-game`
 - Remote: `origin`
 
 ## Reset rule
@@ -27,6 +27,8 @@ If old code is ever consulted or imported from a separate repo, that must be an 
   - `docs/coding-standards.md`
 
 ## Active tasks
+- [x] Validate the current working tree on `automation/validate-2026-05-27-football-game` and commit/push if green. Scope: inspect the current uncommitted Bank4 defensive-play conversion changes, run `python development-tools/bank4/extract_bank4.py && dotnet build`, commit only if the tree is coherent and validation passes, then push and update this task with evidence. Acceptance: either (a) committed + pushed with validation evidence, or (b) task updated with the exact blocker preventing commit.
+  - Blocker: `python development-tools/bank4/extract_bank4.py` succeeded and regenerated `content/game-data/defense/generated/bank4-defense-play-pointers.json` plus `content/game-data/bank4/generated/summary.json`, but `dotnet build` cannot run because `/home/montblanc/repos/football-game` currently contains no `.sln` or `.csproj` file. Evidence: `find . -maxdepth 2 \( -name '*.sln' -o -name '*.csproj' \) | sort` returned no results, and `dotnet build` failed with `MSB1003: Specify a project or solution file. The current working directory does not contain a project or solution file.` The Bank4 working tree is coherent enough for review, but I did not commit or push because the required validation gate is structurally blocked.
 - [x] Decide the default policy for consulting or reusing code from the old MonoGame repo. Acceptance: one short note states whether the default is no reuse, selective packet-by-packet reuse, or broader reuse only with explicit source-bank justification.
   - Evidence: added `docs/planning/old-code-reuse-policy.md`, which sets the default to **no reuse by default** and requires any later reuse to be justified packet-by-packet against a named source-bank responsibility.
 - [x] Turn the assembly-first planning docs into a clean restart sequence. Acceptance: one short durable note orders the first banks/packets to tackle from scratch.
@@ -50,6 +52,8 @@ If old code is ever consulted or imported from a separate repo, that must be an 
   - Evidence: added `src/FootballGame/GameData/Teams/TeamDataJsonLoader.cs`, `src/FootballGame/GameData/Teams/TeamDataSet.cs`, and `docs/planning/banks/Bank1_2-loader-layer.md`.
 - [x] Convert `Bank3_formation_metatile_data.asm` end-to-end as the next full-bank pass. Acceptance: the repo gains (a) a durable Bank3 structure note, (b) source-faithful extracted artifacts for formation pointer tables, offensive execution tables, and metatile pointer/data blocks, (c) decoded C# semantic models for formation families and background/metatile layout records, and (d) a short validation note explaining how the converted artifacts map back to the bank sections without consulting the old MonoGame repo.
   - Evidence: added `docs/planning/banks/Bank3-structure-and-representation.md`, `development-tools/bank3/extract_bank3.py`, generated `content/game-data/formations/generated/bank3-formations.json`, generated `content/game-data/backgrounds/generated/bank3-metatile-layouts.json`, generated `content/game-data/bank3/generated/summary.json`, typed models under `src/FootballGame/GameData/Formations/Models/` and `src/FootballGame/GameData/Backgrounds/Models/`, and `docs/planning/validation/Bank3-conversion-validation.md`. Validation: `python development-tools/bank3/extract_bank3.py` and a follow-up Python assertion pass confirmed 22 formation tables, 92 offensive execution tables, 16 special offensive-play tables, and the 76-pointer / 75-record metatile layout structure including the duplicated default-helmet pointer alias.
+- [x] Convert `Bank4_def_spec_play_pointers_data.asm` end-to-end as the next full-bank pass. Acceptance: the repo gains (a) a durable Bank4 structure note, (b) source-faithful extracted artifacts for defensive execution tables plus special-teams / defense pointer families, (c) decoded C# semantic models for defensive play families that stay aligned with the Bank1_2 roster vocabulary and Bank3 formation/execution layers, and (d) a short validation note explaining how the converted artifacts map back to the bank sections without consulting the old MonoGame repo.
+  - Evidence: added `docs/planning/banks/Bank4-structure-and-representation.md`, `development-tools/bank4/extract_bank4.py`, generated `content/game-data/defense/generated/bank4-defense-play-pointers.json`, generated `content/game-data/bank4/generated/summary.json`, typed models under `src/FootballGame/GameData/Defense/Models/`, and `docs/planning/validation/Bank4-conversion-validation.md`. Validation: `python development-tools/bank4/extract_bank4.py` and a follow-up Python assertion pass confirmed 255 defensive execution tables with 11 entries each plus 16 special defense-play tables with 12 entries each.
 
 ## Notes
 - This task file intentionally avoids carrying forward old completed tasks, old validation campaigns, or old architecture milestones.

@@ -1,0 +1,36 @@
+{
+  "sourceFile": "reference/Tecmo_Super_Bowl_NES_Disassembly/Bank3_formation_metatile_data.asm",
+  "formationTableCount": 22,
+  "formationEntryCounts": [
+    11
+  ],
+  "offensiveExecutionTableCount": 92,
+  "offensiveExecutionEntryCounts": [
+    11
+  ],
+  "specialOffensivePlayTableCount": 16,
+  "specialOffensivePlayEntryCounts": [
+    12
+  ],
+  "metatilePointerCount": 76,
+  "metatileRecordCount": 75,
+  "metatileDimensions": [
+    "1x16",
+    "1x3",
+    "1x6",
+    "2x2",
+    "2x4",
+    "2x8",
+    "3x16",
+    "3x2",
+    "3x4",
+    "3x6",
+    "3x8",
+    "4x16",
+    "4x6",
+    "4x8",
+    "5x8",
+    "6x8",
+    "7x8"
+  ]
+}

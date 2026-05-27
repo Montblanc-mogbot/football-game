@@ -1,0 +1,4507 @@
+{
+  "sourceFile": "reference/Tecmo_Super_Bowl_NES_Disassembly/Bank3_formation_metatile_data.asm",
+  "pointerCount": 76,
+  "recordCount": 75,
+  "uniqueDimensions": [
+    "1x16",
+    "1x3",
+    "1x6",
+    "2x2",
+    "2x4",
+    "2x8",
+    "3x16",
+    "3x2",
+    "3x4",
+    "3x6",
+    "3x8",
+    "4x16",
+    "4x6",
+    "4x8",
+    "5x8",
+    "6x8",
+    "7x8"
+  ],
+  "pointerTable": [
+    {
+      "pointerIndex": 0,
+      "line": 1610,
+      "targetLabel": "DOUBLE_DECKER_STADIUM_WITH_SCOREBOARD_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 1,
+      "line": 1611,
+      "targetLabel": "DOUBLE_DECKER_STADIUM_WITH_FG_POSTS_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 2,
+      "line": 1612,
+      "targetLabel": "FACING_GOALPOSTS_FG_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 3,
+      "line": 1613,
+      "targetLabel": "BLIMP_HALFTIME_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 4,
+      "line": 1614,
+      "targetLabel": "CHEERLEADER_WINK_HALFTIME_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 5,
+      "line": 1615,
+      "targetLabel": "BAND_HALFTIME_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 6,
+      "line": 1616,
+      "targetLabel": "PARACHUTE_HALFTIME_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 7,
+      "line": 1617,
+      "targetLabel": "ENTIRE_DOUBLE_DECKER_STADIUM_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 8,
+      "line": 1618,
+      "targetLabel": "CHEERLEADER_KISS_HALFTIME_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 9,
+      "line": 1619,
+      "targetLabel": "PLAYER_ON_GROUND_AFTER_SACK_INTRO_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 10,
+      "line": 1620,
+      "targetLabel": "PLAYER_COMING_FOR_TACKLE_INTRO_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 11,
+      "line": 1621,
+      "targetLabel": "LINEMAN_INTRO_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 12,
+      "line": 1622,
+      "targetLabel": "REF_CHAIN_MARKER_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 13,
+      "line": 1623,
+      "targetLabel": "DIVISION_CHAMP_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 14,
+      "line": 1624,
+      "targetLabel": "ALL_SKY_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 15,
+      "line": 1625,
+      "targetLabel": "CITY_SKYLINE_TOP_INTRO_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 16,
+      "line": 1626,
+      "targetLabel": "CITY_SKYLINE_AND_STADIUM_INTRO_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 17,
+      "line": 1627,
+      "targetLabel": "LARGE_SCOREBOARD_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 18,
+      "line": 1628,
+      "targetLabel": "NFLPA_FOOTBALL_INTRO_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 19,
+      "line": 1629,
+      "targetLabel": "NFL_SHIELD_INTRO_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 20,
+      "line": 1630,
+      "targetLabel": "GOALPOSTS_TOP_P2_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 21,
+      "line": 1631,
+      "targetLabel": "GOALPOSTS_TOP_P1_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 22,
+      "line": 1632,
+      "targetLabel": "LARGE_RB_CUTTING_CUTTING_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 23,
+      "line": 1633,
+      "targetLabel": "KICK_ATTEMPT_SMALL_STADIUM_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 24,
+      "line": 1634,
+      "targetLabel": "RECOVER_HOSPITAL_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 25,
+      "line": 1635,
+      "targetLabel": "CONFERENCE_CHAMP_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 26,
+      "line": 1636,
+      "targetLabel": "RUSHING_TD_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 27,
+      "line": 1637,
+      "targetLabel": "QB_THROWING_CREDITS_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 28,
+      "line": 1638,
+      "targetLabel": "QB_THROWING_IN_GAME_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 29,
+      "line": 1639,
+      "targetLabel": "STADIUM_AND_CROWD_TOP_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 30,
+      "line": 1640,
+      "targetLabel": "PASSING_TD_FLASH_LIGHTS_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 31,
+      "line": 1641,
+      "targetLabel": "TOP_STADIUM_DOUBLE_JUMP_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 32,
+      "line": 1642,
+      "targetLabel": "SUPER_CHAMPION_LIFTING_COACH_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 33,
+      "line": 1643,
+      "targetLabel": "NFL_SUPER_PRO_FOOTBALL_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 34,
+      "line": 1644,
+      "targetLabel": "STADIUM_DIVE_MISS_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 35,
+      "line": 1645,
+      "targetLabel": "TECMO_SUPER_BOWL_LARGE_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 36,
+      "line": 1646,
+      "targetLabel": "GRASS_FOR_PUNT_FG_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 37,
+      "line": 1647,
+      "targetLabel": "TECMO_PRESENTS_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 38,
+      "line": 1648,
+      "targetLabel": "STARS_OUTLINE_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 39,
+      "line": 1649,
+      "targetLabel": "STADIUM_COIN_TOSS_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 40,
+      "line": 1650,
+      "targetLabel": "NFL_SHIELD_TOP_LEFT_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 41,
+      "line": 1651,
+      "targetLabel": "STADIUM_BOTTOM_LARGE_CROWD_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 42,
+      "line": 1652,
+      "targetLabel": "STADIUM_COPS_CHEER_SUPERBOWL_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 43,
+      "line": 1653,
+      "targetLabel": "STADIUM_FOR_RUSHING_TOUCHDWN_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 44,
+      "line": 1654,
+      "targetLabel": "STADIUM_AFTER_SPIKE_RUSHING_TOUCHDWN_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 45,
+      "line": 1655,
+      "targetLabel": "PLAYERS_BEFORE_GATORADE_BATH_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 46,
+      "line": 1656,
+      "targetLabel": "AFC_NFC_PRO_BOWL_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 47,
+      "line": 1657,
+      "targetLabel": "BOTTOM_OF_STADIUM_PARACHUTE_HALFTIME_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 48,
+      "line": 1658,
+      "targetLabel": "STADIUM_PUNT_FG_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 49,
+      "line": 1659,
+      "targetLabel": "STADIUM_FOR_MISC_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 50,
+      "line": 1660,
+      "targetLabel": "WINK_CHEERLEADER_BELLY_HALFTIME_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 51,
+      "line": 1661,
+      "targetLabel": "STADIUM_FOR_CHEER_PANTY_HALFTIME_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 52,
+      "line": 1662,
+      "targetLabel": "PODIUM_CREDITS_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 53,
+      "line": 1663,
+      "targetLabel": "STADIUM_FOR_BLIMP_HALFTIME_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 54,
+      "line": 1664,
+      "targetLabel": "STADIUM_FOR_CATCH_SIDE_VIEW_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 55,
+      "line": 1665,
+      "targetLabel": "SKY_FOR_LT_SACK_INTRO_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 56,
+      "line": 1666,
+      "targetLabel": "PLAYERS_GATORADE_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 57,
+      "line": 1667,
+      "targetLabel": "STADIUM_FOR_VARIOUS_PASS_SCENES_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 58,
+      "line": 1668,
+      "targetLabel": "STADIUM_FOR_JUMP_CATCH_OR_INT_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 59,
+      "line": 1669,
+      "targetLabel": "TECMO_SPORTS_NEWS_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 60,
+      "line": 1670,
+      "targetLabel": "NFL_PA_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 61,
+      "line": 1671,
+      "targetLabel": "ROSTER_1991_LARGER_LETTERS_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 62,
+      "line": 1672,
+      "targetLabel": "BLANK_SCREEN_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 63,
+      "line": 1673,
+      "targetLabel": "DEFAULT_HELMET_SHELL_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 64,
+      "line": 1674,
+      "targetLabel": "DEFAULT_HELMET_SHELL_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 65,
+      "line": 1675,
+      "targetLabel": "HELMET_SHELL_W_REFLECTION_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 66,
+      "line": 1676,
+      "targetLabel": "RAMS_HELMET_SHELL_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 67,
+      "line": 1677,
+      "targetLabel": "BENGALS_HELMET_SHELL_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 68,
+      "line": 1678,
+      "targetLabel": "GENERIC_HELMET_SHELL_P1_MATCHUP_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 69,
+      "line": 1679,
+      "targetLabel": "HELMET_SHELL_W_REFLECTION_P1_MATCHUP_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 70,
+      "line": 1680,
+      "targetLabel": "RAMS_HELMET_SHELL_P1_MATCHUP_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 71,
+      "line": 1681,
+      "targetLabel": "BENGALS_HELMET_SHELL_P1_MATCHUP_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 72,
+      "line": 1682,
+      "targetLabel": "GENERIC_HELMET_SHELL_P2_MATCHUP_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 73,
+      "line": 1683,
+      "targetLabel": "HELMET_SHELL_W_REFLECTION_P2_MATCHUP_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 74,
+      "line": 1684,
+      "targetLabel": "RAMS_HELMET_SHELL_P2_MATCHUP_METATILE_DATA"
+    },
+    {
+      "pointerIndex": 75,
+      "line": 1685,
+      "targetLabel": "BENGALS_HELMET_SHELL_P2_MATCHUP_METATILE_DATA"
+    }
+  ],
+  "records": [
+    {
+      "sourceLabel": "DOUBLE_DECKER_STADIUM_WITH_SCOREBOARD_METATILE_DATA",
+      "line": 1697,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          134,
+          53,
+          55,
+          134,
+          44,
+          45,
+          53,
+          55
+        ],
+        [
+          134,
+          134,
+          56,
+          57,
+          58,
+          27,
+          134,
+          56
+        ],
+        [
+          4,
+          5,
+          4,
+          25,
+          26,
+          5,
+          4,
+          5
+        ],
+        [
+          13,
+          14,
+          13,
+          14,
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 0
+    },
+    {
+      "sourceLabel": "DOUBLE_DECKER_STADIUM_WITH_FG_POSTS_METATILE_DATA",
+      "line": 1709,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 38,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 6,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          134,
+          134,
+          46,
+          47,
+          134,
+          134,
+          134,
+          134
+        ],
+        [
+          134,
+          134,
+          51,
+          52,
+          134,
+          42,
+          43,
+          134
+        ],
+        [
+          19,
+          20,
+          134,
+          21,
+          22,
+          48,
+          49,
+          134
+        ],
+        [
+          134,
+          54,
+          27,
+          28,
+          29,
+          54,
+          134,
+          56
+        ],
+        [
+          221,
+          222,
+          221,
+          30,
+          31,
+          222,
+          221,
+          222
+        ],
+        [
+          32,
+          33,
+          32,
+          34,
+          35,
+          33,
+          32,
+          33
+        ]
+      ],
+      "metatileRowCount": 6,
+      "metatileCellCount": 48,
+      "order": 1
+    },
+    {
+      "sourceLabel": "FACING_GOALPOSTS_FG_METATILE_DATA",
+      "line": 1722,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          47,
+          42,
+          43,
+          134,
+          44,
+          45,
+          134,
+          46
+        ],
+        [
+          52,
+          48,
+          49,
+          50,
+          134,
+          134,
+          134,
+          51
+        ],
+        [
+          134,
+          50,
+          134,
+          134,
+          54,
+          56,
+          134,
+          59
+        ],
+        [
+          60,
+          61,
+          60,
+          61,
+          60,
+          61,
+          60,
+          63
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 2
+    },
+    {
+      "sourceLabel": "BLIMP_HALFTIME_METATILE_DATA",
+      "line": 1734,
+      "header": {
+        "chrBankPrimary": 106,
+        "chrBankSecondary": 107,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 1,
+        "heightInMetatiles": 5,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          1,
+          74,
+          75,
+          1,
+          74,
+          75,
+          1,
+          74
+        ],
+        [
+          1,
+          1,
+          64,
+          65,
+          66,
+          67,
+          68,
+          1
+        ],
+        [
+          1,
+          1,
+          69,
+          70,
+          71,
+          72,
+          73,
+          1
+        ],
+        [
+          75,
+          76,
+          77,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          78,
+          79,
+          1,
+          1,
+          74,
+          75,
+          1
+        ]
+      ],
+      "metatileRowCount": 5,
+      "metatileCellCount": 40,
+      "order": 3
+    },
+    {
+      "sourceLabel": "CHEERLEADER_WINK_HALFTIME_METATILE_DATA",
+      "line": 1746,
+      "header": {
+        "chrBankPrimary": 106,
+        "chrBankSecondary": 104,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 2,
+        "heightInMetatiles": 7,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          223,
+          223,
+          223,
+          223,
+          223,
+          223,
+          223,
+          223
+        ],
+        [
+          223,
+          223,
+          223,
+          223,
+          223,
+          223,
+          223,
+          223
+        ],
+        [
+          223,
+          223,
+          223,
+          223,
+          223,
+          223,
+          223,
+          223
+        ],
+        [
+          223,
+          223,
+          223,
+          80,
+          223,
+          223,
+          223,
+          223
+        ],
+        [
+          223,
+          223,
+          223,
+          81,
+          82,
+          83,
+          223,
+          223
+        ],
+        [
+          223,
+          223,
+          84,
+          85,
+          86,
+          87,
+          223,
+          223
+        ]
+      ],
+      "metatileRowCount": 7,
+      "metatileCellCount": 56,
+      "order": 4
+    },
+    {
+      "sourceLabel": "BAND_HALFTIME_METATILE_DATA",
+      "line": 1760,
+      "header": {
+        "chrBankPrimary": 108,
+        "chrBankSecondary": 110,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 3,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          94,
+          95,
+          96,
+          223,
+          94,
+          95,
+          96,
+          223
+        ],
+        [
+          97,
+          98,
+          99,
+          100,
+          97,
+          98,
+          99,
+          100
+        ],
+        [
+          101,
+          102,
+          103,
+          104,
+          101,
+          102,
+          103,
+          104
+        ],
+        [
+          105,
+          106,
+          107,
+          108,
+          105,
+          106,
+          107,
+          108
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 5
+    },
+    {
+      "sourceLabel": "PARACHUTE_HALFTIME_METATILE_DATA",
+      "line": 1771,
+      "header": {
+        "chrBankPrimary": 106,
+        "chrBankSecondary": 104,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 5,
+        "heightInMetatiles": 7,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          1,
+          117,
+          1,
+          1,
+          1,
+          117,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          117,
+          1,
+          1,
+          1,
+          114
+        ],
+        [
+          114,
+          115,
+          116,
+          1,
+          1,
+          115,
+          116,
+          1
+        ],
+        [
+          227,
+          17,
+          227,
+          17,
+          227,
+          17,
+          227,
+          17
+        ],
+        [
+          225,
+          226,
+          225,
+          226,
+          225,
+          226,
+          225,
+          226
+        ],
+        [
+          231,
+          232,
+          231,
+          232,
+          231,
+          232,
+          231,
+          232
+        ],
+        [
+          119,
+          224,
+          119,
+          224,
+          119,
+          224,
+          119,
+          224
+        ]
+      ],
+      "metatileRowCount": 7,
+      "metatileCellCount": 56,
+      "order": 6
+    },
+    {
+      "sourceLabel": "ENTIRE_DOUBLE_DECKER_STADIUM_METATILE_DATA",
+      "line": 1786,
+      "header": {
+        "chrBankPrimary": 106,
+        "chrBankSecondary": 104,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 5,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          227,
+          17,
+          227,
+          17,
+          227,
+          17,
+          227,
+          17
+        ],
+        [
+          225,
+          226,
+          225,
+          226,
+          225,
+          226,
+          225,
+          226
+        ],
+        [
+          231,
+          232,
+          231,
+          232,
+          231,
+          232,
+          231,
+          232
+        ],
+        [
+          119,
+          224,
+          119,
+          224,
+          119,
+          224,
+          119,
+          224
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 7
+    },
+    {
+      "sourceLabel": "CHEERLEADER_KISS_HALFTIME_METATILE_DATA",
+      "line": 1798,
+      "header": {
+        "chrBankPrimary": 108,
+        "chrBankSecondary": 110,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 4,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 16,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          120,
+          121,
+          122,
+          123,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          124,
+          125,
+          126,
+          127,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          128,
+          129,
+          130,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          131,
+          132,
+          133,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 64,
+      "order": 8
+    },
+    {
+      "sourceLabel": "PLAYER_ON_GROUND_AFTER_SACK_INTRO_METATILE_DATA",
+      "line": 1810,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 68,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 7,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 16
+      },
+      "metatileRows": [
+        [
+          0,
+          0,
+          165,
+          166,
+          167,
+          0,
+          0,
+          0
+        ],
+        [
+          151,
+          151,
+          162,
+          163,
+          164,
+          151,
+          151,
+          151
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 16,
+      "order": 9
+    },
+    {
+      "sourceLabel": "PLAYER_COMING_FOR_TACKLE_INTRO_METATILE_DATA",
+      "line": 1820,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 68,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 8,
+        "heightInMetatiles": 3,
+        "widthInMetatiles": 16,
+        "startingScreenLocation": 8
+      },
+      "metatileRows": [
+        [
+          152,
+          153,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136
+        ],
+        [
+          155,
+          156,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          154
+        ],
+        [
+          159,
+          160,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          157,
+          158
+        ]
+      ],
+      "metatileRowCount": 3,
+      "metatileCellCount": 48,
+      "order": 10
+    },
+    {
+      "sourceLabel": "LINEMAN_INTRO_METATILE_DATA",
+      "line": 1831,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 64,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 9,
+        "heightInMetatiles": 3,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 16
+      },
+      "metatileRows": [
+        [
+          0,
+          0,
+          141,
+          142,
+          143,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          144,
+          145,
+          146,
+          0,
+          0,
+          0
+        ],
+        [
+          151,
+          147,
+          148,
+          149,
+          150,
+          151,
+          151,
+          151
+        ]
+      ],
+      "metatileRowCount": 3,
+      "metatileCellCount": 24,
+      "order": 11
+    },
+    {
+      "sourceLabel": "REF_CHAIN_MARKER_METATILE_DATA",
+      "line": 1842,
+      "header": {
+        "chrBankPrimary": 42,
+        "chrBankSecondary": 38,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 10,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 16,
+        "startingScreenLocation": 8
+      },
+      "metatileRows": [
+        [
+          134,
+          134,
+          134,
+          137,
+          138,
+          134,
+          134,
+          134,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          134,
+          134,
+          134,
+          134,
+          139,
+          134,
+          134,
+          134,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          135,
+          135,
+          135,
+          135,
+          140,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          135
+        ],
+        [
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136,
+          136
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 64,
+      "order": 12
+    },
+    {
+      "sourceLabel": "DIVISION_CHAMP_METATILE_DATA",
+      "line": 1854,
+      "header": {
+        "chrBankPrimary": 80,
+        "chrBankSecondary": 82,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 11,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 16,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          168,
+          169,
+          170,
+          0,
+          171,
+          172,
+          173,
+          174,
+          199,
+          200,
+          201,
+          172,
+          173,
+          0,
+          199,
+          0
+        ],
+        [
+          175,
+          176,
+          177,
+          178,
+          179,
+          180,
+          181,
+          182,
+          202,
+          203,
+          204,
+          205,
+          206,
+          182,
+          207,
+          208
+        ],
+        [
+          183,
+          184,
+          185,
+          186,
+          187,
+          188,
+          189,
+          190,
+          183,
+          209,
+          210,
+          211,
+          212,
+          213,
+          214,
+          215
+        ],
+        [
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          0,
+          216,
+          217,
+          216,
+          0,
+          0,
+          218,
+          219
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 64,
+      "order": 13
+    },
+    {
+      "sourceLabel": "ALL_SKY_METATILE_DATA",
+      "line": 1866,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 17,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 14
+    },
+    {
+      "sourceLabel": "CITY_SKYLINE_TOP_INTRO_METATILE_DATA",
+      "line": 1878,
+      "header": {
+        "chrBankPrimary": 124,
+        "chrBankSecondary": 126,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 12,
+        "heightInMetatiles": 7,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          184,
+          184,
+          184,
+          184,
+          184,
+          184,
+          184,
+          184
+        ],
+        [
+          184,
+          184,
+          184,
+          184,
+          184,
+          184,
+          184,
+          184
+        ],
+        [
+          184,
+          184,
+          184,
+          184,
+          184,
+          184,
+          184,
+          184
+        ],
+        [
+          166,
+          166,
+          166,
+          166,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      ],
+      "metatileRowCount": 7,
+      "metatileCellCount": 56,
+      "order": 15
+    },
+    {
+      "sourceLabel": "CITY_SKYLINE_AND_STADIUM_INTRO_METATILE_DATA",
+      "line": 1893,
+      "header": {
+        "chrBankPrimary": 124,
+        "chrBankSecondary": 126,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 12,
+        "heightInMetatiles": 7,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          56,
+          215,
+          216,
+          217,
+          218,
+          219,
+          220,
+          221
+        ],
+        [
+          40,
+          88,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47
+        ],
+        [
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55
+        ],
+        [
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64
+        ],
+        [
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72
+        ],
+        [
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80
+        ],
+        [
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          86,
+          86
+        ]
+      ],
+      "metatileRowCount": 7,
+      "metatileCellCount": 56,
+      "order": 16
+    },
+    {
+      "sourceLabel": "LARGE_SCOREBOARD_METATILE_DATA",
+      "line": 1908,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 13,
+        "heightInMetatiles": 7,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          185,
+          185,
+          185,
+          185,
+          185,
+          185,
+          185,
+          185
+        ],
+        [
+          185,
+          185,
+          87,
+          87,
+          87,
+          87,
+          185,
+          185
+        ],
+        [
+          89,
+          90,
+          90,
+          90,
+          90,
+          90,
+          90,
+          96
+        ],
+        [
+          97,
+          235,
+          235,
+          235,
+          235,
+          235,
+          235,
+          98
+        ],
+        [
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          91
+        ],
+        [
+          92,
+          93,
+          94,
+          95,
+          106,
+          107,
+          108,
+          109
+        ],
+        [
+          110,
+          111,
+          110,
+          111,
+          110,
+          111,
+          110,
+          111
+        ]
+      ],
+      "metatileRowCount": 7,
+      "metatileCellCount": 56,
+      "order": 17
+    },
+    {
+      "sourceLabel": "NFLPA_FOOTBALL_INTRO_METATILE_DATA",
+      "line": 1923,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 36,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 14,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 4,
+        "startingScreenLocation": 10
+      },
+      "metatileRows": [
+        [
+          124,
+          125,
+          126,
+          127
+        ],
+        [
+          128,
+          129,
+          130,
+          131
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 8,
+      "order": 18
+    },
+    {
+      "sourceLabel": "NFL_SHIELD_INTRO_METATILE_DATA",
+      "line": 1933,
+      "header": {
+        "chrBankPrimary": 36,
+        "chrBankSecondary": 38,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 14,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 4,
+        "startingScreenLocation": 18
+      },
+      "metatileRows": [
+        [
+          132,
+          133,
+          134,
+          213
+        ],
+        [
+          135,
+          211,
+          212,
+          214
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 8,
+      "order": 19
+    },
+    {
+      "sourceLabel": "GOALPOSTS_TOP_P2_METATILE_DATA",
+      "line": 1943,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 23,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          112,
+          113,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          114,
+          115,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          116,
+          117,
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 20
+    },
+    {
+      "sourceLabel": "GOALPOSTS_TOP_P1_METATILE_DATA",
+      "line": 1955,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 23,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          184,
+          184,
+          118,
+          121,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          184,
+          184,
+          119,
+          122,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          184,
+          184,
+          120,
+          123,
+          0,
+          0
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 21
+    },
+    {
+      "sourceLabel": "LARGE_RB_CUTTING_CUTTING_METATILE_DATA",
+      "line": 1967,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 72,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 16,
+        "heightInMetatiles": 3,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 8
+      },
+      "metatileRows": [
+        [
+          156,
+          156,
+          157,
+          158,
+          156,
+          156,
+          156,
+          156
+        ],
+        [
+          1,
+          160,
+          162,
+          163,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          159,
+          161,
+          164,
+          165,
+          159,
+          159,
+          159,
+          159
+        ]
+      ],
+      "metatileRowCount": 3,
+      "metatileCellCount": 24,
+      "order": 22
+    },
+    {
+      "sourceLabel": "KICK_ATTEMPT_SMALL_STADIUM_METATILE_DATA",
+      "line": 1978,
+      "header": {
+        "chrBankPrimary": 36,
+        "chrBankSecondary": 38,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          32,
+          33,
+          32,
+          34,
+          35,
+          33,
+          32,
+          33
+        ],
+        [
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36
+        ],
+        [
+          37,
+          37,
+          37,
+          37,
+          37,
+          37,
+          37,
+          37
+        ],
+        [
+          41,
+          41,
+          41,
+          41,
+          41,
+          41,
+          41,
+          41
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 23
+    },
+    {
+      "sourceLabel": "RECOVER_HOSPITAL_METATILE_DATA",
+      "line": 1990,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 26,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 17,
+        "heightInMetatiles": 7,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          152,
+          153,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          154,
+          155,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          148,
+          149,
+          150,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          142,
+          143,
+          144,
+          145,
+          146
+        ],
+        [
+          0,
+          0,
+          0,
+          137,
+          138,
+          139,
+          140,
+          141
+        ],
+        [
+          147,
+          136,
+          151,
+          226,
+          147,
+          147,
+          147,
+          147
+        ]
+      ],
+      "metatileRowCount": 7,
+      "metatileCellCount": 56,
+      "order": 24
+    },
+    {
+      "sourceLabel": "CONFERENCE_CHAMP_METATILE_DATA",
+      "line": 2005,
+      "header": {
+        "chrBankPrimary": 80,
+        "chrBankSecondary": 78,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 18,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          0,
+          186,
+          188,
+          187,
+          188,
+          187,
+          188,
+          187
+        ],
+        [
+          0,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          192
+        ],
+        [
+          195,
+          196,
+          197,
+          198,
+          199,
+          200,
+          201,
+          202
+        ],
+        [
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 25
+    },
+    {
+      "sourceLabel": "RUSHING_TD_METATILE_DATA",
+      "line": 2017,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 74,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 22,
+        "heightInMetatiles": 5,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          1,
+          172,
+          1,
+          172,
+          1,
+          183,
+          172,
+          1
+        ],
+        [
+          167,
+          1,
+          172,
+          168,
+          167,
+          169,
+          170,
+          171
+        ],
+        [
+          173,
+          182,
+          181,
+          173,
+          174,
+          173,
+          173,
+          174
+        ],
+        [
+          175,
+          180,
+          179,
+          177,
+          177,
+          177,
+          175,
+          177
+        ],
+        [
+          176,
+          176,
+          178,
+          176,
+          176,
+          176,
+          176,
+          176
+        ]
+      ],
+      "metatileRowCount": 5,
+      "metatileCellCount": 40,
+      "order": 26
+    },
+    {
+      "sourceLabel": "QB_THROWING_CREDITS_METATILE_DATA",
+      "line": 2030,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        [
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        [
+          28,
+          28,
+          29,
+          30,
+          31,
+          32,
+          30,
+          31
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 27
+    },
+    {
+      "sourceLabel": "QB_THROWING_IN_GAME_METATILE_DATA",
+      "line": 2042,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 16
+      },
+      "metatileRows": [
+        [
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        [
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          44,
+          47
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 16,
+      "order": 28
+    },
+    {
+      "sourceLabel": "STADIUM_AND_CROWD_TOP_METATILE_DATA",
+      "line": 2052,
+      "header": {
+        "chrBankPrimary": 106,
+        "chrBankSecondary": 104,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 5,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          1,
+          1,
+          117,
+          1,
+          1,
+          1,
+          117,
+          1
+        ],
+        [
+          114,
+          1,
+          115,
+          116,
+          114,
+          1,
+          115,
+          116
+        ],
+        [
+          227,
+          17,
+          227,
+          17,
+          227,
+          17,
+          227,
+          17
+        ],
+        [
+          225,
+          226,
+          225,
+          226,
+          225,
+          226,
+          225,
+          226
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 29
+    },
+    {
+      "sourceLabel": "PASSING_TD_FLASH_LIGHTS_METATILE_DATA",
+      "line": 2064,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 5,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          1,
+          115,
+          116,
+          1,
+          1,
+          115,
+          116,
+          1
+        ],
+        [
+          227,
+          17,
+          227,
+          17,
+          227,
+          17,
+          227,
+          17
+        ],
+        [
+          225,
+          226,
+          225,
+          226,
+          225,
+          226,
+          225,
+          226
+        ],
+        [
+          231,
+          232,
+          231,
+          232,
+          231,
+          232,
+          231,
+          232
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 30
+    },
+    {
+      "sourceLabel": "TOP_STADIUM_DOUBLE_JUMP_METATILE_DATA",
+      "line": 2076,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 3,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 8
+      },
+      "metatileRows": [
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        [
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          44,
+          47
+        ]
+      ],
+      "metatileRowCount": 3,
+      "metatileCellCount": 24,
+      "order": 31
+    },
+    {
+      "sourceLabel": "SUPER_CHAMPION_LIFTING_COACH_METATILE_DATA",
+      "line": 2088,
+      "header": {
+        "chrBankPrimary": 36,
+        "chrBankSecondary": 86,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 24,
+        "heightInMetatiles": 6,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 8
+      },
+      "metatileRows": [
+        [
+          48,
+          48,
+          48,
+          48,
+          0,
+          48,
+          49,
+          50
+        ],
+        [
+          51,
+          52,
+          53,
+          96,
+          54,
+          55,
+          56,
+          57
+        ],
+        [
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "metatileRowCount": 6,
+      "metatileCellCount": 48,
+      "order": 32
+    },
+    {
+      "sourceLabel": "NFL_SUPER_PRO_FOOTBALL_METATILE_DATA",
+      "line": 2102,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 26,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 10,
+        "heightInMetatiles": 1,
+        "widthInMetatiles": 16,
+        "startingScreenLocation": 24
+      },
+      "metatileRows": [
+        [
+          182,
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          164,
+          165,
+          166,
+          167,
+          168,
+          172,
+          172,
+          172,
+          172
+        ]
+      ],
+      "metatileRowCount": 1,
+      "metatileCellCount": 16,
+      "order": 33
+    },
+    {
+      "sourceLabel": "STADIUM_DIVE_MISS_METATILE_DATA",
+      "line": 2110,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 38,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          134,
+          134,
+          8,
+          134,
+          134,
+          134,
+          8,
+          134
+        ],
+        [
+          6,
+          7,
+          9,
+          7,
+          7,
+          12,
+          9,
+          7
+        ],
+        [
+          15,
+          16,
+          15,
+          16,
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 34
+    },
+    {
+      "sourceLabel": "TECMO_SUPER_BOWL_LARGE_METATILE_DATA",
+      "line": 2121,
+      "header": {
+        "chrBankPrimary": 32,
+        "chrBankSecondary": 118,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 32,
+        "heightInMetatiles": 3,
+        "widthInMetatiles": 6,
+        "startingScreenLocation": 9
+      },
+      "metatileRows": [
+        [
+          66,
+          67,
+          68,
+          69,
+          70,
+          0
+        ],
+        [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76
+        ],
+        [
+          0,
+          77,
+          78,
+          79,
+          80,
+          171
+        ]
+      ],
+      "metatileRowCount": 3,
+      "metatileCellCount": 18,
+      "order": 35
+    },
+    {
+      "sourceLabel": "GRASS_FOR_PUNT_FG_METATILE_DATA",
+      "line": 2131,
+      "header": {
+        "chrBankPrimary": 106,
+        "chrBankSecondary": 104,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 16
+      },
+      "metatileRows": [
+        [
+          0,
+          229,
+          1,
+          1,
+          1,
+          1,
+          161,
+          0
+        ],
+        [
+          0,
+          229,
+          1,
+          1,
+          1,
+          1,
+          161,
+          0
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 16,
+      "order": 36
+    },
+    {
+      "sourceLabel": "TECMO_PRESENTS_METATILE_DATA",
+      "line": 2140,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 118,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 32,
+        "heightInMetatiles": 1,
+        "widthInMetatiles": 3,
+        "startingScreenLocation": 27
+      },
+      "metatileRows": [
+        [
+          179,
+          180,
+          181
+        ]
+      ],
+      "metatileRowCount": 1,
+      "metatileCellCount": 3,
+      "order": 37
+    },
+    {
+      "sourceLabel": "STARS_OUTLINE_METATILE_DATA",
+      "line": 2148,
+      "header": {
+        "chrBankPrimary": 64,
+        "chrBankSecondary": 26,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 54,
+        "heightInMetatiles": 7,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          227,
+          228,
+          228,
+          228,
+          228,
+          228,
+          228,
+          229
+        ],
+        [
+          230,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          231
+        ],
+        [
+          230,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          231
+        ],
+        [
+          230,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          231
+        ],
+        [
+          230,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          231
+        ],
+        [
+          230,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          231
+        ],
+        [
+          232,
+          233,
+          233,
+          233,
+          233,
+          233,
+          233,
+          234
+        ]
+      ],
+      "metatileRowCount": 7,
+      "metatileCellCount": 56,
+      "order": 38
+    },
+    {
+      "sourceLabel": "STADIUM_COIN_TOSS_METATILE_DATA",
+      "line": 2163,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 38,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          134,
+          53,
+          55,
+          134,
+          50,
+          134,
+          53,
+          55
+        ],
+        [
+          6,
+          7,
+          7,
+          10,
+          11,
+          6,
+          7,
+          7
+        ],
+        [
+          15,
+          16,
+          15,
+          16,
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          238,
+          238,
+          238,
+          238,
+          238,
+          238,
+          238,
+          238
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 39
+    },
+    {
+      "sourceLabel": "NFL_SHIELD_TOP_LEFT_METATILE_DATA",
+      "line": 2175,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 26,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 52,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 2,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          152,
+          153
+        ],
+        [
+          154,
+          155
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 4,
+      "order": 40
+    },
+    {
+      "sourceLabel": "STADIUM_BOTTOM_LARGE_CROWD_METATILE_DATA",
+      "line": 2184,
+      "header": {
+        "chrBankPrimary": 106,
+        "chrBankSecondary": 104,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 50,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          231,
+          232,
+          231,
+          232,
+          231,
+          232,
+          231,
+          232
+        ],
+        [
+          119,
+          224,
+          119,
+          224,
+          119,
+          224,
+          119,
+          224
+        ],
+        [
+          112,
+          113,
+          112,
+          113,
+          112,
+          113,
+          112,
+          113
+        ],
+        [
+          109,
+          110,
+          111,
+          110,
+          109,
+          110,
+          111,
+          110
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 41
+    },
+    {
+      "sourceLabel": "STADIUM_COPS_CHEER_SUPERBOWL_METATILE_DATA",
+      "line": 2196,
+      "header": {
+        "chrBankPrimary": 26,
+        "chrBankSecondary": 90,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 34,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          116,
+          117,
+          118,
+          116,
+          117,
+          118,
+          116,
+          117
+        ],
+        [
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129
+        ],
+        [
+          133,
+          135,
+          136,
+          134,
+          132,
+          133,
+          134,
+          132
+        ],
+        [
+          140,
+          142,
+          143,
+          141,
+          139,
+          140,
+          141,
+          139
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 42
+    },
+    {
+      "sourceLabel": "STADIUM_FOR_RUSHING_TOUCHDWN_METATILE_DATA",
+      "line": 2208,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 74,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 22,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          173,
+          174,
+          173,
+          174,
+          173,
+          174,
+          173,
+          174
+        ],
+        [
+          175,
+          177,
+          175,
+          177,
+          175,
+          177,
+          175,
+          177
+        ],
+        [
+          176,
+          176,
+          176,
+          176,
+          176,
+          176,
+          176,
+          176
+        ],
+        [
+          185,
+          185,
+          185,
+          185,
+          185,
+          185,
+          185,
+          185
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 43
+    },
+    {
+      "sourceLabel": "STADIUM_AFTER_SPIKE_RUSHING_TOUCHDWN_METATILE_DATA",
+      "line": 2220,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 5,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          114,
+          115,
+          116,
+          1,
+          114,
+          115,
+          116,
+          1
+        ],
+        [
+          227,
+          17,
+          227,
+          17,
+          227,
+          17,
+          227,
+          17
+        ],
+        [
+          225,
+          226,
+          225,
+          226,
+          225,
+          226,
+          225,
+          226
+        ],
+        [
+          231,
+          232,
+          231,
+          232,
+          231,
+          232,
+          231,
+          232
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 44
+    },
+    {
+      "sourceLabel": "PLAYERS_BEFORE_GATORADE_BATH_METATILE_DATA",
+      "line": 2231,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 49,
+        "heightInMetatiles": 3,
+        "widthInMetatiles": 4,
+        "startingScreenLocation": 10
+      },
+      "metatileRows": [
+        [
+          97,
+          98,
+          99,
+          0
+        ],
+        [
+          100,
+          101,
+          102,
+          103
+        ],
+        [
+          104,
+          105,
+          106,
+          107
+        ]
+      ],
+      "metatileRowCount": 3,
+      "metatileCellCount": 12,
+      "order": 45
+    },
+    {
+      "sourceLabel": "AFC_NFC_PRO_BOWL_METATILE_DATA",
+      "line": 2241,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 116,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 6,
+        "heightInMetatiles": 1,
+        "widthInMetatiles": 6,
+        "startingScreenLocation": 25
+      },
+      "metatileRows": [
+        [
+          144,
+          145,
+          146,
+          0,
+          147,
+          0
+        ]
+      ],
+      "metatileRowCount": 1,
+      "metatileCellCount": 6,
+      "order": 46
+    },
+    {
+      "sourceLabel": "BOTTOM_OF_STADIUM_PARACHUTE_HALFTIME_METATILE_DATA",
+      "line": 2249,
+      "header": {
+        "chrBankPrimary": 106,
+        "chrBankSecondary": 104,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 5,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          236,
+          235,
+          234,
+          235,
+          236,
+          235,
+          234,
+          235
+        ],
+        [
+          233,
+          233,
+          233,
+          233,
+          233,
+          233,
+          233,
+          233
+        ],
+        [
+          88,
+          88,
+          88,
+          88,
+          88,
+          88,
+          88,
+          88
+        ],
+        [
+          88,
+          88,
+          88,
+          88,
+          88,
+          88,
+          88,
+          88
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 47
+    },
+    {
+      "sourceLabel": "STADIUM_PUNT_FG_METATILE_DATA",
+      "line": 2260,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 50,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          118,
+          220,
+          118,
+          220,
+          118,
+          220,
+          118,
+          220
+        ],
+        [
+          62,
+          237,
+          62,
+          237,
+          62,
+          237,
+          62,
+          237
+        ],
+        [
+          235,
+          236,
+          235,
+          234,
+          235,
+          236,
+          235,
+          234
+        ],
+        [
+          233,
+          233,
+          233,
+          233,
+          233,
+          233,
+          233,
+          233
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 48
+    },
+    {
+      "sourceLabel": "STADIUM_FOR_MISC_METATILE_DATA",
+      "line": 2271,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 50,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          231,
+          232,
+          231,
+          232,
+          231,
+          232,
+          231,
+          232
+        ],
+        [
+          119,
+          224,
+          119,
+          224,
+          119,
+          224,
+          119,
+          224
+        ],
+        [
+          112,
+          113,
+          112,
+          113,
+          112,
+          113,
+          112,
+          113
+        ],
+        [
+          109,
+          110,
+          111,
+          110,
+          109,
+          110,
+          111,
+          110
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 49
+    },
+    {
+      "sourceLabel": "WINK_CHEERLEADER_BELLY_HALFTIME_METATILE_DATA",
+      "line": 2283,
+      "header": {
+        "chrBankPrimary": 106,
+        "chrBankSecondary": 104,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 2,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          91,
+          91,
+          91,
+          89,
+          90,
+          91,
+          91,
+          91
+        ],
+        [
+          0,
+          0,
+          0,
+          92,
+          93,
+          0,
+          0,
+          0
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 16,
+      "order": 50
+    },
+    {
+      "sourceLabel": "STADIUM_FOR_CHEER_PANTY_HALFTIME_METATILE_DATA",
+      "line": 2292,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 38,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 7,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          134,
+          134,
+          8,
+          134,
+          56,
+          134,
+          8,
+          134
+        ],
+        [
+          6,
+          7,
+          9,
+          7,
+          7,
+          12,
+          9,
+          7
+        ],
+        [
+          15,
+          16,
+          15,
+          16,
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134
+        ]
+      ],
+      "metatileRowCount": 7,
+      "metatileCellCount": 56,
+      "order": 51
+    },
+    {
+      "sourceLabel": "PODIUM_CREDITS_METATILE_DATA",
+      "line": 2306,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 51,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 6,
+        "startingScreenLocation": 1
+      },
+      "metatileRows": [
+        [
+          0,
+          148,
+          149,
+          150,
+          148,
+          0
+        ],
+        [
+          0,
+          148,
+          151,
+          152,
+          148,
+          0
+        ],
+        [
+          0,
+          153,
+          154,
+          155,
+          156,
+          157
+        ],
+        [
+          158,
+          159,
+          160,
+          161,
+          162,
+          163
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 24,
+      "order": 52
+    },
+    {
+      "sourceLabel": "STADIUM_FOR_BLIMP_HALFTIME_METATILE_DATA",
+      "line": 2317,
+      "header": {
+        "chrBankPrimary": 106,
+        "chrBankSecondary": 107,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 1,
+        "heightInMetatiles": 5,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          1,
+          74,
+          75,
+          1,
+          74,
+          75,
+          1,
+          74
+        ],
+        [
+          1,
+          1,
+          64,
+          65,
+          66,
+          67,
+          68,
+          1
+        ],
+        [
+          1,
+          1,
+          69,
+          70,
+          71,
+          72,
+          73,
+          1
+        ],
+        [
+          75,
+          115,
+          116,
+          1,
+          75,
+          115,
+          116,
+          1
+        ],
+        [
+          17,
+          227,
+          17,
+          227,
+          17,
+          227,
+          17,
+          227
+        ]
+      ],
+      "metatileRowCount": 5,
+      "metatileCellCount": 40,
+      "order": 53
+    },
+    {
+      "sourceLabel": "STADIUM_FOR_CATCH_SIDE_VIEW_METATILE_DATA",
+      "line": 2329,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 255,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          134,
+          54,
+          56,
+          134,
+          134,
+          50,
+          134,
+          54
+        ],
+        [
+          4,
+          5,
+          4,
+          5,
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          13,
+          14,
+          13,
+          14,
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 54
+    },
+    {
+      "sourceLabel": "SKY_FOR_LT_SACK_INTRO_METATILE_DATA",
+      "line": 2340,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 68,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 7,
+        "heightInMetatiles": 7,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134
+        ],
+        [
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134
+        ],
+        [
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134,
+          134
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "metatileRowCount": 7,
+      "metatileCellCount": 56,
+      "order": 55
+    },
+    {
+      "sourceLabel": "PLAYERS_GATORADE_METATILE_DATA",
+      "line": 2354,
+      "header": {
+        "chrBankPrimary": 88,
+        "chrBankSecondary": 90,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 49,
+        "heightInMetatiles": 3,
+        "widthInMetatiles": 4,
+        "startingScreenLocation": 10
+      },
+      "metatileRows": [
+        [
+          97,
+          98,
+          112,
+          0
+        ],
+        [
+          108,
+          109,
+          110,
+          111
+        ],
+        [
+          104,
+          113,
+          114,
+          115
+        ]
+      ],
+      "metatileRowCount": 3,
+      "metatileCellCount": 12,
+      "order": 56
+    },
+    {
+      "sourceLabel": "STADIUM_FOR_VARIOUS_PASS_SCENES_METATILE_DATA",
+      "line": 2364,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 38,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          134,
+          50,
+          134,
+          53,
+          55,
+          134,
+          50,
+          134
+        ],
+        [
+          50,
+          134,
+          56,
+          134,
+          134,
+          18,
+          134,
+          134
+        ],
+        [
+          4,
+          5,
+          4,
+          5,
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          13,
+          14,
+          13,
+          14,
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 57
+    },
+    {
+      "sourceLabel": "STADIUM_FOR_JUMP_CATCH_OR_INT_METATILE_DATA",
+      "line": 2375,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 38,
+        "tileBankOffset": 0,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 6,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          44,
+          45,
+          134,
+          42,
+          43,
+          134,
+          44,
+          45
+        ],
+        [
+          134,
+          134,
+          50,
+          48,
+          49,
+          56,
+          134,
+          134
+        ],
+        [
+          4,
+          5,
+          4,
+          5,
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          13,
+          14,
+          13,
+          14,
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "metatileRowCount": 6,
+      "metatileCellCount": 48,
+      "order": 58
+    },
+    {
+      "sourceLabel": "TECMO_SPORTS_NEWS_METATILE_DATA",
+      "line": 2388,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 48,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 13,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          32,
+          33,
+          0,
+          0,
+          0,
+          34,
+          35,
+          36
+        ],
+        [
+          37,
+          37,
+          37,
+          37,
+          236,
+          37,
+          37,
+          37
+        ],
+        [
+          0,
+          222,
+          223,
+          224,
+          225,
+          38,
+          39,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 59
+    },
+    {
+      "sourceLabel": "NFL_PA_METATILE_DATA",
+      "line": 2399,
+      "header": {
+        "chrBankPrimary": 32,
+        "chrBankSecondary": 36,
+        "tileBankOffset": 1,
+        "backgroundPaletteSetIndex": 19,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 4,
+        "startingScreenLocation": 18
+      },
+      "metatileRows": [
+        [
+          124,
+          125,
+          126,
+          127
+        ],
+        [
+          128,
+          129,
+          130,
+          131
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 8,
+      "order": 60
+    },
+    {
+      "sourceLabel": "ROSTER_1991_LARGER_LETTERS_METATILE_DATA",
+      "line": 2408,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 26,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 4,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          0,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "metatileRowCount": 4,
+      "metatileCellCount": 32,
+      "order": 61
+    },
+    {
+      "sourceLabel": "BLANK_SCREEN_METATILE_DATA",
+      "line": 2419,
+      "header": {
+        "chrBankPrimary": 24,
+        "chrBankSecondary": 26,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 0,
+        "heightInMetatiles": 7,
+        "widthInMetatiles": 8,
+        "startingScreenLocation": 0
+      },
+      "metatileRows": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "metatileRowCount": 7,
+      "metatileCellCount": 56,
+      "order": 62
+    },
+    {
+      "sourceLabel": "DEFAULT_HELMET_SHELL_METATILE_DATA",
+      "line": 2434,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 42,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 28,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 2,
+        "startingScreenLocation": 9
+      },
+      "metatileRows": [
+        [
+          83,
+          84
+        ],
+        [
+          85,
+          86
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 4,
+      "order": 63
+    },
+    {
+      "sourceLabel": "HELMET_SHELL_W_REFLECTION_METATILE_DATA",
+      "line": 2443,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 42,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 29,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 2,
+        "startingScreenLocation": 9
+      },
+      "metatileRows": [
+        [
+          87,
+          88
+        ],
+        [
+          89,
+          86
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 4,
+      "order": 64
+    },
+    {
+      "sourceLabel": "RAMS_HELMET_SHELL_METATILE_DATA",
+      "line": 2452,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 42,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 27,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 2,
+        "startingScreenLocation": 9
+      },
+      "metatileRows": [
+        [
+          90,
+          91
+        ],
+        [
+          92,
+          93
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 4,
+      "order": 65
+    },
+    {
+      "sourceLabel": "BENGALS_HELMET_SHELL_METATILE_DATA",
+      "line": 2461,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 42,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 28,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 2,
+        "startingScreenLocation": 9
+      },
+      "metatileRows": [
+        [
+          94,
+          81
+        ],
+        [
+          82,
+          86
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 4,
+      "order": 66
+    },
+    {
+      "sourceLabel": "GENERIC_HELMET_SHELL_P1_MATCHUP_METATILE_DATA",
+      "line": 2470,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 42,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 28,
+        "heightInMetatiles": 3,
+        "widthInMetatiles": 2,
+        "startingScreenLocation": 1
+      },
+      "metatileRows": [
+        [
+          187,
+          188
+        ],
+        [
+          189,
+          190
+        ],
+        [
+          199,
+          200
+        ]
+      ],
+      "metatileRowCount": 3,
+      "metatileCellCount": 6,
+      "order": 67
+    },
+    {
+      "sourceLabel": "HELMET_SHELL_W_REFLECTION_P1_MATCHUP_METATILE_DATA",
+      "line": 2480,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 42,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 29,
+        "heightInMetatiles": 3,
+        "widthInMetatiles": 2,
+        "startingScreenLocation": 1
+      },
+      "metatileRows": [
+        [
+          191,
+          192
+        ],
+        [
+          193,
+          190
+        ],
+        [
+          199,
+          200
+        ]
+      ],
+      "metatileRowCount": 3,
+      "metatileCellCount": 6,
+      "order": 68
+    },
+    {
+      "sourceLabel": "RAMS_HELMET_SHELL_P1_MATCHUP_METATILE_DATA",
+      "line": 2490,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 42,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 27,
+        "heightInMetatiles": 3,
+        "widthInMetatiles": 2,
+        "startingScreenLocation": 1
+      },
+      "metatileRows": [
+        [
+          194,
+          195
+        ],
+        [
+          196,
+          197
+        ],
+        [
+          201,
+          202
+        ]
+      ],
+      "metatileRowCount": 3,
+      "metatileCellCount": 6,
+      "order": 69
+    },
+    {
+      "sourceLabel": "BENGALS_HELMET_SHELL_P1_MATCHUP_METATILE_DATA",
+      "line": 2500,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 42,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 28,
+        "heightInMetatiles": 3,
+        "widthInMetatiles": 2,
+        "startingScreenLocation": 1
+      },
+      "metatileRows": [
+        [
+          198,
+          185
+        ],
+        [
+          186,
+          203
+        ],
+        [
+          169,
+          202
+        ]
+      ],
+      "metatileRowCount": 3,
+      "metatileCellCount": 6,
+      "order": 70
+    },
+    {
+      "sourceLabel": "GENERIC_HELMET_SHELL_P2_MATCHUP_METATILE_DATA",
+      "line": 2510,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 42,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 28,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 2,
+        "startingScreenLocation": 33
+      },
+      "metatileRows": [
+        [
+          83,
+          84
+        ],
+        [
+          85,
+          86
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 4,
+      "order": 71
+    },
+    {
+      "sourceLabel": "HELMET_SHELL_W_REFLECTION_P2_MATCHUP_METATILE_DATA",
+      "line": 2519,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 42,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 29,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 2,
+        "startingScreenLocation": 33
+      },
+      "metatileRows": [
+        [
+          87,
+          88
+        ],
+        [
+          89,
+          86
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 4,
+      "order": 72
+    },
+    {
+      "sourceLabel": "RAMS_HELMET_SHELL_P2_MATCHUP_METATILE_DATA",
+      "line": 2529,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 42,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 27,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 2,
+        "startingScreenLocation": 33
+      },
+      "metatileRows": [
+        [
+          90,
+          91
+        ],
+        [
+          92,
+          93
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 4,
+      "order": 73
+    },
+    {
+      "sourceLabel": "BENGALS_HELMET_SHELL_P2_MATCHUP_METATILE_DATA",
+      "line": 2538,
+      "header": {
+        "chrBankPrimary": 255,
+        "chrBankSecondary": 42,
+        "tileBankOffset": 2,
+        "backgroundPaletteSetIndex": 28,
+        "heightInMetatiles": 2,
+        "widthInMetatiles": 2,
+        "startingScreenLocation": 33
+      },
+      "metatileRows": [
+        [
+          94,
+          81
+        ],
+        [
+          82,
+          86
+        ]
+      ],
+      "metatileRowCount": 2,
+      "metatileCellCount": 4,
+      "order": 74
+    }
+  ]
+}

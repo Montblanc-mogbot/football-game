@@ -1,0 +1,2507 @@
+{
+  "sourceFile": "reference/Tecmo_Super_Bowl_NES_Disassembly/Bank3_formation_metatile_data.asm",
+  "formationTableCount": 22,
+  "formationEntryCounts": [
+    11
+  ],
+  "offensiveExecutionTableCount": 92,
+  "offensiveExecutionEntryCounts": [
+    11
+  ],
+  "specialOffensivePlayTableCount": 16,
+  "specialOffensivePlayEntryCounts": [
+    12
+  ],
+  "formationTables": [
+    {
+      "sourceLabel": "KICKOFF_FORMATION_POINTERS",
+      "line": 6,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_003",
+        "OFFENSE_PLAYER_REACTION_002",
+        "OFFENSE_PLAYER_REACTION_001",
+        "OFFENSE_PLAYER_REACTION_004",
+        "OFFENSE_PLAYER_REACTION_005",
+        "OFFENSE_PLAYER_REACTION_006",
+        "OFFENSE_PLAYER_REACTION_007",
+        "OFFENSE_PLAYER_REACTION_008",
+        "OFFENSE_PLAYER_REACTION_009",
+        "OFFENSE_PLAYER_REACTION_010",
+        "OFFENSE_PLAYER_REACTION_011"
+      ],
+      "order": 0,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "PUNT_FORMATION_POINTERS",
+      "line": 18,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_012",
+        "OFFENSE_PLAYER_REACTION_013",
+        "OFFENSE_PLAYER_REACTION_014",
+        "OFFENSE_PLAYER_REACTION_015",
+        "OFFENSE_PLAYER_REACTION_016",
+        "OFFENSE_PLAYER_REACTION_017",
+        "OFFENSE_PLAYER_REACTION_018",
+        "OFFENSE_PLAYER_REACTION_019",
+        "OFFENSE_PLAYER_REACTION_020",
+        "OFFENSE_PLAYER_REACTION_021",
+        "OFFENSE_PLAYER_REACTION_022"
+      ],
+      "order": 1,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "FG_FORMATION_POINTERS",
+      "line": 30,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_025",
+        "OFFENSE_PLAYER_REACTION_026",
+        "OFFENSE_PLAYER_REACTION_027",
+        "OFFENSE_PLAYER_REACTION_028",
+        "OFFENSE_PLAYER_REACTION_029",
+        "OFFENSE_PLAYER_REACTION_030",
+        "OFFENSE_PLAYER_REACTION_031",
+        "OFFENSE_PLAYER_REACTION_032",
+        "OFFENSE_PLAYER_REACTION_033",
+        "OFFENSE_PLAYER_REACTION_034",
+        "OFFENSE_PLAYER_REACTION_035"
+      ],
+      "order": 2,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "XP_FORMATION_POINTERS",
+      "line": 42,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_025",
+        "OFFENSE_PLAYER_REACTION_036",
+        "OFFENSE_PLAYER_REACTION_027",
+        "OFFENSE_PLAYER_REACTION_028",
+        "OFFENSE_PLAYER_REACTION_029",
+        "OFFENSE_PLAYER_REACTION_030",
+        "OFFENSE_PLAYER_REACTION_031",
+        "OFFENSE_PLAYER_REACTION_032",
+        "OFFENSE_PLAYER_REACTION_033",
+        "OFFENSE_PLAYER_REACTION_034",
+        "OFFENSE_PLAYER_REACTION_035"
+      ],
+      "order": 3,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "PRO_T_1_FORMATION_POINTERS",
+      "line": 54,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_038",
+        "OFFENSE_PLAYER_REACTION_048",
+        "OFFENSE_PLAYER_REACTION_061",
+        "OFFENSE_PLAYER_REACTION_067",
+        "OFFENSE_PLAYER_REACTION_075",
+        "OFFENSE_PLAYER_REACTION_084",
+        "OFFENSE_PLAYER_REACTION_086",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 4,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "SLOT_FORMATION_POINTERS",
+      "line": 66,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_038",
+        "OFFENSE_PLAYER_REACTION_047",
+        "OFFENSE_PLAYER_REACTION_061",
+        "OFFENSE_PLAYER_REACTION_066",
+        "OFFENSE_PLAYER_REACTION_074",
+        "OFFENSE_PLAYER_REACTION_083",
+        "OFFENSE_PLAYER_REACTION_086",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 5,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "ONSETBACK_1_FORMATION_POINTERS",
+      "line": 78,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_038",
+        "OFFENSE_PLAYER_REACTION_046",
+        "OFFENSE_PLAYER_REACTION_060",
+        "OFFENSE_PLAYER_REACTION_066",
+        "OFFENSE_PLAYER_REACTION_073",
+        "OFFENSE_PLAYER_REACTION_083",
+        "OFFENSE_PLAYER_REACTION_086",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 6,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "TWO_TE_FORMATION_POINTERS",
+      "line": 90,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_038",
+        "OFFENSE_PLAYER_REACTION_046",
+        "OFFENSE_PLAYER_REACTION_059",
+        "OFFENSE_PLAYER_REACTION_066",
+        "OFFENSE_PLAYER_REACTION_073",
+        "OFFENSE_PLAYER_REACTION_083",
+        "OFFENSE_PLAYER_REACTION_086",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 7,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "MOTION_DOWN_FORMATION_POINTERS",
+      "line": 102,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_038",
+        "OFFENSE_PLAYER_REACTION_046",
+        "OFFENSE_PLAYER_REACTION_060",
+        "OFFENSE_PLAYER_REACTION_066",
+        "OFFENSE_PLAYER_REACTION_072",
+        "OFFENSE_PLAYER_REACTION_083",
+        "OFFENSE_PLAYER_REACTION_086",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 8,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "SHIFTING_ONEBACK_FORMATION_POINTERS",
+      "line": 114,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_038",
+        "OFFENSE_PLAYER_REACTION_045",
+        "OFFENSE_PLAYER_REACTION_058",
+        "OFFENSE_PLAYER_REACTION_065",
+        "OFFENSE_PLAYER_REACTION_071",
+        "OFFENSE_PLAYER_REACTION_083",
+        "OFFENSE_PLAYER_REACTION_086",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 9,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "ONEBACK_1_FORMATION_POINTERS",
+      "line": 126,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_038",
+        "OFFENSE_PLAYER_REACTION_044",
+        "OFFENSE_PLAYER_REACTION_057",
+        "OFFENSE_PLAYER_REACTION_064",
+        "OFFENSE_PLAYER_REACTION_070",
+        "OFFENSE_PLAYER_REACTION_084",
+        "OFFENSE_PLAYER_REACTION_086",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 10,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFSET_I_FORMATION_POINTERS",
+      "line": 138,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_038",
+        "OFFENSE_PLAYER_REACTION_043",
+        "OFFENSE_PLAYER_REACTION_056",
+        "OFFENSE_PLAYER_REACTION_066",
+        "OFFENSE_PLAYER_REACTION_073",
+        "OFFENSE_PLAYER_REACTION_083",
+        "OFFENSE_PLAYER_REACTION_086",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 11,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "RUN_AND_SHOOT_FORMATION_POINTERS",
+      "line": 150,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_038",
+        "OFFENSE_PLAYER_REACTION_046",
+        "OFFENSE_PLAYER_REACTION_055",
+        "OFFENSE_PLAYER_REACTION_066",
+        "OFFENSE_PLAYER_REACTION_075",
+        "OFFENSE_PLAYER_REACTION_082",
+        "OFFENSE_PLAYER_REACTION_086",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 12,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "RUN_AND_SHOOT_3_WING_FORMATION_POINTERS",
+      "line": 162,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_038",
+        "OFFENSE_PLAYER_REACTION_046",
+        "OFFENSE_PLAYER_REACTION_054",
+        "OFFENSE_PLAYER_REACTION_066",
+        "OFFENSE_PLAYER_REACTION_069",
+        "OFFENSE_PLAYER_REACTION_081",
+        "OFFENSE_PLAYER_REACTION_086",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 13,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "SHOTGUN_1_FORMATION_POINTERS",
+      "line": 174,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_037",
+        "OFFENSE_PLAYER_REACTION_051",
+        "OFFENSE_PLAYER_REACTION_053",
+        "OFFENSE_PLAYER_REACTION_066",
+        "OFFENSE_PLAYER_REACTION_079",
+        "OFFENSE_PLAYER_REACTION_080",
+        "OFFENSE_PLAYER_REACTION_085",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 14,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "SHOTGUN_2_FORMATION_POINTERS",
+      "line": 186,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_037",
+        "OFFENSE_PLAYER_REACTION_051",
+        "OFFENSE_PLAYER_REACTION_053",
+        "OFFENSE_PLAYER_REACTION_066",
+        "OFFENSE_PLAYER_REACTION_068",
+        "OFFENSE_PLAYER_REACTION_079",
+        "OFFENSE_PLAYER_REACTION_085",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 15,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "SHOTGUN_3_WING_FORMATION_POINTERS",
+      "line": 198,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_037",
+        "OFFENSE_PLAYER_REACTION_042",
+        "OFFENSE_PLAYER_REACTION_052",
+        "OFFENSE_PLAYER_REACTION_063",
+        "OFFENSE_PLAYER_REACTION_069",
+        "OFFENSE_PLAYER_REACTION_078",
+        "OFFENSE_PLAYER_REACTION_085",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 16,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "SHOTGUN_3_FORMATION_POINTERS",
+      "line": 210,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_037",
+        "OFFENSE_PLAYER_REACTION_041",
+        "OFFENSE_PLAYER_REACTION_051",
+        "OFFENSE_PLAYER_REACTION_066",
+        "OFFENSE_PLAYER_REACTION_068",
+        "OFFENSE_PLAYER_REACTION_077",
+        "OFFENSE_PLAYER_REACTION_085",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 17,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "REDGUN_FORMATION_POINTERS",
+      "line": 222,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_037",
+        "OFFENSE_PLAYER_REACTION_040",
+        "OFFENSE_PLAYER_REACTION_050",
+        "OFFENSE_PLAYER_REACTION_062",
+        "OFFENSE_PLAYER_REACTION_068",
+        "OFFENSE_PLAYER_REACTION_076",
+        "OFFENSE_PLAYER_REACTION_085",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 18,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "NOBACK_FORMATION_POINTERS",
+      "line": 234,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_038",
+        "OFFENSE_PLAYER_REACTION_039",
+        "OFFENSE_PLAYER_REACTION_049",
+        "OFFENSE_PLAYER_REACTION_065",
+        "OFFENSE_PLAYER_REACTION_071",
+        "OFFENSE_PLAYER_REACTION_083",
+        "OFFENSE_PLAYER_REACTION_086",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 19,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "PRO_T_2_FORMATION_POINTERS",
+      "line": 246,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_038",
+        "OFFENSE_PLAYER_REACTION_061",
+        "OFFENSE_PLAYER_REACTION_048",
+        "OFFENSE_PLAYER_REACTION_067",
+        "OFFENSE_PLAYER_REACTION_075",
+        "OFFENSE_PLAYER_REACTION_084",
+        "OFFENSE_PLAYER_REACTION_086",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 20,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "ONEBACK_2_FORMATION_POINTERS",
+      "line": 258,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_038",
+        "OFFENSE_PLAYER_REACTION_060",
+        "OFFENSE_PLAYER_REACTION_046",
+        "OFFENSE_PLAYER_REACTION_066",
+        "OFFENSE_PLAYER_REACTION_073",
+        "OFFENSE_PLAYER_REACTION_083",
+        "OFFENSE_PLAYER_REACTION_086",
+        "OFFENSE_PLAYER_REACTION_087",
+        "OFFENSE_PLAYER_REACTION_088",
+        "OFFENSE_PLAYER_REACTION_089",
+        "OFFENSE_PLAYER_REACTION_090"
+      ],
+      "order": 21,
+      "entryCount": 11
+    }
+  ],
+  "offensiveExecutionTables": [
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_1",
+      "line": 280,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_178",
+        "OFFENSE_PLAYER_REACTION_179",
+        "OFFENSE_PLAYER_REACTION_180",
+        "OFFENSE_PLAYER_REACTION_181",
+        "OFFENSE_PLAYER_REACTION_295",
+        "OFFENSE_PLAYER_REACTION_431",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_313",
+        "OFFENSE_PLAYER_REACTION_296",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_427"
+      ],
+      "order": 0,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_2",
+      "line": 292,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_178",
+        "OFFENSE_PLAYER_REACTION_179",
+        "OFFENSE_PLAYER_REACTION_180",
+        "OFFENSE_PLAYER_REACTION_181",
+        "OFFENSE_PLAYER_REACTION_295",
+        "OFFENSE_PLAYER_REACTION_431",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_313",
+        "OFFENSE_PLAYER_REACTION_297",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_427"
+      ],
+      "order": 1,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_3",
+      "line": 304,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_185",
+        "OFFENSE_PLAYER_REACTION_179",
+        "OFFENSE_PLAYER_REACTION_186",
+        "OFFENSE_PLAYER_REACTION_181",
+        "OFFENSE_PLAYER_REACTION_435",
+        "OFFENSE_PLAYER_REACTION_187",
+        "OFFENSE_PLAYER_REACTION_297",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_427",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_431"
+      ],
+      "order": 2,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_4",
+      "line": 316,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_193",
+        "OFFENSE_PLAYER_REACTION_194",
+        "OFFENSE_PLAYER_REACTION_195",
+        "OFFENSE_PLAYER_REACTION_094",
+        "OFFENSE_PLAYER_REACTION_435",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_429",
+        "OFFENSE_PLAYER_REACTION_297",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_427"
+      ],
+      "order": 3,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_5",
+      "line": 328,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_198",
+        "OFFENSE_PLAYER_REACTION_199",
+        "OFFENSE_PLAYER_REACTION_298",
+        "OFFENSE_PLAYER_REACTION_299",
+        "OFFENSE_PLAYER_REACTION_300",
+        "OFFENSE_PLAYER_REACTION_301",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_204",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_205",
+        "OFFENSE_PLAYER_REACTION_206"
+      ],
+      "order": 4,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_6",
+      "line": 340,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_217",
+        "OFFENSE_PLAYER_REACTION_218",
+        "OFFENSE_PLAYER_REACTION_219",
+        "OFFENSE_PLAYER_REACTION_094",
+        "OFFENSE_PLAYER_REACTION_220",
+        "OFFENSE_PLAYER_REACTION_221",
+        "OFFENSE_PLAYER_REACTION_297",
+        "OFFENSE_PLAYER_REACTION_302",
+        "OFFENSE_PLAYER_REACTION_223",
+        "OFFENSE_PLAYER_REACTION_224",
+        "OFFENSE_PLAYER_REACTION_225"
+      ],
+      "order": 5,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_7",
+      "line": 352,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_207",
+        "OFFENSE_PLAYER_REACTION_208",
+        "OFFENSE_PLAYER_REACTION_209",
+        "OFFENSE_PLAYER_REACTION_210",
+        "OFFENSE_PLAYER_REACTION_161",
+        "OFFENSE_PLAYER_REACTION_211",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_212",
+        "OFFENSE_PLAYER_REACTION_213",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_297"
+      ],
+      "order": 6,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_8",
+      "line": 364,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_207",
+        "OFFENSE_PLAYER_REACTION_208",
+        "OFFENSE_PLAYER_REACTION_209",
+        "OFFENSE_PLAYER_REACTION_210",
+        "OFFENSE_PLAYER_REACTION_161",
+        "OFFENSE_PLAYER_REACTION_308",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_212",
+        "OFFENSE_PLAYER_REACTION_313",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_297"
+      ],
+      "order": 7,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_9",
+      "line": 376,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_226",
+        "OFFENSE_PLAYER_REACTION_227",
+        "OFFENSE_PLAYER_REACTION_228",
+        "OFFENSE_PLAYER_REACTION_432",
+        "OFFENSE_PLAYER_REACTION_129",
+        "OFFENSE_PLAYER_REACTION_427",
+        "OFFENSE_PLAYER_REACTION_132",
+        "OFFENSE_PLAYER_REACTION_133",
+        "OFFENSE_PLAYER_REACTION_134",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_297"
+      ],
+      "order": 8,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_10",
+      "line": 388,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_207",
+        "OFFENSE_PLAYER_REACTION_208",
+        "OFFENSE_PLAYER_REACTION_229",
+        "OFFENSE_PLAYER_REACTION_210",
+        "OFFENSE_PLAYER_REACTION_161",
+        "OFFENSE_PLAYER_REACTION_129",
+        "OFFENSE_PLAYER_REACTION_132",
+        "OFFENSE_PLAYER_REACTION_133",
+        "OFFENSE_PLAYER_REACTION_134",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_297"
+      ],
+      "order": 9,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_11",
+      "line": 400,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_312",
+        "OFFENSE_PLAYER_REACTION_231",
+        "OFFENSE_PLAYER_REACTION_230",
+        "OFFENSE_PLAYER_REACTION_210",
+        "OFFENSE_PLAYER_REACTION_161",
+        "OFFENSE_PLAYER_REACTION_232",
+        "OFFENSE_PLAYER_REACTION_429",
+        "OFFENSE_PLAYER_REACTION_212",
+        "OFFENSE_PLAYER_REACTION_213",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_297"
+      ],
+      "order": 10,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_12",
+      "line": 412,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_312",
+        "OFFENSE_PLAYER_REACTION_231",
+        "OFFENSE_PLAYER_REACTION_230",
+        "OFFENSE_PLAYER_REACTION_210",
+        "OFFENSE_PLAYER_REACTION_161",
+        "OFFENSE_PLAYER_REACTION_232",
+        "OFFENSE_PLAYER_REACTION_429",
+        "OFFENSE_PLAYER_REACTION_212",
+        "OFFENSE_PLAYER_REACTION_313",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_297"
+      ],
+      "order": 11,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_13",
+      "line": 424,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_165",
+        "OFFENSE_PLAYER_REACTION_170",
+        "OFFENSE_PLAYER_REACTION_171",
+        "OFFENSE_PLAYER_REACTION_172",
+        "OFFENSE_PLAYER_REACTION_173",
+        "OFFENSE_PLAYER_REACTION_304",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_305"
+      ],
+      "order": 12,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_14",
+      "line": 436,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_178",
+        "OFFENSE_PLAYER_REACTION_182",
+        "OFFENSE_PLAYER_REACTION_183",
+        "OFFENSE_PLAYER_REACTION_434",
+        "OFFENSE_PLAYER_REACTION_184",
+        "OFFENSE_PLAYER_REACTION_431",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_429",
+        "OFFENSE_PLAYER_REACTION_297",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_427"
+      ],
+      "order": 13,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_15",
+      "line": 448,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_239",
+        "OFFENSE_PLAYER_REACTION_240",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_210",
+        "OFFENSE_PLAYER_REACTION_243",
+        "OFFENSE_PLAYER_REACTION_241",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_098",
+        "OFFENSE_PLAYER_REACTION_242",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_297"
+      ],
+      "order": 14,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_16",
+      "line": 460,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_256",
+        "OFFENSE_PLAYER_REACTION_257",
+        "OFFENSE_PLAYER_REACTION_307",
+        "OFFENSE_PLAYER_REACTION_306",
+        "OFFENSE_PLAYER_REACTION_243",
+        "OFFENSE_PLAYER_REACTION_258",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_212",
+        "OFFENSE_PLAYER_REACTION_259",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_260"
+      ],
+      "order": 15,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_17",
+      "line": 472,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_091",
+        "OFFENSE_PLAYER_REACTION_092",
+        "OFFENSE_PLAYER_REACTION_093",
+        "OFFENSE_PLAYER_REACTION_094",
+        "OFFENSE_PLAYER_REACTION_095",
+        "OFFENSE_PLAYER_REACTION_096",
+        "OFFENSE_PLAYER_REACTION_097",
+        "OFFENSE_PLAYER_REACTION_098",
+        "OFFENSE_PLAYER_REACTION_099",
+        "OFFENSE_PLAYER_REACTION_100",
+        "OFFENSE_PLAYER_REACTION_101"
+      ],
+      "order": 16,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_18",
+      "line": 484,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_105",
+        "OFFENSE_PLAYER_REACTION_106",
+        "OFFENSE_PLAYER_REACTION_107",
+        "OFFENSE_PLAYER_REACTION_108",
+        "OFFENSE_PLAYER_REACTION_109",
+        "OFFENSE_PLAYER_REACTION_110",
+        "OFFENSE_PLAYER_REACTION_111",
+        "OFFENSE_PLAYER_REACTION_112",
+        "OFFENSE_PLAYER_REACTION_113",
+        "OFFENSE_PLAYER_REACTION_114",
+        "OFFENSE_PLAYER_REACTION_431"
+      ],
+      "order": 17,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_19",
+      "line": 496,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_119",
+        "OFFENSE_PLAYER_REACTION_120",
+        "OFFENSE_PLAYER_REACTION_121",
+        "OFFENSE_PLAYER_REACTION_108",
+        "OFFENSE_PLAYER_REACTION_122",
+        "OFFENSE_PLAYER_REACTION_123",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_429",
+        "OFFENSE_PLAYER_REACTION_430",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_124"
+      ],
+      "order": 18,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_20",
+      "line": 508,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_127",
+        "OFFENSE_PLAYER_REACTION_128",
+        "OFFENSE_PLAYER_REACTION_129",
+        "OFFENSE_PLAYER_REACTION_108",
+        "OFFENSE_PLAYER_REACTION_130",
+        "OFFENSE_PLAYER_REACTION_131",
+        "OFFENSE_PLAYER_REACTION_132",
+        "OFFENSE_PLAYER_REACTION_133",
+        "OFFENSE_PLAYER_REACTION_134",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_124"
+      ],
+      "order": 19,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_21",
+      "line": 520,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_137",
+        "OFFENSE_PLAYER_REACTION_138",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_293",
+        "OFFENSE_PLAYER_REACTION_139",
+        "OFFENSE_PLAYER_REACTION_140",
+        "OFFENSE_PLAYER_REACTION_132",
+        "OFFENSE_PLAYER_REACTION_133",
+        "OFFENSE_PLAYER_REACTION_134",
+        "OFFENSE_PLAYER_REACTION_141",
+        "OFFENSE_PLAYER_REACTION_427"
+      ],
+      "order": 20,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_22",
+      "line": 532,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_142",
+        "OFFENSE_PLAYER_REACTION_143",
+        "OFFENSE_PLAYER_REACTION_144",
+        "OFFENSE_PLAYER_REACTION_094",
+        "OFFENSE_PLAYER_REACTION_295",
+        "OFFENSE_PLAYER_REACTION_431",
+        "OFFENSE_PLAYER_REACTION_145",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_113",
+        "OFFENSE_PLAYER_REACTION_100",
+        "OFFENSE_PLAYER_REACTION_427"
+      ],
+      "order": 21,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_23",
+      "line": 544,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_185",
+        "OFFENSE_PLAYER_REACTION_190",
+        "OFFENSE_PLAYER_REACTION_186",
+        "OFFENSE_PLAYER_REACTION_181",
+        "OFFENSE_PLAYER_REACTION_444",
+        "OFFENSE_PLAYER_REACTION_191",
+        "OFFENSE_PLAYER_REACTION_145",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_427",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_192"
+      ],
+      "order": 22,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_24",
+      "line": 556,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_146",
+        "OFFENSE_PLAYER_REACTION_147",
+        "OFFENSE_PLAYER_REACTION_148",
+        "OFFENSE_PLAYER_REACTION_294",
+        "OFFENSE_PLAYER_REACTION_151",
+        "OFFENSE_PLAYER_REACTION_149",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_133",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_150",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 23,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_25",
+      "line": 568,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_153",
+        "OFFENSE_PLAYER_REACTION_154",
+        "OFFENSE_PLAYER_REACTION_155",
+        "OFFENSE_PLAYER_REACTION_094",
+        "OFFENSE_PLAYER_REACTION_095",
+        "OFFENSE_PLAYER_REACTION_096",
+        "OFFENSE_PLAYER_REACTION_097",
+        "OFFENSE_PLAYER_REACTION_098",
+        "OFFENSE_PLAYER_REACTION_099",
+        "OFFENSE_PLAYER_REACTION_100",
+        "OFFENSE_PLAYER_REACTION_101"
+      ],
+      "order": 24,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_26",
+      "line": 580,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_127",
+        "OFFENSE_PLAYER_REACTION_128",
+        "OFFENSE_PLAYER_REACTION_129",
+        "OFFENSE_PLAYER_REACTION_294",
+        "OFFENSE_PLAYER_REACTION_156",
+        "OFFENSE_PLAYER_REACTION_427",
+        "OFFENSE_PLAYER_REACTION_132",
+        "OFFENSE_PLAYER_REACTION_133",
+        "OFFENSE_PLAYER_REACTION_134",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_430"
+      ],
+      "order": 25,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_27",
+      "line": 592,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_157",
+        "OFFENSE_PLAYER_REACTION_158",
+        "OFFENSE_PLAYER_REACTION_159",
+        "OFFENSE_PLAYER_REACTION_160",
+        "OFFENSE_PLAYER_REACTION_161",
+        "OFFENSE_PLAYER_REACTION_162",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_163",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_164"
+      ],
+      "order": 26,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_28",
+      "line": 604,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_165",
+        "OFFENSE_PLAYER_REACTION_166",
+        "OFFENSE_PLAYER_REACTION_167",
+        "OFFENSE_PLAYER_REACTION_168",
+        "OFFENSE_PLAYER_REACTION_169",
+        "OFFENSE_PLAYER_REACTION_438",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 27,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_29",
+      "line": 616,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_178",
+        "OFFENSE_PLAYER_REACTION_179",
+        "OFFENSE_PLAYER_REACTION_180",
+        "OFFENSE_PLAYER_REACTION_181",
+        "OFFENSE_PLAYER_REACTION_295",
+        "OFFENSE_PLAYER_REACTION_431",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_429",
+        "OFFENSE_PLAYER_REACTION_430",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_427"
+      ],
+      "order": 28,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_30",
+      "line": 628,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_185",
+        "OFFENSE_PLAYER_REACTION_179",
+        "OFFENSE_PLAYER_REACTION_186",
+        "OFFENSE_PLAYER_REACTION_181",
+        "OFFENSE_PLAYER_REACTION_444",
+        "OFFENSE_PLAYER_REACTION_187",
+        "OFFENSE_PLAYER_REACTION_145",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_427",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_431"
+      ],
+      "order": 29,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_31",
+      "line": 640,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_193",
+        "OFFENSE_PLAYER_REACTION_194",
+        "OFFENSE_PLAYER_REACTION_195",
+        "OFFENSE_PLAYER_REACTION_094",
+        "OFFENSE_PLAYER_REACTION_196",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_429",
+        "OFFENSE_PLAYER_REACTION_430",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_427"
+      ],
+      "order": 30,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_32",
+      "line": 652,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_105",
+        "OFFENSE_PLAYER_REACTION_106",
+        "OFFENSE_PLAYER_REACTION_197",
+        "OFFENSE_PLAYER_REACTION_108",
+        "OFFENSE_PLAYER_REACTION_109",
+        "OFFENSE_PLAYER_REACTION_110",
+        "OFFENSE_PLAYER_REACTION_111",
+        "OFFENSE_PLAYER_REACTION_112",
+        "OFFENSE_PLAYER_REACTION_113",
+        "OFFENSE_PLAYER_REACTION_114",
+        "OFFENSE_PLAYER_REACTION_431"
+      ],
+      "order": 31,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_33",
+      "line": 664,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_198",
+        "OFFENSE_PLAYER_REACTION_199",
+        "OFFENSE_PLAYER_REACTION_200",
+        "OFFENSE_PLAYER_REACTION_201",
+        "OFFENSE_PLAYER_REACTION_202",
+        "OFFENSE_PLAYER_REACTION_203",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_204",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_205",
+        "OFFENSE_PLAYER_REACTION_206"
+      ],
+      "order": 32,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_34",
+      "line": 676,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_207",
+        "OFFENSE_PLAYER_REACTION_208",
+        "OFFENSE_PLAYER_REACTION_209",
+        "OFFENSE_PLAYER_REACTION_303",
+        "OFFENSE_PLAYER_REACTION_161",
+        "OFFENSE_PLAYER_REACTION_211",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_212",
+        "OFFENSE_PLAYER_REACTION_213",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_214"
+      ],
+      "order": 33,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_35",
+      "line": 688,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_217",
+        "OFFENSE_PLAYER_REACTION_218",
+        "OFFENSE_PLAYER_REACTION_219",
+        "OFFENSE_PLAYER_REACTION_094",
+        "OFFENSE_PLAYER_REACTION_220",
+        "OFFENSE_PLAYER_REACTION_221",
+        "OFFENSE_PLAYER_REACTION_145",
+        "OFFENSE_PLAYER_REACTION_222",
+        "OFFENSE_PLAYER_REACTION_223",
+        "OFFENSE_PLAYER_REACTION_224",
+        "OFFENSE_PLAYER_REACTION_225"
+      ],
+      "order": 34,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_36",
+      "line": 700,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_165",
+        "OFFENSE_PLAYER_REACTION_170",
+        "OFFENSE_PLAYER_REACTION_171",
+        "OFFENSE_PLAYER_REACTION_172",
+        "OFFENSE_PLAYER_REACTION_173",
+        "OFFENSE_PLAYER_REACTION_174",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_175"
+      ],
+      "order": 35,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_37",
+      "line": 712,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_226",
+        "OFFENSE_PLAYER_REACTION_227",
+        "OFFENSE_PLAYER_REACTION_228",
+        "OFFENSE_PLAYER_REACTION_294",
+        "OFFENSE_PLAYER_REACTION_129",
+        "OFFENSE_PLAYER_REACTION_427",
+        "OFFENSE_PLAYER_REACTION_132",
+        "OFFENSE_PLAYER_REACTION_133",
+        "OFFENSE_PLAYER_REACTION_134",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_430"
+      ],
+      "order": 36,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_38",
+      "line": 724,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_178",
+        "OFFENSE_PLAYER_REACTION_182",
+        "OFFENSE_PLAYER_REACTION_183",
+        "OFFENSE_PLAYER_REACTION_181",
+        "OFFENSE_PLAYER_REACTION_184",
+        "OFFENSE_PLAYER_REACTION_431",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_429",
+        "OFFENSE_PLAYER_REACTION_430",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_427"
+      ],
+      "order": 37,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_39",
+      "line": 736,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_207",
+        "OFFENSE_PLAYER_REACTION_208",
+        "OFFENSE_PLAYER_REACTION_229",
+        "OFFENSE_PLAYER_REACTION_303",
+        "OFFENSE_PLAYER_REACTION_161",
+        "OFFENSE_PLAYER_REACTION_129",
+        "OFFENSE_PLAYER_REACTION_132",
+        "OFFENSE_PLAYER_REACTION_133",
+        "OFFENSE_PLAYER_REACTION_134",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_430"
+      ],
+      "order": 38,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_40",
+      "line": 748,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_312",
+        "OFFENSE_PLAYER_REACTION_231",
+        "OFFENSE_PLAYER_REACTION_230",
+        "OFFENSE_PLAYER_REACTION_303",
+        "OFFENSE_PLAYER_REACTION_161",
+        "OFFENSE_PLAYER_REACTION_232",
+        "OFFENSE_PLAYER_REACTION_429",
+        "OFFENSE_PLAYER_REACTION_212",
+        "OFFENSE_PLAYER_REACTION_213",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_214"
+      ],
+      "order": 39,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_41",
+      "line": 760,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_102",
+        "OFFENSE_PLAYER_REACTION_103",
+        "OFFENSE_PLAYER_REACTION_104",
+        "OFFENSE_PLAYER_REACTION_094",
+        "OFFENSE_PLAYER_REACTION_095",
+        "OFFENSE_PLAYER_REACTION_096",
+        "OFFENSE_PLAYER_REACTION_097",
+        "OFFENSE_PLAYER_REACTION_098",
+        "OFFENSE_PLAYER_REACTION_099",
+        "OFFENSE_PLAYER_REACTION_100",
+        "OFFENSE_PLAYER_REACTION_101"
+      ],
+      "order": 40,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_42",
+      "line": 772,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_233",
+        "OFFENSE_PLAYER_REACTION_234",
+        "OFFENSE_PLAYER_REACTION_235",
+        "OFFENSE_PLAYER_REACTION_094",
+        "OFFENSE_PLAYER_REACTION_236",
+        "OFFENSE_PLAYER_REACTION_237",
+        "OFFENSE_PLAYER_REACTION_097",
+        "OFFENSE_PLAYER_REACTION_098",
+        "OFFENSE_PLAYER_REACTION_099",
+        "OFFENSE_PLAYER_REACTION_100",
+        "OFFENSE_PLAYER_REACTION_101"
+      ],
+      "order": 41,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_43",
+      "line": 784,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_239",
+        "OFFENSE_PLAYER_REACTION_240",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_303",
+        "OFFENSE_PLAYER_REACTION_243",
+        "OFFENSE_PLAYER_REACTION_241",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_098",
+        "OFFENSE_PLAYER_REACTION_242",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_430"
+      ],
+      "order": 42,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_44",
+      "line": 796,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_246",
+        "OFFENSE_PLAYER_REACTION_244",
+        "OFFENSE_PLAYER_REACTION_234",
+        "OFFENSE_PLAYER_REACTION_094",
+        "OFFENSE_PLAYER_REACTION_245",
+        "OFFENSE_PLAYER_REACTION_237",
+        "OFFENSE_PLAYER_REACTION_097",
+        "OFFENSE_PLAYER_REACTION_098",
+        "OFFENSE_PLAYER_REACTION_099",
+        "OFFENSE_PLAYER_REACTION_100",
+        "OFFENSE_PLAYER_REACTION_101"
+      ],
+      "order": 43,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_45",
+      "line": 808,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_248",
+        "OFFENSE_PLAYER_REACTION_200",
+        "OFFENSE_PLAYER_REACTION_249",
+        "OFFENSE_PLAYER_REACTION_201",
+        "OFFENSE_PLAYER_REACTION_202",
+        "OFFENSE_PLAYER_REACTION_203",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_204",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 44,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_46",
+      "line": 820,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_256",
+        "OFFENSE_PLAYER_REACTION_257",
+        "OFFENSE_PLAYER_REACTION_431",
+        "OFFENSE_PLAYER_REACTION_306",
+        "OFFENSE_PLAYER_REACTION_243",
+        "OFFENSE_PLAYER_REACTION_258",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_212",
+        "OFFENSE_PLAYER_REACTION_259",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_260"
+      ],
+      "order": 45,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_47",
+      "line": 832,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_250",
+        "OFFENSE_PLAYER_REACTION_314",
+        "OFFENSE_PLAYER_REACTION_251",
+        "OFFENSE_PLAYER_REACTION_432",
+        "OFFENSE_PLAYER_REACTION_433",
+        "OFFENSE_PLAYER_REACTION_252",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_429",
+        "OFFENSE_PLAYER_REACTION_254",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_430"
+      ],
+      "order": 46,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_48",
+      "line": 844,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_261",
+        "OFFENSE_PLAYER_REACTION_262",
+        "OFFENSE_PLAYER_REACTION_263",
+        "OFFENSE_PLAYER_REACTION_264",
+        "OFFENSE_PLAYER_REACTION_161",
+        "OFFENSE_PLAYER_REACTION_211",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_212",
+        "OFFENSE_PLAYER_REACTION_213",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_214"
+      ],
+      "order": 47,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_49",
+      "line": 856,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_115",
+        "OFFENSE_PLAYER_REACTION_116",
+        "OFFENSE_PLAYER_REACTION_117",
+        "OFFENSE_PLAYER_REACTION_316",
+        "OFFENSE_PLAYER_REACTION_118",
+        "OFFENSE_PLAYER_REACTION_110",
+        "OFFENSE_PLAYER_REACTION_111",
+        "OFFENSE_PLAYER_REACTION_112",
+        "OFFENSE_PLAYER_REACTION_113",
+        "OFFENSE_PLAYER_REACTION_114",
+        "OFFENSE_PLAYER_REACTION_431"
+      ],
+      "order": 48,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_50",
+      "line": 868,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_265",
+        "OFFENSE_PLAYER_REACTION_335",
+        "OFFENSE_PLAYER_REACTION_336",
+        "OFFENSE_PLAYER_REACTION_337",
+        "OFFENSE_PLAYER_REACTION_338",
+        "OFFENSE_PLAYER_REACTION_339",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_204",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 49,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_51",
+      "line": 880,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_215",
+        "OFFENSE_PLAYER_REACTION_328",
+        "OFFENSE_PLAYER_REACTION_216",
+        "OFFENSE_PLAYER_REACTION_320",
+        "OFFENSE_PLAYER_REACTION_329",
+        "OFFENSE_PLAYER_REACTION_211",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_212",
+        "OFFENSE_PLAYER_REACTION_213",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_214"
+      ],
+      "order": 50,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_52",
+      "line": 892,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_152",
+        "OFFENSE_PLAYER_REACTION_319",
+        "OFFENSE_PLAYER_REACTION_148",
+        "OFFENSE_PLAYER_REACTION_399",
+        "OFFENSE_PLAYER_REACTION_321",
+        "OFFENSE_PLAYER_REACTION_322",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_133",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_150",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 51,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_53",
+      "line": 904,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_188",
+        "OFFENSE_PLAYER_REACTION_189",
+        "OFFENSE_PLAYER_REACTION_325",
+        "OFFENSE_PLAYER_REACTION_400",
+        "OFFENSE_PLAYER_REACTION_327",
+        "OFFENSE_PLAYER_REACTION_326",
+        "OFFENSE_PLAYER_REACTION_145",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_427",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_431"
+      ],
+      "order": 52,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_54",
+      "line": 916,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_266",
+        "OFFENSE_PLAYER_REACTION_341",
+        "OFFENSE_PLAYER_REACTION_340",
+        "OFFENSE_PLAYER_REACTION_412",
+        "OFFENSE_PLAYER_REACTION_401",
+        "OFFENSE_PLAYER_REACTION_096",
+        "OFFENSE_PLAYER_REACTION_097",
+        "OFFENSE_PLAYER_REACTION_098",
+        "OFFENSE_PLAYER_REACTION_099",
+        "OFFENSE_PLAYER_REACTION_100",
+        "OFFENSE_PLAYER_REACTION_101"
+      ],
+      "order": 53,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_55",
+      "line": 928,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_267",
+        "OFFENSE_PLAYER_REACTION_342",
+        "OFFENSE_PLAYER_REACTION_437",
+        "OFFENSE_PLAYER_REACTION_402",
+        "OFFENSE_PLAYER_REACTION_343",
+        "OFFENSE_PLAYER_REACTION_344",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 54,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_56",
+      "line": 940,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_247",
+        "OFFENSE_PLAYER_REACTION_244",
+        "OFFENSE_PLAYER_REACTION_333",
+        "OFFENSE_PLAYER_REACTION_401",
+        "OFFENSE_PLAYER_REACTION_334",
+        "OFFENSE_PLAYER_REACTION_237",
+        "OFFENSE_PLAYER_REACTION_097",
+        "OFFENSE_PLAYER_REACTION_098",
+        "OFFENSE_PLAYER_REACTION_099",
+        "OFFENSE_PLAYER_REACTION_100",
+        "OFFENSE_PLAYER_REACTION_101"
+      ],
+      "order": 55,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_57",
+      "line": 952,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_311",
+        "OFFENSE_PLAYER_REACTION_136",
+        "OFFENSE_PLAYER_REACTION_129",
+        "OFFENSE_PLAYER_REACTION_323",
+        "OFFENSE_PLAYER_REACTION_321",
+        "OFFENSE_PLAYER_REACTION_427",
+        "OFFENSE_PLAYER_REACTION_132",
+        "OFFENSE_PLAYER_REACTION_133",
+        "OFFENSE_PLAYER_REACTION_134",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_430"
+      ],
+      "order": 56,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_58",
+      "line": 964,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_125",
+        "OFFENSE_PLAYER_REACTION_126",
+        "OFFENSE_PLAYER_REACTION_121",
+        "OFFENSE_PLAYER_REACTION_401",
+        "OFFENSE_PLAYER_REACTION_317",
+        "OFFENSE_PLAYER_REACTION_123",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_429",
+        "OFFENSE_PLAYER_REACTION_430",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_124"
+      ],
+      "order": 57,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_59",
+      "line": 976,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_268",
+        "OFFENSE_PLAYER_REACTION_403",
+        "OFFENSE_PLAYER_REACTION_345",
+        "OFFENSE_PLAYER_REACTION_347",
+        "OFFENSE_PLAYER_REACTION_348",
+        "OFFENSE_PLAYER_REACTION_346",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 58,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_60",
+      "line": 988,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_269",
+        "OFFENSE_PLAYER_REACTION_436",
+        "OFFENSE_PLAYER_REACTION_316",
+        "OFFENSE_PLAYER_REACTION_404",
+        "OFFENSE_PLAYER_REACTION_401",
+        "OFFENSE_PLAYER_REACTION_349",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 59,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_61",
+      "line": 1000,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_270",
+        "OFFENSE_PLAYER_REACTION_405",
+        "OFFENSE_PLAYER_REACTION_350",
+        "OFFENSE_PLAYER_REACTION_351",
+        "OFFENSE_PLAYER_REACTION_352",
+        "OFFENSE_PLAYER_REACTION_406",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 60,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_62",
+      "line": 1012,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_271",
+        "OFFENSE_PLAYER_REACTION_353",
+        "OFFENSE_PLAYER_REACTION_354",
+        "OFFENSE_PLAYER_REACTION_407",
+        "OFFENSE_PLAYER_REACTION_401",
+        "OFFENSE_PLAYER_REACTION_438",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 61,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_63",
+      "line": 1024,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_272",
+        "OFFENSE_PLAYER_REACTION_355",
+        "OFFENSE_PLAYER_REACTION_356",
+        "OFFENSE_PLAYER_REACTION_357",
+        "OFFENSE_PLAYER_REACTION_358",
+        "OFFENSE_PLAYER_REACTION_273",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 62,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_64",
+      "line": 1036,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_274",
+        "OFFENSE_PLAYER_REACTION_436",
+        "OFFENSE_PLAYER_REACTION_359",
+        "OFFENSE_PLAYER_REACTION_407",
+        "OFFENSE_PLAYER_REACTION_360",
+        "OFFENSE_PLAYER_REACTION_438",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 63,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_65",
+      "line": 1048,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_275",
+        "OFFENSE_PLAYER_REACTION_276",
+        "OFFENSE_PLAYER_REACTION_361",
+        "OFFENSE_PLAYER_REACTION_351",
+        "OFFENSE_PLAYER_REACTION_332",
+        "OFFENSE_PLAYER_REACTION_110",
+        "OFFENSE_PLAYER_REACTION_111",
+        "OFFENSE_PLAYER_REACTION_112",
+        "OFFENSE_PLAYER_REACTION_113",
+        "OFFENSE_PLAYER_REACTION_114",
+        "OFFENSE_PLAYER_REACTION_431"
+      ],
+      "order": 64,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_66",
+      "line": 1060,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_135",
+        "OFFENSE_PLAYER_REACTION_136",
+        "OFFENSE_PLAYER_REACTION_129",
+        "OFFENSE_PLAYER_REACTION_402",
+        "OFFENSE_PLAYER_REACTION_401",
+        "OFFENSE_PLAYER_REACTION_318",
+        "OFFENSE_PLAYER_REACTION_132",
+        "OFFENSE_PLAYER_REACTION_133",
+        "OFFENSE_PLAYER_REACTION_134",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_124"
+      ],
+      "order": 65,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_67",
+      "line": 1072,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_277",
+        "OFFENSE_PLAYER_REACTION_362",
+        "OFFENSE_PLAYER_REACTION_363",
+        "OFFENSE_PLAYER_REACTION_316",
+        "OFFENSE_PLAYER_REACTION_364",
+        "OFFENSE_PLAYER_REACTION_402",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 66,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_68",
+      "line": 1084,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_278",
+        "OFFENSE_PLAYER_REACTION_279",
+        "OFFENSE_PLAYER_REACTION_365",
+        "OFFENSE_PLAYER_REACTION_401",
+        "OFFENSE_PLAYER_REACTION_400",
+        "OFFENSE_PLAYER_REACTION_366",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 67,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_69",
+      "line": 1096,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_238",
+        "OFFENSE_PLAYER_REACTION_330",
+        "OFFENSE_PLAYER_REACTION_331",
+        "OFFENSE_PLAYER_REACTION_401",
+        "OFFENSE_PLAYER_REACTION_408",
+        "OFFENSE_PLAYER_REACTION_237",
+        "OFFENSE_PLAYER_REACTION_097",
+        "OFFENSE_PLAYER_REACTION_098",
+        "OFFENSE_PLAYER_REACTION_099",
+        "OFFENSE_PLAYER_REACTION_100",
+        "OFFENSE_PLAYER_REACTION_101"
+      ],
+      "order": 68,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_70",
+      "line": 1108,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_280",
+        "OFFENSE_PLAYER_REACTION_281",
+        "OFFENSE_PLAYER_REACTION_367",
+        "OFFENSE_PLAYER_REACTION_368",
+        "OFFENSE_PLAYER_REACTION_369",
+        "OFFENSE_PLAYER_REACTION_187",
+        "OFFENSE_PLAYER_REACTION_145",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_427",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_431"
+      ],
+      "order": 69,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_71",
+      "line": 1120,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_282",
+        "OFFENSE_PLAYER_REACTION_436",
+        "OFFENSE_PLAYER_REACTION_370",
+        "OFFENSE_PLAYER_REACTION_401",
+        "OFFENSE_PLAYER_REACTION_348",
+        "OFFENSE_PLAYER_REACTION_371",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 70,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_72",
+      "line": 1132,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_283",
+        "OFFENSE_PLAYER_REACTION_372",
+        "OFFENSE_PLAYER_REACTION_373",
+        "OFFENSE_PLAYER_REACTION_374",
+        "OFFENSE_PLAYER_REACTION_375",
+        "OFFENSE_PLAYER_REACTION_376",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 71,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_73",
+      "line": 1144,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_284",
+        "OFFENSE_PLAYER_REACTION_316",
+        "OFFENSE_PLAYER_REACTION_377",
+        "OFFENSE_PLAYER_REACTION_402",
+        "OFFENSE_PLAYER_REACTION_401",
+        "OFFENSE_PLAYER_REACTION_378",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 72,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_74",
+      "line": 1156,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_285",
+        "OFFENSE_PLAYER_REACTION_379",
+        "OFFENSE_PLAYER_REACTION_380",
+        "OFFENSE_PLAYER_REACTION_410",
+        "OFFENSE_PLAYER_REACTION_381",
+        "OFFENSE_PLAYER_REACTION_409",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 73,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_75",
+      "line": 1168,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_286",
+        "OFFENSE_PLAYER_REACTION_382",
+        "OFFENSE_PLAYER_REACTION_411",
+        "OFFENSE_PLAYER_REACTION_383",
+        "OFFENSE_PLAYER_REACTION_321",
+        "OFFENSE_PLAYER_REACTION_384",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 74,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_76",
+      "line": 1180,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_176",
+        "OFFENSE_PLAYER_REACTION_324",
+        "OFFENSE_PLAYER_REACTION_167",
+        "OFFENSE_PLAYER_REACTION_177",
+        "OFFENSE_PLAYER_REACTION_321",
+        "OFFENSE_PLAYER_REACTION_438",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 75,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_77",
+      "line": 1192,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_287",
+        "OFFENSE_PLAYER_REACTION_385",
+        "OFFENSE_PLAYER_REACTION_386",
+        "OFFENSE_PLAYER_REACTION_387",
+        "OFFENSE_PLAYER_REACTION_388",
+        "OFFENSE_PLAYER_REACTION_389",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 76,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_78",
+      "line": 1204,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_288",
+        "OFFENSE_PLAYER_REACTION_390",
+        "OFFENSE_PLAYER_REACTION_391",
+        "OFFENSE_PLAYER_REACTION_407",
+        "OFFENSE_PLAYER_REACTION_401",
+        "OFFENSE_PLAYER_REACTION_438",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 77,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_79",
+      "line": 1216,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_289",
+        "OFFENSE_PLAYER_REACTION_392",
+        "OFFENSE_PLAYER_REACTION_393",
+        "OFFENSE_PLAYER_REACTION_394",
+        "OFFENSE_PLAYER_REACTION_395",
+        "OFFENSE_PLAYER_REACTION_402",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 78,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_80",
+      "line": 1228,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_290",
+        "OFFENSE_PLAYER_REACTION_396",
+        "OFFENSE_PLAYER_REACTION_397",
+        "OFFENSE_PLAYER_REACTION_398",
+        "OFFENSE_PLAYER_REACTION_402",
+        "OFFENSE_PLAYER_REACTION_316",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 79,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_81",
+      "line": 1240,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_091",
+        "OFFENSE_PLAYER_REACTION_092",
+        "OFFENSE_PLAYER_REACTION_093",
+        "OFFENSE_PLAYER_REACTION_094",
+        "OFFENSE_PLAYER_REACTION_095",
+        "OFFENSE_PLAYER_REACTION_313",
+        "OFFENSE_PLAYER_REACTION_097",
+        "OFFENSE_PLAYER_REACTION_098",
+        "OFFENSE_PLAYER_REACTION_291",
+        "OFFENSE_PLAYER_REACTION_100",
+        "OFFENSE_PLAYER_REACTION_101"
+      ],
+      "order": 80,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_82",
+      "line": 1252,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_137",
+        "OFFENSE_PLAYER_REACTION_138",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_293",
+        "OFFENSE_PLAYER_REACTION_139",
+        "OFFENSE_PLAYER_REACTION_292",
+        "OFFENSE_PLAYER_REACTION_132",
+        "OFFENSE_PLAYER_REACTION_133",
+        "OFFENSE_PLAYER_REACTION_134",
+        "OFFENSE_PLAYER_REACTION_141",
+        "OFFENSE_PLAYER_REACTION_427"
+      ],
+      "order": 81,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_83",
+      "line": 1264,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_137",
+        "OFFENSE_PLAYER_REACTION_138",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_432",
+        "OFFENSE_PLAYER_REACTION_139",
+        "OFFENSE_PLAYER_REACTION_292",
+        "OFFENSE_PLAYER_REACTION_132",
+        "OFFENSE_PLAYER_REACTION_133",
+        "OFFENSE_PLAYER_REACTION_134",
+        "OFFENSE_PLAYER_REACTION_141",
+        "OFFENSE_PLAYER_REACTION_427"
+      ],
+      "order": 82,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_84",
+      "line": 1276,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_185",
+        "OFFENSE_PLAYER_REACTION_190",
+        "OFFENSE_PLAYER_REACTION_292",
+        "OFFENSE_PLAYER_REACTION_181",
+        "OFFENSE_PLAYER_REACTION_435",
+        "OFFENSE_PLAYER_REACTION_191",
+        "OFFENSE_PLAYER_REACTION_314",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_427",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_192"
+      ],
+      "order": 83,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_85",
+      "line": 1288,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_146",
+        "OFFENSE_PLAYER_REACTION_147",
+        "OFFENSE_PLAYER_REACTION_148",
+        "OFFENSE_PLAYER_REACTION_432",
+        "OFFENSE_PLAYER_REACTION_151",
+        "OFFENSE_PLAYER_REACTION_149",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_133",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_150",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 84,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_86",
+      "line": 1300,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_142",
+        "OFFENSE_PLAYER_REACTION_143",
+        "OFFENSE_PLAYER_REACTION_144",
+        "OFFENSE_PLAYER_REACTION_094",
+        "OFFENSE_PLAYER_REACTION_433",
+        "OFFENSE_PLAYER_REACTION_431",
+        "OFFENSE_PLAYER_REACTION_145",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_113",
+        "OFFENSE_PLAYER_REACTION_100",
+        "OFFENSE_PLAYER_REACTION_427"
+      ],
+      "order": 85,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_87",
+      "line": 1312,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_127",
+        "OFFENSE_PLAYER_REACTION_128",
+        "OFFENSE_PLAYER_REACTION_129",
+        "OFFENSE_PLAYER_REACTION_432",
+        "OFFENSE_PLAYER_REACTION_156",
+        "OFFENSE_PLAYER_REACTION_427",
+        "OFFENSE_PLAYER_REACTION_132",
+        "OFFENSE_PLAYER_REACTION_133",
+        "OFFENSE_PLAYER_REACTION_134",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_314"
+      ],
+      "order": 86,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_88",
+      "line": 1324,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_250",
+        "OFFENSE_PLAYER_REACTION_314",
+        "OFFENSE_PLAYER_REACTION_251",
+        "OFFENSE_PLAYER_REACTION_432",
+        "OFFENSE_PLAYER_REACTION_433",
+        "OFFENSE_PLAYER_REACTION_252",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_253",
+        "OFFENSE_PLAYER_REACTION_254",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_255"
+      ],
+      "order": 87,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_89",
+      "line": 1336,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_248",
+        "OFFENSE_PLAYER_REACTION_298",
+        "OFFENSE_PLAYER_REACTION_249",
+        "OFFENSE_PLAYER_REACTION_299",
+        "OFFENSE_PLAYER_REACTION_300",
+        "OFFENSE_PLAYER_REACTION_301",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_204",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 88,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_90",
+      "line": 1348,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_261",
+        "OFFENSE_PLAYER_REACTION_262",
+        "OFFENSE_PLAYER_REACTION_263",
+        "OFFENSE_PLAYER_REACTION_264",
+        "OFFENSE_PLAYER_REACTION_161",
+        "OFFENSE_PLAYER_REACTION_308",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_212",
+        "OFFENSE_PLAYER_REACTION_313",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_297"
+      ],
+      "order": 89,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_91",
+      "line": 1360,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_309",
+        "OFFENSE_PLAYER_REACTION_342",
+        "OFFENSE_PLAYER_REACTION_437",
+        "OFFENSE_PLAYER_REACTION_402",
+        "OFFENSE_PLAYER_REACTION_343",
+        "OFFENSE_PLAYER_REACTION_344",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 90,
+      "entryCount": 11
+    },
+    {
+      "sourceLabel": "OFFENSIVE_EXECUTION_92",
+      "line": 1372,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_310",
+        "OFFENSE_PLAYER_REACTION_403",
+        "OFFENSE_PLAYER_REACTION_345",
+        "OFFENSE_PLAYER_REACTION_347",
+        "OFFENSE_PLAYER_REACTION_348",
+        "OFFENSE_PLAYER_REACTION_346",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443"
+      ],
+      "order": 91,
+      "entryCount": 11
+    }
+  ],
+  "specialOffensivePlayTables": [
+    {
+      "sourceLabel": "TD_CELEBRATION_OFF_PLAY_POINTERS",
+      "line": 1392,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_448",
+        "OFFENSE_PLAYER_REACTION_449",
+        "OFFENSE_PLAYER_REACTION_450",
+        "OFFENSE_PLAYER_REACTION_451",
+        "OFFENSE_PLAYER_REACTION_452",
+        "OFFENSE_PLAYER_REACTION_448",
+        "OFFENSE_PLAYER_REACTION_449",
+        "OFFENSE_PLAYER_REACTION_450",
+        "OFFENSE_PLAYER_REACTION_451",
+        "OFFENSE_PLAYER_REACTION_452",
+        "OFFENSE_PLAYER_REACTION_448",
+        "OFFENSE_PLAYER_REACTION_449"
+      ],
+      "order": 0,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "INTCERCEPTION_RETURN_OFF_PLAY_POINTERS",
+      "line": 1405,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_447"
+      ],
+      "order": 1,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "RECOVER_ONSIDES_OFF_PLAY_POINTERS",
+      "line": 1418,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_413",
+        "OFFENSE_PLAYER_REACTION_414",
+        "OFFENSE_PLAYER_REACTION_415",
+        "OFFENSE_PLAYER_REACTION_416",
+        "OFFENSE_PLAYER_REACTION_417",
+        "OFFENSE_PLAYER_REACTION_418",
+        "OFFENSE_PLAYER_REACTION_419",
+        "OFFENSE_PLAYER_REACTION_420",
+        "OFFENSE_PLAYER_REACTION_421",
+        "OFFENSE_PLAYER_REACTION_422",
+        "OFFENSE_PLAYER_REACTION_423",
+        "OFFENSE_PLAYER_REACTION_424"
+      ],
+      "order": 2,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "RECOVER_FUMBLE_OFF_PLAY_POINTERS",
+      "line": 1431,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_413",
+        "OFFENSE_PLAYER_REACTION_414",
+        "OFFENSE_PLAYER_REACTION_415",
+        "OFFENSE_PLAYER_REACTION_416",
+        "OFFENSE_PLAYER_REACTION_417",
+        "OFFENSE_PLAYER_REACTION_418",
+        "OFFENSE_PLAYER_REACTION_419",
+        "OFFENSE_PLAYER_REACTION_420",
+        "OFFENSE_PLAYER_REACTION_421",
+        "OFFENSE_PLAYER_REACTION_422",
+        "OFFENSE_PLAYER_REACTION_423",
+        "OFFENSE_PLAYER_REACTION_424"
+      ],
+      "order": 3,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "PUNT_RETURN_OFF_PLAY_POINTERS",
+      "line": 1444,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_023",
+        "OFFENSE_PLAYER_REACTION_024",
+        "OFFENSE_PLAYER_REACTION_024",
+        "OFFENSE_PLAYER_REACTION_024",
+        "OFFENSE_PLAYER_REACTION_024",
+        "OFFENSE_PLAYER_REACTION_024",
+        "OFFENSE_PLAYER_REACTION_024",
+        "OFFENSE_PLAYER_REACTION_024",
+        "OFFENSE_PLAYER_REACTION_024",
+        "OFFENSE_PLAYER_REACTION_024",
+        "OFFENSE_PLAYER_REACTION_024",
+        "OFFENSE_PLAYER_REACTION_023"
+      ],
+      "order": 4,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "ONSIDES_RETURN_OFF_PLAY_POINTERS",
+      "line": 1457,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_435",
+        "OFFENSE_PLAYER_REACTION_434",
+        "OFFENSE_PLAYER_REACTION_431",
+        "OFFENSE_PLAYER_REACTION_432",
+        "OFFENSE_PLAYER_REACTION_433",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_429",
+        "OFFENSE_PLAYER_REACTION_430",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_427",
+        "OFFENSE_PLAYER_REACTION_315"
+      ],
+      "order": 5,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "UNUSED_1_OFF_PLAY_POINTERS",
+      "line": 1470,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_445",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_445",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_445",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_445",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_447"
+      ],
+      "order": 6,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "FUMBLE_RECOVERED_OFF_PLAY_POINTERS",
+      "line": 1483,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_435",
+        "OFFENSE_PLAYER_REACTION_434",
+        "OFFENSE_PLAYER_REACTION_431",
+        "OFFENSE_PLAYER_REACTION_432",
+        "OFFENSE_PLAYER_REACTION_433",
+        "OFFENSE_PLAYER_REACTION_428",
+        "OFFENSE_PLAYER_REACTION_426",
+        "OFFENSE_PLAYER_REACTION_429",
+        "OFFENSE_PLAYER_REACTION_430",
+        "OFFENSE_PLAYER_REACTION_425",
+        "OFFENSE_PLAYER_REACTION_427",
+        "OFFENSE_PLAYER_REACTION_315"
+      ],
+      "order": 7,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "FUMBLE_LOST_OFF_PLAY_POINTERS",
+      "line": 1496,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_445",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_445",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_445",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_445",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_446",
+        "OFFENSE_PLAYER_REACTION_447"
+      ],
+      "order": 8,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "UNUSED_2_OFF_PLAY_POINTERS",
+      "line": 1509,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_453",
+        "OFFENSE_PLAYER_REACTION_454",
+        "OFFENSE_PLAYER_REACTION_455",
+        "OFFENSE_PLAYER_REACTION_456",
+        "OFFENSE_PLAYER_REACTION_457",
+        "OFFENSE_PLAYER_REACTION_454",
+        "OFFENSE_PLAYER_REACTION_455",
+        "OFFENSE_PLAYER_REACTION_456",
+        "OFFENSE_PLAYER_REACTION_457",
+        "OFFENSE_PLAYER_REACTION_453",
+        "OFFENSE_PLAYER_REACTION_454",
+        "OFFENSE_PLAYER_REACTION_455"
+      ],
+      "order": 9,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "UNUSED_3_OFF_PLAY_POINTERS",
+      "line": 1522,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_453",
+        "OFFENSE_PLAYER_REACTION_454",
+        "OFFENSE_PLAYER_REACTION_455",
+        "OFFENSE_PLAYER_REACTION_456",
+        "OFFENSE_PLAYER_REACTION_457",
+        "OFFENSE_PLAYER_REACTION_454",
+        "OFFENSE_PLAYER_REACTION_455",
+        "OFFENSE_PLAYER_REACTION_456",
+        "OFFENSE_PLAYER_REACTION_457",
+        "OFFENSE_PLAYER_REACTION_453",
+        "OFFENSE_PLAYER_REACTION_454",
+        "OFFENSE_PLAYER_REACTION_455"
+      ],
+      "order": 10,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "OFFENSIVE_PLAYERS_CRY_OFF_PLAY_POINTERS",
+      "line": 1535,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_453",
+        "OFFENSE_PLAYER_REACTION_454",
+        "OFFENSE_PLAYER_REACTION_455",
+        "OFFENSE_PLAYER_REACTION_456",
+        "OFFENSE_PLAYER_REACTION_457",
+        "OFFENSE_PLAYER_REACTION_454",
+        "OFFENSE_PLAYER_REACTION_455",
+        "OFFENSE_PLAYER_REACTION_456",
+        "OFFENSE_PLAYER_REACTION_457",
+        "OFFENSE_PLAYER_REACTION_453",
+        "OFFENSE_PLAYER_REACTION_453",
+        "OFFENSE_PLAYER_REACTION_455"
+      ],
+      "order": 11,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "UNUSED_4_OFF_PLAY_POINTERS",
+      "line": 1548,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_453",
+        "OFFENSE_PLAYER_REACTION_454",
+        "OFFENSE_PLAYER_REACTION_455",
+        "OFFENSE_PLAYER_REACTION_456",
+        "OFFENSE_PLAYER_REACTION_457",
+        "OFFENSE_PLAYER_REACTION_454",
+        "OFFENSE_PLAYER_REACTION_455",
+        "OFFENSE_PLAYER_REACTION_456",
+        "OFFENSE_PLAYER_REACTION_457",
+        "OFFENSE_PLAYER_REACTION_453",
+        "OFFENSE_PLAYER_REACTION_453",
+        "OFFENSE_PLAYER_REACTION_455"
+      ],
+      "order": 12,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "UNUSED_5_OFF_PLAY_POINTERS",
+      "line": 1561,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_054",
+        "OFFENSE_PLAYER_REACTION_055",
+        "OFFENSE_PLAYER_REACTION_056",
+        "OFFENSE_PLAYER_REACTION_057",
+        "OFFENSE_PLAYER_REACTION_058",
+        "OFFENSE_PLAYER_REACTION_059",
+        "OFFENSE_PLAYER_REACTION_060",
+        "OFFENSE_PLAYER_REACTION_061",
+        "OFFENSE_PLAYER_REACTION_062",
+        "OFFENSE_PLAYER_REACTION_063",
+        "OFFENSE_PLAYER_REACTION_064",
+        "OFFENSE_PLAYER_REACTION_054"
+      ],
+      "order": 13,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "UNUSED_6_OFF_PLAY_POINTERS",
+      "line": 1574,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_054",
+        "OFFENSE_PLAYER_REACTION_055",
+        "OFFENSE_PLAYER_REACTION_056",
+        "OFFENSE_PLAYER_REACTION_057",
+        "OFFENSE_PLAYER_REACTION_058",
+        "OFFENSE_PLAYER_REACTION_059",
+        "OFFENSE_PLAYER_REACTION_060",
+        "OFFENSE_PLAYER_REACTION_061",
+        "OFFENSE_PLAYER_REACTION_062",
+        "OFFENSE_PLAYER_REACTION_063",
+        "OFFENSE_PLAYER_REACTION_064",
+        "OFFENSE_PLAYER_REACTION_054"
+      ],
+      "order": 14,
+      "entryCount": 12
+    },
+    {
+      "sourceLabel": "UNUSED_7_OFF_PLAY_POINTERS",
+      "line": 1587,
+      "entries": [
+        "OFFENSE_PLAYER_REACTION_119",
+        "OFFENSE_PLAYER_REACTION_092",
+        "OFFENSE_PLAYER_REACTION_313",
+        "OFFENSE_PLAYER_REACTION_313",
+        "OFFENSE_PLAYER_REACTION_313",
+        "OFFENSE_PLAYER_REACTION_313",
+        "OFFENSE_PLAYER_REACTION_439",
+        "OFFENSE_PLAYER_REACTION_440",
+        "OFFENSE_PLAYER_REACTION_441",
+        "OFFENSE_PLAYER_REACTION_442",
+        "OFFENSE_PLAYER_REACTION_443",
+        "OFFENSE_PLAYER_REACTION_119"
+      ],
+      "order": 15,
+      "entryCount": 12
+    }
+  ]
+}

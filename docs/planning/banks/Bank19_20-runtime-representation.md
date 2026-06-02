@@ -88,8 +88,10 @@ Implemented host logic currently includes:
 - touchdown aftermath routing into extra-point/kickoff reset
 - onside recovery/restart flow
 - loose-ball / fumble recovery branching into same-team recovery vs turnover restart
+- kickoff progression and onside-routing entry wired into the active coordinator phase loop
+- normalized possession-change helpers reused across interception, punt, kickoff, safety, and turnover-on-downs outcomes
 
-This is still an incremental implementation slice, but the coordinator now owns real Bank19_20 entry, routing, pass-flow, special-teams-flow, turnover-flow, scoring-flow, and outcome-handling logic rather than only ownership metadata.
+This is still an incremental implementation slice, but the coordinator now owns real Bank19_20 entry, routing, pass-flow, special-teams-flow, kickoff-flow, turnover-flow, scoring-flow, and outcome-handling logic rather than only ownership metadata.
 
 ## Why this is the right Bank19_20 shape
 

@@ -91,6 +91,7 @@ Validated:
 - pass-play progression now makes explicit service calls for pass-target indicator updates, pass-collision ordering, incomplete-pass presentation, cutscene resets, and interception-return script reassignment
 - special-teams progression now makes explicit service calls for special-teams skill overrides, punt coverage/return script reassignment, punt-return presentation, field-goal/XP presentation, and blocked-kick presentation
 - turnover/score progression now makes explicit coordinator/service calls for interception-return assignment, touchdown celebration/presentation, onside recovery handling, loose-ball recovery routing, turnover series reset, and post-turnover spot/hash updates
+- kickoff progression is now wired into the live coordinator loop with explicit kickoff-state reset, kickoff/onside routing, and normalized punt/interception possession-change handling instead of leaving those newer host methods partly disconnected
 - the naming of the runtime-facing ownership map and routine ids has been cleaned up into gameplay-facing names instead of generic `Bank19...Section...` names
 
 ### Bank21_22 carry-forward boundary

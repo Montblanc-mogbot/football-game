@@ -122,6 +122,13 @@ public sealed class OnFieldPlayCoordinator
         playerSkillHydrationService.LoadAllSkillsIntoPlayerState(state);
         playerSkillHydrationService.LoadSinglePlayerSkillsIntoPlayerState(state, OnFieldTeam.Player1, "KICKER_STARTER_ID");
         playerSkillHydrationService.LoadSinglePlayerSkillsIntoPlayerState(state, OnFieldTeam.Player2, "KR_STARTER_ID");
+        state.BallKicked = false;
+        state.BallReceivedByReturnTeam = false;
+        state.BallRecovered = false;
+        state.RecoveredByPossessingTeam = false;
+        state.TouchbackTriggered = false;
+        state.PlayOverTriggered = false;
+        state.TurnoverReturnActive = false;
         taskCoordinationService.StartOnFieldTasks(state);
         presentationService.PrepareKickoffPresentation(state, OnFieldTeam.Player1, state.IsSafetyKickoff);
     }
@@ -140,6 +147,13 @@ public sealed class OnFieldPlayCoordinator
         playerSkillHydrationService.LoadAllSkillsIntoPlayerState(state);
         playerSkillHydrationService.LoadSinglePlayerSkillsIntoPlayerState(state, OnFieldTeam.Player2, "KICKER_STARTER_ID");
         playerSkillHydrationService.LoadSinglePlayerSkillsIntoPlayerState(state, OnFieldTeam.Player1, "KR_STARTER_ID");
+        state.BallKicked = false;
+        state.BallReceivedByReturnTeam = false;
+        state.BallRecovered = false;
+        state.RecoveredByPossessingTeam = false;
+        state.TouchbackTriggered = false;
+        state.PlayOverTriggered = false;
+        state.TurnoverReturnActive = false;
         taskCoordinationService.StartOnFieldTasks(state);
         presentationService.PrepareKickoffPresentation(state, OnFieldTeam.Player2, state.IsSafetyKickoff);
     }
@@ -189,6 +203,12 @@ public sealed class OnFieldPlayCoordinator
         if (state.PlayType == OnFieldPlayType.Regular && state.IsManualPassingAllowed)
         {
             RunPassPlayLoop(state);
+            return;
+        }
+
+        if (state.PlayType == OnFieldPlayType.Kickoff)
+        {
+            RunKickoffFlow(state);
             return;
         }
 
@@ -380,10 +400,7 @@ public sealed class OnFieldPlayCoordinator
                 state.RecordEvent($"Resolved tipped-pass host routing for {state.PossessionTeam}.");
                 break;
             case OnFieldPassOutcome.Intercepted:
-                state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_INTERCEPTED : OnFieldRoutine.P2_INTERCEPTED);
-                HandlePossessionChange(state, GetOpposingTeam(state.PossessionTeam));
-                playAssignmentService.ReassignForTurnoverOrReturn(state, "interception-return");
-                state.RecordEvent("Resolved interception outcome and installed interception-return host context.");
+                HandleInterceptionResult(state);
                 break;
             case OnFieldPassOutcome.Incomplete:
                 ResolveIncompletePass(state);
@@ -442,6 +459,44 @@ public sealed class OnFieldPlayCoordinator
         ResolveNormalPlayOver(state);
     }
 
+    private void RunKickoffFlow(OnFieldGameState state)
+    {
+        if (!state.BallKicked)
+        {
+            state.RecordEvent($"Waiting for {state.PossessionTeam} to kick off the ball.");
+            return;
+        }
+
+        OnFieldTeam receivingTeam = GetOpposingTeam(state.KickoffTeam);
+        if (state.CpuKickoffStrategy == OnFieldKickoffStrategy.Onside)
+        {
+            HandleOnsideKickResolution(state);
+            return;
+        }
+
+        if (state.TouchbackTriggered)
+        {
+            ApplyPossessionChange(state, receivingTeam, state.IsSafetyKickoff ? "SAFETY_KICK_TOUCHBACK" : "KICKOFF_TOUCHBACK");
+            state.RecordEvent($"Resolved kickoff touchback; {receivingTeam} offense takes over.");
+            QueueNextPlayOrKickoffState(state, receivingTeam, kickoffRequired: false);
+            return;
+        }
+
+        if (!state.BallReceivedByReturnTeam)
+        {
+            state.RecordEvent($"Waiting for {receivingTeam} to field the kickoff or trigger a touchback.");
+            return;
+        }
+
+        ApplyPossessionChange(state, receivingTeam, state.IsSafetyKickoff ? "SAFETY_KICK_RETURN" : "KICKOFF_RETURN");
+        statAccountingService.CalculatePlayDistance(state);
+        statAccountingService.UpdateInGameStats(state);
+        injuryCutsceneService.ResolveNormalInjuryChecks(state, receivingTeam);
+        state.IsSafetyKickoff = false;
+        state.RecordEvent($"Resolved kickoff return flow; {receivingTeam} now starts the next offensive play.");
+        QueueNextPlayOrKickoffState(state, receivingTeam, kickoffRequired: false);
+    }
+
     private void RunPuntFlow(OnFieldGameState state)
     {
         if (!state.BallKicked)
@@ -474,9 +529,8 @@ public sealed class OnFieldPlayCoordinator
 
         if (state.TouchbackTriggered)
         {
-            HandlePossessionChange(state, returnTeam);
-            presentationService.PrepareSideChangePresentation(state, returnTeam);
-            StartPlaySelectionAndLoad(state, returnTeam, OnFieldPlayType.Regular);
+            ApplyPossessionChange(state, returnTeam, "PUNT_TOUCHBACK");
+            QueueNextPlayOrKickoffState(state, returnTeam, kickoffRequired: false);
             return;
         }
 
@@ -486,13 +540,12 @@ public sealed class OnFieldPlayCoordinator
             return;
         }
 
-        HandlePossessionChange(state, returnTeam);
-        presentationService.PrepareSideChangePresentation(state, returnTeam);
+        ApplyPossessionChange(state, returnTeam, "PUNT_RETURN");
         statAccountingService.CalculatePlayDistance(state);
         statAccountingService.UpdateInGameStats(state);
         injuryCutsceneService.ResolveNormalInjuryChecks(state, returnTeam);
         state.RecordEvent($"Resolved punt return flow; {returnTeam} now starts the next offensive play.");
-        StartPlaySelectionAndLoad(state, returnTeam, OnFieldPlayType.Regular);
+        QueueNextPlayOrKickoffState(state, returnTeam, kickoffRequired: false);
     }
 
     private void RunFieldGoalOrExtraPointFlow(OnFieldGameState state)
@@ -614,7 +667,7 @@ public sealed class OnFieldPlayCoordinator
     {
         state.RecordEvent($"Resolved special-teams play-over for {state.PossessionTeam}; switching possession to the opposing team.");
         OnFieldTeam newPossessionTeam = GetOpposingTeam(state.PossessionTeam);
-        ApplyPossessionChange(state, newPossessionTeam, "BLOCKED_PUNT");
+        ApplyPossessionChange(state, newPossessionTeam, "SPECIAL_TEAMS_PLAY_OVER");
         QueueNextPlayOrKickoffState(state, newPossessionTeam, kickoffRequired: false);
     }
 
@@ -622,8 +675,8 @@ public sealed class OnFieldPlayCoordinator
     {
         state.RecordEvent($"Resolved blocked punt outcome for {state.PossessionTeam}; treating it as an immediate side change.");
         OnFieldTeam newPossessionTeam = GetOpposingTeam(state.PossessionTeam);
-        HandlePossessionChange(state, newPossessionTeam);
-        StartPlaySelectionAndLoad(state, newPossessionTeam, OnFieldPlayType.Regular);
+        ApplyPossessionChange(state, newPossessionTeam, "BLOCKED_PUNT");
+        QueueNextPlayOrKickoffState(state, newPossessionTeam, kickoffRequired: false);
     }
 
     private void ResolveMadeFieldGoalOrExtraPoint(OnFieldGameState state)

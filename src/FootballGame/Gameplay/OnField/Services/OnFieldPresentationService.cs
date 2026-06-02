@@ -58,6 +58,22 @@ public sealed class OnFieldPresentationService
         state.RecordEvent($"Prepared special-teams presentation for {possessionTeam} {playType}.");
     }
 
+    public void PrepareIncompletePassPresentation(OnFieldGameState state, OnFieldTeam possessionTeam)
+    {
+        state.CurrentBannerKey = $"{possessionTeam}_INCOMPLETE_PASS";
+        state.RecordEvent($"Prepared incomplete-pass presentation for {possessionTeam}.");
+    }
+
+    public void PrepareQuarterbackSackPresentation(OnFieldGameState state, OnFieldTeam possessionTeam, bool sideChange, bool safety)
+    {
+        string cutsceneKey = safety
+            ? "QB_SACK_SAFETY"
+            : sideChange
+                ? "QB_SACK_SIDE_CHANGE"
+                : "QB_SACK";
+        state.RecordEvent($"Prepared quarterback sack presentation '{cutsceneKey}' for {possessionTeam}.");
+    }
+
     public void UpdateScrollAndFieldMarkers(OnFieldGameState state)
     {
         state.RecordRoutine(OnFieldRoutine.UPDATE_LOS_MARKERS);

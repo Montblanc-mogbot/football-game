@@ -78,8 +78,12 @@ Implemented host logic currently includes:
 - normal play-over resolution back into play selection
 - turnover-on-downs possession-change routing
 - safety outcome routing back into kickoff flow
+- pass lifecycle staging before and after the throw
+- scramble transition when the QB crosses the LOS without throwing
+- interception/tip/incomplete host routing
+- no-throw / sack outcome handling
 
-This is still an incremental implementation slice, but the coordinator now owns real Bank19_20 entry, routing, and outcome-handling logic rather than only ownership metadata.
+This is still an incremental implementation slice, but the coordinator now owns real Bank19_20 entry, routing, pass-flow, and outcome-handling logic rather than only ownership metadata.
 
 ## Why this is the right Bank19_20 shape
 

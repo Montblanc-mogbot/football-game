@@ -32,4 +32,9 @@ public sealed class InjuryCutsceneService
         state.RecordRoutine(OnFieldRoutine.CUTSCENE);
         state.RecordEvent($"Resolved cutscene state '{cutsceneKey}' for the current Bank19_20 outcome.");
     }
+
+    public void ClearCutsceneStateForPassStart(OnFieldGameState state)
+    {
+        state.RecordEvent("Cleared cutscene-to-play state and seeded pass-play cutscene randomness.");
+    }
 }

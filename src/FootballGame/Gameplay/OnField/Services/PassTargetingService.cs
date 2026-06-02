@@ -16,12 +16,15 @@ public sealed class PassTargetingService
         OnFieldRoutine.UPDATE_PASS_TARGET_AND_INDICATOR_ON_PRESS,
     ];
 
-    public void OrderPassCollisionPlayers()
+    public void UpdatePassTargetIndicator(OnFieldGameState state)
     {
+        state.RecordRoutine(OnFieldRoutine.UPDATE_PASS_TARGET_AND_INDICATOR_ON_PRESS);
+        state.RecordEvent("Updated the current pass target and target-indicator state.");
     }
 
-    public void UpdatePassTargetIndicator()
+    public void OrderPassCollisionPlayers(OnFieldGameState state)
     {
+        state.RecordRoutine(OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS);
+        state.RecordEvent("Ordered receiver/defender pass-collision candidates for the current pass attempt.");
     }
-
 }

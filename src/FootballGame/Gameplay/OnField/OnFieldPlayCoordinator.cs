@@ -19,6 +19,7 @@ public sealed class OnFieldPlayCoordinator
     private readonly PreSnapControlService preSnapControlService;
     private readonly StatAccountingService statAccountingService;
     private readonly InjuryCutsceneService injuryCutsceneService;
+    private readonly PassTargetingService passTargetingService;
 
     public OnFieldPlayCoordinator(
         PlayAssignmentService playAssignmentService,
@@ -28,7 +29,8 @@ public sealed class OnFieldPlayCoordinator
         CpuPlayDecisionService cpuPlayDecisionService,
         PreSnapControlService preSnapControlService,
         StatAccountingService statAccountingService,
-        InjuryCutsceneService injuryCutsceneService)
+        InjuryCutsceneService injuryCutsceneService,
+        PassTargetingService passTargetingService)
     {
         this.playAssignmentService = playAssignmentService;
         this.playerSkillHydrationService = playerSkillHydrationService;
@@ -38,6 +40,7 @@ public sealed class OnFieldPlayCoordinator
         this.preSnapControlService = preSnapControlService;
         this.statAccountingService = statAccountingService;
         this.injuryCutsceneService = injuryCutsceneService;
+        this.passTargetingService = passTargetingService;
     }
 
     public static IReadOnlyList<OnFieldRoutine> CoveredRoutines { get; } =
@@ -183,6 +186,12 @@ public sealed class OnFieldPlayCoordinator
             return;
         }
 
+        if (state.PlayType == OnFieldPlayType.Regular && state.IsManualPassingAllowed)
+        {
+            RunPassPlayLoop(state);
+            return;
+        }
+
         state.RecordEvent($"AdvanceActivePlayPhase placeholder reached for {state.PlayType} in phase {state.Phase}.");
     }
 
@@ -266,7 +275,147 @@ public sealed class OnFieldPlayCoordinator
         state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_PASS_PLAY : OnFieldRoutine.P2_PASS_PLAY);
         state.Phase = OnFieldPhase.LivePlay;
         state.IsManualPassingAllowed = true;
+        state.PassAttempted = false;
+        state.BallCarrierPastLineOfScrimmage = false;
+        state.BallOutOfBoundsOrRecovered = false;
+        state.QuarterbackSacked = false;
+        state.QuarterPassFlightComplete = false;
+        state.PlayOverTriggered = false;
+        state.PassOutcome = OnFieldPassOutcome.None;
+        injuryCutsceneService.ClearCutsceneStateForPassStart(state);
         state.RecordEvent($"Started {state.PossessionTeam} pass-play host flow with manual passing enabled.");
+    }
+
+    private void RunPassPlayLoop(OnFieldGameState state)
+    {
+        passTargetingService.UpdatePassTargetIndicator(state);
+
+        if (state.BallCarrierPastLineOfScrimmage && !state.PassAttempted)
+        {
+            TransitionPassPlayToScramble(state);
+            return;
+        }
+
+        if (!state.PassAttempted)
+        {
+            if (state.PlayOverTriggered || state.BallOutOfBoundsOrRecovered)
+            {
+                ResolvePassPlayOverNoThrow(state);
+                return;
+            }
+
+            state.RecordEvent($"Waiting for {state.PossessionTeam} to attempt the pass while still behind the LOS.");
+            return;
+        }
+
+        WaitForQuarterPassFlight(state);
+
+        if (state.PlayOverTriggered)
+        {
+            ResolvePlayOverTransition(state);
+            return;
+        }
+
+        if (state.PassOutcome == OnFieldPassOutcome.None || state.PassOutcome == OnFieldPassOutcome.InFlight)
+        {
+            state.RecordEvent($"Waiting for the in-flight pass outcome for {state.PossessionTeam}.");
+            return;
+        }
+
+        ResolvePassOutcome(state);
+    }
+
+    private void WaitForQuarterPassFlight(OnFieldGameState state)
+    {
+        if (state.QuarterPassFlightComplete)
+        {
+            passTargetingService.OrderPassCollisionPlayers(state);
+            return;
+        }
+
+        state.RecordEvent("Waiting for the pass to travel one quarter of the way before ordering collision players.");
+    }
+
+    private void TransitionPassPlayToScramble(OnFieldGameState state)
+    {
+        state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_SACK_OR_SCRAMBLE : OnFieldRoutine.P2_SACK_OR_SCRAMBLE);
+        state.IsManualPassingAllowed = false;
+        playAssignmentService.ApplyManControlledPlayerPolicy(state, includeManControlledPlayer: false);
+        state.RecordEvent($"Transitioned {state.PossessionTeam} pass flow into scramble/chase behavior after crossing the LOS.");
+    }
+
+    private void ResolvePassOutcome(OnFieldGameState state)
+    {
+        switch (state.PassOutcome)
+        {
+            case OnFieldPassOutcome.Complete:
+                state.RecordEvent($"Resolved completed pass outcome for {state.PossessionTeam}; live play continues.");
+                break;
+            case OnFieldPassOutcome.Tipped:
+                state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_PASS_TIPPED_RESULT : OnFieldRoutine.P2_PASS_TIPPED_RESULT);
+                state.RecordEvent($"Resolved tipped-pass host routing for {state.PossessionTeam}.");
+                break;
+            case OnFieldPassOutcome.Intercepted:
+                state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_INTERCEPTED : OnFieldRoutine.P2_INTERCEPTED);
+                HandlePossessionChange(state, GetOpposingTeam(state.PossessionTeam));
+                playAssignmentService.ReassignForTurnoverOrReturn(state, "interception-return");
+                state.RecordEvent("Resolved interception outcome and installed interception-return host context.");
+                break;
+            case OnFieldPassOutcome.Incomplete:
+                ResolveIncompletePass(state);
+                break;
+        }
+    }
+
+    private void ResolveIncompletePass(OnFieldGameState state)
+    {
+        state.IsManualPassingAllowed = false;
+        state.PlayOverTriggered = true;
+        presentationService.PrepareIncompletePassPresentation(state, state.PossessionTeam);
+
+        if (state.TurnoverOnDowns)
+        {
+            ResolveTurnoverOnDowns(state);
+            return;
+        }
+
+        ResolveNormalPlayOver(state);
+    }
+
+    private void ResolvePassPlayOverNoThrow(OnFieldGameState state)
+    {
+        state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_SACK_OR_SCRAMBLE : OnFieldRoutine.P2_SACK_OR_SCRAMBLE);
+
+        if (!state.QuarterbackSacked)
+        {
+            state.RecordEvent($"Resolved no-throw pass outcome for {state.PossessionTeam} without a sack; falling back to normal play-over logic.");
+            ResolvePlayOverTransition(state);
+            return;
+        }
+
+        ResolveQuarterbackSackOutcome(state);
+    }
+
+    private void ResolveQuarterbackSackOutcome(OnFieldGameState state)
+    {
+        bool sideChange = state.TurnoverOnDowns;
+        bool safety = state.SafetyTriggered;
+        presentationService.PrepareQuarterbackSackPresentation(state, state.PossessionTeam, sideChange, safety);
+        injuryCutsceneService.ResolveCutsceneState(state, safety ? "QB_SACK_SAFETY" : sideChange ? "QB_SACK_SIDE_CHANGE" : "QB_SACK");
+
+        if (safety)
+        {
+            ResolveSafetyOutcome(state);
+            return;
+        }
+
+        if (sideChange)
+        {
+            ResolveTurnoverOnDowns(state);
+            return;
+        }
+
+        ResolveNormalPlayOver(state);
     }
 
     private void StartSpecialTeamsPlay(OnFieldGameState state)

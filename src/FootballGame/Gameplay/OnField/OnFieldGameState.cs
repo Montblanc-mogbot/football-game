@@ -38,6 +38,20 @@ public sealed class OnFieldGameState
 
     public bool NextPlayRequiresKickoff { get; set; }
 
+    public bool PassAttempted { get; set; }
+
+    public bool BallCarrierPastLineOfScrimmage { get; set; }
+
+    public bool BallOutOfBoundsOrRecovered { get; set; }
+
+    public bool QuarterbackSacked { get; set; }
+
+    public bool QuarterPassFlightComplete { get; set; }
+
+    public bool PlayOverTriggered { get; set; }
+
+    public OnFieldPassOutcome PassOutcome { get; set; }
+
     public bool IsManualPassingAllowed { get; set; }
 
     public bool IsSpecialTeamsPlay => PlayType is OnFieldPlayType.Kickoff or OnFieldPlayType.Punt or OnFieldPlayType.FieldGoal or OnFieldPlayType.ExtraPoint;

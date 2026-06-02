@@ -25,4 +25,10 @@ public sealed class PlayerSkillHydrationService
     {
         state.RecordEvent($"Loaded single-player skill overrides for {team} role {playerRoleKey}.");
     }
+
+    public void LoadSpecialTeamsSkillOverrides(OnFieldGameState state, OnFieldTeam kickingTeam, OnFieldPlayType playType)
+    {
+        string unit = playType == OnFieldPlayType.Punt ? "punt" : playType == OnFieldPlayType.ExtraPoint ? "extra-point" : "field-goal";
+        state.RecordEvent($"Loaded {unit} special-teams skill overrides for {kickingTeam} and the opposing return/block unit.");
+    }
 }

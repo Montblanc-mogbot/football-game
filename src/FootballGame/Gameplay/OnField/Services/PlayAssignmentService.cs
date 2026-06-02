@@ -47,6 +47,12 @@ public sealed class PlayAssignmentService
         state.RecordEvent($"Reassigned live-play scripts for transition '{transitionKey}'.");
     }
 
+    public void ReassignForPuntCoverageAndReturn(OnFieldGameState state, OnFieldTeam puntingTeam)
+    {
+        state.RecordRoutine(OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS);
+        state.RecordEvent($"Installed punt coverage/return script families after a {puntingTeam} punt.");
+    }
+
     public void ApplyManControlledPlayerPolicy(OnFieldGameState state, bool includeManControlledPlayer)
     {
         string policy = includeManControlledPlayer ? "include-man" : "exclude-man";

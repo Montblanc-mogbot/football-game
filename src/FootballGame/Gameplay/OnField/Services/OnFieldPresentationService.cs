@@ -74,6 +74,30 @@ public sealed class OnFieldPresentationService
         state.RecordEvent($"Prepared quarterback sack presentation '{cutsceneKey}' for {possessionTeam}.");
     }
 
+    public void PreparePuntReturnPresentation(OnFieldGameState state, OnFieldTeam returnTeam)
+    {
+        state.CurrentBannerKey = $"{returnTeam}_PUNT_RETURN";
+        state.RecordEvent($"Prepared punt-return presentation for {returnTeam}.");
+    }
+
+    public void PrepareFieldGoalPresentation(OnFieldGameState state, OnFieldTeam kickingTeam, OnFieldPlayType playType)
+    {
+        state.CurrentBannerKey = playType == OnFieldPlayType.ExtraPoint ? $"{kickingTeam}_XP" : $"{kickingTeam}_FIELD_GOAL";
+        state.RecordEvent($"Prepared {playType} presentation for {kickingTeam}.");
+    }
+
+    public void PrepareKickBlockPresentation(OnFieldGameState state, OnFieldTeam kickingTeam)
+    {
+        state.CurrentBannerKey = $"{kickingTeam}_KICK_BLOCKED";
+        state.RecordEvent($"Prepared blocked-kick presentation for {kickingTeam}.");
+    }
+
+    public void PrepareSideChangePresentation(OnFieldGameState state, OnFieldTeam newPossessionTeam)
+    {
+        state.CurrentBannerKey = $"SIDE_CHANGE_TO_{newPossessionTeam}";
+        state.RecordEvent($"Prepared side-change presentation for new possession team {newPossessionTeam}.");
+    }
+
     public void UpdateScrollAndFieldMarkers(OnFieldGameState state)
     {
         state.RecordRoutine(OnFieldRoutine.UPDATE_LOS_MARKERS);

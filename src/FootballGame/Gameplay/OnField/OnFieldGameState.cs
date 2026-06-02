@@ -38,6 +38,16 @@ public sealed class OnFieldGameState
 
     public bool NextPlayRequiresKickoff { get; set; }
 
+    public bool BallKicked { get; set; }
+
+    public bool BallReceivedByReturnTeam { get; set; }
+
+    public bool TouchbackTriggered { get; set; }
+
+    public bool SpecialTeamsCutsceneReady { get; set; }
+
+    public OnFieldKickOutcome KickOutcome { get; set; }
+
     public bool PassAttempted { get; set; }
 
     public bool BallCarrierPastLineOfScrimmage { get; set; }

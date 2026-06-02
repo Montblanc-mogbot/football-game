@@ -192,6 +192,18 @@ public sealed class OnFieldPlayCoordinator
             return;
         }
 
+        if (state.PlayType == OnFieldPlayType.Punt)
+        {
+            RunPuntFlow(state);
+            return;
+        }
+
+        if (state.PlayType is OnFieldPlayType.FieldGoal or OnFieldPlayType.ExtraPoint)
+        {
+            RunFieldGoalOrExtraPointFlow(state);
+            return;
+        }
+
         state.RecordEvent($"AdvanceActivePlayPhase placeholder reached for {state.PlayType} in phase {state.Phase}.");
     }
 
@@ -418,6 +430,96 @@ public sealed class OnFieldPlayCoordinator
         ResolveNormalPlayOver(state);
     }
 
+    private void RunPuntFlow(OnFieldGameState state)
+    {
+        if (!state.BallKicked)
+        {
+            if (state.PlayOverTriggered)
+            {
+                ResolveSpecialTeamsPlayOver(state);
+                return;
+            }
+
+            state.RecordEvent($"Waiting for {state.PossessionTeam} to punt the ball.");
+            return;
+        }
+
+        if (!state.SpecialTeamsCutsceneReady)
+        {
+            state.RecordEvent("Waiting for the punt cutscene/flight staging to finish before installing return scripts.");
+            return;
+        }
+
+        if (state.KickOutcome == OnFieldKickOutcome.Blocked)
+        {
+            ResolveBlockedPunt(state);
+            return;
+        }
+
+        OnFieldTeam returnTeam = GetOpposingTeam(state.PossessionTeam);
+        playAssignmentService.ReassignForPuntCoverageAndReturn(state, state.PossessionTeam);
+        presentationService.PreparePuntReturnPresentation(state, returnTeam);
+
+        if (state.TouchbackTriggered)
+        {
+            HandlePossessionChange(state, returnTeam);
+            presentationService.PrepareSideChangePresentation(state, returnTeam);
+            StartPlaySelectionAndLoad(state, returnTeam, OnFieldPlayType.Regular);
+            return;
+        }
+
+        if (!state.BallReceivedByReturnTeam)
+        {
+            state.RecordEvent($"Waiting for {returnTeam} to receive the punt or trigger a touchback.");
+            return;
+        }
+
+        HandlePossessionChange(state, returnTeam);
+        presentationService.PrepareSideChangePresentation(state, returnTeam);
+        statAccountingService.CalculatePlayDistance(state);
+        statAccountingService.UpdateInGameStats(state);
+        injuryCutsceneService.ResolveNormalInjuryChecks(state, returnTeam);
+        state.RecordEvent($"Resolved punt return flow; {returnTeam} now starts the next offensive play.");
+        StartPlaySelectionAndLoad(state, returnTeam, OnFieldPlayType.Regular);
+    }
+
+    private void RunFieldGoalOrExtraPointFlow(OnFieldGameState state)
+    {
+        if (!state.BallKicked)
+        {
+            if (state.PlayOverTriggered)
+            {
+                ResolveSpecialTeamsPlayOver(state);
+                return;
+            }
+
+            state.RecordEvent($"Waiting for {state.PossessionTeam} to kick the {state.PlayType}.");
+            return;
+        }
+
+        if (!state.SpecialTeamsCutsceneReady)
+        {
+            state.RecordEvent($"Waiting for the {state.PlayType} cutscene/flight resolution to finish.");
+            return;
+        }
+
+        switch (state.KickOutcome)
+        {
+            case OnFieldKickOutcome.Blocked:
+                ResolveBlockedFieldGoalOrExtraPoint(state);
+                return;
+            case OnFieldKickOutcome.Made:
+                ResolveMadeFieldGoalOrExtraPoint(state);
+                return;
+            case OnFieldKickOutcome.Missed:
+                ResolveMissedFieldGoalOrExtraPoint(state);
+                return;
+            default:
+                state.RecordEvent($"No final {state.PlayType} outcome is available yet for {state.PossessionTeam}.");
+                return;
+        }
+    }
+
     private void StartSpecialTeamsPlay(OnFieldGameState state)
     {
         state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_SPECIAL_TEAMS_PLAY_TYPE_CHECK : OnFieldRoutine.P2_SPECIAL_TEAMS_PLAY_TYPE_CHECK);
@@ -445,6 +547,12 @@ public sealed class OnFieldPlayCoordinator
         state.TurnoverOnDowns = false;
         state.SafetyTriggered = false;
         state.NextPlayRequiresKickoff = false;
+        state.BallKicked = false;
+        state.BallReceivedByReturnTeam = false;
+        state.TouchbackTriggered = false;
+        state.SpecialTeamsCutsceneReady = false;
+        state.KickOutcome = OnFieldKickOutcome.None;
+        playerSkillHydrationService.LoadSpecialTeamsSkillOverrides(state, state.PossessionTeam, OnFieldPlayType.Punt);
         preSnapControlService.PreparePuntForSnap(state, state.PossessionTeam);
         playAssignmentService.ApplyManControlledPlayerPolicy(state, includeManControlledPlayer: false);
         state.RecordEvent($"Started {state.PossessionTeam} punt-play host flow.");
@@ -457,6 +565,13 @@ public sealed class OnFieldPlayCoordinator
         state.TurnoverOnDowns = false;
         state.SafetyTriggered = false;
         state.NextPlayRequiresKickoff = false;
+        state.BallKicked = false;
+        state.BallReceivedByReturnTeam = false;
+        state.TouchbackTriggered = false;
+        state.SpecialTeamsCutsceneReady = false;
+        state.KickOutcome = OnFieldKickOutcome.None;
+        playerSkillHydrationService.LoadSpecialTeamsSkillOverrides(state, state.PossessionTeam, state.PlayType);
+        presentationService.PrepareFieldGoalPresentation(state, state.PossessionTeam, state.PlayType);
         playAssignmentService.ApplyManControlledPlayerPolicy(state, includeManControlledPlayer: false);
         state.RecordEvent($"Started {state.PossessionTeam} {state.PlayType} host flow.");
     }
@@ -481,6 +596,64 @@ public sealed class OnFieldPlayCoordinator
         state.RecordEvent($"Resolved turnover on downs from the previous {GetOpposingTeam(newPossessionTeam)} possession.");
         state.TurnoverOnDowns = false;
         StartPlaySelectionAndLoad(state, newPossessionTeam, OnFieldPlayType.Regular);
+    }
+
+    private void ResolveSpecialTeamsPlayOver(OnFieldGameState state)
+    {
+        state.RecordEvent($"Resolved special-teams play-over for {state.PossessionTeam}; switching possession to the opposing team.");
+        OnFieldTeam newPossessionTeam = GetOpposingTeam(state.PossessionTeam);
+        HandlePossessionChange(state, newPossessionTeam);
+        StartPlaySelectionAndLoad(state, newPossessionTeam, OnFieldPlayType.Regular);
+    }
+
+    private void ResolveBlockedPunt(OnFieldGameState state)
+    {
+        state.RecordEvent($"Resolved blocked punt outcome for {state.PossessionTeam}; treating it as an immediate side change.");
+        OnFieldTeam newPossessionTeam = GetOpposingTeam(state.PossessionTeam);
+        HandlePossessionChange(state, newPossessionTeam);
+        StartPlaySelectionAndLoad(state, newPossessionTeam, OnFieldPlayType.Regular);
+    }
+
+    private void ResolveMadeFieldGoalOrExtraPoint(OnFieldGameState state)
+    {
+        if (state.PlayType == OnFieldPlayType.ExtraPoint)
+        {
+            state.RecordEvent($"Resolved made extra-point attempt for {state.PossessionTeam}; special-teams phase exits without a possession flip.");
+            return;
+        }
+
+        OnFieldTeam kickingTeam = state.PossessionTeam;
+        HandlePossessionChange(state, GetOpposingTeam(kickingTeam));
+        state.KickoffTeam = kickingTeam;
+        state.NextPlayRequiresKickoff = true;
+        state.RecordEvent($"Resolved made field goal for {kickingTeam}; transitioning to kickoff.");
+        StartOnFieldGameplayLoop(state);
+    }
+
+    private void ResolveMissedFieldGoalOrExtraPoint(OnFieldGameState state)
+    {
+        if (state.PlayType == OnFieldPlayType.ExtraPoint)
+        {
+            state.RecordEvent($"Resolved missed extra-point attempt for {state.PossessionTeam}; special-teams phase exits without a possession flip.");
+            return;
+        }
+
+        HandlePossessionChange(state, GetOpposingTeam(state.PossessionTeam));
+        state.RecordEvent($"Resolved missed field goal for the previous possession; ball turns over at the new LOS.");
+        StartPlaySelectionAndLoad(state, state.PossessionTeam, OnFieldPlayType.Regular);
+    }
+
+    private void ResolveBlockedFieldGoalOrExtraPoint(OnFieldGameState state)
+    {
+        presentationService.PrepareKickBlockPresentation(state, state.PossessionTeam);
+
+        if (state.PlayType == OnFieldPlayType.ExtraPoint)
+        {
+            state.RecordEvent($"Resolved blocked extra-point attempt for {state.PossessionTeam}; play converts into live recovery/run logic outside this slice.");
+            return;
+        }
+
+        state.RecordEvent($"Resolved blocked field goal for {state.PossessionTeam}; play converts into live recovery/run logic outside this slice.");
     }
 
     private void ResolveSafetyOutcome(OnFieldGameState state)

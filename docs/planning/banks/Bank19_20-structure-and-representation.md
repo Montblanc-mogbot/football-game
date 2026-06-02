@@ -75,14 +75,18 @@ That is important because this bank is still being used to define architecture b
 We do not want to flatten the bank straight into a guessed final MonoGame runtime.
 
 ### 3. Runtime-consumption layer
-Not implemented in this pass.
+This pass now includes a first explicit runtime-facing representation for the full bank:
+- `src/FootballGame/Gameplay/OnField/OnFieldPlayCoordinator.cs`
+- `src/FootballGame/Gameplay/OnField/Services/*.cs`
+- `src/FootballGame/Gameplay/OnField/Bank19RuntimeRepresentation.cs`
+- `src/FootballGame/Gameplay/OnField/Bank21Bridge/Bank19ToBank21BoundaryHoldingArea.cs`
+- `docs/planning/banks/Bank19_20-runtime-representation.md`
 
-The current notes indicate the likely runtime split:
+The current runtime split is:
 - `OnFieldPlayCoordinator` for the Bank19_20 host/orchestration role
-- dedicated services for script assignment, pre-snap control, pass targeting, play outcomes, stats, injury, and presentation
-- `PlayerScriptRunner` for the Bank21_22 command runtime
-
-This pass preserves the information needed to build that runtime later without pretending the runtime shape is already finished.
+- dedicated services for script assignment, pre-snap control, pass targeting, play outcomes, stats, injury, task coordination, CPU support, player-skill hydration, and presentation
+- `Bank19ToBank21BoundaryHoldingArea` for the explicit Bank19_20-to-Bank21_22 carry-forward bridge
+- `PlayerScriptRunner` still deferred to the later Bank21_22 command-runtime pass
 
 ## What this conversion preserves on purpose
 

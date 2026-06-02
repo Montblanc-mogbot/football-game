@@ -60,6 +60,19 @@ Validated:
 - the typed semantic layer preserves section labels as records with source lines rather than flattening them away
 - the loader maps JSON string ownership/responsibility values into explicit enums and returns one `Bank19OnFieldGameplayInventory` aggregate for later runtime-facing work
 
+### Runtime-facing coordinator/service coverage
+Checked against:
+- `src/FootballGame/Gameplay/OnField/Bank19RuntimeRepresentation.cs`
+- `src/FootballGame/Gameplay/OnField/OnFieldPlayCoordinator.cs`
+- `src/FootballGame/Gameplay/OnField/Services/*.cs`
+- `src/FootballGame/Gameplay/OnField/Bank21Bridge/Bank19ToBank21BoundaryHoldingArea.cs`
+- `docs/planning/banks/Bank19_20-runtime-representation.md`
+
+Validated:
+- every extracted Bank19_20 section is assigned to either the coordinator or one Bank19_20 service in `Bank19RuntimeRepresentation`
+- the runtime-facing classes expose covered-section lists so the section ownership remains source-traceable
+- the four Bank19_20-to-Bank21_22 bridge sections are mirrored into an explicit holding area for later command-runtime work
+
 ### Bank21_22 carry-forward boundary
 Checked against representative Bank19_20 sections that prime or hand off to Bank21_22:
 - `LOAD_UPDATE_PLAY_CODE_FUNCTIONS`

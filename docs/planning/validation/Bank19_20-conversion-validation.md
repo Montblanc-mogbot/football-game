@@ -96,6 +96,7 @@ Validated:
 - blocked field-goal routing now enters an explicit loose-ball / recovery path instead of stopping at a placeholder event, and onside return touchdowns are classified as special-teams returns instead of generic defensive returns
 - dead-ball transition teardown is now less fragmented: next-sequence dispatch flows through a shared finalization step that ends Bank19_20 tasks, records quarter-over checks, clears transient dead-ball flags, and then routes into play-select or kickoff setup
 - several coordinator-owned outcome-evaluator routines are now represented more explicitly in live return flows: kickoff, punt, interception, onside, and fumble return paths record the Bank19_20 touchdown / fumble / play-over check family instead of relying only on opaque state flags
+- safety and post-turnover reset coverage is now fully explicit in the coordinator trace too: `P1_SAFETIED` / `P2_SAFETIED`, `CHECK_FOR_FIRST_DOWN_OR_TOD`, and `UPDATE_HASHMARK_FOR_NEXT_SNAP` are all now directly recorded in `OnFieldPlayCoordinator`, leaving no coordinator-owned Bank19_20 routine represented only by the covered-routines list
 - the naming of the runtime-facing ownership map and routine ids has been cleaned up into gameplay-facing names instead of generic `Bank19...Section...` names
 
 ### Bank21_22 carry-forward boundary

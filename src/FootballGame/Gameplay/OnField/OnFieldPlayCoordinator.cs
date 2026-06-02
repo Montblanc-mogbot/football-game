@@ -1070,6 +1070,8 @@ public sealed class OnFieldPlayCoordinator
         state.RecordRoutine(OnFieldRoutine.CHECK_FOR_TOUCHBACK);
         state.RecordRoutine(OnFieldRoutine.CHECK_FOR_SAFETY);
         state.RecordRoutine(OnFieldRoutine.CHECK_FOR_QTR_OVER);
+        state.RecordRoutine(OnFieldRoutine.CHECK_FOR_FIRST_DOWN_OR_TOD);
+        state.RecordRoutine(OnFieldRoutine.UPDATE_HASHMARK_FOR_NEXT_SNAP);
         statAccountingService.ResetSeriesAfterTurnover(state, newOffenseTeam);
         statAccountingService.SpotBallAndUpdateHashForNextSnap(state, newOffenseTeam);
         presentationService.PrepareSideChangePresentation(state, newOffenseTeam);
@@ -1107,6 +1109,7 @@ public sealed class OnFieldPlayCoordinator
 
     private void ResolveSafetyOutcome(OnFieldGameState state)
     {
+        state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_SAFETIED : OnFieldRoutine.P2_SAFETIED);
         injuryCutsceneService.ResolveCutsceneState(state, "QB_SACK_SAFETY");
         injuryCutsceneService.ResolveNormalInjuryChecks(state, state.PossessionTeam);
 

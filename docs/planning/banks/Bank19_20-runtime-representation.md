@@ -96,6 +96,7 @@ Implemented host logic currently includes:
 - onside return scoring now uses a special-teams touchdown classification
 - dead-ball transition cleanup is centralized so play-end / turnover / scoring restart paths share one finalization step before the next sequence begins
 - kickoff, punt, interception, onside, and fumble return branches now explicitly record the shared Bank19_20 outcome-evaluator family (`CHECK_FOR_TD`, `CHECK_FOR_FUMBLES_TOSS_AND_NORMAL`, `CHECK_FOR_PLAY_OVER`) during host-side return progression
+- safety resolution and post-turnover snap-reset routing now explicitly record `P1_SAFETIED` / `P2_SAFETIED`, `CHECK_FOR_FIRST_DOWN_OR_TOD`, and `UPDATE_HASHMARK_FOR_NEXT_SNAP` in the coordinator trace as well
 
 This is still an incremental implementation slice, but the coordinator now owns real Bank19_20 entry, routing, pass-flow, special-teams-flow, kickoff-flow, turnover-flow, scoring-flow, and outcome-handling logic rather than only ownership metadata.
 

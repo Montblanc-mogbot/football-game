@@ -94,6 +94,7 @@ Implemented host logic currently includes:
 - extra-point aftermath now routes into kickoff setup for made, missed, and blocked outcomes
 - blocked field-goal aftermath now enters explicit loose-ball / live-recovery handling rather than stopping at a placeholder note
 - onside return scoring now uses a special-teams touchdown classification
+- dead-ball transition cleanup is centralized so play-end / turnover / scoring restart paths share one finalization step before the next sequence begins
 
 This is still an incremental implementation slice, but the coordinator now owns real Bank19_20 entry, routing, pass-flow, special-teams-flow, kickoff-flow, turnover-flow, scoring-flow, and outcome-handling logic rather than only ownership metadata.
 

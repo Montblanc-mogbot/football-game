@@ -16,19 +16,22 @@ public sealed class OnFieldPlayCoordinator
     private readonly TaskCoordinationService taskCoordinationService;
     private readonly OnFieldPresentationService presentationService;
     private readonly CpuPlayDecisionService cpuPlayDecisionService;
+    private readonly PreSnapControlService preSnapControlService;
 
     public OnFieldPlayCoordinator(
         PlayAssignmentService playAssignmentService,
         PlayerSkillHydrationService playerSkillHydrationService,
         TaskCoordinationService taskCoordinationService,
         OnFieldPresentationService presentationService,
-        CpuPlayDecisionService cpuPlayDecisionService)
+        CpuPlayDecisionService cpuPlayDecisionService,
+        PreSnapControlService preSnapControlService)
     {
         this.playAssignmentService = playAssignmentService;
         this.playerSkillHydrationService = playerSkillHydrationService;
         this.taskCoordinationService = taskCoordinationService;
         this.presentationService = presentationService;
         this.cpuPlayDecisionService = cpuPlayDecisionService;
+        this.preSnapControlService = preSnapControlService;
     }
 
     public static IReadOnlyList<OnFieldRoutine> CoveredRoutines { get; } =
@@ -151,9 +154,29 @@ public sealed class OnFieldPlayCoordinator
         presentationService.PreparePlaySelectionPresentation(state, possessionTeam);
     }
 
+    public void TransitionFromPlaySelection(OnFieldGameState state)
+    {
+        ArgumentNullException.ThrowIfNull(state);
+
+        if (state.IsSpecialTeamsPlay && state.PlayType != OnFieldPlayType.Kickoff)
+        {
+            StartSpecialTeamsPlay(state);
+            return;
+        }
+
+        StartRegularPlay(state);
+    }
+
     public void AdvanceActivePlayPhase(OnFieldGameState state)
     {
         ArgumentNullException.ThrowIfNull(state);
+
+        if (state.Phase == OnFieldPhase.PlaySelection)
+        {
+            TransitionFromPlaySelection(state);
+            return;
+        }
+
         state.RecordEvent($"AdvanceActivePlayPhase placeholder reached for {state.PlayType} in phase {state.Phase}.");
     }
 
@@ -172,5 +195,92 @@ public sealed class OnFieldPlayCoordinator
         state.Phase = OnFieldPhase.PlayOver;
         taskCoordinationService.EndSpecificTasks(state);
         state.RecordEvent("Resolved the current play-over transition.");
+    }
+
+    private void StartRegularPlay(OnFieldGameState state)
+    {
+        state.Phase = OnFieldPhase.PreSnap;
+        state.IsManualPassingAllowed = false;
+        presentationService.PrepareRegularPlayPresentation(state, state.PossessionTeam);
+        preSnapControlService.PrepareRegularPlayForSnap(state, state.PossessionTeam);
+        playAssignmentService.ApplyManControlledPlayerPolicy(state, includeManControlledPlayer: false);
+
+        if (state.PlayType == OnFieldPlayType.Regular)
+        {
+            StartRunOrPassPlay(state);
+            return;
+        }
+
+        state.RecordEvent($"Regular-play entry received unsupported play type {state.PlayType}; defaulting to run/pass handling.");
+        StartRunOrPassPlay(state);
+    }
+
+    private void StartRunOrPassPlay(OnFieldGameState state)
+    {
+        if (ShouldOpenAsPassPlay(state))
+        {
+            StartPassPlay(state);
+            return;
+        }
+
+        StartRunPlay(state);
+    }
+
+    private void StartRunPlay(OnFieldGameState state)
+    {
+        state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_RUN_PLAY : OnFieldRoutine.P2_RUN_PLAY);
+        state.Phase = OnFieldPhase.LivePlay;
+        state.IsManualPassingAllowed = false;
+        state.RecordEvent($"Started {state.PossessionTeam} run-play host flow.");
+    }
+
+    private void StartPassPlay(OnFieldGameState state)
+    {
+        state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_PASS_PLAY : OnFieldRoutine.P2_PASS_PLAY);
+        state.Phase = OnFieldPhase.LivePlay;
+        state.IsManualPassingAllowed = true;
+        state.RecordEvent($"Started {state.PossessionTeam} pass-play host flow with manual passing enabled.");
+    }
+
+    private void StartSpecialTeamsPlay(OnFieldGameState state)
+    {
+        state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_SPECIAL_TEAMS_PLAY_TYPE_CHECK : OnFieldRoutine.P2_SPECIAL_TEAMS_PLAY_TYPE_CHECK);
+        presentationService.PrepareSpecialTeamsPresentation(state, state.PossessionTeam, state.PlayType);
+
+        switch (state.PlayType)
+        {
+            case OnFieldPlayType.Punt:
+                StartPuntPlay(state);
+                break;
+            case OnFieldPlayType.FieldGoal:
+            case OnFieldPlayType.ExtraPoint:
+                StartFieldGoalPlay(state);
+                break;
+            default:
+                state.RecordEvent($"Special-teams routing received unsupported play type {state.PlayType}.");
+                break;
+        }
+    }
+
+    private void StartPuntPlay(OnFieldGameState state)
+    {
+        state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_PUNT_PLAY : OnFieldRoutine.P2_PUNT_PLAY);
+        state.Phase = OnFieldPhase.PreSnap;
+        preSnapControlService.PreparePuntForSnap(state, state.PossessionTeam);
+        playAssignmentService.ApplyManControlledPlayerPolicy(state, includeManControlledPlayer: false);
+        state.RecordEvent($"Started {state.PossessionTeam} punt-play host flow.");
+    }
+
+    private void StartFieldGoalPlay(OnFieldGameState state)
+    {
+        state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_FG_PLAY : OnFieldRoutine.P2_FG_PLAY);
+        state.Phase = OnFieldPhase.PreSnap;
+        playAssignmentService.ApplyManControlledPlayerPolicy(state, includeManControlledPlayer: false);
+        state.RecordEvent($"Started {state.PossessionTeam} {state.PlayType} host flow.");
+    }
+
+    private static bool ShouldOpenAsPassPlay(OnFieldGameState state)
+    {
+        return state.OpensAsPassPlay;
     }
 }

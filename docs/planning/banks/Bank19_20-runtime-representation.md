@@ -71,8 +71,12 @@ Implemented host logic currently includes:
 - kickoff-side routing into `P1_KICKOFF` or `P2_KICKOFF`
 - kickoff setup through play assignment, skill hydration, task startup, presentation setup, and CPU kickoff strategy selection
 - `P1_PLAY_SELECT_AND_PLAY_LOAD` / `P2_PLAY_SELECT_AND_PLAY_LOAD` as explicit play-start host entrypoints
+- transition out of play-selection into regular-play vs special-teams routing
+- regular-play pre-snap setup through presentation, defender-change prep, and play-assignment policy
+- run-play vs pass-play host entry
+- punt vs field-goal / extra-point host entry for special teams
 
-This is still an early slice, but it means the coordinator now holds real Bank19_20 logic rather than only ownership metadata.
+This is still an early implementation slice, but it means the coordinator now holds real Bank19_20 flow logic rather than only ownership metadata.
 
 ## Why this is the right Bank19_20 shape
 

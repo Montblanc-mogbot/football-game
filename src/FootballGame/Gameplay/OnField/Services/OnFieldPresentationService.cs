@@ -40,6 +40,24 @@ public sealed class OnFieldPresentationService
         state.RecordEvent($"Prepared play-selection presentation for {possessionTeam}.");
     }
 
+    public void PrepareRegularPlayPresentation(OnFieldGameState state, OnFieldTeam possessionTeam)
+    {
+        state.RecordRoutine(OnFieldRoutine.UPDATE_SCROLL_LIMITS);
+        state.RecordRoutine(OnFieldRoutine.UPDATE_LOS_MARKERS);
+        state.CurrentBannerKey = $"{possessionTeam}_DOWN_DISTANCE";
+        state.CurrentSongSide = possessionTeam.ToString();
+        state.RecordEvent($"Prepared regular-play scroll, marker, and banner presentation for {possessionTeam}.");
+    }
+
+    public void PrepareSpecialTeamsPresentation(OnFieldGameState state, OnFieldTeam possessionTeam, OnFieldPlayType playType)
+    {
+        state.RecordRoutine(OnFieldRoutine.UPDATE_SCROLL_LIMITS);
+        state.RecordRoutine(OnFieldRoutine.UPDATE_LOS_MARKERS);
+        state.CurrentBannerKey = $"{possessionTeam}_{playType}";
+        state.CurrentSongSide = possessionTeam.ToString();
+        state.RecordEvent($"Prepared special-teams presentation for {possessionTeam} {playType}.");
+    }
+
     public void UpdateScrollAndFieldMarkers(OnFieldGameState state)
     {
         state.RecordRoutine(OnFieldRoutine.UPDATE_LOS_MARKERS);

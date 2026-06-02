@@ -84,8 +84,9 @@ Checked against:
 - `src/FootballGame/Gameplay/OnField/Services/CpuPlayDecisionService.cs`
 
 Validated:
-- the coordinator now contains real host logic for `GAME_PLAY_START_CHECK_FOR_KICK_TEAM`, `P1_KICKOFF`, `P2_KICKOFF`, and the P1/P2 play-select/load entry paths
+- the coordinator now contains real host logic for `GAME_PLAY_START_CHECK_FOR_KICK_TEAM`, `P1_KICKOFF`, `P2_KICKOFF`, the P1/P2 play-select/load entry paths, and the immediate transition into regular-play vs special-teams host routing
 - kickoff setup now makes explicit service calls for play assignment, skill hydration, task startup, presentation setup, and CPU kickoff strategy evaluation
+- regular-play setup now makes explicit service calls for pre-snap control and presentation setup before entering run/pass host flow
 - the naming of the runtime-facing ownership map and routine ids has been cleaned up into gameplay-facing names instead of generic `Bank19...Section...` names
 
 ### Bank21_22 carry-forward boundary

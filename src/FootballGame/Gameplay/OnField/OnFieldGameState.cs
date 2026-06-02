@@ -30,6 +30,12 @@ public sealed class OnFieldGameState
 
     public string? CurrentSongSide { get; set; }
 
+    public bool OpensAsPassPlay { get; set; }
+
+    public bool IsManualPassingAllowed { get; set; }
+
+    public bool IsSpecialTeamsPlay => PlayType is OnFieldPlayType.Kickoff or OnFieldPlayType.Punt or OnFieldPlayType.FieldGoal or OnFieldPlayType.ExtraPoint;
+
     public IList<OnFieldRoutine> RoutineHistory { get; } = new List<OnFieldRoutine>();
 
     public IList<string> EventLog { get; } = new List<string>();

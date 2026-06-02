@@ -7,6 +7,7 @@ public enum OnFieldPhase
 {
     OpeningKickoff,
     PlaySelection,
+    PreSnap,
     LivePlay,
     PlayOver,
 }

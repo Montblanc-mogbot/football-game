@@ -17,12 +17,17 @@ public sealed class PreSnapControlService
         OnFieldRoutine.MAN_CONTROLLED_PLAYER_FUNCTIONS,
     ];
 
-    public void RunDefenderChangeBeforeHike()
+    public void PrepareRegularPlayForSnap(OnFieldGameState state, OnFieldTeam offenseTeam)
     {
+        state.RecordRoutine(OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE);
+        state.Phase = OnFieldPhase.PreSnap;
+        state.RecordEvent($"Prepared defender-change and snap-gating flow for {offenseTeam} before the hike.");
     }
 
-    public void RunPuntSnapGate()
+    public void PreparePuntForSnap(OnFieldGameState state, OnFieldTeam puntingTeam)
     {
+        state.RecordRoutine(OnFieldRoutine.CHECK_SNAP_PUNT);
+        state.Phase = OnFieldPhase.PreSnap;
+        state.RecordEvent($"Prepared punt snap gate for {puntingTeam} before the kick.");
     }
-
 }

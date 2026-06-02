@@ -36,6 +36,8 @@ public sealed class PlayAssignmentService
         state.RecordRoutine(OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS);
         state.PossessionTeam = possessionTeam;
         state.PlayType = playType;
+        state.OffensiveFormationKey = $"{possessionTeam}_{playType}_OFF_FORMATION";
+        state.DefensivePlayKey = $"{GetOpposingTeam(possessionTeam)}_{playType}_DEF_PLAY";
         state.RecordEvent($"Loaded play-selection script families for {possessionTeam} {playType}.");
     }
 
@@ -49,5 +51,10 @@ public sealed class PlayAssignmentService
     {
         string policy = includeManControlledPlayer ? "include-man" : "exclude-man";
         state.RecordEvent($"Applied play-assignment policy '{policy}' during Bank19_20 script installation.");
+    }
+
+    private static OnFieldTeam GetOpposingTeam(OnFieldTeam team)
+    {
+        return team == OnFieldTeam.Player1 ? OnFieldTeam.Player2 : OnFieldTeam.Player1;
     }
 }

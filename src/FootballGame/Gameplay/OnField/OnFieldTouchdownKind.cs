@@ -8,4 +8,5 @@ public enum OnFieldTouchdownKind
     OffensiveRun,
     OffensivePass,
     DefensiveReturn,
+    SpecialTeamsReturn,
 }

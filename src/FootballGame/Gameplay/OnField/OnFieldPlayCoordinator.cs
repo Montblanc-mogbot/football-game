@@ -477,6 +477,7 @@ public sealed class OnFieldPlayCoordinator
         if (state.TouchbackTriggered)
         {
             ApplyPossessionChange(state, receivingTeam, state.IsSafetyKickoff ? "SAFETY_KICK_TOUCHBACK" : "KICKOFF_TOUCHBACK");
+            state.IsSafetyKickoff = false;
             state.RecordEvent($"Resolved kickoff touchback; {receivingTeam} offense takes over.");
             QueueNextPlayOrKickoffState(state, receivingTeam, kickoffRequired: false);
             return;
@@ -485,6 +486,25 @@ public sealed class OnFieldPlayCoordinator
         if (!state.BallReceivedByReturnTeam)
         {
             state.RecordEvent($"Waiting for {receivingTeam} to field the kickoff or trigger a touchback.");
+            return;
+        }
+
+        if (!state.PlayOverTriggered)
+        {
+            state.RecordEvent($"Waiting for {receivingTeam} kickoff-return dead-ball resolution.");
+            return;
+        }
+
+        if (state.NextPlayRequiresKickoff)
+        {
+            state.IsSafetyKickoff = false;
+            HandleTouchdown(state, receivingTeam, OnFieldTouchdownKind.SpecialTeamsReturn);
+            return;
+        }
+
+        if (state.SafetyTriggered)
+        {
+            ResolveSafetyOutcome(state);
             return;
         }
 
@@ -537,6 +557,24 @@ public sealed class OnFieldPlayCoordinator
         if (!state.BallReceivedByReturnTeam)
         {
             state.RecordEvent($"Waiting for {returnTeam} to receive the punt or trigger a touchback.");
+            return;
+        }
+
+        if (!state.PlayOverTriggered)
+        {
+            state.RecordEvent($"Waiting for {returnTeam} punt-return dead-ball resolution.");
+            return;
+        }
+
+        if (state.NextPlayRequiresKickoff)
+        {
+            HandleTouchdown(state, returnTeam, OnFieldTouchdownKind.SpecialTeamsReturn);
+            return;
+        }
+
+        if (state.SafetyTriggered)
+        {
+            ResolveSafetyOutcome(state);
             return;
         }
 
@@ -683,7 +721,7 @@ public sealed class OnFieldPlayCoordinator
     {
         if (state.PlayType == OnFieldPlayType.ExtraPoint)
         {
-            state.RecordEvent($"Resolved made extra-point attempt for {state.PossessionTeam}; special-teams phase exits without a possession flip.");
+            ResolveExtraPointExitToKickoff(state, "made");
             return;
         }
 
@@ -699,7 +737,7 @@ public sealed class OnFieldPlayCoordinator
     {
         if (state.PlayType == OnFieldPlayType.ExtraPoint)
         {
-            state.RecordEvent($"Resolved missed extra-point attempt for {state.PossessionTeam}; special-teams phase exits without a possession flip.");
+            ResolveExtraPointExitToKickoff(state, "missed");
             return;
         }
 
@@ -715,7 +753,7 @@ public sealed class OnFieldPlayCoordinator
 
         if (state.PlayType == OnFieldPlayType.ExtraPoint)
         {
-            state.RecordEvent($"Resolved blocked extra-point attempt for {state.PossessionTeam}; play converts into live recovery/run logic outside this slice.");
+            ResolveExtraPointExitToKickoff(state, "blocked");
             return;
         }
 
@@ -960,6 +998,17 @@ public sealed class OnFieldPlayCoordinator
         ApplyPossessionChange(state, recoveringTeam, "FUMBLE_TURNOVER");
         state.RecordEvent($"Resolved dead-ball fumble turnover; {recoveringTeam} offense takes over.");
         QueueNextPlayOrKickoffState(state, recoveringTeam, kickoffRequired: false);
+    }
+
+    private void ResolveExtraPointExitToKickoff(OnFieldGameState state, string outcomeKey)
+    {
+        OnFieldTeam kickingTeam = state.PossessionTeam;
+        OnFieldTeam receivingTeam = GetOpposingTeam(kickingTeam);
+        ApplyPossessionChange(state, receivingTeam, $"EXTRA_POINT_{outcomeKey.ToUpperInvariant()}");
+        state.KickoffTeam = kickingTeam;
+        state.NextPlayRequiresKickoff = true;
+        state.RecordEvent($"Resolved {outcomeKey} extra-point attempt for {kickingTeam}; transitioning to kickoff.");
+        StartOnFieldGameplayLoop(state);
     }
 
     private void ApplyTouchdownScoreAndPresentation(OnFieldGameState state, OnFieldTeam scoringTeam, OnFieldTouchdownKind touchdownKind)

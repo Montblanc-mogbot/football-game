@@ -489,6 +489,7 @@ public sealed class OnFieldPlayCoordinator
             return;
         }
 
+        RecordReturnOutcomeChecks(state, receivingTeam, "kickoff return");
         if (!state.PlayOverTriggered)
         {
             state.RecordEvent($"Waiting for {receivingTeam} kickoff-return dead-ball resolution.");
@@ -560,6 +561,7 @@ public sealed class OnFieldPlayCoordinator
             return;
         }
 
+        RecordReturnOutcomeChecks(state, returnTeam, "punt return");
         if (!state.PlayOverTriggered)
         {
             state.RecordEvent($"Waiting for {returnTeam} punt-return dead-ball resolution.");
@@ -804,6 +806,7 @@ public sealed class OnFieldPlayCoordinator
             return;
         }
 
+        RecordReturnOutcomeChecks(state, GetOpposingTeam(state.PossessionTeam), "interception return");
         if (!state.PlayOverTriggered)
         {
             state.RecordEvent("Waiting for interception return dead-ball resolution.");
@@ -921,6 +924,7 @@ public sealed class OnFieldPlayCoordinator
         if (recoveredByKickingTeam)
         {
             playAssignmentService.ReassignForOnsideReturn(state, recoveringTeam);
+            RecordReturnOutcomeChecks(state, recoveringTeam, "onside return");
 
             if (!state.PlayOverTriggered)
             {
@@ -960,6 +964,7 @@ public sealed class OnFieldPlayCoordinator
         if (!state.PlayOverTriggered)
         {
             playAssignmentService.ReassignForFumbleReturn(state, recoveringTeam);
+            RecordReturnOutcomeChecks(state, recoveringTeam, "same-team fumble return");
             state.RecordEvent($"Fumble recovered by {recoveringTeam}; live return continues under same possession.");
             return;
         }
@@ -976,6 +981,7 @@ public sealed class OnFieldPlayCoordinator
         if (!state.PlayOverTriggered)
         {
             playAssignmentService.ReassignForFumbleReturn(state, recoveringTeam);
+            RecordReturnOutcomeChecks(state, recoveringTeam, "turnover fumble return");
             state.RecordEvent($"Fumble recovered by {recoveringTeam}; live turnover return continues.");
             return;
         }
@@ -1012,6 +1018,14 @@ public sealed class OnFieldPlayCoordinator
         ApplyPossessionChange(state, recoveringTeam, "FUMBLE_TURNOVER");
         state.RecordEvent($"Resolved dead-ball fumble turnover; {recoveringTeam} offense takes over.");
         QueueNextPlayOrKickoffState(state, recoveringTeam, kickoffRequired: false);
+    }
+
+    private void RecordReturnOutcomeChecks(OnFieldGameState state, OnFieldTeam returnTeam, string context)
+    {
+        state.RecordRoutine(OnFieldRoutine.CHECK_FOR_TD);
+        state.RecordRoutine(OnFieldRoutine.CHECK_FOR_FUMBLES_TOSS_AND_NORMAL);
+        state.RecordRoutine(OnFieldRoutine.CHECK_FOR_PLAY_OVER);
+        state.RecordEvent($"Recorded Bank19_20 return outcome checks for {context} by {returnTeam}.");
     }
 
     private void ResolveExtraPointExitToKickoff(OnFieldGameState state, string outcomeKey)

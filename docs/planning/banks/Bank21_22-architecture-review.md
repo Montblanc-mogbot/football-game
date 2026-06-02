@@ -354,6 +354,35 @@ Current working model now looks stronger:
 
 That layered model is useful because it keeps us from forcing everything into one gameplay class.
 
+## Bank19_20 carry-forward boundary for later Bank21_22 conversion
+Some important Bank21_22-facing behavior originates in `Bank19_20_on_field_gameplay_loop.asm` rather than inside the command-runtime bank itself.
+That material should stay represented with Bank19_20 **and** be carried forward explicitly when the Bank21_22 conversion resumes.
+
+The most important bridge areas are:
+
+- `LOAD_UPDATE_PLAY_CODE_FUNCTIONS`
+  - bulk assigns player script addresses
+  - seeds `COMMAND_COUNTER`
+  - seeds `JUMP_DO_NEXT_PLAYER_COMMAND`
+  - defines how Bank19_20 re-enters the per-player command runtime after reassignment
+
+- `DEFENDER_CHANGE_BEFORE_HIKE`
+  - handles pre-snap host logic
+  - primes the active player for snap-time control handoff
+  - writes the active player's command state so Bank21_22 can resume command execution after the snap
+
+- `CHECK_SNAP_PUNT`
+  - keeps punt snap timing in the host bank
+  - still defines a command-runtime boundary because it controls when scripted execution resumes
+
+- `SET_PLAYERS_CLOSE_TO_PASS`
+  - ranks pass targets and nearby defenders in the host bank
+  - primes `JUMP_WR_JUMP_DIVE_CHECK_PASS` and `JUMP_DEF_JUMP_DIVE_CHECK_PASS`
+  - therefore shapes Bank21_22's later pass-interaction edge-case semantics
+
+This means the later Bank21_22 conversion should not only read `Bank21_22_play_commands_on_field_logic.asm` in isolation.
+It should also re-check these Bank19_20 bridge sections so the ownership boundary between host flow and command execution stays faithful.
+
 ## Current recommendation
 When Bank5_6 conversion starts for real, target at least three layers:
 

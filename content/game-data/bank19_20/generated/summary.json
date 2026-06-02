@@ -1,0 +1,34 @@
+{
+  "sourceFile": "reference/Tecmo_Super_Bowl_NES_Disassembly/Bank19_20_on_field_gameplay_loop.asm",
+  "sectionCount": 75,
+  "controllerSectionCount": 44,
+  "supportingServiceSectionCount": 31,
+  "entryPointCount": 2,
+  "scriptPointerFamilyCount": 19,
+  "carryForwardToBank21_22SectionCount": 4,
+  "carryForwardToBank21_22Sections": [
+    "DEFENDER_CHANGE_BEFORE_HIKE",
+    "CHECK_SNAP_PUNT",
+    "LOAD_UPDATE_PLAY_CODE_FUNCTIONS",
+    "SET_PLAYERS_CLOSE_TO_PASS"
+  ],
+  "externalDependencyCountsByBank": {
+    "Bank21_22_play_commands_on_field_logic.asm": 3,
+    "Bank23_draw_field_ball_ani_coll_check.asm": 3,
+    "Bank27_misc.asm": 2,
+    "Bank17_18_main_game_loop.asm": 3
+  },
+  "responsibilityGroups": [
+    "cpu-decision-support",
+    "injury-and-cutscene",
+    "pass-targeting",
+    "play-assignment",
+    "play-outcome",
+    "play-phase-routing",
+    "pre-snap-control",
+    "presentation",
+    "roster-skill-hydration",
+    "stats-and-distance",
+    "task-coordination"
+  ]
+}

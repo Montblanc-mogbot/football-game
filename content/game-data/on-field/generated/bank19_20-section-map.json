@@ -1,0 +1,3831 @@
+{
+  "sourceFile": "reference/Tecmo_Super_Bowl_NES_Disassembly/Bank19_20_on_field_gameplay_loop.asm",
+  "entryPoints": [
+    {
+      "sourceLabel": "BANK_JUMP_ON_FIELD_GAMEPLAY_START",
+      "targetLabel": "ON_FIELD_GAMEPLAY_START",
+      "line": 62,
+      "notes": "Primary bank entrypoint for the on-field gameplay host."
+    },
+    {
+      "sourceLabel": "BANK_JUMP_SKP_VS_SKP_INJURY_START",
+      "targetLabel": "SKP_VS_SKP_INJURY_START",
+      "line": 65,
+      "notes": "Secondary bank entrypoint for skip-vs-skip injury handling."
+    }
+  ],
+  "scriptPointerFamilies": [
+    {
+      "sourceLabel": "OFF_PLAYERS_CHEER_PLAY_PTRS[]",
+      "address": "$AE00",
+      "teamSide": "offense",
+      "purpose": "cheer/celebration",
+      "line": 37
+    },
+    {
+      "sourceLabel": "INT_RETURN_DEFENSE_PLAY_PTRS[]",
+      "address": "$AE18",
+      "teamSide": "offense",
+      "purpose": "interception-return defense",
+      "line": 38
+    },
+    {
+      "sourceLabel": "OFF_RECOVER_ONSIDE_PLAY_PTRS[]",
+      "address": "$AE30",
+      "teamSide": "offense",
+      "purpose": "recover-onside",
+      "line": 39
+    },
+    {
+      "sourceLabel": "OFF_RECOVER_BALL_PLAY_PTRS[]",
+      "address": "$AE48",
+      "teamSide": "offense",
+      "purpose": "ball-recovery",
+      "line": 40
+    },
+    {
+      "sourceLabel": "PUNT_COVERAGE_PLAY_PTRS[]",
+      "address": "$AE60",
+      "teamSide": "offense",
+      "purpose": "punt coverage",
+      "line": 41
+    },
+    {
+      "sourceLabel": "OFF_ONSIDE_KICK_RET_PLAY_PTRS[]",
+      "address": "$AE78",
+      "teamSide": "offense",
+      "purpose": "onside return",
+      "line": 42
+    },
+    {
+      "sourceLabel": "OFF_RECOVERS_OWN_FUM_PLAY_PTRS[]",
+      "address": "$AEA8",
+      "teamSide": "offense",
+      "purpose": "own-fumble recovery",
+      "line": 43
+    },
+    {
+      "sourceLabel": "OFF_DEFENDS_LOST_FUM_PLAY_PTRS[]",
+      "address": "$AEC0",
+      "teamSide": "offense",
+      "purpose": "defend lost fumble",
+      "line": 44
+    },
+    {
+      "sourceLabel": "OFF_PLAYERS_CRY_PLAY_PTRS[]",
+      "address": "$AF08",
+      "teamSide": "offense",
+      "purpose": "cry/post-failure",
+      "line": 46
+    },
+    {
+      "sourceLabel": "DEF_PLAYERS_CRY_PLAY_PTRS[]",
+      "address": "$B600",
+      "teamSide": "defense",
+      "purpose": "cry/post-failure",
+      "line": 50
+    },
+    {
+      "sourceLabel": "INT_RETURN_PLAY_PTRS[]",
+      "address": "$B618",
+      "teamSide": "defense",
+      "purpose": "interception return",
+      "line": 51
+    },
+    {
+      "sourceLabel": "DEF_RECOVER_ONSIDE_PLAY_PTRS[]",
+      "address": "$B630",
+      "teamSide": "defense",
+      "purpose": "recover-onside",
+      "line": 52
+    },
+    {
+      "sourceLabel": "DEF_RECOVER_BALL_PLAY_PTRS[]",
+      "address": "$B648",
+      "teamSide": "defense",
+      "purpose": "ball-recovery",
+      "line": 53
+    },
+    {
+      "sourceLabel": "PUNT_RETURN_PLAY_PTRS[]",
+      "address": "$B660",
+      "teamSide": "defense",
+      "purpose": "punt return",
+      "line": 54
+    },
+    {
+      "sourceLabel": "DEF_ONSIDE_KICK_RET_PLAY_PTRS[]",
+      "address": "$B678",
+      "teamSide": "defense",
+      "purpose": "onside return",
+      "line": 55
+    },
+    {
+      "sourceLabel": "FUM_RET_DEF_PLAY_PTRS[]",
+      "address": "$B6A8",
+      "teamSide": "defense",
+      "purpose": "fumble return defense",
+      "line": 56
+    },
+    {
+      "sourceLabel": "DEF_RET_LOST_FUM_PLAY_PTRS[]",
+      "address": "$B6C0",
+      "teamSide": "defense",
+      "purpose": "return after lost fumble",
+      "line": 57
+    },
+    {
+      "sourceLabel": "DEF_PLAYERS_CHEER_PLAY_PTRS[]",
+      "address": "$B708",
+      "teamSide": "defense",
+      "purpose": "cheer/celebration",
+      "line": 58
+    },
+    {
+      "sourceLabel": "CHASE_BALL_CARRIER_PLAY_PTRS[]",
+      "address": "$B750",
+      "teamSide": "defense",
+      "purpose": "chase ball carrier",
+      "line": 59
+    }
+  ],
+  "externalJumpConstants": [
+    {
+      "symbol": "JUMP_DO_NEXT_PLAYER_COMMAND",
+      "value": "$8000",
+      "line": 22
+    },
+    {
+      "symbol": "JUMP_WR_JUMP_DIVE_CHECK_PASS",
+      "value": "$8006",
+      "line": 23
+    },
+    {
+      "symbol": "JUMP_DEF_JUMP_DIVE_CHECK_PASS",
+      "value": "$8009",
+      "line": 24
+    },
+    {
+      "symbol": "JUMP_DRAW_GAMEFIELD",
+      "value": "$8003",
+      "line": 29
+    },
+    {
+      "symbol": "JUMP_START_BANNER_TASK",
+      "value": "$9003",
+      "line": 30
+    },
+    {
+      "symbol": "JUMP_START_COLL_CHECK_TASK",
+      "value": "$9006",
+      "line": 31
+    },
+    {
+      "symbol": "LOAD_ALL_SKILLS_ROUTINE",
+      "value": "$8018",
+      "line": 34
+    },
+    {
+      "symbol": "LOAD_SINGLE_PLAYER_SKILLS_ROUTINE",
+      "value": "$801B",
+      "line": 35
+    }
+  ],
+  "externalDependencies": [
+    {
+      "symbol": "JUMP_DO_NEXT_PLAYER_COMMAND",
+      "sourceBank": "Bank21_22_play_commands_on_field_logic.asm",
+      "dependencyKind": "runtime-entrypoint",
+      "notes": "Per-player script execution re-entrypoint used after Bank19_20 assigns or retargets play-script addresses."
+    },
+    {
+      "symbol": "JUMP_WR_JUMP_DIVE_CHECK_PASS",
+      "sourceBank": "Bank21_22_play_commands_on_field_logic.asm",
+      "dependencyKind": "runtime-entrypoint",
+      "notes": "Receiver-side jump/dive pass-contest handler primed by Bank19_20 pass-target logic."
+    },
+    {
+      "symbol": "JUMP_DEF_JUMP_DIVE_CHECK_PASS",
+      "sourceBank": "Bank21_22_play_commands_on_field_logic.asm",
+      "dependencyKind": "runtime-entrypoint",
+      "notes": "Defender-side jump/dive pass-contest handler primed by Bank19_20 pass-target logic."
+    },
+    {
+      "symbol": "JUMP_DRAW_GAMEFIELD",
+      "sourceBank": "Bank23_draw_field_ball_ani_coll_check.asm",
+      "dependencyKind": "presentation-entrypoint",
+      "notes": "Field-draw task entrypoint invoked by Bank19_20 after updating scroll/window state."
+    },
+    {
+      "symbol": "JUMP_START_BANNER_TASK",
+      "sourceBank": "Bank23_draw_field_ball_ani_coll_check.asm",
+      "dependencyKind": "presentation-entrypoint",
+      "notes": "Banner/status-bar task entrypoint used by Bank19_20 presentation helpers."
+    },
+    {
+      "symbol": "JUMP_START_COLL_CHECK_TASK",
+      "sourceBank": "Bank23_draw_field_ball_ani_coll_check.asm",
+      "dependencyKind": "simulation-entrypoint",
+      "notes": "Collision-check task entrypoint used during cutscene/presentation setup."
+    },
+    {
+      "symbol": "LOAD_ALL_SKILLS_ROUTINE",
+      "sourceBank": "Bank27_misc.asm",
+      "dependencyKind": "data-hydration-entrypoint",
+      "notes": "Bulk player-skill load invoked during on-field setup."
+    },
+    {
+      "symbol": "LOAD_SINGLE_PLAYER_SKILLS_ROUTINE",
+      "sourceBank": "Bank27_misc.asm",
+      "dependencyKind": "data-hydration-entrypoint",
+      "notes": "Single-player skill load used for kickers, returners, and similar setup adjustments."
+    },
+    {
+      "symbol": "JUMP_PLAYER_INJURED",
+      "sourceBank": "Bank17_18_main_game_loop.asm",
+      "dependencyKind": "orchestration-entrypoint",
+      "notes": "External jump used by the injury flow to hand control back to the broader game-loop bank."
+    },
+    {
+      "symbol": "JUMP_CHANGE_PLAYERS",
+      "sourceBank": "Bank17_18_main_game_loop.asm",
+      "dependencyKind": "orchestration-entrypoint",
+      "notes": "External jump used by roster/injury replacement flow."
+    },
+    {
+      "symbol": "JUMP_UPDATE_LARGE_SCOREBOARD",
+      "sourceBank": "Bank17_18_main_game_loop.asm",
+      "dependencyKind": "presentation-entrypoint",
+      "notes": "Scoreboard update jump used by Bank19_20 scoring/outcome helpers."
+    }
+  ],
+  "sections": [
+    {
+      "sectionName": "GAME_PLAY_START_CHECK_FOR_KICK_TEAM",
+      "sourceStartLine": 68,
+      "sourceStartMarker": "_F{_GAME_PLAY_START_CHECK_FOR_KICK_TEAM        ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "Top-level on-field entry routing that decides which kickoff-side phase starts the live play host.",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 81,
+      "sourceEndMarker": "_F}_GAME_PLAY_START_CHECK_FOR_KICK_TEAM",
+      "lineCount": 14,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "ON_FIELD_GAMEPLAY_START",
+          "line": 70
+        }
+      ],
+      "primaryEntryLabels": [
+        "ON_FIELD_GAMEPLAY_START"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_KICKOFF",
+      "sourceStartLine": 83,
+      "sourceStartMarker": "_F{_P2_KICKOFF                                 ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 200,
+      "sourceEndMarker": "_F}_P2_KICKOFF",
+      "lineCount": 118,
+      "globalLabelCount": 6,
+      "labels": [
+        {
+          "label": "P2_KICKOFF_START",
+          "line": 85
+        },
+        {
+          "label": "CHECK_FOR_P2_KICKOFF_BALL_SNAP",
+          "line": 124
+        },
+        {
+          "label": "CHECK_P2_KICKED_BALL",
+          "line": 147
+        },
+        {
+          "label": "CHECK_P1_RECEIVED_KICKOFF",
+          "line": 162
+        },
+        {
+          "label": "P1_KICKOFF_RETURN_CHECKS",
+          "line": 178
+        },
+        {
+          "label": "P1_KICK_RETURN_END",
+          "line": 197
+        }
+      ],
+      "primaryEntryLabels": [
+        "P2_KICKOFF_START",
+        "CHECK_FOR_P2_KICKOFF_BALL_SNAP",
+        "CHECK_P2_KICKED_BALL",
+        "CHECK_P1_RECEIVED_KICKOFF",
+        "P1_KICKOFF_RETURN_CHECKS",
+        "P1_KICK_RETURN_END"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_PLAY_SELECT_AND_PLAY_LOAD",
+      "sourceStartLine": 202,
+      "sourceStartMarker": "_F{_P1_PLAY_SELECT_AND_PLAY_LOAD \t\t\t   ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 244,
+      "sourceEndMarker": "_F}_P1_PLAY_SELECT_AND_PLAY_LOAD",
+      "lineCount": 43,
+      "globalLabelCount": 2,
+      "labels": [
+        {
+          "label": "P1_PLAY_SELECT_START",
+          "line": 204
+        },
+        {
+          "label": "P1_REGULAR_PLAY_LOAD",
+          "line": 219
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_PLAY_SELECT_START",
+        "P1_REGULAR_PLAY_LOAD"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_RUN_PLAY",
+      "sourceStartLine": 246,
+      "sourceStartMarker": "_F{_P1_RUN_PLAY\t\t\t\t\t\t\t\t   ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 294,
+      "sourceEndMarker": "_F}_P1_RUN_PLAY",
+      "lineCount": 49,
+      "globalLabelCount": 5,
+      "labels": [
+        {
+          "label": "P1_RUN_PLAY_START",
+          "line": 248
+        },
+        {
+          "label": "P1_RECEPTION",
+          "line": 253
+        },
+        {
+          "label": "P1_OFFENSE_PAST_LOS_SET_D_CHASE",
+          "line": 271
+        },
+        {
+          "label": "P1_RUN_PLAY_CHECKS_PAST_LOS",
+          "line": 280
+        },
+        {
+          "label": "P1_RUN_FUMBLE_CHECKS",
+          "line": 288
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_RUN_PLAY_START",
+        "P1_RECEPTION",
+        "P1_OFFENSE_PAST_LOS_SET_D_CHASE",
+        "P1_RUN_PLAY_CHECKS_PAST_LOS",
+        "P1_RUN_FUMBLE_CHECKS"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_PLAY_OVER_NORMAL",
+      "sourceStartLine": 296,
+      "sourceStartMarker": "_F{_P1_PLAY_OVER_NORMAL\t\t\t\t\t\t   ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 316,
+      "sourceEndMarker": "_F}_P1_PLAY_OVER_NORMAL",
+      "lineCount": 21,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "P1_PLAY_OVER_NORMAL",
+          "line": 298
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_PLAY_OVER_NORMAL"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_PASS_PLAY",
+      "sourceStartLine": 318,
+      "sourceStartMarker": "_F{_P1_PASS_PLAY                               ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 423,
+      "sourceEndMarker": "_F}_P1_PASS_PLAY",
+      "lineCount": 106,
+      "globalLabelCount": 6,
+      "labels": [
+        {
+          "label": "P1_PASS_PLAY_START",
+          "line": 320
+        },
+        {
+          "label": "P1_QB_HASNT_THROWN_BEHIND_LOS_CHECKS",
+          "line": 325
+        },
+        {
+          "label": "CHECK_FOR_P1_PASS_ATTEMPT",
+          "line": 348
+        },
+        {
+          "label": "P1_CHECK_FOR_PASS_OUTCOME_BALL_IN_AIR",
+          "line": 372
+        },
+        {
+          "label": "P1_PASS_OUTCOME_CHECK",
+          "line": 381
+        },
+        {
+          "label": "P1_PASS_BALL_OOB_OR_HIT_GROUND",
+          "line": 399
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_PASS_PLAY_START",
+        "P1_QB_HASNT_THROWN_BEHIND_LOS_CHECKS",
+        "CHECK_FOR_P1_PASS_ATTEMPT",
+        "P1_CHECK_FOR_PASS_OUTCOME_BALL_IN_AIR",
+        "P1_PASS_OUTCOME_CHECK",
+        "P1_PASS_BALL_OOB_OR_HIT_GROUND"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_SACK_OR_SCRAMBLE",
+      "sourceStartLine": 425,
+      "sourceStartMarker": "_F{_P1_SACK_OR_SCRAMBLE                        ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 489,
+      "sourceEndMarker": "_F}_P1_SACK_OR_SCRAMBLE",
+      "lineCount": 65,
+      "globalLabelCount": 5,
+      "labels": [
+        {
+          "label": "P1_PASS_PLAY_OVER_NO_THROW",
+          "line": 428
+        },
+        {
+          "label": "P1_QB_SACKED",
+          "line": 457
+        },
+        {
+          "label": "P1_QB_SACKED_ON_4TH_DOWN",
+          "line": 466
+        },
+        {
+          "label": "P1_QB_SAFETIED",
+          "line": 474
+        },
+        {
+          "label": "P1_PASS_PLAY_OVER_NO_THROW_NO_SACK",
+          "line": 486
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_PASS_PLAY_OVER_NO_THROW",
+        "P1_QB_SACKED",
+        "P1_QB_SACKED_ON_4TH_DOWN",
+        "P1_QB_SAFETIED",
+        "P1_PASS_PLAY_OVER_NO_THROW_NO_SACK"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_SPECIAL_TEAMS_PLAY_TYPE_CHECK",
+      "sourceStartLine": 491,
+      "sourceStartMarker": "_F{_P1_SPECIAL_TEAMS_PLAY_TYPE_CHECK           ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 499,
+      "sourceEndMarker": "_F}_P1_SPECIAL_TEAMS_PLAY_TYPE_CHECK",
+      "lineCount": 9,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "P1_FG_PUNT_CHECK",
+          "line": 493
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_FG_PUNT_CHECK"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_PUNT_PLAY",
+      "sourceStartLine": 501,
+      "sourceStartMarker": "_F{_P1_PUNT_PLAY                               ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 629,
+      "sourceEndMarker": "_F}_P1_PUNT_PLAY",
+      "lineCount": 129,
+      "globalLabelCount": 7,
+      "labels": [
+        {
+          "label": "P1_PUNT_START",
+          "line": 503
+        },
+        {
+          "label": "P1_CHECK_FOR_BALL_PUNTED",
+          "line": 536
+        },
+        {
+          "label": "P1_CHECK_FOR_PUNT_BLOCKED",
+          "line": 558
+        },
+        {
+          "label": "P2_PUNT_RETURN_WAIT_FOR_BALL",
+          "line": 587
+        },
+        {
+          "label": "P2_PUNT_RETURN_CAUGHT_BALL",
+          "line": 595
+        },
+        {
+          "label": "P2_TOUCHBACK_POSS_CHANGE",
+          "line": 622
+        },
+        {
+          "label": "P1_PUNT_BLOCKED_POSS_CHANGE_UNUSED",
+          "line": 625
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_PUNT_START",
+        "P1_CHECK_FOR_BALL_PUNTED",
+        "P1_CHECK_FOR_PUNT_BLOCKED",
+        "P2_PUNT_RETURN_WAIT_FOR_BALL",
+        "P2_PUNT_RETURN_CAUGHT_BALL",
+        "P2_TOUCHBACK_POSS_CHANGE"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_FG_PLAY",
+      "sourceStartLine": 632,
+      "sourceStartMarker": "_F{_P1_FG_PLAY                                 ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 722,
+      "sourceEndMarker": "_F}_P1_FG_PLAY",
+      "lineCount": 91,
+      "globalLabelCount": 6,
+      "labels": [
+        {
+          "label": "P1_FG_START",
+          "line": 634
+        },
+        {
+          "label": "P1_FG_NOT_KICKED_LOOP",
+          "line": 661
+        },
+        {
+          "label": "DO_P1_FG_CUTSCENE",
+          "line": 688
+        },
+        {
+          "label": "P1_SPECIAL_TEAMS_PLAY_OVER",
+          "line": 698
+        },
+        {
+          "label": "P1_FG_BLOCKED",
+          "line": 703
+        },
+        {
+          "label": "P1_FG_MISSED",
+          "line": 709
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_FG_START",
+        "P1_FG_NOT_KICKED_LOOP",
+        "DO_P1_FG_CUTSCENE",
+        "P1_SPECIAL_TEAMS_PLAY_OVER",
+        "P1_FG_BLOCKED",
+        "P1_FG_MISSED"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_ONSIDES_RETURN",
+      "sourceStartLine": 724,
+      "sourceStartMarker": "_F{_P1_ONSIDES_RETURN\t\t\t\t\t\t   ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 761,
+      "sourceEndMarker": "_F}_P1_ONSIDES_RETURN",
+      "lineCount": 38,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "P1_ONSIDES_KICK_RETURN",
+          "line": 726
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_ONSIDES_KICK_RETURN"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_PASS_TIPPED_RESULT",
+      "sourceStartLine": 763,
+      "sourceStartMarker": "_F{_P1_PASS_TIPPED_RESULT                      ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 815,
+      "sourceEndMarker": "_F}_P1_PASS_TIPPED_RESULT",
+      "lineCount": 53,
+      "globalLabelCount": 4,
+      "labels": [
+        {
+          "label": "P2_TIPS_PASS",
+          "line": 765
+        },
+        {
+          "label": "P2_TIPS_PASS_OUTCOME_LOOP",
+          "line": 776
+        },
+        {
+          "label": "CHECK_P2_TIP_PASS_RESULT",
+          "line": 784
+        },
+        {
+          "label": "CHECK_WHO_CAUGHT_P2_TIP",
+          "line": 807
+        }
+      ],
+      "primaryEntryLabels": [
+        "P2_TIPS_PASS",
+        "P2_TIPS_PASS_OUTCOME_LOOP",
+        "CHECK_P2_TIP_PASS_RESULT",
+        "CHECK_WHO_CAUGHT_P2_TIP"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_SAFETIED",
+      "sourceStartLine": 817,
+      "sourceStartMarker": "_F{_P1_SAFETIED\t\t\t\t\t\t\t\t    ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 840,
+      "sourceEndMarker": "_F}_P1_SAFETIED",
+      "lineCount": 24,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "P1_SAFTIED",
+          "line": 819
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_SAFTIED"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_TD",
+      "sourceStartLine": 842,
+      "sourceStartMarker": "_F{_P1_TD\t\t\t\t\t\t\t\t\t   ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 953,
+      "sourceEndMarker": "_F}_P1_TD",
+      "lineCount": 112,
+      "globalLabelCount": 10,
+      "labels": [
+        {
+          "label": "DO_PLAYER_1_TOUCHDOWN",
+          "line": 844
+        },
+        {
+          "label": "P1_OFF_TD",
+          "line": 856
+        },
+        {
+          "label": "DO_P1_TD_CUTSCENE",
+          "line": 868
+        },
+        {
+          "label": "DO_P1_DEF_TD",
+          "line": 873
+        },
+        {
+          "label": "P1_PLAY_TD_MUSIC_UPDATE_BANNER_UPDATE_STATS",
+          "line": 884
+        },
+        {
+          "label": "CHECK_IF_XP_KICK_NEEDED_P1",
+          "line": 896
+        },
+        {
+          "label": "P1_XP_START",
+          "line": 900
+        },
+        {
+          "label": "CHECK_P1_XP_KICKED",
+          "line": 930
+        },
+        {
+          "label": "P1_XP_CHECK_FOR_ADDITIONAL_CUTSCENE",
+          "line": 947
+        },
+        {
+          "label": "EXIT_P1_XP",
+          "line": 950
+        }
+      ],
+      "primaryEntryLabels": [
+        "DO_PLAYER_1_TOUCHDOWN",
+        "P1_OFF_TD",
+        "DO_P1_TD_CUTSCENE",
+        "DO_P1_DEF_TD",
+        "P1_PLAY_TD_MUSIC_UPDATE_BANNER_UPDATE_STATS",
+        "CHECK_IF_XP_KICK_NEEDED_P1"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_INTERCEPTED",
+      "sourceStartLine": 955,
+      "sourceStartMarker": "_F{_P1_INTERCEPTED\t\t\t\t\t\t\t   ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 996,
+      "sourceEndMarker": "_F}_P1_INTERCEPTED",
+      "lineCount": 42,
+      "globalLabelCount": 2,
+      "labels": [
+        {
+          "label": "P2_INTERCEPTS_PASS",
+          "line": 957
+        },
+        {
+          "label": "UPDATE_SCROLL_LIMITS_P1_TURNOVER",
+          "line": 981
+        }
+      ],
+      "primaryEntryLabels": [
+        "P2_INTERCEPTS_PASS",
+        "UPDATE_SCROLL_LIMITS_P1_TURNOVER"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_TO_P2_POSSESSION_CHANGE",
+      "sourceStartLine": 998,
+      "sourceStartMarker": "_F{_P1_TO_P2_POSSESSION_CHANGE\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1022,
+      "sourceEndMarker": "_F}_P1_TO_P2_POSSESSION_CHANGE",
+      "lineCount": 25,
+      "globalLabelCount": 3,
+      "labels": [
+        {
+          "label": "P1_TO_P2_POSSESSION_CHANGE_P1_KICKOFF",
+          "line": 1000
+        },
+        {
+          "label": "P1_TO_P2_POSSESSION_CHANGE_P2_PLAY_SELECT",
+          "line": 1004
+        },
+        {
+          "label": "CHECK_FADE_OUT_P1_TO_P2",
+          "line": 1008
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_TO_P2_POSSESSION_CHANGE_P1_KICKOFF",
+        "P1_TO_P2_POSSESSION_CHANGE_P2_PLAY_SELECT",
+        "CHECK_FADE_OUT_P1_TO_P2"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_KICKOFF",
+      "sourceStartLine": 1024,
+      "sourceStartMarker": "_F{_P1_KICKOFF\t\t\t\t\t\t\t\t   ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1137,
+      "sourceEndMarker": "_F}_P2_KICK_RETURN",
+      "lineCount": 114,
+      "globalLabelCount": 9,
+      "labels": [
+        {
+          "label": "P1_KICKOFF_START",
+          "line": 1026
+        },
+        {
+          "label": "SET_P1_KICKOFF_LOCATION_NORMAL",
+          "line": 1030
+        },
+        {
+          "label": "SET_P1_KICKOFF_LOCATION_SAFETY",
+          "line": 1034
+        },
+        {
+          "label": "SET_SKILLS_SCROLL_FADE_IN_P1_KICKOFF",
+          "line": 1037
+        },
+        {
+          "label": "CHECK_FOR_P1_KICKOFF_BALL_SNAP",
+          "line": 1065
+        },
+        {
+          "label": "CHECK_BALL_KICKED_P1_KICKOFF",
+          "line": 1083
+        },
+        {
+          "label": "CHECK_P1_KICKOFF_RECEIVED_LOOP",
+          "line": 1100
+        },
+        {
+          "label": "P2_KICKOFF_RETURN_CHECKS",
+          "line": 1116
+        },
+        {
+          "label": "P2_KICK_RETURN_END",
+          "line": 1134
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_KICKOFF_START",
+        "SET_P1_KICKOFF_LOCATION_NORMAL",
+        "SET_P1_KICKOFF_LOCATION_SAFETY",
+        "SET_SKILLS_SCROLL_FADE_IN_P1_KICKOFF",
+        "CHECK_FOR_P1_KICKOFF_BALL_SNAP",
+        "CHECK_BALL_KICKED_P1_KICKOFF"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_PLAY_SELECT_AND_PLAY_LOAD",
+      "sourceStartLine": 1139,
+      "sourceStartMarker": "_F{_P2_PLAY_SELECT_AND_PLAY_LOAD \t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1180,
+      "sourceEndMarker": "_F}_P2_PLAY_SELECT_AND_PLAY_LOAD",
+      "lineCount": 42,
+      "globalLabelCount": 2,
+      "labels": [
+        {
+          "label": "P2_PLAY_SELECT_START",
+          "line": 1142
+        },
+        {
+          "label": "P2_REGULAR_PLAY_LOAD",
+          "line": 1155
+        }
+      ],
+      "primaryEntryLabels": [
+        "P2_PLAY_SELECT_START",
+        "P2_REGULAR_PLAY_LOAD"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_RUN_PLAY",
+      "sourceStartLine": 1182,
+      "sourceStartMarker": "_F{_P2_RUN_PLAY\t\t\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1233,
+      "sourceEndMarker": "_F}_P2_RUN_PLAY",
+      "lineCount": 52,
+      "globalLabelCount": 5,
+      "labels": [
+        {
+          "label": "P2_RUN_PLAY_START",
+          "line": 1184
+        },
+        {
+          "label": "P2_RECEPTION",
+          "line": 1190
+        },
+        {
+          "label": "P2_OFFENSE_PAST_LOS_SET_D_CHASE",
+          "line": 1210
+        },
+        {
+          "label": "P2_RUN_PLAY_CHECKS_PAST_LOS",
+          "line": 1218
+        },
+        {
+          "label": "P2_RUN_FUMBLE_CHECKS",
+          "line": 1226
+        }
+      ],
+      "primaryEntryLabels": [
+        "P2_RUN_PLAY_START",
+        "P2_RECEPTION",
+        "P2_OFFENSE_PAST_LOS_SET_D_CHASE",
+        "P2_RUN_PLAY_CHECKS_PAST_LOS",
+        "P2_RUN_FUMBLE_CHECKS"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_PLAY_OVER_NORMAL",
+      "sourceStartLine": 1235,
+      "sourceStartMarker": "_F{_P2_PLAY_OVER_NORMAL\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1255,
+      "sourceEndMarker": "_F}_P2_PLAY_OVER_NORMAL",
+      "lineCount": 21,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "P2_PLAY_OVER_NORMAL",
+          "line": 1237
+        }
+      ],
+      "primaryEntryLabels": [
+        "P2_PLAY_OVER_NORMAL"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_PASS_PLAY",
+      "sourceStartLine": 1257,
+      "sourceStartMarker": "_F{_P2_PASS_PLAY\t\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1355,
+      "sourceEndMarker": "_F}_P2_PASS_PLAY",
+      "lineCount": 99,
+      "globalLabelCount": 6,
+      "labels": [
+        {
+          "label": "P2_PASS_PLAY_START",
+          "line": 1259
+        },
+        {
+          "label": "P2_QB_HASNT_PASSED_BALL_CHECKS",
+          "line": 1264
+        },
+        {
+          "label": "P2_CHECK_PASS_BLOCK_BALL_ONE_QTR_OF_WAY",
+          "line": 1289
+        },
+        {
+          "label": "P2_PASS_ONE_QTR_WAY_THERE_CHECK",
+          "line": 1297
+        },
+        {
+          "label": "P2_PASS_OUTCOME_CHECK",
+          "line": 1316
+        },
+        {
+          "label": "P2_PASS_BALL_OOB_OR_HIT_GROUND",
+          "line": 1332
+        }
+      ],
+      "primaryEntryLabels": [
+        "P2_PASS_PLAY_START",
+        "P2_QB_HASNT_PASSED_BALL_CHECKS",
+        "P2_CHECK_PASS_BLOCK_BALL_ONE_QTR_OF_WAY",
+        "P2_PASS_ONE_QTR_WAY_THERE_CHECK",
+        "P2_PASS_OUTCOME_CHECK",
+        "P2_PASS_BALL_OOB_OR_HIT_GROUND"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_SACK_OR_SCRAMBLE",
+      "sourceStartLine": 1357,
+      "sourceStartMarker": "_F{_P2_SACK_OR_SCRAMBLE\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1414,
+      "sourceEndMarker": "_F}_P2_SACK_OR_SCRAMBLE",
+      "lineCount": 58,
+      "globalLabelCount": 5,
+      "labels": [
+        {
+          "label": "P2_PASS_PLAY_OVER_NO_THROW",
+          "line": 1359
+        },
+        {
+          "label": "P2_QB_SACKED",
+          "line": 1381
+        },
+        {
+          "label": "P2_QB_SACKED_ON_4TH_DOWN",
+          "line": 1390
+        },
+        {
+          "label": "P2_QB_SAFETIED",
+          "line": 1398
+        },
+        {
+          "label": "P2_PASS_PLAY_OVER_NO_THROW_NO_SACK",
+          "line": 1410
+        }
+      ],
+      "primaryEntryLabels": [
+        "P2_PASS_PLAY_OVER_NO_THROW",
+        "P2_QB_SACKED",
+        "P2_QB_SACKED_ON_4TH_DOWN",
+        "P2_QB_SAFETIED",
+        "P2_PASS_PLAY_OVER_NO_THROW_NO_SACK"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_SPECIAL_TEAMS_PLAY_TYPE_CHECK",
+      "sourceStartLine": 1416,
+      "sourceStartMarker": "_F{_P2_SPECIAL_TEAMS_PLAY_TYPE_CHECK  \t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1424,
+      "sourceEndMarker": "_F}_P2_SPECIAL_TEAMS_PLAY_TYPE_CHECK",
+      "lineCount": 9,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "P2_FG_PUNT_CHECK",
+          "line": 1418
+        }
+      ],
+      "primaryEntryLabels": [
+        "P2_FG_PUNT_CHECK"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_PUNT_PLAY",
+      "sourceStartLine": 1426,
+      "sourceStartMarker": "_F{_P2_PUNT_PLAY \t\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1532,
+      "sourceEndMarker": "_F}_P2_PUNT_PLAY",
+      "lineCount": 107,
+      "globalLabelCount": 6,
+      "labels": [
+        {
+          "label": "P2_PUNT_START",
+          "line": 1428
+        },
+        {
+          "label": "P2_WAIT_FOR_BALL_PUNTED",
+          "line": 1451
+        },
+        {
+          "label": "P1_PUNT_RETURN_START",
+          "line": 1479
+        },
+        {
+          "label": "CHECK_FOR_P1_CAUGHT_PUNT_OR_TOUCHBACK",
+          "line": 1497
+        },
+        {
+          "label": "P2_PUNT_TOUCHBACK",
+          "line": 1526
+        },
+        {
+          "label": "P2_PUNT_BLOCKED",
+          "line": 1529
+        }
+      ],
+      "primaryEntryLabels": [
+        "P2_PUNT_START",
+        "P2_WAIT_FOR_BALL_PUNTED",
+        "P1_PUNT_RETURN_START",
+        "CHECK_FOR_P1_CAUGHT_PUNT_OR_TOUCHBACK",
+        "P2_PUNT_TOUCHBACK",
+        "P2_PUNT_BLOCKED"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_FG_PLAY",
+      "sourceStartLine": 1534,
+      "sourceStartMarker": "_F{_P2_FG_PLAY\t\t\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1618,
+      "sourceEndMarker": "_F}_P2_FG_PLAY",
+      "lineCount": 85,
+      "globalLabelCount": 5,
+      "labels": [
+        {
+          "label": "P2_FG_NOT_KICKED_LOOP",
+          "line": 1562
+        },
+        {
+          "label": "DO_P2_FG_CUTSCENE",
+          "line": 1587
+        },
+        {
+          "label": "P2_SPECIAL_TEAMS_PLAY_OVER",
+          "line": 1596
+        },
+        {
+          "label": "P2_FG_BLOCKED",
+          "line": 1601
+        },
+        {
+          "label": "P2_FG_MISSED",
+          "line": 1607
+        }
+      ],
+      "primaryEntryLabels": [
+        "P2_FG_NOT_KICKED_LOOP",
+        "DO_P2_FG_CUTSCENE",
+        "P2_SPECIAL_TEAMS_PLAY_OVER",
+        "P2_FG_BLOCKED",
+        "P2_FG_MISSED"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_ONSIDES_RETURN",
+      "sourceStartLine": 1620,
+      "sourceStartMarker": "_F{_P2_ONSIDES_RETURN \t\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1658,
+      "sourceEndMarker": "_F}_P2_ONSIDES_RETURN",
+      "lineCount": 39,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "P2_ONSIDES_KICK_RETURN",
+          "line": 1622
+        }
+      ],
+      "primaryEntryLabels": [
+        "P2_ONSIDES_KICK_RETURN"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_PASS_TIPPED_RESULT",
+      "sourceStartLine": 1660,
+      "sourceStartMarker": "_F{_P2_PASS_TIPPED_RESULT \t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1706,
+      "sourceEndMarker": "_F}_P2_PASS_TIPPED_RESULT",
+      "lineCount": 47,
+      "globalLabelCount": 3,
+      "labels": [
+        {
+          "label": "P1_TIPS_PASS",
+          "line": 1662
+        },
+        {
+          "label": "P1_TIP_OUTCOME_LOOP",
+          "line": 1671
+        },
+        {
+          "label": "CHECK_P1_TIP_PASS_RESULT",
+          "line": 1678
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_TIPS_PASS",
+        "P1_TIP_OUTCOME_LOOP",
+        "CHECK_P1_TIP_PASS_RESULT"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_SAFETIED",
+      "sourceStartLine": 1708,
+      "sourceStartMarker": "_F{_P2_SAFETIED                                \t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1731,
+      "sourceEndMarker": "_F}_P2_SAFETIED",
+      "lineCount": 24,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "P2_SAFETIED",
+          "line": 1710
+        }
+      ],
+      "primaryEntryLabels": [
+        "P2_SAFETIED"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_TD",
+      "sourceStartLine": 1733,
+      "sourceStartMarker": "_F{_P2_TD \t\t\t\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1852,
+      "sourceEndMarker": "_F}_P2_TD",
+      "lineCount": 120,
+      "globalLabelCount": 10,
+      "labels": [
+        {
+          "label": "DO_PLAYER_2_TOUCHDOWN",
+          "line": 1735
+        },
+        {
+          "label": "P2_OFFENSIVE_TD",
+          "line": 1748
+        },
+        {
+          "label": "DRAW_P2_TD_CUTSCENE",
+          "line": 1760
+        },
+        {
+          "label": "P2_DEFENSIVE_TD",
+          "line": 1765
+        },
+        {
+          "label": "PLAY_P2_TD_MUSIC_UPDATE_BANNER_UPDATE_STATS",
+          "line": 1778
+        },
+        {
+          "label": "CHECK_IF_XP_KICK_NEEDED_P2",
+          "line": 1790
+        },
+        {
+          "label": "DO_P2_XP",
+          "line": 1794
+        },
+        {
+          "label": "CHECK_P2_XP_KICKED",
+          "line": 1828
+        },
+        {
+          "label": "P2_XP_CHECK_FOR_ADDITIONAL_CUTSCENE",
+          "line": 1846
+        },
+        {
+          "label": "EXIT_P2_XP",
+          "line": 1849
+        }
+      ],
+      "primaryEntryLabels": [
+        "DO_PLAYER_2_TOUCHDOWN",
+        "P2_OFFENSIVE_TD",
+        "DRAW_P2_TD_CUTSCENE",
+        "P2_DEFENSIVE_TD",
+        "PLAY_P2_TD_MUSIC_UPDATE_BANNER_UPDATE_STATS",
+        "CHECK_IF_XP_KICK_NEEDED_P2"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_INTERCEPTED",
+      "sourceStartLine": 1854,
+      "sourceStartMarker": "_F{_P2_INTERCEPTED\t\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1896,
+      "sourceEndMarker": "_F}_P2_INTERCEPTED",
+      "lineCount": 43,
+      "globalLabelCount": 2,
+      "labels": [
+        {
+          "label": "P1_INTERCEPTS_PASS",
+          "line": 1856
+        },
+        {
+          "label": "UPDATE_SCROLL_LIMITS_P2_TURNOVER",
+          "line": 1879
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_INTERCEPTS_PASS",
+        "UPDATE_SCROLL_LIMITS_P2_TURNOVER"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_TO_P1_POSSESSION_CHANGE",
+      "sourceStartLine": 1898,
+      "sourceStartMarker": "_F{_P2_TO_P1_POSSESSION_CHANGE \t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-phase-routing",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 1922,
+      "sourceEndMarker": "_F}_P2_TO_P1_POSSESSION_CHANGE",
+      "lineCount": 25,
+      "globalLabelCount": 3,
+      "labels": [
+        {
+          "label": "P2_TO_P1_POSSESSION_CHANGE_KICKOFF",
+          "line": 1900
+        },
+        {
+          "label": "P2_TO_P1_POSS_CHANGE_PLAY_SELECT",
+          "line": 1904
+        },
+        {
+          "label": "CHECK_FADE_OUT_P2_TO_P1",
+          "line": 1908
+        }
+      ],
+      "primaryEntryLabels": [
+        "P2_TO_P1_POSSESSION_CHANGE_KICKOFF",
+        "P2_TO_P1_POSS_CHANGE_PLAY_SELECT",
+        "CHECK_FADE_OUT_P2_TO_P1"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "CHECK_FOR_FIRST_DOWN_OR_TOD",
+      "sourceStartLine": 1924,
+      "sourceStartMarker": "_F{_CHECK_FOR_FIRST_DOWN_OR_TOD\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-outcome",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2067,
+      "sourceEndMarker": "_F}_CHECK_FOR_FIRST_DOWN_OR_TOD",
+      "lineCount": 144,
+      "globalLabelCount": 8,
+      "labels": [
+        {
+          "label": "P1_CHECK_FOR_FIRST_DOWN",
+          "line": 1935
+        },
+        {
+          "label": "P1_CLOSE_TO_FIRST",
+          "line": 1946
+        },
+        {
+          "label": "DRAW_P1_FIRST_DOWN",
+          "line": 1968
+        },
+        {
+          "label": "P2_CHECK_FOR_FIRST_DOWN",
+          "line": 1974
+        },
+        {
+          "label": "DRAW_P2_FIRST_DOWN",
+          "line": 2006
+        },
+        {
+          "label": "STOP_SOUND_CHECK_TURNOVER_ON_DOWNS",
+          "line": 2012
+        },
+        {
+          "label": "CHECK_FOR_CHAIN_DRAW",
+          "line": 2021
+        },
+        {
+          "label": "DRAW_CHAINS_NOT_FIRST_CHECK",
+          "line": 2050
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_CHECK_FOR_FIRST_DOWN",
+        "P1_CLOSE_TO_FIRST",
+        "DRAW_P1_FIRST_DOWN",
+        "P2_CHECK_FOR_FIRST_DOWN",
+        "DRAW_P2_FIRST_DOWN",
+        "STOP_SOUND_CHECK_TURNOVER_ON_DOWNS"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "UPDATE_HASHMARK_FOR_NEXT_SNAP",
+      "sourceStartLine": 2069,
+      "sourceStartMarker": "_F{_UPDATE_HASHMARK_FOR_NEXT_SNAP             ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-outcome",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2100,
+      "sourceEndMarker": "_F}_UPDATE_HASHMARK_FOR_NEXT_SNAP",
+      "lineCount": 32,
+      "globalLabelCount": 3,
+      "labels": [
+        {
+          "label": "UPDATE_HASH_ONLY_IF_NOT_FIRST",
+          "line": 2071
+        },
+        {
+          "label": "SET_CHAINS_HASH_SET_DOWN_TO_FIRST",
+          "line": 2074
+        },
+        {
+          "label": "NO_1ST_SET_HASH",
+          "line": 2082
+        }
+      ],
+      "primaryEntryLabels": [
+        "UPDATE_HASH_ONLY_IF_NOT_FIRST",
+        "SET_CHAINS_HASH_SET_DOWN_TO_FIRST",
+        "NO_1ST_SET_HASH"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "CHECK_FOR_TD",
+      "sourceStartLine": 2102,
+      "sourceStartMarker": "_F{_CHECK_FOR_TD\t\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-outcome",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2124,
+      "sourceEndMarker": "_F}_CHECK_FOR_TD",
+      "lineCount": 23,
+      "globalLabelCount": 2,
+      "labels": [
+        {
+          "label": "CHECK_FOR_TD_P1",
+          "line": 2104
+        },
+        {
+          "label": "CHECK_FOR_TD_P2",
+          "line": 2114
+        }
+      ],
+      "primaryEntryLabels": [
+        "CHECK_FOR_TD_P1",
+        "CHECK_FOR_TD_P2"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "CHECK_FOR_TOUCHBACK",
+      "sourceStartLine": 2126,
+      "sourceStartMarker": "_F{_CHECK_FOR_TOUCHBACK\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-outcome",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2190,
+      "sourceEndMarker": "_F}_CHECK_FOR_TOUCHBACK",
+      "lineCount": 65,
+      "globalLabelCount": 3,
+      "labels": [
+        {
+          "label": "P1_CHECK_FOR_TOUCHBACK",
+          "line": 2128
+        },
+        {
+          "label": "P2_CHECK_FOR_TOUCHBACK",
+          "line": 2142
+        },
+        {
+          "label": "DO_TOUCHBACK",
+          "line": 2157
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_CHECK_FOR_TOUCHBACK",
+        "P2_CHECK_FOR_TOUCHBACK",
+        "DO_TOUCHBACK"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "CHECK_FOR_SAFETY",
+      "sourceStartLine": 2192,
+      "sourceStartMarker": "_F{_CHECK_FOR_SAFETY                           ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-outcome",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2212,
+      "sourceEndMarker": "_F}_CHECK_FOR_SAFETY",
+      "lineCount": 21,
+      "globalLabelCount": 2,
+      "labels": [
+        {
+          "label": "CHECK_FOR_P1_SAFETY",
+          "line": 2194
+        },
+        {
+          "label": "CHECK_FOR_P2_SAFETY",
+          "line": 2203
+        }
+      ],
+      "primaryEntryLabels": [
+        "CHECK_FOR_P1_SAFETY",
+        "CHECK_FOR_P2_SAFETY"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "CHECK_FOR_PLAY_OVER",
+      "sourceStartLine": 2214,
+      "sourceStartMarker": "_F{_CHECK_FOR_PLAY_OVER\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-outcome",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2254,
+      "sourceEndMarker": "_F}_CHECK_FOR_PLAY_OVER",
+      "lineCount": 41,
+      "globalLabelCount": 7,
+      "labels": [
+        {
+          "label": "CHECK_FOR_PLAY_OVER_P1_OOB",
+          "line": 2216
+        },
+        {
+          "label": "CHECK_FOR_PLAY_OVER_P2_OOB",
+          "line": 2223
+        },
+        {
+          "label": "CHECK_PLAYER_OOB",
+          "line": 2229
+        },
+        {
+          "label": "CHECK_IF_PLAY_OVER",
+          "line": 2235
+        },
+        {
+          "label": "PLAYER_OUT_OF_BOUNDS",
+          "line": 2240
+        },
+        {
+          "label": "PLAY_OVER_PLAYER_TACKLED",
+          "line": 2245
+        },
+        {
+          "label": "PLAY_NOT_OVER",
+          "line": 2250
+        }
+      ],
+      "primaryEntryLabels": [
+        "CHECK_FOR_PLAY_OVER_P1_OOB",
+        "CHECK_FOR_PLAY_OVER_P2_OOB",
+        "CHECK_PLAYER_OOB",
+        "CHECK_IF_PLAY_OVER",
+        "PLAYER_OUT_OF_BOUNDS",
+        "PLAY_OVER_PLAYER_TACKLED"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "CHECK_FOR_FUMBLES_TOSS_AND_NORMAL",
+      "sourceStartLine": 2259,
+      "sourceStartMarker": "_F{_CHECK_FOR_FUMBLES_TOSS_AND_NORMAL \t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-outcome",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2286,
+      "sourceEndMarker": "_F}_CHECK_FOR_FUMBLES_TOSS_AND_NORMAL",
+      "lineCount": 28,
+      "globalLabelCount": 3,
+      "labels": [
+        {
+          "label": "CHECK_FOR_FUMBLED_SNAP_OR_TOSS",
+          "line": 2261
+        },
+        {
+          "label": "CHECK_FUMBLE_SNAP_EXIT",
+          "line": 2276
+        },
+        {
+          "label": "CHECK_IF_BALL_FUMBLED",
+          "line": 2279
+        }
+      ],
+      "primaryEntryLabels": [
+        "CHECK_FOR_FUMBLED_SNAP_OR_TOSS",
+        "CHECK_FUMBLE_SNAP_EXIT",
+        "CHECK_IF_BALL_FUMBLED"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "ONSIDE_AND_FUMBLE_RECOVERY_LOGIC",
+      "sourceStartLine": 2288,
+      "sourceStartMarker": "_F{_ONSIDE_AND_FUMBLE_RECOVERY_LOGIC\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-outcome",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2476,
+      "sourceEndMarker": "_F}_ONSIDE_AND_FUMBLE_RECOVERY_LOGIC",
+      "lineCount": 189,
+      "globalLabelCount": 6,
+      "labels": [
+        {
+          "label": "BALL_FUMBLED_START",
+          "line": 2290
+        },
+        {
+          "label": "FUMBLE_RECOVERY_START",
+          "line": 2301
+        },
+        {
+          "label": "P1_RECOVERED_FUMBLE",
+          "line": 2382
+        },
+        {
+          "label": "P1_CHECK_FOR_TOUCHBACK_RECOVER_OPP_FUMBLE",
+          "line": 2414
+        },
+        {
+          "label": "P2_RECOVERED_FUMBLE",
+          "line": 2431
+        },
+        {
+          "label": "P2_CHECK_FOR_TOUCHBACK_RECOVER_OPP_FUMBLE",
+          "line": 2462
+        }
+      ],
+      "primaryEntryLabels": [
+        "BALL_FUMBLED_START",
+        "FUMBLE_RECOVERY_START",
+        "P1_RECOVERED_FUMBLE",
+        "P1_CHECK_FOR_TOUCHBACK_RECOVER_OPP_FUMBLE",
+        "P2_RECOVERED_FUMBLE",
+        "P2_CHECK_FOR_TOUCHBACK_RECOVER_OPP_FUMBLE"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P1_RECOVERS_FUMBLE",
+      "sourceStartLine": 2380,
+      "sourceStartMarker": "_F{_P1_RECOVERS_FUMBLE\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-outcome",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 1,
+      "parentSectionName": "ONSIDE_AND_FUMBLE_RECOVERY_LOGIC",
+      "sourceEndLine": 2426,
+      "sourceEndMarker": "_F}_P1_RECOVERS_FUMBLE",
+      "lineCount": 47,
+      "globalLabelCount": 2,
+      "labels": [
+        {
+          "label": "P1_RECOVERED_FUMBLE",
+          "line": 2382
+        },
+        {
+          "label": "P1_CHECK_FOR_TOUCHBACK_RECOVER_OPP_FUMBLE",
+          "line": 2414
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_RECOVERED_FUMBLE",
+        "P1_CHECK_FOR_TOUCHBACK_RECOVER_OPP_FUMBLE"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "P2_RECOVERS_FUMBLE",
+      "sourceStartLine": 2429,
+      "sourceStartMarker": "_F{_P2_RECOVERS_FUMBLE\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-outcome",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 1,
+      "parentSectionName": "ONSIDE_AND_FUMBLE_RECOVERY_LOGIC",
+      "sourceEndLine": 2474,
+      "sourceEndMarker": "_F}_P2_RECOVERS_FUMBLE",
+      "lineCount": 46,
+      "globalLabelCount": 2,
+      "labels": [
+        {
+          "label": "P2_RECOVERED_FUMBLE",
+          "line": 2431
+        },
+        {
+          "label": "P2_CHECK_FOR_TOUCHBACK_RECOVER_OPP_FUMBLE",
+          "line": 2462
+        }
+      ],
+      "primaryEntryLabels": [
+        "P2_RECOVERED_FUMBLE",
+        "P2_CHECK_FOR_TOUCHBACK_RECOVER_OPP_FUMBLE"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "MISC_FUMBLE_FUNCTIONS",
+      "sourceStartLine": 2478,
+      "sourceStartMarker": "_F{_MISC_FUMBLE_FUNCTIONS\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-outcome",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2496,
+      "sourceEndMarker": "_F}_MISC_FUMBLE_FUNCTIONS",
+      "lineCount": 19,
+      "globalLabelCount": 2,
+      "labels": [
+        {
+          "label": "ADD_POSSESSION_INFO_TO_BANNER_ID_FUM_KB",
+          "line": 2482
+        },
+        {
+          "label": "SET_BALL_STATUS_NOT_FUMBLED_AFTER_RECOVERY",
+          "line": 2491
+        }
+      ],
+      "primaryEntryLabels": [
+        "ADD_POSSESSION_INFO_TO_BANNER_ID_FUM_KB",
+        "SET_BALL_STATUS_NOT_FUMBLED_AFTER_RECOVERY"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "CHECK_FOR_QTR_OVER",
+      "sourceStartLine": 2499,
+      "sourceStartMarker": "_F{_CHECK_FOR_QTR_OVER\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-outcome",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2510,
+      "sourceEndMarker": "_F}_CHECK_FOR_QTR_OVER",
+      "lineCount": 12,
+      "globalLabelCount": 2,
+      "labels": [
+        {
+          "label": "CHECK_FOR_QTR_OVER",
+          "line": 2501
+        },
+        {
+          "label": "QTR_OVER_SUSPEND_TASK",
+          "line": 2505
+        }
+      ],
+      "primaryEntryLabels": [
+        "CHECK_FOR_QTR_OVER",
+        "QTR_OVER_SUSPEND_TASK"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "CLEAR_VARIABLES_FOR_XP_KICKOFF",
+      "sourceStartLine": 2512,
+      "sourceStartMarker": "_F{_CLEAR_VARIABLES_FOR_XP_KICKOFF             ; DONE",
+      "modernOwner": "controller",
+      "responsibilityGroup": "play-outcome",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2544,
+      "sourceEndMarker": "_F}_CLEAR_VARIABLES_FOR_XP_KICKOFF",
+      "lineCount": 33,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "CLEAR_RAM_VARS_SPRITES",
+          "line": 2519
+        }
+      ],
+      "primaryEntryLabels": [
+        "CLEAR_RAM_VARS_SPRITES"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "END_SPECIFIC_TASKS",
+      "sourceStartLine": 2546,
+      "sourceStartMarker": "_F{_END_SPECIFIC_TASKS                         ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "task-coordination",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2576,
+      "sourceEndMarker": "_F}_END_SPECIFIC_TASKS",
+      "lineCount": 31,
+      "globalLabelCount": 3,
+      "labels": [
+        {
+          "label": "WAIT_UNTIL_BANNER_DONE_FADE_OUT_PAL",
+          "line": 2548
+        },
+        {
+          "label": "END_ALL_TASKS_BUT_CLOCK_AND_DRAW_CLEAR_CUT",
+          "line": 2559
+        },
+        {
+          "label": "END_GAME_FIELD_BALL_MOVE_TASKS",
+          "line": 2567
+        }
+      ],
+      "primaryEntryLabels": [
+        "WAIT_UNTIL_BANNER_DONE_FADE_OUT_PAL",
+        "END_ALL_TASKS_BUT_CLOCK_AND_DRAW_CLEAR_CUT",
+        "END_GAME_FIELD_BALL_MOVE_TASKS"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "CHECK_FOR_UPDATE_BANNER",
+      "sourceStartLine": 2578,
+      "sourceStartMarker": "_F{_CHECK_FOR_UPDATE_BANNER                    ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "presentation",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2591,
+      "sourceEndMarker": "_F}_CHECK_FOR_UPDATE_BANNER",
+      "lineCount": 14,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "UPDATE_BANNER",
+          "line": 2580
+        }
+      ],
+      "primaryEntryLabels": [
+        "UPDATE_BANNER"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "UPDATE_SCORE_FUNCTIONS",
+      "sourceStartLine": 2593,
+      "sourceStartMarker": "_F{_UPDATE_SCORE_FUNCTIONS\t\t\t\t\t\t; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "presentation",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2680,
+      "sourceEndMarker": "_F}_UPDATE_SCORE_FUNCTIONS",
+      "lineCount": 88,
+      "globalLabelCount": 3,
+      "labels": [
+        {
+          "label": "ADD_PTS_TO_P1_QTR_TOT",
+          "line": 2598
+        },
+        {
+          "label": "ADD_PTS_TO_P2_QTR_TOT",
+          "line": 2616
+        },
+        {
+          "label": "ADD_AMOUNT_TO_TOTAL_DECIMAL",
+          "line": 2641
+        }
+      ],
+      "primaryEntryLabels": [
+        "ADD_PTS_TO_P1_QTR_TOT",
+        "ADD_PTS_TO_P2_QTR_TOT",
+        "ADD_AMOUNT_TO_TOTAL_DECIMAL"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "DRAW_RECOVER",
+      "sourceStartLine": 2682,
+      "sourceStartMarker": "_F{_DRAW_RECOVER                               ;DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "presentation",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2701,
+      "sourceEndMarker": "_F}_DRAW_RECOVER",
+      "lineCount": 20,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "DRAW_RECOVER_TEXT",
+          "line": 2684
+        }
+      ],
+      "primaryEntryLabels": [
+        "DRAW_RECOVER_TEXT"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "SET_GAME_STATUS_ON_FIELD_START_PLAYER_TASK",
+      "sourceStartLine": 2703,
+      "sourceStartMarker": "_F{_SET_GAME_STATUS_ON_FIELD_START_PLAYER_TASK   ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "task-coordination",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2716,
+      "sourceEndMarker": "_F}_SET_GAME_STATUS_ON_FIELD_START_PLAYER_TASK",
+      "lineCount": 14,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "SET_GAME_STATUS_ON_FIELD_START_PLAYER_TASK",
+          "line": 2705
+        }
+      ],
+      "primaryEntryLabels": [
+        "SET_GAME_STATUS_ON_FIELD_START_PLAYER_TASK"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "DEFENDER_CHANGE_BEFORE_HIKE",
+      "sourceStartLine": 2718,
+      "sourceStartMarker": "_F{_DEFENDER_CHANGE_BEFORE_HIKE                 ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "pre-snap-control",
+      "notes": "Pre-snap defender-selection and snap-gating logic that also primes the active player to re-enter Bank21_22 command execution when the ball is snapped.",
+      "carryForwardToBank21_22": true,
+      "bank21_22CarryForwardReason": "Pre-snap snap handlers set PLAY_CODE_ADDR and command-return state for the active player, creating a hard boundary with Bank21_22 command semantics.",
+      "bank21_22BridgeSymbols": [
+        "JUMP_DO_NEXT_PLAYER_COMMAND"
+      ],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 2966,
+      "sourceEndMarker": "_F}_DEFENDER_CHANGE_BEFORE_HIKE",
+      "lineCount": 249,
+      "globalLabelCount": 16,
+      "labels": [
+        {
+          "label": "CHECK_FOR_P2_HIKE_P1_PLAYER_CHANGE",
+          "line": 2728
+        },
+        {
+          "label": "CHECK_FOR_P2_HIKE_P1_PLAYER_CHANGE_XP",
+          "line": 2730
+        },
+        {
+          "label": "P2_HIKE_P1_DEFENDER_COMMAND_TABLE",
+          "line": 2750
+        },
+        {
+          "label": "P2_MAN_HIKE_P1_MAN_DEF",
+          "line": 2757
+        },
+        {
+          "label": "P2_COM_HIKE_P1_MAN_DEF",
+          "line": 2773
+        },
+        {
+          "label": "P2_BALL_SNAPPED",
+          "line": 2782
+        },
+        {
+          "label": "P2_MAN_HIKE_P1_COM_DEF",
+          "line": 2801
+        },
+        {
+          "label": "UPDATE_P1_DEFENDER_BEFORE_HIKE",
+          "line": 2808
+        },
+        {
+          "label": "CHECK_P1_HIKE_P2_PLAYER_CHANGE",
+          "line": 2848
+        },
+        {
+          "label": "CHECK_P1_HIKE_P2_DEF_CHANGE_NO_CLOCK",
+          "line": 2850
+        },
+        {
+          "label": "P1_HIKE_P2_DEFENDER_COMMAND_TABLE",
+          "line": 2870
+        },
+        {
+          "label": "P1_MAN_HIKE_P2_MAN_DEF",
+          "line": 2877
+        },
+        {
+          "label": "P1_COM_HIKE_P2_MAN_DEF",
+          "line": 2893
+        },
+        {
+          "label": "P1_BALL_SNAPPED",
+          "line": 2903
+        },
+        {
+          "label": "P1_MAN_HIKE_P2_COM_DEF",
+          "line": 2922
+        },
+        {
+          "label": "UPDATE_P2_DEFENDER_ON_BUTTON_PRESS",
+          "line": 2929
+        }
+      ],
+      "primaryEntryLabels": [
+        "CHECK_FOR_P2_HIKE_P1_PLAYER_CHANGE",
+        "CHECK_FOR_P2_HIKE_P1_PLAYER_CHANGE_XP",
+        "P2_HIKE_P1_DEFENDER_COMMAND_TABLE",
+        "P2_MAN_HIKE_P1_MAN_DEF",
+        "P2_COM_HIKE_P1_MAN_DEF",
+        "P2_BALL_SNAPPED"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "CHECK_SNAP_PUNT",
+      "sourceStartLine": 2968,
+      "sourceStartMarker": "_F{_CHECK_SNAP_PUNT                             ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "pre-snap-control",
+      "notes": "Punt snap-gating logic that shares the same pre-snap/control-handoff boundary as the broader defender-change flow.",
+      "carryForwardToBank21_22": true,
+      "bank21_22CarryForwardReason": "Snap gating remains Bank19_20 host logic, but the moment of handoff to active command execution must stay visible in the Bank21_22 notes.",
+      "bank21_22BridgeSymbols": [
+        "JUMP_DO_NEXT_PLAYER_COMMAND"
+      ],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 3024,
+      "sourceEndMarker": "_F}C_HECK_SNAP_PUNT",
+      "lineCount": 57,
+      "globalLabelCount": 6,
+      "labels": [
+        {
+          "label": "CHECK_FOR_SNAP_P2DEF_CHANGE_P1PUNT",
+          "line": 2973
+        },
+        {
+          "label": "CHECK_FOR_SNAP_P1DEF_CHANGE_P2PUNT",
+          "line": 2981
+        },
+        {
+          "label": "CHECK_FOR_PUNT_SNAP",
+          "line": 2988
+        },
+        {
+          "label": "COM_VS_COM_SNAP_DELAY",
+          "line": 2995
+        },
+        {
+          "label": "CHECK_IF_CLOCK_SHOULD_RUN_NOT_IMPLEMENTED",
+          "line": 3004
+        },
+        {
+          "label": "SET_BALL_SNAPPED_START_CLOCK_EXCEPT_XP",
+          "line": 3012
+        }
+      ],
+      "primaryEntryLabels": [
+        "CHECK_FOR_SNAP_P2DEF_CHANGE_P1PUNT",
+        "CHECK_FOR_SNAP_P1DEF_CHANGE_P2PUNT",
+        "CHECK_FOR_PUNT_SNAP",
+        "COM_VS_COM_SNAP_DELAY",
+        "CHECK_IF_CLOCK_SHOULD_RUN_NOT_IMPLEMENTED",
+        "SET_BALL_SNAPPED_START_CLOCK_EXCEPT_XP"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "SET_ONFIELD_SONG",
+      "sourceStartLine": 3026,
+      "sourceStartMarker": "_F{_SET_ONFIELD_SONG\t\t\t\t\t\t  ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "presentation",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 3052,
+      "sourceEndMarker": "_F}_SET_ONFIELD_SONG",
+      "lineCount": 27,
+      "globalLabelCount": 2,
+      "labels": [
+        {
+          "label": "SET_ON_FIELD_SONG",
+          "line": 3029
+        },
+        {
+          "label": "GET_ON_FIELD_SONG_ID",
+          "line": 3033
+        }
+      ],
+      "primaryEntryLabels": [
+        "SET_ON_FIELD_SONG",
+        "GET_ON_FIELD_SONG_ID"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "LOAD_P1_OR_P2_OFF_PLAY_INFO",
+      "sourceStartLine": 3054,
+      "sourceStartMarker": "_F{_LOAD_P1_OR_P2_OFF_PLAY_INFO               ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "play-assignment",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 3199,
+      "sourceEndMarker": "_F}_LOAD_P1_OR_P2_OFF_PLAY_INFO",
+      "lineCount": 146,
+      "globalLabelCount": 2,
+      "labels": [
+        {
+          "label": "P1_ON_OFF_LOAD_PLAY_INFO_PLAYER_RAM",
+          "line": 3061
+        },
+        {
+          "label": "P2_ON_OFF_LOAD_PLAY_INFO_PLAYER_RAM",
+          "line": 3134
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_ON_OFF_LOAD_PLAY_INFO_PLAYER_RAM",
+        "P2_ON_OFF_LOAD_PLAY_INFO_PLAYER_RAM"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "LOAD_OFF_FORMATIONS",
+      "sourceStartLine": 3201,
+      "sourceStartMarker": "_F{_LOAD_OFF_FORMATIONS\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "play-assignment",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 3220,
+      "sourceEndMarker": "_F}_LOAD_OFF_FORMATIONS",
+      "lineCount": 20,
+      "globalLabelCount": 3,
+      "labels": [
+        {
+          "label": "LOAD_P1_OFF_FORMATION",
+          "line": 3205
+        },
+        {
+          "label": "LOAD_P2_OFF_FORMATION",
+          "line": 3209
+        },
+        {
+          "label": "LOAD_OFFENSIVE_FORMATION_ADDRESSES",
+          "line": 3212
+        }
+      ],
+      "primaryEntryLabels": [
+        "LOAD_P1_OFF_FORMATION",
+        "LOAD_P2_OFF_FORMATION",
+        "LOAD_OFFENSIVE_FORMATION_ADDRESSES"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "LOAD_DEF_PLAY_INFO",
+      "sourceStartLine": 3222,
+      "sourceStartMarker": "_F{_LOAD_DEF_PLAY_INFO\t\t\t\t\t\t    ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "play-assignment",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 3241,
+      "sourceEndMarker": "_F}_LOAD_DEF_PLAY_INFO",
+      "lineCount": 20,
+      "globalLabelCount": 3,
+      "labels": [
+        {
+          "label": "LOAD_P1_DEFENSE_PLAY_CODE_ADDRESSES",
+          "line": 3226
+        },
+        {
+          "label": "LOAD_P2_DEFENSE_PLAY_CODE_ADDRESSES",
+          "line": 3230
+        },
+        {
+          "label": "LOAD_DEFENSIVE_CODE_ADDRESSES",
+          "line": 3233
+        }
+      ],
+      "primaryEntryLabels": [
+        "LOAD_P1_DEFENSE_PLAY_CODE_ADDRESSES",
+        "LOAD_P2_DEFENSE_PLAY_CODE_ADDRESSES",
+        "LOAD_DEFENSIVE_CODE_ADDRESSES"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "LOAD_UPDATE_PLAY_CODE_FUNCTIONS",
+      "sourceStartLine": 3243,
+      "sourceStartMarker": "_F{_LOAD_UPDATE_PLAY_CODE_FUNCTIONS\t\t\t\t; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "play-assignment",
+      "notes": "Bulk script-assignment and reassignment helpers that copy Bank5_6 reaction pointers into player RAM and seed the per-player command runner.",
+      "carryForwardToBank21_22": true,
+      "bank21_22CarryForwardReason": "Seeds COMMAND_COUNTER and command-return addresses so players resume through Bank21_22's DO_NEXT_PLAYER_COMMAND entrypoint.",
+      "bank21_22BridgeSymbols": [
+        "JUMP_DO_NEXT_PLAYER_COMMAND"
+      ],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 3436,
+      "sourceEndMarker": "_F}_LOAD_UPDATE_PLAY_CODE_FUNCTIONS",
+      "lineCount": 194,
+      "globalLabelCount": 7,
+      "labels": [
+        {
+          "label": "LOAD_PLAYER_SCRIPT_ADDR_INTO_PLAYER_RAM",
+          "line": 3247
+        },
+        {
+          "label": "UPDATE_ALL_P1_PLAY_CODE_ADRR_EXCEPT_MAN",
+          "line": 3278
+        },
+        {
+          "label": "UPDATE_ALL_P1_PLAY_CODE_ADRR",
+          "line": 3282
+        },
+        {
+          "label": "UPDATE_ALL_P2_PLAY_CODE_ADRR_EXCEPT_MAN",
+          "line": 3318
+        },
+        {
+          "label": "UPDATE_ALL_P2_PLAY_CODE_ADRR",
+          "line": 3322
+        },
+        {
+          "label": "SET_ALL_PLAYER_SCRIPT_ADRR_EXCEPT_MAN",
+          "line": 3356
+        },
+        {
+          "label": "SAVE_COLLISION_CHECK_MASK",
+          "line": 3361
+        }
+      ],
+      "primaryEntryLabels": [
+        "LOAD_PLAYER_SCRIPT_ADDR_INTO_PLAYER_RAM",
+        "UPDATE_ALL_P1_PLAY_CODE_ADRR_EXCEPT_MAN",
+        "UPDATE_ALL_P1_PLAY_CODE_ADRR",
+        "UPDATE_ALL_P2_PLAY_CODE_ADRR_EXCEPT_MAN",
+        "UPDATE_ALL_P2_PLAY_CODE_ADRR",
+        "SET_ALL_PLAYER_SCRIPT_ADRR_EXCEPT_MAN"
+      ],
+      "externalDependencySymbols": [
+        "JUMP_DO_NEXT_PLAYER_COMMAND"
+      ]
+    },
+    {
+      "sectionName": "LOAD_SKILLS",
+      "sourceStartLine": 3438,
+      "sourceStartMarker": "_F{_LOAD_SKILLS\t\t\t\t\t\t\t\t   ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "roster-skill-hydration",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 3464,
+      "sourceEndMarker": "_F}_LOAD_SKILLS",
+      "lineCount": 27,
+      "globalLabelCount": 2,
+      "labels": [
+        {
+          "label": "LOAD_ALL_SKILLS_INTO_PLAYER_RAM",
+          "line": 3440
+        },
+        {
+          "label": "LOAD_SINGLE_PLAYER_SKILLS_TO_PLAYER_RAM",
+          "line": 3451
+        }
+      ],
+      "primaryEntryLabels": [
+        "LOAD_ALL_SKILLS_INTO_PLAYER_RAM",
+        "LOAD_SINGLE_PLAYER_SKILLS_TO_PLAYER_RAM"
+      ],
+      "externalDependencySymbols": [
+        "LOAD_ALL_SKILLS_ROUTINE",
+        "LOAD_SINGLE_PLAYER_SKILLS_ROUTINE"
+      ]
+    },
+    {
+      "sectionName": "STOP_CURRENT_SONG",
+      "sourceStartLine": 3466,
+      "sourceStartMarker": "_F{_STOP_CURRENT_SONG\t\t\t\t\t\t\t; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "presentation",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 3478,
+      "sourceEndMarker": "_F}_STOP_CURRENT_SONG",
+      "lineCount": 13,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "STOP_CURRENTLY_PLAYING_SOUND",
+          "line": 3468
+        }
+      ],
+      "primaryEntryLabels": [
+        "STOP_CURRENTLY_PLAYING_SOUND"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "MAN_CONTROLLED_PLAYER_FUNCTIONS",
+      "sourceStartLine": 3480,
+      "sourceStartMarker": "_F{_MAN_CONTROLLED_PLAYER_FUNCTIONS           ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "pre-snap-control",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 3532,
+      "sourceEndMarker": "_F}_MAN_CONTROLLED_PLAYER_FUNCTIONS",
+      "lineCount": 53,
+      "globalLabelCount": 4,
+      "labels": [
+        {
+          "label": "SET_P1_MAN_TO_KR_P2_MAN_KICKER",
+          "line": 3482
+        },
+        {
+          "label": "SET_P2_MAN_TO_KR_P1_MAN_KICKER",
+          "line": 3493
+        },
+        {
+          "label": "ADD_31MS_TO_P1_MAN_DEFENDER",
+          "line": 3506
+        },
+        {
+          "label": "ADD_31MS_TO_P2_MAN_DEFENDER",
+          "line": 3519
+        }
+      ],
+      "primaryEntryLabels": [
+        "SET_P1_MAN_TO_KR_P2_MAN_KICKER",
+        "SET_P2_MAN_TO_KR_P1_MAN_KICKER",
+        "ADD_31MS_TO_P1_MAN_DEFENDER",
+        "ADD_31MS_TO_P2_MAN_DEFENDER"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "CPU_PLAY_LOGIC",
+      "sourceStartLine": 3534,
+      "sourceStartMarker": "_F{_CPU_PLAY_LOGIC                             ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "cpu-decision-support",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 3560,
+      "sourceEndMarker": "_F}_CPU_PLAY_LOGIC",
+      "lineCount": 27,
+      "globalLabelCount": 3,
+      "labels": [
+        {
+          "label": "GET_P1_CPU_KICKOFF_TYPE",
+          "line": 3538
+        },
+        {
+          "label": "GET_P2_CPU_KICKOFF_TYPE",
+          "line": 3543
+        },
+        {
+          "label": "GET_CPU_KICK_TYPE",
+          "line": 3547
+        }
+      ],
+      "primaryEntryLabels": [
+        "GET_P1_CPU_KICKOFF_TYPE",
+        "GET_P2_CPU_KICKOFF_TYPE",
+        "GET_CPU_KICK_TYPE"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "SIDE_CHANGE_BANNER_AND_SONG",
+      "sourceStartLine": 3562,
+      "sourceStartMarker": "_F{_SIDE_CHANGE_BANNER_AND_SONG               ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "presentation",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 3578,
+      "sourceEndMarker": "_F}_SIDE_CHANGE_BANNER_AND_SONG",
+      "lineCount": 17,
+      "globalLabelCount": 0,
+      "labels": [],
+      "primaryEntryLabels": [],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "SET_PLAYERS_CLOSE_TO_PASS",
+      "sourceStartLine": 3580,
+      "sourceStartMarker": "_F{_SET_PLAYERS_CLOSE_TO_PASS\t\t\t\t\t; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "pass-targeting",
+      "notes": "Pass-target and nearby-defender prioritization plus one-shot command priming for the jump/dive pass-contest handlers in Bank21_22.",
+      "carryForwardToBank21_22": true,
+      "bank21_22CarryForwardReason": "Pass-target ranking directly primes Bank21_22 jump/dive pass-contest handlers and should be revisited when that bank's interaction edge cases are converted.",
+      "bank21_22BridgeSymbols": [
+        "JUMP_DEF_JUMP_DIVE_CHECK_PASS",
+        "JUMP_WR_JUMP_DIVE_CHECK_PASS"
+      ],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 3856,
+      "sourceEndMarker": "_F}_SET_PLAYERS_CLOSE_TO_PASS",
+      "lineCount": 277,
+      "globalLabelCount": 5,
+      "labels": [
+        {
+          "label": "SET_AND_ORDER_BALL_COLLISION_PLAYERS",
+          "line": 3595
+        },
+        {
+          "label": "SET_TARGET_PRIORITY",
+          "line": 3694
+        },
+        {
+          "label": "SET_PLAYER_PRIORITY_AND_ID",
+          "line": 3761
+        },
+        {
+          "label": "LOAD_BALL_COLLISION_CHECK_ADDR_SET_PASS_PRIORITY",
+          "line": 3796
+        },
+        {
+          "label": "SET_DEF_DIST_POS_ID_PASS",
+          "line": 3848
+        }
+      ],
+      "primaryEntryLabels": [
+        "SET_AND_ORDER_BALL_COLLISION_PLAYERS",
+        "SET_TARGET_PRIORITY",
+        "SET_PLAYER_PRIORITY_AND_ID",
+        "LOAD_BALL_COLLISION_CHECK_ADDR_SET_PASS_PRIORITY",
+        "SET_DEF_DIST_POS_ID_PASS"
+      ],
+      "externalDependencySymbols": [
+        "JUMP_WR_JUMP_DIVE_CHECK_PASS",
+        "JUMP_DEF_JUMP_DIVE_CHECK_PASS"
+      ]
+    },
+    {
+      "sectionName": "UPDATE_SCROLL_LIMITS",
+      "sourceStartLine": 3858,
+      "sourceStartMarker": "_F{_UPDATE_SCROLL_LIMITS\t\t\t\t\t   ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "presentation",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 3874,
+      "sourceEndMarker": "_F}_UPDATE_SCROLL_LIMITS",
+      "lineCount": 17,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "UPDATE_FIELD_SCROLL_SETTINGS",
+          "line": 3862
+        }
+      ],
+      "primaryEntryLabels": [
+        "UPDATE_FIELD_SCROLL_SETTINGS"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "START_DRAW_GAME_FIELD",
+      "sourceStartLine": 3876,
+      "sourceStartMarker": "_F{_START_DRAW_GAME_FIELD\t\t\t\t\t   ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "presentation",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 3888,
+      "sourceEndMarker": "_F}_START_DRAW_GAME_FIELD",
+      "lineCount": 13,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "START_DRAW_GAME_FIELD_TASK",
+          "line": 3878
+        }
+      ],
+      "primaryEntryLabels": [
+        "START_DRAW_GAME_FIELD_TASK"
+      ],
+      "externalDependencySymbols": [
+        "JUMP_DRAW_GAMEFIELD"
+      ]
+    },
+    {
+      "sectionName": "UPDATE_STATS",
+      "sourceStartLine": 3890,
+      "sourceStartMarker": "_F{_UPDATE_STATS\t\t\t\t\t\t\t\t ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "stats-and-distance",
+      "notes": "Post-play stat-accounting family that should stay represented in the bank conversion but move into a dedicated accounting service in modern code.",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 4415,
+      "sourceEndMarker": "_F}_UPDATE_STATS",
+      "lineCount": 526,
+      "globalLabelCount": 37,
+      "labels": [
+        {
+          "label": "UPDATE_IN_GAME_TEAM_PLAYER_STATS",
+          "line": 3894
+        },
+        {
+          "label": "CHECK_P1_PUNT",
+          "line": 3909
+        },
+        {
+          "label": "P1_STAT_EXIT_1",
+          "line": 3954
+        },
+        {
+          "label": "CHECK_P1_QB_RUSH_SACK",
+          "line": 3957
+        },
+        {
+          "label": "UPDATE_P2_DEFENDER_SACKS",
+          "line": 3993
+        },
+        {
+          "label": "P1_RUSHING_STATS_EXIT",
+          "line": 3997
+        },
+        {
+          "label": "UPDATE_QB_STATS_P1_PASS_INTERCEPTED",
+          "line": 4000
+        },
+        {
+          "label": "P1_PASS_INT_STATS_EXIT",
+          "line": 4021
+        },
+        {
+          "label": "UPDATE_P1_KR_STATS",
+          "line": 4024
+        },
+        {
+          "label": "SET_P1_KR_STATS",
+          "line": 4037
+        },
+        {
+          "label": "P1_KICKING_STATS_EXIT",
+          "line": 4049
+        },
+        {
+          "label": "UPDATE_P2_PR_STATS",
+          "line": 4052
+        },
+        {
+          "label": "P2_PR_STAT_EXIT",
+          "line": 4070
+        },
+        {
+          "label": "UPDATE_P1_FG_STATS",
+          "line": 4073
+        },
+        {
+          "label": "P1_FG_STAT_EXIT",
+          "line": 4087
+        },
+        {
+          "label": "UPDATE_P1_XP_STATS",
+          "line": 4090
+        },
+        {
+          "label": "P1_XP_STAT_EXIT",
+          "line": 4102
+        },
+        {
+          "label": "UPDATE_IN_GAME_P2_STATS_START",
+          "line": 4106
+        },
+        {
+          "label": "CHECK_P2_PUNT",
+          "line": 4116
+        },
+        {
+          "label": "P2_STAT_EXIT_1",
+          "line": 4162
+        },
+        {
+          "label": "CHECK_P2_QB_RUSH_SACK",
+          "line": 4165
+        },
+        {
+          "label": "UPDATE_P1_DEFENDER_SACK_STATS",
+          "line": 4200
+        },
+        {
+          "label": "P2_RUSHING_STATS_EXIT",
+          "line": 4204
+        },
+        {
+          "label": "UPDATE_QB_STATS_P2_PASS_INTERCEPTED",
+          "line": 4207
+        },
+        {
+          "label": "P2_PASS_INT_STATS_EXIT",
+          "line": 4228
+        },
+        {
+          "label": "CHECK_UPDATE_P2_KR_STATS",
+          "line": 4232
+        },
+        {
+          "label": "SET_P2_KR_STATS",
+          "line": 4245
+        },
+        {
+          "label": "P2_KICKING_STATS_EXIT",
+          "line": 4258
+        },
+        {
+          "label": "UPDATE_P1_PR_STATS",
+          "line": 4261
+        },
+        {
+          "label": "P1_PR_STAT_EXIT",
+          "line": 4278
+        },
+        {
+          "label": "UPDATE_P2_FG_STATS",
+          "line": 4281
+        },
+        {
+          "label": "P2_FG_STATS_EXIT",
+          "line": 4293
+        },
+        {
+          "label": "UPDATE_P2_XP_STATS",
+          "line": 4296
+        },
+        {
+          "label": "P2_XP_STATS_EXIT",
+          "line": 4308
+        },
+        {
+          "label": "UPDATE_P1_PROBOWL_STATS",
+          "line": 4343
+        },
+        {
+          "label": "UPDATE_P2_NON_QB_IN_GM_STATS",
+          "line": 4378
+        },
+        {
+          "label": "UPDATE_P2_PROBOWL_STATS",
+          "line": 4395
+        }
+      ],
+      "primaryEntryLabels": [
+        "UPDATE_IN_GAME_TEAM_PLAYER_STATS",
+        "CHECK_P1_PUNT",
+        "P1_STAT_EXIT_1",
+        "CHECK_P1_QB_RUSH_SACK",
+        "UPDATE_P2_DEFENDER_SACKS",
+        "P1_RUSHING_STATS_EXIT"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "CALCULATE_PLAY_DISTANCE",
+      "sourceStartLine": 4417,
+      "sourceStartMarker": "_F{_CALCULATE_PLAY_DISTANCE \t\t\t\t\t; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "stats-and-distance",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 4458,
+      "sourceEndMarker": "_F}_CALCULATE_PLAY_DISTANCE",
+      "lineCount": 42,
+      "globalLabelCount": 2,
+      "labels": [
+        {
+          "label": "CALCULATE_PLAY_DISTANCE_P1",
+          "line": 4419
+        },
+        {
+          "label": "CALCULATE_PLAY_DISTANCE_P2",
+          "line": 4432
+        }
+      ],
+      "primaryEntryLabels": [
+        "CALCULATE_PLAY_DISTANCE_P1",
+        "CALCULATE_PLAY_DISTANCE_P2"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "INJURY_CHECK_NORMAL_AND_SKIP",
+      "sourceStartLine": 4460,
+      "sourceStartMarker": "_F{_INJURY_CHECK_NORMAL_AND_SKIP\t\t\t\t; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "injury-and-cutscene",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 4598,
+      "sourceEndMarker": "_F}_INJURY_CHECK_NORMAL_AND_SKIP",
+      "lineCount": 139,
+      "globalLabelCount": 7,
+      "labels": [
+        {
+          "label": "P1_CHECK_FOR_INJURY_NORM",
+          "line": 4476
+        },
+        {
+          "label": "CHECK_INJURY_KR_PR_P1",
+          "line": 4480
+        },
+        {
+          "label": "P2_CHECK_FOR_INJURY_NORM",
+          "line": 4493
+        },
+        {
+          "label": "CHECK_INJURY_KR_PR_P2",
+          "line": 4497
+        },
+        {
+          "label": "INJURY_CHECK_STARTER",
+          "line": 4509
+        },
+        {
+          "label": "NO_INJURY_EXIT",
+          "line": 4535
+        },
+        {
+          "label": "SKP_VS_SKP_INJURY_START",
+          "line": 4545
+        }
+      ],
+      "primaryEntryLabels": [
+        "P1_CHECK_FOR_INJURY_NORM",
+        "CHECK_INJURY_KR_PR_P1",
+        "P2_CHECK_FOR_INJURY_NORM",
+        "CHECK_INJURY_KR_PR_P2",
+        "INJURY_CHECK_STARTER",
+        "NO_INJURY_EXIT"
+      ],
+      "externalDependencySymbols": [
+        "JUMP_PLAYER_INJURED",
+        "JUMP_UPDATE_LARGE_SCOREBOARD"
+      ]
+    },
+    {
+      "sectionName": "CHECK_IF_PLAYER_CAN_BE_INJURED",
+      "sourceStartLine": 4600,
+      "sourceStartMarker": "_F{_CHECK_IF_PLAYER_CAN_BE_INJURED  \t\t   ;",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "injury-and-cutscene",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 4676,
+      "sourceEndMarker": "_F}_CHECK_IF_PLAYER_CAN_BE_INJURED",
+      "lineCount": 77,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "CHECK_IF_PLAYER_CAN_BE_INJURED",
+          "line": 4610
+        }
+      ],
+      "primaryEntryLabels": [
+        "CHECK_IF_PLAYER_CAN_BE_INJURED"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "PLAYER_CHANGE_INJURY",
+      "sourceStartLine": 4678,
+      "sourceStartMarker": "_F{_PLAYER_CHANGE_INJURY  \t\t\t\t\t   ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "injury-and-cutscene",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 4698,
+      "sourceEndMarker": "_F}_PLAYER_CHANGE_INJURY",
+      "lineCount": 21,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "DO_PLAYER_CHANGE_FOR_INJURY",
+          "line": 4680
+        }
+      ],
+      "primaryEntryLabels": [
+        "DO_PLAYER_CHANGE_FOR_INJURY"
+      ],
+      "externalDependencySymbols": [
+        "JUMP_CHANGE_PLAYERS"
+      ]
+    },
+    {
+      "sectionName": "CUTSCENE",
+      "sourceStartLine": 4702,
+      "sourceStartMarker": "_F{_CUTSCENE \t\t\t\t\t\t\t\t   ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "injury-and-cutscene",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 4895,
+      "sourceEndMarker": "_F}_CUTSCENE",
+      "lineCount": 194,
+      "globalLabelCount": 4,
+      "labels": [
+        {
+          "label": "DO_CUTSCENE_SAVE_INFO_TO_SRAM",
+          "line": 4705
+        },
+        {
+          "label": "DO_CUTSCENE_IF_NEEDED",
+          "line": 4853
+        },
+        {
+          "label": "WAIT_FOR_CUTSCENE_THEN_DO",
+          "line": 4860
+        },
+        {
+          "label": "DRAW_CUTSCENE_PLAY_OVER",
+          "line": 4866
+        }
+      ],
+      "primaryEntryLabels": [
+        "DO_CUTSCENE_SAVE_INFO_TO_SRAM",
+        "DO_CUTSCENE_IF_NEEDED",
+        "WAIT_FOR_CUTSCENE_THEN_DO",
+        "DRAW_CUTSCENE_PLAY_OVER"
+      ],
+      "externalDependencySymbols": [
+        "JUMP_START_BANNER_TASK",
+        "JUMP_START_COLL_CHECK_TASK"
+      ]
+    },
+    {
+      "sectionName": "GENERATE_CUTSCENE_RANDOM",
+      "sourceStartLine": 4897,
+      "sourceStartMarker": "_F{_GENERATE_CUTSCENE_RANDOM\t\t\t\t   ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "injury-and-cutscene",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 4927,
+      "sourceEndMarker": "_F}_GENERATE_CUTSCENE_RANDOM",
+      "lineCount": 31,
+      "globalLabelCount": 1,
+      "labels": [
+        {
+          "label": "CLEAR_CUTSCENE_TO_PLAY_SET_CUT_RAND",
+          "line": 4900
+        }
+      ],
+      "primaryEntryLabels": [
+        "CLEAR_CUTSCENE_TO_PLAY_SET_CUT_RAND"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "UPDATE_PASS_TARGET_AND_INDICATOR_ON_PRESS",
+      "sourceStartLine": 4929,
+      "sourceStartMarker": "_F{_UPDATE_PASS_TARGET_AND_INDICATOR_ON_PRESS  ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "pass-targeting",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 5026,
+      "sourceEndMarker": "_F}_UPDATE_PASS_TARGET_AND_INDICATOR_ON_PRESS",
+      "lineCount": 98,
+      "globalLabelCount": 2,
+      "labels": [
+        {
+          "label": "UPDATE_CURRENT_TARGET_AND_INDICATOR",
+          "line": 4931
+        },
+        {
+          "label": "UPDATE_TARGET_INDICATOR",
+          "line": 4968
+        }
+      ],
+      "primaryEntryLabels": [
+        "UPDATE_CURRENT_TARGET_AND_INDICATOR",
+        "UPDATE_TARGET_INDICATOR"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "INJURY_ANIMATION",
+      "sourceStartLine": 5028,
+      "sourceStartMarker": "_F{_INJURY_ANIMATION\t\t\t\t\t\t   ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "injury-and-cutscene",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 5247,
+      "sourceEndMarker": "_F}_INJURY_ANIMATION",
+      "lineCount": 220,
+      "globalLabelCount": 6,
+      "labels": [
+        {
+          "label": "DO_INJURY_ANIMATION",
+          "line": 5030
+        },
+        {
+          "label": "UPDATE_SPR_PAL_PLAY_INJURY_MUSIC",
+          "line": 5093
+        },
+        {
+          "label": "SKIP_MODE_INJURY_SUB",
+          "line": 5215
+        },
+        {
+          "label": "INJURY_SPRITE_INFORMATION",
+          "line": 5227
+        },
+        {
+          "label": "REF_RUN_TILES",
+          "line": 5234
+        },
+        {
+          "label": "STRETCHER_GUYS_TILES_ATTRIBUTES",
+          "line": 5238
+        }
+      ],
+      "primaryEntryLabels": [
+        "DO_INJURY_ANIMATION",
+        "UPDATE_SPR_PAL_PLAY_INJURY_MUSIC",
+        "SKIP_MODE_INJURY_SUB",
+        "INJURY_SPRITE_INFORMATION",
+        "REF_RUN_TILES",
+        "STRETCHER_GUYS_TILES_ATTRIBUTES"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "UPDATE_LOS_MARKERS",
+      "sourceStartLine": 5249,
+      "sourceStartMarker": "_F{_UPDATE_LOS_MARKERS",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "presentation",
+      "notes": "",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 5495,
+      "sourceEndMarker": "_F}_UPDATE_LOS_MARKERS",
+      "lineCount": 247,
+      "globalLabelCount": 18,
+      "labels": [
+        {
+          "label": "CHECK_FOR_DRAW_FD_STICK",
+          "line": 5258
+        },
+        {
+          "label": "SET_SIDELINE_SCROLL_LOC_UPDATE_DOWN_MARKERS",
+          "line": 5262
+        },
+        {
+          "label": "CHECK_DRAW_SECOND_DOWN_MARKER",
+          "line": 5270
+        },
+        {
+          "label": "P1_DOWN_MARKER_CHECK",
+          "line": 5273
+        },
+        {
+          "label": "P1_DRAW_MARKERS_IF_ON_SCREEN",
+          "line": 5287
+        },
+        {
+          "label": "P1_DONT_DRAW_2ND_MARKER",
+          "line": 5293
+        },
+        {
+          "label": "P2_DOWN_MARKER_CHECK",
+          "line": 5298
+        },
+        {
+          "label": "P2_DRAW_MARKERS_IF_ON_SCREEN",
+          "line": 5312
+        },
+        {
+          "label": "P2_DONT_DRAW_2ND_MARKER",
+          "line": 5318
+        },
+        {
+          "label": "EXIT_FD_MARKER_CHECK",
+          "line": 5323
+        },
+        {
+          "label": "CHECK_IF_MARKER_TWO_ON_SCREEN",
+          "line": 5326
+        },
+        {
+          "label": "CHECK_IF_MARKER_ONE_ON_SCREEN",
+          "line": 5335
+        },
+        {
+          "label": "CHECK_WITHIN_EIGHT_YARDS_OF_SCREEN_LOC",
+          "line": 5343
+        },
+        {
+          "label": "DRAW_DOWN_MARKER_1_SET_PAST_LOS",
+          "line": 5355
+        },
+        {
+          "label": "DRAW_DOWN_MARKER_2",
+          "line": 5371
+        },
+        {
+          "label": "SET_PPU_ADDR_DOWN_MARKERS",
+          "line": 5377
+        },
+        {
+          "label": "PPU_DATA_DOWN_MARKER_2",
+          "line": 5481
+        },
+        {
+          "label": "PPU_DATA_DOWN_MARKER_1",
+          "line": 5488
+        }
+      ],
+      "primaryEntryLabels": [
+        "CHECK_FOR_DRAW_FD_STICK",
+        "SET_SIDELINE_SCROLL_LOC_UPDATE_DOWN_MARKERS",
+        "CHECK_DRAW_SECOND_DOWN_MARKER",
+        "P1_DOWN_MARKER_CHECK",
+        "P1_DRAW_MARKERS_IF_ON_SCREEN",
+        "P1_DONT_DRAW_2ND_MARKER"
+      ],
+      "externalDependencySymbols": []
+    },
+    {
+      "sectionName": "CUTSCENE_SEQUENCE_PTRS_AND_SEQUENCES",
+      "sourceStartLine": 5497,
+      "sourceStartMarker": "_F{_CUTSCENE_SEQUENCE_PTRS_AND_SEQUENCES\t   ; DONE",
+      "modernOwner": "supporting-service",
+      "responsibilityGroup": "injury-and-cutscene",
+      "notes": "Large cutscene-sequence table block that is semantically part of on-field outcome presentation, not controller flow.",
+      "carryForwardToBank21_22": false,
+      "bank21_22CarryForwardReason": null,
+      "bank21_22BridgeSymbols": [],
+      "depth": 0,
+      "parentSectionName": null,
+      "sourceEndLine": 5835,
+      "sourceEndMarker": "_F}_CUTSCENE_SEQUENCE_PTRS_AND_SEQUENCES",
+      "lineCount": 339,
+      "globalLabelCount": 104,
+      "labels": [
+        {
+          "label": "CUTSCENE_ADDR",
+          "line": 5499
+        },
+        {
+          "label": "PUNT_CUT_SEQ",
+          "line": 5616
+        },
+        {
+          "label": "MISSED_PUNT_BLOCK_CUT_SEQ",
+          "line": 5618
+        },
+        {
+          "label": "PUNT_BLOCK_CUT_SEQ",
+          "line": 5620
+        },
+        {
+          "label": "UNUSED_CUT_SEQ",
+          "line": 5622
+        },
+        {
+          "label": "QB_SACK_CUT_SEQ",
+          "line": 5624
+        },
+        {
+          "label": "QB_SACK_SIDE_CHANGE_CUT_SEQ",
+          "line": 5626
+        },
+        {
+          "label": "QB_SAFETY_CUT_SEQ",
+          "line": 5628
+        },
+        {
+          "label": "MISSED_PASS_BLOCK_CUT_SEQ",
+          "line": 5630
+        },
+        {
+          "label": "PASS_BLOCKED_CUT_SEQ",
+          "line": 5632
+        },
+        {
+          "label": "P2_FG_MISS_BLOCK_DOWN_MIDDLE_CUT_SEQ",
+          "line": 5635
+        },
+        {
+          "label": "P2_FG_DOWN_MIDDLE_CUT_SEQ",
+          "line": 5637
+        },
+        {
+          "label": "P2_XP_MISSED_BLOCK_DOWN_MIDDLE_CUT_SEQ",
+          "line": 5639
+        },
+        {
+          "label": "P2_XP_DOWN_MIDDLE_CUT_SEQ",
+          "line": 5641
+        },
+        {
+          "label": "FG_BLOCKED_CUT_SEQ",
+          "line": 5643
+        },
+        {
+          "label": "P1_FG_MISS_BLOCK_DOWN_MIDDLE_CUT_SEQ",
+          "line": 5645
+        },
+        {
+          "label": "P1_FG_MISS_BLOCK_LEFT_UR_GOOD_CUT_SEQ",
+          "line": 5647
+        },
+        {
+          "label": "P1_FG_MISS_BLOCK_RIGHT_UR_GOOD_CUT_SEQ",
+          "line": 5649
+        },
+        {
+          "label": "P2_FG_MISS_BLOCK_RIGHT_UR_GOOD_CUT_SEQ",
+          "line": 5651
+        },
+        {
+          "label": "P2_FG_MISS_BLOCK_LEFT_UR_GOOD_CUT_SEQ",
+          "line": 5653
+        },
+        {
+          "label": "P1_FG_MISS_BLOCK_LEFT_UR_MISS_CUT_SEQ",
+          "line": 5655
+        },
+        {
+          "label": "P1_FG_MISS_BLOCK_RIGHT_UR_MISS_CUT_SEQ",
+          "line": 5657
+        },
+        {
+          "label": "P1_FG_MISS_BLOCK_WIDE_LEFT_CUT_SEQ",
+          "line": 5659
+        },
+        {
+          "label": "P1_FG_MISS_BLOCK_WIDE_RIGHT_CUT_SEQ",
+          "line": 5661
+        },
+        {
+          "label": "P1_FG_MISS_BLOCK_SHORT_CUT_SEQ",
+          "line": 5663
+        },
+        {
+          "label": "P2_FG_MISS_BLOCK_RIGHT_UR_MISS_CUT_SEQ",
+          "line": 5665
+        },
+        {
+          "label": "P2_FG_MISS_BLOCK_LEFT_UR_MISS_CUT_SEQ",
+          "line": 5667
+        },
+        {
+          "label": "P2_FG_MISS_BLOCK_WIDE_RIGHT_CUT_SEQ",
+          "line": 5669
+        },
+        {
+          "label": "P2_FG_MISS_BLOCK_WIDE_LEFT_CUT_SEQ",
+          "line": 5671
+        },
+        {
+          "label": "P2_FG_MISS_BLOCK_SHORT_CUT_SEQ",
+          "line": 5673
+        },
+        {
+          "label": "P1_FG_DOWN_MIDDLE_CUT_SEQ",
+          "line": 5676
+        },
+        {
+          "label": "P1_FG_LEFT_UR_GOOD_CUT_SEQ",
+          "line": 5678
+        },
+        {
+          "label": "P1_FG_RIGHT_UR_GOOD_CUT_SEQ",
+          "line": 5680
+        },
+        {
+          "label": "P2_FG_RIGHT_UR_GOOD_CUT_SEQ",
+          "line": 5682
+        },
+        {
+          "label": "P2_FG_LEFT_UR_GOOD_CUT_SEQ",
+          "line": 5684
+        },
+        {
+          "label": "P1_FG_LEFT_UR_MISS_CUT_SEQ",
+          "line": 5686
+        },
+        {
+          "label": "P1_FG_RIGHT_UR_MISS_CUT_SEQ",
+          "line": 5688
+        },
+        {
+          "label": "P1_FG_WIDE_LEFT_CUT_SEQ",
+          "line": 5690
+        },
+        {
+          "label": "P1_FG_WIDE_RIGHT_CUT_SEQ",
+          "line": 5692
+        },
+        {
+          "label": "P1_FG_SHORT_CUT_SEQ",
+          "line": 5694
+        },
+        {
+          "label": "P2_FG_RIGHT_UR_MISS_CUT_SEQ",
+          "line": 5696
+        },
+        {
+          "label": "P2_FG_LEFT_UR_MISS_CUT_SEQ",
+          "line": 5698
+        },
+        {
+          "label": "P2_FG_WIDE_RIGHT_CUT_SEQ",
+          "line": 5700
+        },
+        {
+          "label": "P2_FG_WIDE_LEFT_CUT_SEQ",
+          "line": 5702
+        },
+        {
+          "label": "P2_FG_SHORT_CUT_SEQ",
+          "line": 5704
+        },
+        {
+          "label": "XP_FG_FG_BLOCK",
+          "line": 5706
+        },
+        {
+          "label": "P1_XP_MISS_BLOCK_GOOD_CUT_SEQ",
+          "line": 5710
+        },
+        {
+          "label": "P1_XP_MISS_BLOCK_LEFT_UR_GOOD_CUT_SEQ",
+          "line": 5712
+        },
+        {
+          "label": "P1_XP_MISS_BLOCK_RIGHT_UR_GOOD_CUT_SEQ",
+          "line": 5714
+        },
+        {
+          "label": "P2_XP_MISS_BLOCK_RIGHT_UR_GOOD_CUT_SEQ",
+          "line": 5716
+        },
+        {
+          "label": "P2_XP_MISS_BLOCK_LEFT_UR_GOOD_CUT_SEQ",
+          "line": 5718
+        },
+        {
+          "label": "P1_XP_MISS_BLOCK_LEFT_UR_MISS_CUT_SEQ",
+          "line": 5720
+        },
+        {
+          "label": "P1_XP_MISS_BLOCK_RIGHT_UR_MISS_CUT_SEQ",
+          "line": 5722
+        },
+        {
+          "label": "P1_XP_MISS_BLOCK_WIDE_LEFT_CUT_SEQ",
+          "line": 5724
+        },
+        {
+          "label": "P1_XP_MISS_BLOCK_WIDE_RIGHT_CUT_SEQ",
+          "line": 5726
+        },
+        {
+          "label": "P1_XP_MISS_BLOCK_SHORT_CUT_SEQ",
+          "line": 5728
+        },
+        {
+          "label": "P2_XP_MISS_BLOCK_RIGHT_UR_MISS_CUT_SEQ",
+          "line": 5730
+        },
+        {
+          "label": "P2_XP_MISS_BLOCK_LEFT_UR_MISS_CUT_SEQ",
+          "line": 5732
+        },
+        {
+          "label": "P2_XP_MISS_BLOCK_WIDE_RIGHT_CUT_SEQ",
+          "line": 5734
+        },
+        {
+          "label": "P2_XP_MISS_BLOCK_WIDE_LEFT_CUT_SEQ",
+          "line": 5736
+        },
+        {
+          "label": "P2_XP_MISS_BLOCK_SHORT_CUT_SEQ",
+          "line": 5738
+        },
+        {
+          "label": "P1_XP_GOOD_CUT_SEQ",
+          "line": 5742
+        },
+        {
+          "label": "P1_XP_LEFT_UR_GOOD_CUT_SEQ",
+          "line": 5744
+        },
+        {
+          "label": "P1_XP_RIGHT_UR_GOOD_CUT_SEQ",
+          "line": 5746
+        },
+        {
+          "label": "P2_XP_RIGHT_UR_GOOD_CUT_SEQ",
+          "line": 5748
+        },
+        {
+          "label": "P2_XP_LEFT_UR_GOOD_CUT_SEQ",
+          "line": 5750
+        },
+        {
+          "label": "P1_XP_LEFT_UR_MISS_CUT_SEQ",
+          "line": 5752
+        },
+        {
+          "label": "P1_XP_RIGHT_UR_MISS_CUT_SEQ",
+          "line": 5754
+        },
+        {
+          "label": "P1_XP_WIDE_LEFT_CUT_SEQ",
+          "line": 5756
+        },
+        {
+          "label": "P1_XP_WIDE_RIGHT_CUT_SEQ",
+          "line": 5758
+        },
+        {
+          "label": "P1_XP_SHORT_CUT_SEQ",
+          "line": 5760
+        },
+        {
+          "label": "P2_XP_RIGHT_UR_MISS_CUT_SEQ",
+          "line": 5762
+        },
+        {
+          "label": "P2_XP_LEFT_UR_MISS_CUT_SEQ",
+          "line": 5764
+        },
+        {
+          "label": "P2_XP_WIDE_RIGHT_CUT_SEQ",
+          "line": 5766
+        },
+        {
+          "label": "P2_XP_WIDE_LEFT_CUT_SEQ",
+          "line": 5768
+        },
+        {
+          "label": "P2_XP_SHORT_CUT_SEQ",
+          "line": 5770
+        },
+        {
+          "label": "OFF_JUMP_CATCH_CUT_SEQ",
+          "line": 5773
+        },
+        {
+          "label": "OFF_JUMP_MISS_CUT_SEQ",
+          "line": 5775
+        },
+        {
+          "label": "OFF_JUMP_BOUNCE_HANDS_CUT_SEQ",
+          "line": 5777
+        },
+        {
+          "label": "DEF_JUMP_MIS_CUT_SEQ",
+          "line": 5779
+        },
+        {
+          "label": "DEF_JUMP_BOUNCE_HANDS_CUT_SEQ",
+          "line": 5781
+        },
+        {
+          "label": "DEF_JUMP_INT_CUT_SEQ",
+          "line": 5783
+        },
+        {
+          "label": "DOUBLE_JUMP_OFF_CATCH_CUT_SEQ",
+          "line": 5785
+        },
+        {
+          "label": "DOUBLE_JUMP_OFF_WHIFF_CUT_SEQ",
+          "line": 5787
+        },
+        {
+          "label": "DOUBLE_JUMP_BOUNCE_DEF_HANDS_CUT_SEQ",
+          "line": 5789
+        },
+        {
+          "label": "DOUBLE_JUMP_DEF_INT_CUT_SEQ",
+          "line": 5791
+        },
+        {
+          "label": "OFF_REG_CATCH_CUT_SEQ",
+          "line": 5793
+        },
+        {
+          "label": "OFF_REG_BOUNCE_HANDS_CUT_SEQ",
+          "line": 5795
+        },
+        {
+          "label": "DEF_REG_BOUNCE_HANDS_CUT_SEQ",
+          "line": 5797
+        },
+        {
+          "label": "DEF_REG_INT_CUT_SEQ",
+          "line": 5799
+        },
+        {
+          "label": "DEF_DIVE_MISS_OFF_REG_CATCH_CUT_SEQ",
+          "line": 5801
+        },
+        {
+          "label": "DEF_JUMP_MISS_OFF_REG_CATCH_CUT_SEQ",
+          "line": 5803
+        },
+        {
+          "label": "OFF_DIVE_BOUNCE_OFF_HANDS_CUT_SEQ",
+          "line": 5805
+        },
+        {
+          "label": "DEF_DIVE_MISS_BOUNCE_OFF_WR_HANDS_CUT_SE",
+          "line": 5807
+        },
+        {
+          "label": "DEF_JUMP_MISS_BOUNCE_OFF_WR_HANDS_CUT_SE",
+          "line": 5809
+        },
+        {
+          "label": "DEF_JUMP_TIP_BALL_CUT_SEQ",
+          "line": 5811
+        },
+        {
+          "label": "DOUBLE_JUMP_BOUNCE_DEF_HANDS_CUT_SEQ_DUPE",
+          "line": 5813
+        },
+        {
+          "label": "DEF_REG_INT_CUT_SEQ_DUPE",
+          "line": 5815
+        },
+        {
+          "label": "BALL_HIT_GROUND_REF_INC_CUT_SEQ",
+          "line": 5817
+        },
+        {
+          "label": "OFF_DIVE_CATCH_CUT_SEQ",
+          "line": 5819
+        },
+        {
+          "label": "OFF_DIVE_MISS_CUT_SEQ",
+          "line": 5821
+        },
+        {
+          "label": "DEF_DIVE_INT_CUT_SEQ",
+          "line": 5823
+        },
+        {
+          "label": "DEF_DIVE_MISS_CUT_SEQ",
+          "line": 5825
+        },
+        {
+          "label": "DEFAULT_IRQ_SPLIT_TABLE",
+          "line": 5828
+        }
+      ],
+      "primaryEntryLabels": [
+        "CUTSCENE_ADDR",
+        "PUNT_CUT_SEQ",
+        "MISSED_PUNT_BLOCK_CUT_SEQ",
+        "PUNT_BLOCK_CUT_SEQ",
+        "UNUSED_CUT_SEQ",
+        "QB_SACK_CUT_SEQ"
+      ],
+      "externalDependencySymbols": []
+    }
+  ]
+}

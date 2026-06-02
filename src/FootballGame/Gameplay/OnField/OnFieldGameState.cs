@@ -70,6 +70,8 @@ public sealed class OnFieldGameState
 
     public bool IsManualPassingAllowed { get; set; }
 
+    public int? PendingNextSnapYardLine { get; set; }
+
     public bool IsSpecialTeamsPlay => PlayType is OnFieldPlayType.Kickoff or OnFieldPlayType.Punt or OnFieldPlayType.FieldGoal or OnFieldPlayType.ExtraPoint;
 
     public IList<OnFieldRoutine> RoutineHistory { get; } = new List<OnFieldRoutine>();

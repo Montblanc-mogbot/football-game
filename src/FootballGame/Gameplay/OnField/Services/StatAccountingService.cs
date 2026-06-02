@@ -37,6 +37,14 @@ public sealed class StatAccountingService
     public void SpotBallAndUpdateHashForNextSnap(OnFieldGameState state, OnFieldTeam newPossessionTeam)
     {
         state.RecordRoutine(OnFieldRoutine.UPDATE_HASHMARK_FOR_NEXT_SNAP);
+
+        if (state.PendingNextSnapYardLine is int pendingYardLine)
+        {
+            state.RecordEvent($"Spotted the ball at the source-directed {pendingYardLine}-yard line and updated the hashmark for the next {newPossessionTeam} snap.");
+            state.PendingNextSnapYardLine = null;
+            return;
+        }
+
         state.RecordEvent($"Spotted the ball and updated the hashmark for the next {newPossessionTeam} snap.");
     }
 }

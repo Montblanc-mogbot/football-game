@@ -21,12 +21,15 @@ public sealed class InjuryCutsceneService
         OnFieldRoutine.CUTSCENE_SEQUENCE_PTRS_AND_SEQUENCES,
     ];
 
-    public void ResolveInjuryChecks()
+    public void ResolveNormalInjuryChecks(OnFieldGameState state, OnFieldTeam possessionTeam)
     {
+        state.RecordRoutine(OnFieldRoutine.INJURY_CHECK_NORMAL_AND_SKIP);
+        state.RecordEvent($"Resolved normal injury checks for the completed {possessionTeam} play.");
     }
 
-    public void ResolveCutsceneState()
+    public void ResolveCutsceneState(OnFieldGameState state, string cutsceneKey)
     {
+        state.RecordRoutine(OnFieldRoutine.CUTSCENE);
+        state.RecordEvent($"Resolved cutscene state '{cutsceneKey}' for the current Bank19_20 outcome.");
     }
-
 }

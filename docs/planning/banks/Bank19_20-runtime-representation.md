@@ -75,8 +75,11 @@ Implemented host logic currently includes:
 - regular-play pre-snap setup through presentation, defender-change prep, and play-assignment policy
 - run-play vs pass-play host entry
 - punt vs field-goal / extra-point host entry for special teams
+- normal play-over resolution back into play selection
+- turnover-on-downs possession-change routing
+- safety outcome routing back into kickoff flow
 
-This is still an early implementation slice, but it means the coordinator now holds real Bank19_20 flow logic rather than only ownership metadata.
+This is still an incremental implementation slice, but the coordinator now owns real Bank19_20 entry, routing, and outcome-handling logic rather than only ownership metadata.
 
 ## Why this is the right Bank19_20 shape
 

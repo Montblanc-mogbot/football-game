@@ -32,6 +32,12 @@ public sealed class OnFieldGameState
 
     public bool OpensAsPassPlay { get; set; }
 
+    public bool TurnoverOnDowns { get; set; }
+
+    public bool SafetyTriggered { get; set; }
+
+    public bool NextPlayRequiresKickoff { get; set; }
+
     public bool IsManualPassingAllowed { get; set; }
 
     public bool IsSpecialTeamsPlay => PlayType is OnFieldPlayType.Kickoff or OnFieldPlayType.Punt or OnFieldPlayType.FieldGoal or OnFieldPlayType.ExtraPoint;

@@ -17,6 +17,8 @@ public sealed class OnFieldPlayCoordinator
     private readonly OnFieldPresentationService presentationService;
     private readonly CpuPlayDecisionService cpuPlayDecisionService;
     private readonly PreSnapControlService preSnapControlService;
+    private readonly StatAccountingService statAccountingService;
+    private readonly InjuryCutsceneService injuryCutsceneService;
 
     public OnFieldPlayCoordinator(
         PlayAssignmentService playAssignmentService,
@@ -24,7 +26,9 @@ public sealed class OnFieldPlayCoordinator
         TaskCoordinationService taskCoordinationService,
         OnFieldPresentationService presentationService,
         CpuPlayDecisionService cpuPlayDecisionService,
-        PreSnapControlService preSnapControlService)
+        PreSnapControlService preSnapControlService,
+        StatAccountingService statAccountingService,
+        InjuryCutsceneService injuryCutsceneService)
     {
         this.playAssignmentService = playAssignmentService;
         this.playerSkillHydrationService = playerSkillHydrationService;
@@ -32,6 +36,8 @@ public sealed class OnFieldPlayCoordinator
         this.presentationService = presentationService;
         this.cpuPlayDecisionService = cpuPlayDecisionService;
         this.preSnapControlService = preSnapControlService;
+        this.statAccountingService = statAccountingService;
+        this.injuryCutsceneService = injuryCutsceneService;
     }
 
     public static IReadOnlyList<OnFieldRoutine> CoveredRoutines { get; } =
@@ -184,6 +190,11 @@ public sealed class OnFieldPlayCoordinator
     {
         ArgumentNullException.ThrowIfNull(state);
 
+        OnFieldRoutine routine = state.PossessionTeam == OnFieldTeam.Player1
+            ? OnFieldRoutine.P1_TO_P2_POSSESSION_CHANGE
+            : OnFieldRoutine.P2_TO_P1_POSSESSION_CHANGE;
+
+        state.RecordRoutine(routine);
         state.PossessionTeam = newPossessionTeam;
         state.RecordEvent($"Handled a possession change to {newPossessionTeam}.");
     }
@@ -192,15 +203,31 @@ public sealed class OnFieldPlayCoordinator
     {
         ArgumentNullException.ThrowIfNull(state);
 
+        state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_PLAY_OVER_NORMAL : OnFieldRoutine.P2_PLAY_OVER_NORMAL);
         state.Phase = OnFieldPhase.PlayOver;
-        taskCoordinationService.EndSpecificTasks(state);
-        state.RecordEvent("Resolved the current play-over transition.");
+
+        if (state.SafetyTriggered)
+        {
+            ResolveSafetyOutcome(state);
+            return;
+        }
+
+        if (state.TurnoverOnDowns)
+        {
+            ResolveTurnoverOnDowns(state);
+            return;
+        }
+
+        ResolveNormalPlayOver(state);
     }
 
     private void StartRegularPlay(OnFieldGameState state)
     {
         state.Phase = OnFieldPhase.PreSnap;
         state.IsManualPassingAllowed = false;
+        state.TurnoverOnDowns = false;
+        state.SafetyTriggered = false;
+        state.NextPlayRequiresKickoff = false;
         presentationService.PrepareRegularPlayPresentation(state, state.PossessionTeam);
         preSnapControlService.PrepareRegularPlayForSnap(state, state.PossessionTeam);
         playAssignmentService.ApplyManControlledPlayerPolicy(state, includeManControlledPlayer: false);
@@ -266,6 +293,9 @@ public sealed class OnFieldPlayCoordinator
     {
         state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_PUNT_PLAY : OnFieldRoutine.P2_PUNT_PLAY);
         state.Phase = OnFieldPhase.PreSnap;
+        state.TurnoverOnDowns = false;
+        state.SafetyTriggered = false;
+        state.NextPlayRequiresKickoff = false;
         preSnapControlService.PreparePuntForSnap(state, state.PossessionTeam);
         playAssignmentService.ApplyManControlledPlayerPolicy(state, includeManControlledPlayer: false);
         state.RecordEvent($"Started {state.PossessionTeam} punt-play host flow.");
@@ -275,8 +305,55 @@ public sealed class OnFieldPlayCoordinator
     {
         state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_FG_PLAY : OnFieldRoutine.P2_FG_PLAY);
         state.Phase = OnFieldPhase.PreSnap;
+        state.TurnoverOnDowns = false;
+        state.SafetyTriggered = false;
+        state.NextPlayRequiresKickoff = false;
         playAssignmentService.ApplyManControlledPlayerPolicy(state, includeManControlledPlayer: false);
         state.RecordEvent($"Started {state.PossessionTeam} {state.PlayType} host flow.");
+    }
+
+    private void ResolveNormalPlayOver(OnFieldGameState state)
+    {
+        taskCoordinationService.EndSpecificTasks(state);
+        statAccountingService.CalculatePlayDistance(state);
+        statAccountingService.UpdateInGameStats(state);
+        injuryCutsceneService.ResolveNormalInjuryChecks(state, state.PossessionTeam);
+        state.RecordEvent($"Resolved normal play-over flow for {state.PossessionTeam} and returned to play selection.");
+        StartPlaySelectionAndLoad(state, state.PossessionTeam, OnFieldPlayType.Regular);
+    }
+
+    private void ResolveTurnoverOnDowns(OnFieldGameState state)
+    {
+        taskCoordinationService.EndSpecificTasks(state);
+        injuryCutsceneService.ResolveNormalInjuryChecks(state, state.PossessionTeam);
+
+        OnFieldTeam newPossessionTeam = GetOpposingTeam(state.PossessionTeam);
+        HandlePossessionChange(state, newPossessionTeam);
+        state.RecordEvent($"Resolved turnover on downs from the previous {GetOpposingTeam(newPossessionTeam)} possession.");
+        state.TurnoverOnDowns = false;
+        StartPlaySelectionAndLoad(state, newPossessionTeam, OnFieldPlayType.Regular);
+    }
+
+    private void ResolveSafetyOutcome(OnFieldGameState state)
+    {
+        taskCoordinationService.EndSpecificTasks(state);
+        injuryCutsceneService.ResolveCutsceneState(state, "QB_SACK_SAFETY");
+        injuryCutsceneService.ResolveNormalInjuryChecks(state, state.PossessionTeam);
+
+        OnFieldTeam kickingTeam = state.PossessionTeam;
+        OnFieldTeam scoringTeam = GetOpposingTeam(state.PossessionTeam);
+        HandlePossessionChange(state, scoringTeam);
+        state.KickoffTeam = kickingTeam;
+        state.IsSafetyKickoff = true;
+        state.NextPlayRequiresKickoff = true;
+        state.SafetyTriggered = false;
+        state.RecordEvent($"Resolved safety outcome; {scoringTeam} now receives the next kickoff.");
+        StartOnFieldGameplayLoop(state);
+    }
+
+    private static OnFieldTeam GetOpposingTeam(OnFieldTeam team)
+    {
+        return team == OnFieldTeam.Player1 ? OnFieldTeam.Player2 : OnFieldTeam.Player1;
     }
 
     private static bool ShouldOpenAsPassPlay(OnFieldGameState state)

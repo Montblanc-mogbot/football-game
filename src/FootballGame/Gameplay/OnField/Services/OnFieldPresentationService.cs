@@ -92,6 +92,38 @@ public sealed class OnFieldPresentationService
         state.RecordEvent($"Prepared blocked-kick presentation for {kickingTeam}.");
     }
 
+    public void PrepareInterceptionPresentation(OnFieldGameState state, OnFieldTeam interceptingTeam)
+    {
+        state.CurrentBannerKey = $"{interceptingTeam}_INTERCEPTION";
+        state.CurrentSongSide = interceptingTeam.ToString();
+        state.RecordEvent($"Prepared interception presentation for {interceptingTeam}.");
+    }
+
+    public void PrepareTouchdownPresentation(OnFieldGameState state, OnFieldTeam scoringTeam, OnFieldTouchdownKind touchdownKind)
+    {
+        state.CurrentBannerKey = $"{scoringTeam}_TOUCHDOWN";
+        state.CurrentSongSide = scoringTeam.ToString();
+        state.RecordEvent($"Prepared touchdown presentation for {scoringTeam} ({touchdownKind}).");
+    }
+
+    public void PrepareOnsideRecoveryPresentation(OnFieldGameState state, OnFieldTeam recoveringTeam, bool recoveredByKickingTeam)
+    {
+        state.CurrentBannerKey = recoveredByKickingTeam ? $"{recoveringTeam}_ONSIDE_RECOVER" : $"{recoveringTeam}_ONSIDE_RETURN";
+        state.RecordEvent($"Prepared onside recovery presentation for {recoveringTeam}; kicking team recovery: {recoveredByKickingTeam}.");
+    }
+
+    public void PrepareLooseBallPresentation(OnFieldGameState state)
+    {
+        state.CurrentBannerKey = "LOOSE_BALL";
+        state.RecordEvent("Prepared loose-ball recovery presentation.");
+    }
+
+    public void PrepareFumbleRecoveryPresentation(OnFieldGameState state, OnFieldTeam recoveringTeam, bool recoveredByPossessingTeam)
+    {
+        state.CurrentBannerKey = recoveredByPossessingTeam ? $"{recoveringTeam}_FUMBLE_RECOVER" : $"{recoveringTeam}_TURNOVER_RECOVER";
+        state.RecordEvent($"Prepared fumble recovery presentation for {recoveringTeam}; same-team recovery: {recoveredByPossessingTeam}.");
+    }
+
     public void PrepareSideChangePresentation(OnFieldGameState state, OnFieldTeam newPossessionTeam)
     {
         state.CurrentBannerKey = $"SIDE_CHANGE_TO_{newPossessionTeam}";

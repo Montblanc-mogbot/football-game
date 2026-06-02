@@ -90,6 +90,7 @@ Validated:
 - play-over resolution now makes explicit service calls for stat accounting and injury/cutscene handling before re-entering play selection or kickoff flow
 - pass-play progression now makes explicit service calls for pass-target indicator updates, pass-collision ordering, incomplete-pass presentation, cutscene resets, and interception-return script reassignment
 - special-teams progression now makes explicit service calls for special-teams skill overrides, punt coverage/return script reassignment, punt-return presentation, field-goal/XP presentation, and blocked-kick presentation
+- turnover/score progression now makes explicit coordinator/service calls for interception-return assignment, touchdown celebration/presentation, onside recovery handling, loose-ball recovery routing, turnover series reset, and post-turnover spot/hash updates
 - the naming of the runtime-facing ownership map and routine ids has been cleaned up into gameplay-facing names instead of generic `Bank19...Section...` names
 
 ### Bank21_22 carry-forward boundary

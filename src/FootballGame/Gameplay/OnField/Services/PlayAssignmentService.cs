@@ -53,6 +53,42 @@ public sealed class PlayAssignmentService
         state.RecordEvent($"Installed punt coverage/return script families after a {puntingTeam} punt.");
     }
 
+    public void ReassignForInterceptionReturn(OnFieldGameState state, OnFieldTeam interceptingTeam)
+    {
+        state.RecordRoutine(OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS);
+        state.RecordEvent($"Installed interception-return script families for {interceptingTeam}.");
+    }
+
+    public void ReassignForOnsideRecovery(OnFieldGameState state, OnFieldTeam kickingTeam)
+    {
+        state.RecordRoutine(OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS);
+        state.RecordEvent($"Installed onside-recovery pursuit script families for kickoff by {kickingTeam}.");
+    }
+
+    public void ReassignForOnsideReturn(OnFieldGameState state, OnFieldTeam recoveringTeam)
+    {
+        state.RecordRoutine(OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS);
+        state.RecordEvent($"Installed onside-return script families for recovery by {recoveringTeam}.");
+    }
+
+    public void ReassignForLooseBallRecovery(OnFieldGameState state)
+    {
+        state.RecordRoutine(OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS);
+        state.RecordEvent("Installed loose-ball recovery script families for both sides.");
+    }
+
+    public void ReassignForFumbleReturn(OnFieldGameState state, OnFieldTeam recoveringTeam)
+    {
+        state.RecordRoutine(OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS);
+        state.RecordEvent($"Installed post-fumble return script families for recovery by {recoveringTeam}.");
+    }
+
+    public void ReassignForTouchdownCelebration(OnFieldGameState state, OnFieldTeam scoringTeam, OnFieldTouchdownKind kind)
+    {
+        state.RecordRoutine(OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS);
+        state.RecordEvent($"Installed touchdown celebration/cry script families for {scoringTeam} ({kind}).");
+    }
+
     public void ApplyManControlledPlayerPolicy(OnFieldGameState state, bool includeManControlledPlayer)
     {
         string policy = includeManControlledPlayer ? "include-man" : "exclude-man";

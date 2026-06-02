@@ -27,4 +27,16 @@ public sealed class StatAccountingService
         state.RecordRoutine(OnFieldRoutine.CALCULATE_PLAY_DISTANCE);
         state.RecordEvent("Calculated the completed play distance from LOS to the final ball spot.");
     }
+
+    public void ResetSeriesAfterTurnover(OnFieldGameState state, OnFieldTeam newPossessionTeam)
+    {
+        state.RecordRoutine(OnFieldRoutine.CHECK_FOR_FIRST_DOWN_OR_TOD);
+        state.RecordEvent($"Reset down-and-distance state after turnover to {newPossessionTeam} possession.");
+    }
+
+    public void SpotBallAndUpdateHashForNextSnap(OnFieldGameState state, OnFieldTeam newPossessionTeam)
+    {
+        state.RecordRoutine(OnFieldRoutine.UPDATE_HASHMARK_FOR_NEXT_SNAP);
+        state.RecordEvent($"Spotted the ball and updated the hashmark for the next {newPossessionTeam} snap.");
+    }
 }

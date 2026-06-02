@@ -42,6 +42,12 @@ public sealed class OnFieldGameState
 
     public bool BallReceivedByReturnTeam { get; set; }
 
+    public bool BallRecovered { get; set; }
+
+    public bool RecoveredByPossessingTeam { get; set; }
+
+    public bool TurnoverReturnActive { get; set; }
+
     public bool TouchbackTriggered { get; set; }
 
     public bool SpecialTeamsCutsceneReady { get; set; }

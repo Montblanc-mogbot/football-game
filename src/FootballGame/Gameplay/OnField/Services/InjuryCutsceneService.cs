@@ -37,4 +37,16 @@ public sealed class InjuryCutsceneService
     {
         state.RecordEvent("Cleared cutscene-to-play state and seeded pass-play cutscene randomness.");
     }
+
+    public void ResolveTouchdownCutscene(OnFieldGameState state, OnFieldTeam scoringTeam, OnFieldTouchdownKind touchdownKind)
+    {
+        state.RecordRoutine(OnFieldRoutine.CUTSCENE);
+        state.RecordEvent($"Resolved touchdown cutscene state for {scoringTeam} ({touchdownKind}).");
+    }
+
+    public void ResolveRecoveryCutscene(OnFieldGameState state, string recoveryKind, OnFieldTeam recoveringTeam)
+    {
+        state.RecordRoutine(OnFieldRoutine.CUTSCENE);
+        state.RecordEvent($"Resolved {recoveryKind} recovery cutscene state for {recoveringTeam}.");
+    }
 }

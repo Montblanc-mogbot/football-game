@@ -84,8 +84,12 @@ Implemented host logic currently includes:
 - no-throw / sack outcome handling
 - punt progression from snap to return/touchback/side-change outcome
 - field-goal and extra-point progression from snap to made/missed/blocked outcome
+- interception return staging through dead-ball possession-change handling
+- touchdown aftermath routing into extra-point/kickoff reset
+- onside recovery/restart flow
+- loose-ball / fumble recovery branching into same-team recovery vs turnover restart
 
-This is still an incremental implementation slice, but the coordinator now owns real Bank19_20 entry, routing, pass-flow, special-teams-flow, and outcome-handling logic rather than only ownership metadata.
+This is still an incremental implementation slice, but the coordinator now owns real Bank19_20 entry, routing, pass-flow, special-teams-flow, turnover-flow, scoring-flow, and outcome-handling logic rather than only ownership metadata.
 
 ## Why this is the right Bank19_20 shape
 

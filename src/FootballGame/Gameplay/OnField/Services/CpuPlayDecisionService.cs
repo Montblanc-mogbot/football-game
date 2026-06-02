@@ -10,13 +10,15 @@ namespace FootballGame.Gameplay.OnField.Services;
 /// </summary>
 public sealed class CpuPlayDecisionService
 {
-    public static IReadOnlyList<Bank19SectionName> CoveredSections { get; } =
+    public static IReadOnlyList<OnFieldRoutine> CoveredRoutines { get; } =
     [
-        Bank19SectionName.CPU_PLAY_LOGIC,
+        OnFieldRoutine.CPU_PLAY_LOGIC,
     ];
 
-    public void ChooseCpuKickoffStrategy()
+    public OnFieldKickoffStrategy ChooseKickoffStrategy(OnFieldGameState state, OnFieldTeam kickingTeam)
     {
+        OnFieldKickoffStrategy strategy = state.CpuKickoffStrategy;
+        state.RecordEvent($"CPU kickoff strategy evaluated for {kickingTeam}: {strategy}.");
+        return strategy;
     }
-
 }

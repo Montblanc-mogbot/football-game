@@ -10,25 +10,39 @@ namespace FootballGame.Gameplay.OnField.Services;
 /// </summary>
 public sealed class OnFieldPresentationService
 {
-    public static IReadOnlyList<Bank19SectionName> CoveredSections { get; } =
+    public static IReadOnlyList<OnFieldRoutine> CoveredRoutines { get; } =
     [
-        Bank19SectionName.CHECK_FOR_UPDATE_BANNER,
-        Bank19SectionName.UPDATE_SCORE_FUNCTIONS,
-        Bank19SectionName.DRAW_RECOVER,
-        Bank19SectionName.SET_ONFIELD_SONG,
-        Bank19SectionName.STOP_CURRENT_SONG,
-        Bank19SectionName.SIDE_CHANGE_BANNER_AND_SONG,
-        Bank19SectionName.UPDATE_SCROLL_LIMITS,
-        Bank19SectionName.START_DRAW_GAME_FIELD,
-        Bank19SectionName.UPDATE_LOS_MARKERS,
+        OnFieldRoutine.CHECK_FOR_UPDATE_BANNER,
+        OnFieldRoutine.UPDATE_SCORE_FUNCTIONS,
+        OnFieldRoutine.DRAW_RECOVER,
+        OnFieldRoutine.SET_ONFIELD_SONG,
+        OnFieldRoutine.STOP_CURRENT_SONG,
+        OnFieldRoutine.SIDE_CHANGE_BANNER_AND_SONG,
+        OnFieldRoutine.UPDATE_SCROLL_LIMITS,
+        OnFieldRoutine.START_DRAW_GAME_FIELD,
+        OnFieldRoutine.UPDATE_LOS_MARKERS,
     ];
 
-    public void UpdateOnFieldBannerAndSongState()
+    public void PrepareKickoffPresentation(OnFieldGameState state, OnFieldTeam kickingTeam, bool isSafetyKickoff)
     {
+        state.RecordRoutine(OnFieldRoutine.UPDATE_SCROLL_LIMITS);
+        state.RecordRoutine(OnFieldRoutine.START_DRAW_GAME_FIELD);
+        state.CurrentBannerKey = isSafetyKickoff ? "SAFETY_KICKOFF" : "KICKOFF";
+        state.CurrentSongSide = kickingTeam.ToString();
+        state.RecordEvent($"Prepared kickoff presentation for {kickingTeam} (safety kickoff: {isSafetyKickoff}).");
     }
 
-    public void UpdateScrollAndFieldMarkers()
+    public void PreparePlaySelectionPresentation(OnFieldGameState state, OnFieldTeam possessionTeam)
     {
+        state.RecordRoutine(OnFieldRoutine.CHECK_FOR_UPDATE_BANNER);
+        state.RecordRoutine(OnFieldRoutine.UPDATE_SCORE_FUNCTIONS);
+        state.CurrentBannerKey = $"{possessionTeam}_PLAY_SELECTION";
+        state.RecordEvent($"Prepared play-selection presentation for {possessionTeam}.");
     }
 
+    public void UpdateScrollAndFieldMarkers(OnFieldGameState state)
+    {
+        state.RecordRoutine(OnFieldRoutine.UPDATE_LOS_MARKERS);
+        state.RecordEvent("Updated LOS markers and other on-field presentation anchors.");
+    }
 }

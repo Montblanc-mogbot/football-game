@@ -39,7 +39,7 @@ This class covers the host-owned `play-phase-routing` and `play-outcome` section
 These classes cover the remaining Bank19_20 section groups.
 
 ### Bank21_22 holding area
-- `src/FootballGame/Gameplay/OnField/Bank21Bridge/Bank19ToBank21BoundaryHoldingArea.cs`
+- `src/FootballGame/Gameplay/OnField/CommandRuntimeBridge/CommandRuntimeBoundaryHoldingArea.cs`
 
 This mirrors the important boundary sections that are still represented by Bank19_20 services but must be carried forward into the later command-runtime conversion:
 - `DEFENDER_CHANGE_BEFORE_HIKE`
@@ -49,13 +49,30 @@ This mirrors the important boundary sections that are still represented by Bank1
 
 ## Coverage manifest
 
-The complete section-to-owner placement lives in:
-- `src/FootballGame/Gameplay/OnField/Bank19RuntimeRepresentation.cs`
+The complete routine-to-owner placement lives in:
+- `src/FootballGame/Gameplay/OnField/OnFieldRoutineOwnershipMap.cs`
 
 Supporting runtime-facing types:
-- `src/FootballGame/Gameplay/OnField/Bank19SectionName.cs`
-- `src/FootballGame/Gameplay/OnField/Bank19RuntimeOwnerKind.cs`
-- `src/FootballGame/Gameplay/OnField/Bank19RuntimeSectionPlacement.cs`
+- `src/FootballGame/Gameplay/OnField/OnFieldRoutine.cs`
+- `src/FootballGame/Gameplay/OnField/OnFieldOwnerKind.cs`
+- `src/FootballGame/Gameplay/OnField/OnFieldRoutinePlacement.cs`
+- `src/FootballGame/Gameplay/OnField/OnFieldGameState.cs`
+- `src/FootballGame/Gameplay/OnField/OnFieldTeam.cs`
+- `src/FootballGame/Gameplay/OnField/OnFieldPhase.cs`
+- `src/FootballGame/Gameplay/OnField/OnFieldPlayType.cs`
+- `src/FootballGame/Gameplay/OnField/OnFieldKickoffStrategy.cs`
+
+## First implemented coordinator slice
+
+`OnFieldPlayCoordinator` now contains a real first logic slice instead of being only a coverage shell.
+
+Implemented host logic currently includes:
+- entry through `GAME_PLAY_START_CHECK_FOR_KICK_TEAM`
+- kickoff-side routing into `P1_KICKOFF` or `P2_KICKOFF`
+- kickoff setup through play assignment, skill hydration, task startup, presentation setup, and CPU kickoff strategy selection
+- `P1_PLAY_SELECT_AND_PLAY_LOAD` / `P2_PLAY_SELECT_AND_PLAY_LOAD` as explicit play-start host entrypoints
+
+This is still an early slice, but it means the coordinator now holds real Bank19_20 logic rather than only ownership metadata.
 
 ## Why this is the right Bank19_20 shape
 

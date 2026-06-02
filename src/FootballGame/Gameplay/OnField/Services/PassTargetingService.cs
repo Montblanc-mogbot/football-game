@@ -10,10 +10,10 @@ namespace FootballGame.Gameplay.OnField.Services;
 /// </summary>
 public sealed class PassTargetingService
 {
-    public static IReadOnlyList<Bank19SectionName> CoveredSections { get; } =
+    public static IReadOnlyList<OnFieldRoutine> CoveredRoutines { get; } =
     [
-        Bank19SectionName.SET_PLAYERS_CLOSE_TO_PASS,
-        Bank19SectionName.UPDATE_PASS_TARGET_AND_INDICATOR_ON_PRESS,
+        OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS,
+        OnFieldRoutine.UPDATE_PASS_TARGET_AND_INDICATOR_ON_PRESS,
     ];
 
     public void OrderPassCollisionPlayers()

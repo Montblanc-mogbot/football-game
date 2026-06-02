@@ -10,10 +10,10 @@ namespace FootballGame.Gameplay.OnField.Services;
 /// </summary>
 public sealed class StatAccountingService
 {
-    public static IReadOnlyList<Bank19SectionName> CoveredSections { get; } =
+    public static IReadOnlyList<OnFieldRoutine> CoveredRoutines { get; } =
     [
-        Bank19SectionName.UPDATE_STATS,
-        Bank19SectionName.CALCULATE_PLAY_DISTANCE,
+        OnFieldRoutine.UPDATE_STATS,
+        OnFieldRoutine.CALCULATE_PLAY_DISTANCE,
     ];
 
     public void UpdateInGameStats()

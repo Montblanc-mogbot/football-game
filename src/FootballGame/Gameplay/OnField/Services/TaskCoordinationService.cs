@@ -10,18 +10,21 @@ namespace FootballGame.Gameplay.OnField.Services;
 /// </summary>
 public sealed class TaskCoordinationService
 {
-    public static IReadOnlyList<Bank19SectionName> CoveredSections { get; } =
+    public static IReadOnlyList<OnFieldRoutine> CoveredRoutines { get; } =
     [
-        Bank19SectionName.END_SPECIFIC_TASKS,
-        Bank19SectionName.SET_GAME_STATUS_ON_FIELD_START_PLAYER_TASK,
+        OnFieldRoutine.END_SPECIFIC_TASKS,
+        OnFieldRoutine.SET_GAME_STATUS_ON_FIELD_START_PLAYER_TASK,
     ];
 
-    public void StartOnFieldTasks()
+    public void StartOnFieldTasks(OnFieldGameState state)
     {
+        state.RecordRoutine(OnFieldRoutine.SET_GAME_STATUS_ON_FIELD_START_PLAYER_TASK);
+        state.RecordEvent("Started on-field tasks and marked the game state as on-field.");
     }
 
-    public void EndSpecificTasks()
+    public void EndSpecificTasks(OnFieldGameState state)
     {
+        state.RecordRoutine(OnFieldRoutine.END_SPECIFIC_TASKS);
+        state.RecordEvent("Ended the Bank19_20-specific on-field tasks for the current play.");
     }
-
 }

@@ -10,11 +10,11 @@ namespace FootballGame.Gameplay.OnField.Services;
 /// </summary>
 public sealed class PreSnapControlService
 {
-    public static IReadOnlyList<Bank19SectionName> CoveredSections { get; } =
+    public static IReadOnlyList<OnFieldRoutine> CoveredRoutines { get; } =
     [
-        Bank19SectionName.DEFENDER_CHANGE_BEFORE_HIKE,
-        Bank19SectionName.CHECK_SNAP_PUNT,
-        Bank19SectionName.MAN_CONTROLLED_PLAYER_FUNCTIONS,
+        OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE,
+        OnFieldRoutine.CHECK_SNAP_PUNT,
+        OnFieldRoutine.MAN_CONTROLLED_PLAYER_FUNCTIONS,
     ];
 
     public void RunDefenderChangeBeforeHike()

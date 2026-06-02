@@ -78,14 +78,14 @@ We do not want to flatten the bank straight into a guessed final MonoGame runtim
 This pass now includes a first explicit runtime-facing representation for the full bank:
 - `src/FootballGame/Gameplay/OnField/OnFieldPlayCoordinator.cs`
 - `src/FootballGame/Gameplay/OnField/Services/*.cs`
-- `src/FootballGame/Gameplay/OnField/Bank19RuntimeRepresentation.cs`
-- `src/FootballGame/Gameplay/OnField/Bank21Bridge/Bank19ToBank21BoundaryHoldingArea.cs`
+- `src/FootballGame/Gameplay/OnField/OnFieldRoutineOwnershipMap.cs`
+- `src/FootballGame/Gameplay/OnField/CommandRuntimeBridge/CommandRuntimeBoundaryHoldingArea.cs`
 - `docs/planning/banks/Bank19_20-runtime-representation.md`
 
 The current runtime split is:
 - `OnFieldPlayCoordinator` for the Bank19_20 host/orchestration role
 - dedicated services for script assignment, pre-snap control, pass targeting, play outcomes, stats, injury, task coordination, CPU support, player-skill hydration, and presentation
-- `Bank19ToBank21BoundaryHoldingArea` for the explicit Bank19_20-to-Bank21_22 carry-forward bridge
+- `CommandRuntimeBoundaryHoldingArea` for the explicit Bank19_20-to-Bank21_22 carry-forward bridge
 - `PlayerScriptRunner` still deferred to the later Bank21_22 command-runtime pass
 
 ## What this conversion preserves on purpose

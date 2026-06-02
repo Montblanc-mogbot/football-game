@@ -3,7 +3,7 @@ namespace FootballGame.Gameplay.OnField;
 /// <summary>
 /// Source-traceable section names from Bank19_20_on_field_gameplay_loop.asm.
 /// </summary>
-public enum Bank19SectionName
+public enum OnFieldRoutine
 {
     GAME_PLAY_START_CHECK_FOR_KICK_TEAM,
     P2_KICKOFF,

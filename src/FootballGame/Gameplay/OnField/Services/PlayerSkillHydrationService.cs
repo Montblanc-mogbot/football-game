@@ -10,17 +10,19 @@ namespace FootballGame.Gameplay.OnField.Services;
 /// </summary>
 public sealed class PlayerSkillHydrationService
 {
-    public static IReadOnlyList<Bank19SectionName> CoveredSections { get; } =
+    public static IReadOnlyList<OnFieldRoutine> CoveredRoutines { get; } =
     [
-        Bank19SectionName.LOAD_SKILLS,
+        OnFieldRoutine.LOAD_SKILLS,
     ];
 
-    public void LoadAllSkillsIntoPlayerState()
+    public void LoadAllSkillsIntoPlayerState(OnFieldGameState state)
     {
+        state.RecordRoutine(OnFieldRoutine.LOAD_SKILLS);
+        state.RecordEvent("Loaded the base player skills needed for the current on-field setup.");
     }
 
-    public void LoadSinglePlayerSkillsIntoPlayerState()
+    public void LoadSinglePlayerSkillsIntoPlayerState(OnFieldGameState state, OnFieldTeam team, string playerRoleKey)
     {
+        state.RecordEvent($"Loaded single-player skill overrides for {team} role {playerRoleKey}.");
     }
-
 }

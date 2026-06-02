@@ -62,16 +62,31 @@ Validated:
 
 ### Runtime-facing coordinator/service coverage
 Checked against:
-- `src/FootballGame/Gameplay/OnField/Bank19RuntimeRepresentation.cs`
+- `src/FootballGame/Gameplay/OnField/OnFieldRoutineOwnershipMap.cs`
 - `src/FootballGame/Gameplay/OnField/OnFieldPlayCoordinator.cs`
 - `src/FootballGame/Gameplay/OnField/Services/*.cs`
-- `src/FootballGame/Gameplay/OnField/Bank21Bridge/Bank19ToBank21BoundaryHoldingArea.cs`
+- `src/FootballGame/Gameplay/OnField/CommandRuntimeBridge/CommandRuntimeBoundaryHoldingArea.cs`
 - `docs/planning/banks/Bank19_20-runtime-representation.md`
 
 Validated:
-- every extracted Bank19_20 section is assigned to either the coordinator or one Bank19_20 service in `Bank19RuntimeRepresentation`
-- the runtime-facing classes expose covered-section lists so the section ownership remains source-traceable
-- the four Bank19_20-to-Bank21_22 bridge sections are mirrored into an explicit holding area for later command-runtime work
+- every extracted Bank19_20 routine is assigned to either the coordinator or one Bank19_20 service in `OnFieldRoutineOwnershipMap`
+- the runtime-facing classes expose covered-routine lists so the ownership remains source-traceable
+- the four Bank19_20-to-Bank21_22 bridge routines are mirrored into an explicit holding area for later command-runtime work
+
+### First coordinator logic slice
+Checked against:
+- `src/FootballGame/Gameplay/OnField/OnFieldPlayCoordinator.cs`
+- `src/FootballGame/Gameplay/OnField/OnFieldGameState.cs`
+- `src/FootballGame/Gameplay/OnField/Services/PlayAssignmentService.cs`
+- `src/FootballGame/Gameplay/OnField/Services/PlayerSkillHydrationService.cs`
+- `src/FootballGame/Gameplay/OnField/Services/TaskCoordinationService.cs`
+- `src/FootballGame/Gameplay/OnField/Services/OnFieldPresentationService.cs`
+- `src/FootballGame/Gameplay/OnField/Services/CpuPlayDecisionService.cs`
+
+Validated:
+- the coordinator now contains real host logic for `GAME_PLAY_START_CHECK_FOR_KICK_TEAM`, `P1_KICKOFF`, `P2_KICKOFF`, and the P1/P2 play-select/load entry paths
+- kickoff setup now makes explicit service calls for play assignment, skill hydration, task startup, presentation setup, and CPU kickoff strategy evaluation
+- the naming of the runtime-facing ownership map and routine ids has been cleaned up into gameplay-facing names instead of generic `Bank19...Section...` names
 
 ### Bank21_22 carry-forward boundary
 Checked against representative Bank19_20 sections that prime or hand off to Bank21_22:
@@ -89,11 +104,11 @@ Validated:
 
 This pass does **not** yet provide:
 - a finished MonoGame gameplay runtime implementation for the full on-field loop
-- a final `OnFieldPlayCoordinator` class implementation
+- a complete `OnFieldPlayCoordinator` implementation for every Bank19_20 path
 - a Bank21_22 command interpreter implementation
 - a packet-level Bank19_20 runtime slice such as `19A`, `19B`, or `19C`
 
-This is still a conversion/inventory/representation pass, but it is now complete enough to keep the whole Bank19_20 content represented and reviewable.
+This is still an incremental conversion/representation pass, but it now includes a real first coordinator logic slice in addition to the inventory, loader, and ownership map layers.
 
 ## Outcome
 

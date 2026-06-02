@@ -14,6 +14,7 @@ This note validates the current Bank19_20 full-bank conversion artifacts for `Ba
 - `content/game-data/on-field/generated/bank19_20-section-map.json`
 - `content/game-data/bank19_20/generated/summary.json`
 - `src/FootballGame/Conversion/OnField/*.cs`
+- `docs/planning/banks/Bank19_20-loader-layer.md`
 - `docs/planning/banks/Bank21_22-architecture-review.md` (carry-forward bridge additions)
 
 ## Validation checks
@@ -47,6 +48,17 @@ Checked against:
 Validated:
 - each section is classified as either controller-owned or supporting-service-owned
 - responsibility groups remain explicit instead of flattening the whole bank into one coordinator class
+
+### Loader/semantic bridge
+Checked against:
+- `content/game-data/on-field/generated/bank19_20-section-map.json`
+- `src/FootballGame/Conversion/OnField/Bank19OnFieldGameplayInventoryJsonLoader.cs`
+- `docs/planning/banks/Bank19_20-loader-layer.md`
+
+Validated:
+- the typed semantic layer now includes the `externalJumpConstants` slice from the generated artifact
+- the typed semantic layer preserves section labels as records with source lines rather than flattening them away
+- the loader maps JSON string ownership/responsibility values into explicit enums and returns one `Bank19OnFieldGameplayInventory` aggregate for later runtime-facing work
 
 ### Bank21_22 carry-forward boundary
 Checked against representative Bank19_20 sections that prime or hand off to Bank21_22:

@@ -30,7 +30,7 @@ public sealed record Bank19SectionRecord
 
     public required IReadOnlyList<string> PrimaryEntryLabels { get; init; }
 
-    public required IReadOnlyList<string> LabelNames { get; init; }
+    public required IReadOnlyList<Bank19SectionLabelRecord> Labels { get; init; }
 
     public required IReadOnlyList<string> ExternalDependencySymbols { get; init; }
 

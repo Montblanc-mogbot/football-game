@@ -60,10 +60,14 @@ C# types:
 - `src/FootballGame/Conversion/OnField/Bank19OnFieldGameplayInventory.cs`
 - `src/FootballGame/Conversion/OnField/Bank19EntryPointRecord.cs`
 - `src/FootballGame/Conversion/OnField/Bank19ScriptPointerFamilyRecord.cs`
+- `src/FootballGame/Conversion/OnField/Bank19ExternalJumpConstantRecord.cs`
 - `src/FootballGame/Conversion/OnField/Bank19CrossBankDependencyRecord.cs`
 - `src/FootballGame/Conversion/OnField/Bank19SectionRecord.cs`
+- `src/FootballGame/Conversion/OnField/Bank19SectionLabelRecord.cs`
 - `src/FootballGame/Conversion/OnField/Bank19ModernOwner.cs`
 - `src/FootballGame/Conversion/OnField/Bank19ResponsibilityGroup.cs`
+- `src/FootballGame/Conversion/OnField/Bank19OnFieldGameplayInventoryJsonLoader.cs`
+- `docs/planning/banks/Bank19_20-loader-layer.md`
 
 These types intentionally model the bank as a **conversion inventory / responsibility map**, not as final gameplay runtime classes.
 

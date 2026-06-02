@@ -13,6 +13,8 @@ public sealed record Bank19OnFieldGameplayInventory
 
     public required IReadOnlyList<Bank19ScriptPointerFamilyRecord> ScriptPointerFamilies { get; init; }
 
+    public required IReadOnlyList<Bank19ExternalJumpConstantRecord> ExternalJumpConstants { get; init; }
+
     public required IReadOnlyList<Bank19CrossBankDependencyRecord> ExternalDependencies { get; init; }
 
     public required IReadOnlyList<Bank19SectionRecord> Sections { get; init; }

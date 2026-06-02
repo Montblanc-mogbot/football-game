@@ -97,6 +97,7 @@ Validated:
 - dead-ball transition teardown is now less fragmented: next-sequence dispatch flows through a shared finalization step that ends Bank19_20 tasks, records quarter-over checks, clears transient dead-ball flags, and then routes into play-select or kickoff setup
 - several coordinator-owned outcome-evaluator routines are now represented more explicitly in live return flows: kickoff, punt, interception, onside, and fumble return paths record the Bank19_20 touchdown / fumble / play-over check family instead of relying only on opaque state flags
 - safety and post-turnover reset coverage is now fully explicit in the coordinator trace too: `P1_SAFETIED` / `P2_SAFETIED`, `CHECK_FOR_FIRST_DOWN_OR_TOD`, and `UPDATE_HASHMARK_FOR_NEXT_SNAP` are all now directly recorded in `OnFieldPlayCoordinator`, leaving no coordinator-owned Bank19_20 routine represented only by the covered-routines list
+- pre-audit presence check confirms there is no section-level drift between assembly, manifest, and implementation: the assembly exposes 75 Bank19_20 section markers, the generated JSON manifest contains the same 75 sections, every manifest section is represented in `OnFieldRoutine` and `OnFieldRoutineOwnershipMap`, and the conversion inventory layer still carries the manifest’s script-pointer families and external dependencies
 - the naming of the runtime-facing ownership map and routine ids has been cleaned up into gameplay-facing names instead of generic `Bank19...Section...` names
 
 ### Bank21_22 carry-forward boundary

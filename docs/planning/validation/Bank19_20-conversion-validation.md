@@ -93,6 +93,7 @@ Validated:
 - turnover/score progression now makes explicit coordinator/service calls for interception-return assignment, touchdown celebration/presentation, onside recovery handling, loose-ball recovery routing, turnover series reset, and post-turnover spot/hash updates
 - kickoff progression is now wired into the live coordinator loop with explicit kickoff-state reset, kickoff/onside routing, and normalized punt/interception possession-change handling instead of leaving those newer host methods partly disconnected
 - kickoff/punt return routing now waits for dead-ball resolution rather than ending immediately on catch, and extra-point made/missed/blocked outcomes now correctly exit into kickoff routing instead of dead-ending the host flow
+- blocked field-goal routing now enters an explicit loose-ball / recovery path instead of stopping at a placeholder event, and onside return touchdowns are classified as special-teams returns instead of generic defensive returns
 - the naming of the runtime-facing ownership map and routine ids has been cleaned up into gameplay-facing names instead of generic `Bank19...Section...` names
 
 ### Bank21_22 carry-forward boundary

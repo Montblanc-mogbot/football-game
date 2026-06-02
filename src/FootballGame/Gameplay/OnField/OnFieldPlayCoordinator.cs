@@ -757,7 +757,24 @@ public sealed class OnFieldPlayCoordinator
             return;
         }
 
-        state.RecordEvent($"Resolved blocked field goal for {state.PossessionTeam}; play converts into live recovery/run logic outside this slice.");
+        playAssignmentService.ReassignForLooseBallRecovery(state);
+        presentationService.PrepareLooseBallPresentation(state);
+
+        if (!state.BallRecovered)
+        {
+            state.RecordEvent($"Resolved blocked field goal for {state.PossessionTeam} into live loose-ball recovery.");
+            return;
+        }
+
+        OnFieldTeam recoveringTeam = state.RecoveredByPossessingTeam ? state.PossessionTeam : GetOpposingTeam(state.PossessionTeam);
+        if (!state.PlayOverTriggered)
+        {
+            playAssignmentService.ReassignForFumbleReturn(state, recoveringTeam);
+            state.RecordEvent($"Blocked field goal recovered by {recoveringTeam}; live return continues.");
+            return;
+        }
+
+        ResolvePostFumbleDeadBall(state, recoveringTeam, state.RecoveredByPossessingTeam);
     }
 
     public void HandleInterceptionResult(OnFieldGameState state)
@@ -922,7 +939,7 @@ public sealed class OnFieldPlayCoordinator
     {
         if (state.NextPlayRequiresKickoff)
         {
-            HandleTouchdown(state, recoveringTeam, OnFieldTouchdownKind.DefensiveReturn);
+            HandleTouchdown(state, recoveringTeam, OnFieldTouchdownKind.SpecialTeamsReturn);
             return;
         }
 

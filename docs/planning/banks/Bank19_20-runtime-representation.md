@@ -92,6 +92,8 @@ Implemented host logic currently includes:
 - normalized possession-change helpers reused across interception, punt, kickoff, safety, and turnover-on-downs outcomes
 - kickoff/punt return host flow now stages ball-fielded → return-live → dead-ball resolution instead of collapsing directly to next-play setup
 - extra-point aftermath now routes into kickoff setup for made, missed, and blocked outcomes
+- blocked field-goal aftermath now enters explicit loose-ball / live-recovery handling rather than stopping at a placeholder note
+- onside return scoring now uses a special-teams touchdown classification
 
 This is still an incremental implementation slice, but the coordinator now owns real Bank19_20 entry, routing, pass-flow, special-teams-flow, kickoff-flow, turnover-flow, scoring-flow, and outcome-handling logic rather than only ownership metadata.
 

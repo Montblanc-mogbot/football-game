@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+using FootballGame.Gameplay.OnField.CommandRuntimeBridge;
 using FootballGame.Gameplay.OnField.Services;
 
 namespace FootballGame.Gameplay.OnField;
@@ -20,6 +21,7 @@ public sealed class OnFieldPlayCoordinator
     private readonly StatAccountingService statAccountingService;
     private readonly InjuryCutsceneService injuryCutsceneService;
     private readonly PassTargetingService passTargetingService;
+    private readonly PlayerCommandRuntimeBoundary? commandRuntimeBoundary;
 
     public OnFieldPlayCoordinator(
         PlayAssignmentService playAssignmentService,
@@ -30,7 +32,8 @@ public sealed class OnFieldPlayCoordinator
         PreSnapControlService preSnapControlService,
         StatAccountingService statAccountingService,
         InjuryCutsceneService injuryCutsceneService,
-        PassTargetingService passTargetingService)
+        PassTargetingService passTargetingService,
+        PlayerCommandRuntimeBoundary? commandRuntimeBoundary = null)
     {
         this.playAssignmentService = playAssignmentService;
         this.playerSkillHydrationService = playerSkillHydrationService;
@@ -41,6 +44,7 @@ public sealed class OnFieldPlayCoordinator
         this.statAccountingService = statAccountingService;
         this.injuryCutsceneService = injuryCutsceneService;
         this.passTargetingService = passTargetingService;
+        this.commandRuntimeBoundary = commandRuntimeBoundary;
     }
 
     public static IReadOnlyList<OnFieldRoutine> CoveredRoutines { get; } =
@@ -95,6 +99,9 @@ public sealed class OnFieldPlayCoordinator
     {
         ArgumentNullException.ThrowIfNull(state);
 
+        state.CommandRuntimeBoundary = commandRuntimeBoundary;
+        state.PendingCommandRuntimeRequests.Clear();
+        state.CommandRuntimeStepHistory.Clear();
         state.RecordRoutine(OnFieldRoutine.GAME_PLAY_START_CHECK_FOR_KICK_TEAM);
         state.SetSpecialBallStatusActive(false);
         state.RecordEvent("Entered the on-field gameplay loop and cleared special ball status.");
@@ -206,6 +213,11 @@ public sealed class OnFieldPlayCoordinator
             return;
         }
 
+        if (TryAdvanceLiveCommandRuntime(state))
+        {
+            return;
+        }
+
         if (state.PlayType == OnFieldPlayType.Regular && state.IsManualPassingAllowed)
         {
             RunPassPlayLoop(state);
@@ -311,6 +323,7 @@ public sealed class OnFieldPlayCoordinator
         state.RecordRoutine(state.PossessionTeam == OnFieldTeam.Player1 ? OnFieldRoutine.P1_RUN_PLAY : OnFieldRoutine.P2_RUN_PLAY);
         state.Phase = OnFieldPhase.LivePlay;
         state.IsManualPassingAllowed = false;
+        preSnapControlService.MarkBallSnapped(state);
         state.RecordEvent($"Started {state.PossessionTeam} run-play host flow.");
     }
 
@@ -327,6 +340,7 @@ public sealed class OnFieldPlayCoordinator
         state.PlayOverTriggered = false;
         state.PassOutcome = OnFieldPassOutcome.None;
         injuryCutsceneService.ClearCutsceneStateForPassStart(state);
+        preSnapControlService.MarkBallSnapped(state);
         state.RecordEvent($"Started {state.PossessionTeam} pass-play host flow with manual passing enabled.");
     }
 
@@ -660,6 +674,7 @@ public sealed class OnFieldPlayCoordinator
         playerSkillHydrationService.LoadSpecialTeamsSkillOverrides(state, state.PossessionTeam, OnFieldPlayType.Punt);
         preSnapControlService.PreparePuntForSnap(state, state.PossessionTeam);
         playAssignmentService.ApplyManControlledPlayerPolicy(state, includeManControlledPlayer: false);
+        preSnapControlService.MarkBallSnapped(state);
         state.RecordEvent($"Started {state.PossessionTeam} punt-play host flow.");
     }
 
@@ -1136,6 +1151,101 @@ public sealed class OnFieldPlayCoordinator
         state.SpecialTeamsCutsceneReady = false;
         state.TurnoverReturnActive = false;
         state.RecordEvent("Finalized dead-ball transition state and checked for quarter-end before the next sequence.");
+    }
+
+    private bool TryAdvanceLiveCommandRuntime(OnFieldGameState state)
+    {
+        if (state.CommandRuntimeBoundary is null || !state.BallSnapped)
+        {
+            return false;
+        }
+
+        if (state.PendingCommandRuntimeRequests.Count == 0)
+        {
+            return false;
+        }
+
+        PlayerCommandRuntimeHostRequest hostRequest = state.PendingCommandRuntimeRequests[0];
+        PlayerCommandDefinition commandDefinition = CreateLiveStepDefinition(hostRequest);
+        PlayerCommandStepResult stepResult = state.CommandRuntimeBoundary.StepPlayerCommand(
+            hostRequest.TriggerRoutine switch
+            {
+                OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE => "ACTIVE_DEFENDER",
+                OnFieldRoutine.CHECK_SNAP_PUNT => "PUNT_SNAP_GROUP",
+                OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS => "PASS_CONTEST_GROUP",
+                _ => "OFFENSE_FIELD_GROUP",
+            },
+            commandDefinition);
+
+        state.PendingCommandRuntimeRequests.RemoveAt(0);
+        state.CommandRuntimeStepHistory.Add(stepResult);
+        state.RecordEvent($"Advanced the live command-runtime seam from {hostRequest.TriggerRoutine} via '{stepResult.CommandName}'.");
+        return true;
+    }
+
+    private static PlayerCommandDefinition CreateLiveStepDefinition(PlayerCommandRuntimeHostRequest hostRequest)
+    {
+        return hostRequest.TriggerRoutine switch
+        {
+            OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE => new PlayerCommandDefinition
+            {
+                CommandName = "ManCoverageAssignmentCommand",
+                SourceLabel = "MAN_COVERAGE_TIGHT_COMMAND_START",
+                ByteLength = 2,
+                RequiresContinuation = true,
+                SourceNotes =
+                [
+                    "Packet 21B live seam: pre-snap defender handoff now enters the defensive reaction family instead of reusing the packet 21A snap family.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:1462-1476 stores player_to_defend in EXTRA_PLAYER_RAM_1 and defend_time in EXTRA_PLAYER_RAM_3 before jumping into DEFNDER_MAN_TO_MAN_PASS_COVERAGE_START.",
+                    "The loose variant sets the loose-coverage high bit before the same shared jump.",
+                ],
+                OperandValues = new Dictionary<string, string>
+                {
+                    ["playerToDefend"] = "TARGET_RECEIVER",
+                    ["defendTimeSelector"] = "13",
+                },
+                TriggerRoutine = hostRequest.TriggerRoutine,
+            },
+            OnFieldRoutine.CHECK_SNAP_PUNT => new PlayerCommandDefinition
+            {
+                CommandName = "FieldGoalSnapReceiveCommand",
+                SourceLabel = "RECEIVE_SNAP_FG_XP_COMMAND_START",
+                ByteLength = 1,
+                RequiresContinuation = true,
+                SourceNotes = ["Punt/FG snap gate hands off into the first bounded Bank21_22 receive step."],
+                OperandValues = new Dictionary<string, string>(),
+                TriggerRoutine = hostRequest.TriggerRoutine,
+            },
+            OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS => new PlayerCommandDefinition
+            {
+                CommandName = "ConservativeBallCarrierChaseCommand",
+                SourceLabel = "CHASE_BALL_CARRIER_CONSERVATIVE_COMMAND_START",
+                ByteLength = 1,
+                RequiresContinuation = true,
+                SourceNotes =
+                [
+                    "Packet 21B live seam: host-side pass-target ordering still owns candidate ranking before the runtime resumes defensive reaction handling.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:2714-2772 uses carrier-aware steering before the repeated dive loop.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:3368-3383 provides the 16-entry CHASE_CONSERVATIVE_TURN_TABLE used to smooth turn adjustments.",
+                ],
+                OperandValues = new Dictionary<string, string>
+                {
+                    ["turnTableEntries"] = "16",
+                    ["diveDelayFrames"] = "5",
+                },
+                TriggerRoutine = hostRequest.TriggerRoutine,
+            },
+            _ => new PlayerCommandDefinition
+            {
+                CommandName = "UnderCenterSnapReceiveCommand",
+                SourceLabel = "RECEIVE_SNAP_CENTER_COMMAND_START",
+                ByteLength = 1,
+                RequiresContinuation = true,
+                SourceNotes = ["Script installation now feeds one bounded live Bank21_22 step after the host declares the ball snapped."],
+                OperandValues = new Dictionary<string, string>(),
+                TriggerRoutine = hostRequest.TriggerRoutine,
+            },
+        };
     }
 
     private void ResolveSafetyOutcome(OnFieldGameState state)

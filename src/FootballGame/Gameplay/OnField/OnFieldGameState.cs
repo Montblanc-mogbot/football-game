@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 
+using FootballGame.Gameplay.OnField.CommandRuntimeBridge;
+
 namespace FootballGame.Gameplay.OnField;
 
 /// <summary>
@@ -69,6 +71,14 @@ public sealed class OnFieldGameState
     public OnFieldPassOutcome PassOutcome { get; set; }
 
     public bool IsManualPassingAllowed { get; set; }
+
+    public bool BallSnapped { get; set; }
+
+    public PlayerCommandRuntimeBoundary? CommandRuntimeBoundary { get; set; }
+
+    public IList<PlayerCommandRuntimeHostRequest> PendingCommandRuntimeRequests { get; } = new List<PlayerCommandRuntimeHostRequest>();
+
+    public IList<PlayerCommandStepResult> CommandRuntimeStepHistory { get; } = new List<PlayerCommandStepResult>();
 
     public int? PendingNextSnapYardLine { get; set; }
 

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
 using FootballGame.Gameplay.OnField;
+using FootballGame.Gameplay.OnField.CommandRuntimeBridge;
 
 namespace FootballGame.Gameplay.OnField.Services;
 
@@ -21,6 +22,8 @@ public sealed class PreSnapControlService
     {
         state.RecordRoutine(OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE);
         state.Phase = OnFieldPhase.PreSnap;
+        state.BallSnapped = false;
+        QueueRuntimeRequest(state, OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE, "ACTIVE_DEFENDER", "DEFENDER_PRE_SNAP_CONTROL");
         state.RecordEvent($"Prepared defender-change and snap-gating flow for {offenseTeam} before the hike.");
     }
 
@@ -28,6 +31,42 @@ public sealed class PreSnapControlService
     {
         state.RecordRoutine(OnFieldRoutine.CHECK_SNAP_PUNT);
         state.Phase = OnFieldPhase.PreSnap;
+        state.BallSnapped = false;
+        QueueRuntimeRequest(state, OnFieldRoutine.CHECK_SNAP_PUNT, "PUNT_SNAP_GROUP", "PUNT_PRE_SNAP_CONTROL");
         state.RecordEvent($"Prepared punt snap gate for {puntingTeam} before the kick.");
+    }
+
+    public void MarkBallSnapped(OnFieldGameState state)
+    {
+        state.BallSnapped = true;
+        state.RecordEvent("Marked the host-side snapped-ball state so Bank21_22 command stepping can proceed.");
+    }
+
+    private static void QueueRuntimeRequest(OnFieldGameState state, OnFieldRoutine triggerRoutine, string playerSlotKey, string scriptFamilyKey)
+    {
+        if (state.CommandRuntimeBoundary is null)
+        {
+            return;
+        }
+
+        foreach (PlayerCommandRuntimeHostRequest hostRequest in CommandRuntimeBoundaryHoldingArea.CreateHostRequests(state))
+        {
+            if (hostRequest.TriggerRoutine != triggerRoutine)
+            {
+                continue;
+            }
+
+            state.PendingCommandRuntimeRequests.Add(hostRequest);
+            state.CommandRuntimeBoundary.PrimeExecutionContext(
+                hostRequest,
+                playerSlotKey,
+                new PlayerCommandPointer
+                {
+                    ScriptFamilyKey = scriptFamilyKey,
+                    InstructionOffset = 0,
+                    ResumeLabel = hostRequest.BridgeSymbol,
+                });
+            return;
+        }
     }
 }

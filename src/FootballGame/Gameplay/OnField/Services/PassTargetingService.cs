@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
 using FootballGame.Gameplay.OnField;
+using FootballGame.Gameplay.OnField.CommandRuntimeBridge;
 
 namespace FootballGame.Gameplay.OnField.Services;
 
@@ -25,6 +26,35 @@ public sealed class PassTargetingService
     public void OrderPassCollisionPlayers(OnFieldGameState state)
     {
         state.RecordRoutine(OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS);
+        QueueRuntimeRequest(state);
         state.RecordEvent("Ordered receiver/defender pass-collision candidates for the current pass attempt.");
+    }
+
+    private static void QueueRuntimeRequest(OnFieldGameState state)
+    {
+        if (state.CommandRuntimeBoundary is null)
+        {
+            return;
+        }
+
+        foreach (PlayerCommandRuntimeHostRequest hostRequest in CommandRuntimeBoundaryHoldingArea.CreateHostRequests(state))
+        {
+            if (hostRequest.TriggerRoutine != OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS)
+            {
+                continue;
+            }
+
+            state.PendingCommandRuntimeRequests.Add(hostRequest);
+            state.CommandRuntimeBoundary.PrimeExecutionContext(
+                hostRequest,
+                "PASS_CONTEST_GROUP",
+                new PlayerCommandPointer
+                {
+                    ScriptFamilyKey = hostRequest.BridgeSymbol ?? "PASS_CONTEST_GROUP",
+                    InstructionOffset = 0,
+                    ResumeLabel = hostRequest.BridgeSymbol,
+                });
+            return;
+        }
     }
 }

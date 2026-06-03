@@ -1346,20 +1346,20 @@ public sealed class OnFieldPlayCoordinator
             },
             _ => new PlayerCommandDefinition
             {
-                CommandName = "BackfieldHandoffCommand",
-                SourceLabel = "HANDOFF_COMMAND_START",
+                CommandName = "PitchBallCommand",
+                SourceLabel = "PITCH_BALL_COMMAND_START",
                 ByteLength = 2,
                 RequiresContinuation = true,
                 SourceNotes =
                 [
-                    "Packet 21A live seam: the normal offense field-group seam now samples the immediate post-snap backfield-transfer family instead of stopping at the earlier receive-only placeholder.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:1559-1567 enters HANDOFF_COMMAND_START / FAKE_HANDOFF_COMMAND_START and then drops into shared HANDOFF_COMMAND_LOGIC.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:7748-7810 stages quarterback stop/icon timing, conditionally clears ball-carrier ownership, and retargets the runner continuation through UPDATE_LOCAL_PLAYER_COMMAND_ADDR_IF_VALID.",
+                    "Packet 21A live seam: the normal offense field-group seam now samples the pitch variant so the live runtime exercises the in-flight ball transfer path instead of only the handoff branch.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:1575-1579 stores the pitch target and enters shared PITCH_COMMAND_LOGIC.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:7850-7930 stops the quarterback, creates the ball-leaving-hand state, computes the moving-ball target path, clears quarterback ball-carrier ownership, and conditionally retargets the target runner into WAIT_FOR_PLAYER_RECEIVES_PITCH.",
                 ],
                 OperandValues = new Dictionary<string, string>
                 {
                     ["targetPlayerSlot"] = "RB1",
-                    ["fakeExchange"] = bool.FalseString,
+                    ["retargetSkippedBecauseTargetInvalid"] = bool.FalseString,
                 },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },

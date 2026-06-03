@@ -1346,20 +1346,20 @@ public sealed class OnFieldPlayCoordinator
             },
             _ => new PlayerCommandDefinition
             {
-                CommandName = "PitchBallCommand",
-                SourceLabel = "PITCH_BALL_COMMAND_START",
+                CommandName = "BackfieldHandoffCommand",
+                SourceLabel = "FAKE_HANDOFF_COMMAND_START",
                 ByteLength = 2,
                 RequiresContinuation = true,
                 SourceNotes =
                 [
-                    "Packet 21A live seam: the normal offense field-group seam now samples the pitch variant so the live runtime exercises the in-flight ball transfer path instead of only the handoff branch.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:1575-1579 stores the pitch target and enters shared PITCH_COMMAND_LOGIC.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:7850-7930 stops the quarterback, creates the ball-leaving-hand state, computes the moving-ball target path, clears quarterback ball-carrier ownership, and conditionally retargets the target runner into WAIT_FOR_PLAYER_RECEIVES_PITCH.",
+                    "Packet 21A live seam: the normal offense field-group seam now samples the fake-handoff branch so the live runtime exercises the runner-side fake exchange continuation without transferring possession.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:1563-1567 sets the fake-handoff high bit and drops into the shared HANDOFF_COMMAND_LOGIC.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:7748-7848 preserves quarterback exchange timing, restores displayed-name status, and retargets the runner into RB_FAKE_HANDOFF_ANIMATION instead of RB_RECEIVES_HANDOFF_START.",
                 ],
                 OperandValues = new Dictionary<string, string>
                 {
                     ["targetPlayerSlot"] = "RB1",
-                    ["retargetSkippedBecauseTargetInvalid"] = bool.FalseString,
+                    ["fakeExchange"] = bool.TrueString,
                 },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },

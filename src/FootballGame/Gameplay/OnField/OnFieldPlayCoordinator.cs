@@ -1326,21 +1326,19 @@ public sealed class OnFieldPlayCoordinator
             },
             OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS => new PlayerCommandDefinition
             {
-                CommandName = "OffensiveJumpDiveCatchPassCommand",
-                SourceLabel = "OFFENSE_JUMP_DIVE_CATCH_PASS_START",
+                CommandName = "DefensiveJumpDiveCatchPassCommand",
+                SourceLabel = "DEFENSE_JUMP_DIVE_CATCH_PASS_START",
                 ByteLength = 1,
                 RequiresContinuation = true,
                 SourceNotes =
                 [
-                    "Packet 21C live seam: host-side pass-target ordering still owns receiver/defender ranking before the runtime enters the receiver jump/dive contest family.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:4759-4848 primes the receiver rushing-power counter, updates direction/speed, and loops on ball-collision plus jump/dive eligibility checks before the stationary wait/collision resolution path.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:4911-4919 provides the follow-on miss/interception continuation branch after the offensive jump/dive family resolves into the miss path.",
-                    "Source-visible bug policy remains explicit for the later miss continuation: PASS_CALCULATION_TARGET_NOT_CLOSE_TO_BALL carries the '***MAJOR BUG!! $DC NOT LOADED WITH PASS CONTROL VALUE' note.",
+                    "Packet 21C live seam: host-side pass-target ordering still owns receiver/defender ranking before the runtime enters the defender jump/dive contest family.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:5125-5211 updates the defender movement/speed loop, checks ball-collision plus jump/dive timing windows, and stops the defender at the final pass location when needed.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:5212-5459 resolves the defender-side near-ball, dive, jump, and landing branches before returning to normal command stepping.",
                 ],
                 OperandValues = new Dictionary<string, string>
                 {
                     ["rankedDefenderWindowSize"] = "3",
-                    ["bugPolicy"] = "PreserveExplicitlyUntilParityDecision",
                 },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },

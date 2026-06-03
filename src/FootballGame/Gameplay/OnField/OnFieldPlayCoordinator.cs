@@ -1172,17 +1172,13 @@ public sealed class OnFieldPlayCoordinator
             OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE => "ACTIVE_DEFENDER",
             OnFieldRoutine.CHECK_SNAP_PUNT => "PUNT_SNAP_GROUP",
             OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS => "PASS_CONTEST_GROUP",
-            _ => commandDefinition.CommandName switch
-            {
-                "ReceiveHandoffContinuationCommand" => "RETARGETED_BACKFIELD_RUNNER",
-                _ => "OFFENSE_FIELD_GROUP",
-            },
+            _ => "OFFENSE_FIELD_GROUP",
         };
 
         PlayerCommandStepResult stepResult = state.CommandRuntimeBoundary.StepPlayerCommand(playerSlotKey, commandDefinition);
 
         if (hostRequest.TriggerRoutine == OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS
-            && TryCreateExplicitBackfieldContinuation(state, stepResult, out PlayerCommandStepResult continuationStepResult))
+            && TryCreateExplicitRetargetContinuation(state, stepResult, out PlayerCommandStepResult continuationStepResult))
         {
             state.CommandRuntimeStepHistory.Add(stepResult);
             state.CommandRuntimeStepHistory.Add(continuationStepResult);
@@ -1197,37 +1193,92 @@ public sealed class OnFieldPlayCoordinator
         return true;
     }
 
-    private static bool TryCreateExplicitBackfieldContinuation(OnFieldGameState state, PlayerCommandStepResult stepResult, out PlayerCommandStepResult continuationStepResult)
+    private static bool TryCreateExplicitRetargetContinuation(OnFieldGameState state, PlayerCommandStepResult stepResult, out PlayerCommandStepResult continuationStepResult)
     {
         continuationStepResult = null!;
 
-        OffensiveExchangeCommandState? exchangeState = stepResult.OffensiveExchangeState;
-        if (stepResult.CommandName != "BackfieldHandoffCommand"
-            || exchangeState?.RetargetedPlayerSlot is null
-            || exchangeState.RetargetedContinuationCommand != "ReceiveHandoffContinuationCommand")
+        if (stepResult.RetargetRequests.Count == 0)
         {
             return false;
         }
 
-        PlayerCommandDefinition continuationDefinition = new()
+        PlayerCommandRetargetRequest retargetRequest = stepResult.RetargetRequests[0];
+        PlayerCommandDefinition continuationDefinition = CreateRetargetContinuationDefinition(stepResult, retargetRequest);
+        continuationStepResult = state.CommandRuntimeBoundary!.StepPlayerCommand(retargetRequest.TargetPlayerSlotKey, continuationDefinition);
+        return true;
+    }
+
+    private static PlayerCommandDefinition CreateRetargetContinuationDefinition(
+        PlayerCommandStepResult stepResult,
+        PlayerCommandRetargetRequest retargetRequest)
+    {
+        return retargetRequest.ContinuationCommandName switch
         {
-            CommandName = "ReceiveHandoffContinuationCommand",
-            SourceLabel = "RB_RECEIVES_HANDOFF_START",
-            ByteLength = 1,
-            RequiresContinuation = true,
-            SourceNotes =
-            [
-                "Packet 21A explicit continuation: the target runner becomes ball carrier only after the initial handoff command retargets this second player.",
-                "Source: Bank21_22_play_commands_on_field_logic.asm RB_RECEIVES_HANDOFF_START assigns ball-carrier status, retargets manual control/displayed-name ownership, and holds the two-phase receive animation before returning to normal stepping.",
-            ],
-            OperandValues = new Dictionary<string, string>
+            "RunnerReceiveHandoffCommand" => new PlayerCommandDefinition
             {
-                ["sourceRetargetedBy"] = stepResult.PlayerSlotKey,
+                CommandName = "RunnerReceiveHandoffCommand",
+                SourceLabel = retargetRequest.ContinuationSourceLabel,
+                ByteLength = 1,
+                RequiresContinuation = true,
+                SourceNotes =
+                [
+                    "Packet 21A explicit continuation: the target runner becomes ball carrier only after the initial handoff command retargets this second player.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:7811-7838 assigns ball-carrier status, retargets manual control/displayed-name ownership, and holds the two-phase receive-handoff animation before returning to normal stepping.",
+                ],
+                OperandValues = new Dictionary<string, string>
+                {
+                    ["sourceRetargetedBy"] = stepResult.PlayerSlotKey,
+                },
+            },
+            "RunnerFakeHandoffAnimationCommand" => new PlayerCommandDefinition
+            {
+                CommandName = "RunnerFakeHandoffAnimationCommand",
+                SourceLabel = retargetRequest.ContinuationSourceLabel,
+                ByteLength = 1,
+                RequiresContinuation = true,
+                SourceNotes =
+                [
+                    "Packet 21A explicit continuation: the fake-handoff target still receives a runner-side animation step even though possession does not move.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:7839-7848 plays the same two-phase fake-take animation and then returns to normal stepping without assigning ball-carrier ownership.",
+                ],
+                OperandValues = new Dictionary<string, string>
+                {
+                    ["sourceRetargetedBy"] = stepResult.PlayerSlotKey,
+                },
+            },
+            "ReceivePitchContinuationCommand" => new PlayerCommandDefinition
+            {
+                CommandName = "ReceivePitchContinuationCommand",
+                SourceLabel = retargetRequest.ContinuationSourceLabel,
+                ByteLength = 1,
+                RequiresContinuation = true,
+                SourceNotes =
+                [
+                    "Packet 21A explicit continuation: the pitch target waits on the in-flight ball and only completes once collision resolves the catch.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:7931-7944 repeatedly reasserts target-runner ball-carrier/manual-control ownership while waiting for ball collision before ending the animation and returning to normal stepping.",
+                ],
+                OperandValues = new Dictionary<string, string>
+                {
+                    ["sourceRetargetedBy"] = stepResult.PlayerSlotKey,
+                },
+            },
+            _ => new PlayerCommandDefinition
+            {
+                CommandName = retargetRequest.ContinuationCommandName,
+                SourceLabel = retargetRequest.ContinuationSourceLabel,
+                ByteLength = 1,
+                RequiresContinuation = true,
+                SourceNotes =
+                [
+                    $"Explicit continuation emitted by the live Bank21_22 retarget request from {stepResult.CommandName}.",
+                    retargetRequest.Reason,
+                ],
+                OperandValues = new Dictionary<string, string>
+                {
+                    ["sourceRetargetedBy"] = stepResult.PlayerSlotKey,
+                },
             },
         };
-
-        continuationStepResult = state.CommandRuntimeBoundary!.StepPlayerCommand(exchangeState.RetargetedPlayerSlot, continuationDefinition);
-        return true;
     }
 
     private static PlayerCommandDefinition CreateLiveStepDefinition(PlayerCommandRuntimeHostRequest hostRequest)
@@ -1292,18 +1343,20 @@ public sealed class OnFieldPlayCoordinator
             },
             _ => new PlayerCommandDefinition
             {
-                CommandName = "UnderCenterSnapReceiveCommand",
-                SourceLabel = "RECEIVE_SNAP_CENTER_COMMAND_START",
-                ByteLength = 1,
+                CommandName = "BackfieldHandoffCommand",
+                SourceLabel = "HANDOFF_COMMAND_START",
+                ByteLength = 2,
                 RequiresContinuation = true,
                 SourceNotes =
                 [
-                    "Packet 21A live seam: script installation now feeds a bounded snap-receive continuation after Bank19_20 owns the snapped-state transition.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:2436-2447 retargets manual control to the current player, waits for the snapped bit, assigns ball-carrier ownership, then holds a four-frame receive delay before resuming normal stepping.",
+                    "Packet 21A live seam: the normal offense field-group seam now samples the immediate post-snap backfield-transfer family instead of stopping at the earlier receive-only placeholder.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:1559-1567 enters HANDOFF_COMMAND_START / FAKE_HANDOFF_COMMAND_START and then drops into shared HANDOFF_COMMAND_LOGIC.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:7748-7810 stages quarterback stop/icon timing, conditionally clears ball-carrier ownership, and retargets the runner continuation through UPDATE_LOCAL_PLAYER_COMMAND_ADDR_IF_VALID.",
                 ],
                 OperandValues = new Dictionary<string, string>
                 {
-                    ["receiveDelayFrames"] = "4",
+                    ["targetPlayerSlot"] = "RB1",
+                    ["fakeExchange"] = bool.FalseString,
                 },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },

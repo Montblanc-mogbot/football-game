@@ -116,7 +116,9 @@ public sealed class PlayerCommandRuntime
     {
         return commandName is "BackfieldHandoffCommand"
             or "PitchBallCommand"
-            or "ReceiveHandoffContinuationCommand";
+            or "RunnerReceiveHandoffCommand"
+            or "RunnerFakeHandoffAnimationCommand"
+            or "ReceivePitchContinuationCommand";
     }
 
     private PlayerCommandExecutionContext GetOrCreateExecutionContext(string playerSlotKey)

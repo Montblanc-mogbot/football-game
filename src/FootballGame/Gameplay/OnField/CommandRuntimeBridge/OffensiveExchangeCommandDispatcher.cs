@@ -19,6 +19,7 @@ public sealed class OffensiveExchangeCommandDispatcher
             new HandoffExchangeCommandHandler(),
             new PitchExchangeCommandHandler(),
             new RunnerReceiveHandoffCommandHandler(),
+            new RunnerFakeHandoffAnimationCommandHandler(),
             new ReceivePitchContinuationCommandHandler(),
         ];
     }

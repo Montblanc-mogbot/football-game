@@ -1306,18 +1306,21 @@ public sealed class OnFieldPlayCoordinator
             },
             OnFieldRoutine.CHECK_SNAP_PUNT => new PlayerCommandDefinition
             {
-                CommandName = "FieldGoalSnapReceiveCommand",
-                SourceLabel = "RECEIVE_SNAP_FG_XP_COMMAND_START",
+                CommandName = "ShotgunSnapReceiveCommand",
+                SourceLabel = "RECEIVE_SNAP_SHOTGUN_COMMAND_START",
                 ByteLength = 1,
                 RequiresContinuation = true,
                 SourceNotes =
                 [
-                    "Packet 21A live seam: the special-teams snap gate still lives in Bank19_20 before the runtime resolves the holder long-snap receive sequence.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:2501-2534 waits for the snapped bit, starts the long-snap ball animation, assigns the holder as ball carrier, then waits for the kick release before returning to normal stepping.",
+                    "Packet 21A live seam: the current CHECK_SNAP_PUNT host/runtime boundary now samples the missing shotgun receive variant before the separate FG/XP holder receive path.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:2450-2472 waits for the snapped bit, starts SET_SHOTGUN_LOCATION_DO_ANIMATION, then loops until BALL_COLLISION reports the ball reached the quarterback before assigning ball-carrier ownership.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:2474-2498 sets shotgun loft/speed, starts the moving-ball task, marks the special shotgun-snap state, then returns to the shared four-frame receive delay.",
                 ],
                 OperandValues = new Dictionary<string, string>
                 {
-                    ["postKickDelayFrames"] = "60",
+                    ["ballLoft"] = "6",
+                    ["ballSpeed"] = "64",
+                    ["postReceiveDelayFrames"] = "4",
                 },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },

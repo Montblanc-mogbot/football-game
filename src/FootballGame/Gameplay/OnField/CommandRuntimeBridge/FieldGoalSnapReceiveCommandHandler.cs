@@ -34,6 +34,7 @@ public sealed class FieldGoalSnapReceiveCommandHandler : IOffensiveExchangeComma
         {
             Summary = "Waited for the host snap gate, resolved the holder long-snap ball animation into ball-carrier ownership, then held the post-kick release delay.",
             AwaitingContinuation = true,
+            RetargetRequests = Array.Empty<PlayerCommandRetargetRequest>(),
             DefensiveReactionState = null,
             PassContestState = null,
             OffensiveExchangeState = exchangeState,

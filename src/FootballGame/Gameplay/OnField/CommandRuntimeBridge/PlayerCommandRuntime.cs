@@ -54,6 +54,7 @@ public sealed class PlayerCommandRuntime
             CommandName = commandDefinition.CommandName,
             AwaitingContinuation = executionContext.IsAwaitingCompletion,
             Summary = executionContext.LastStepSummary ?? $"Stepped {commandDefinition.CommandName}.",
+            RetargetRequests = handlerResult?.RetargetRequests ?? Array.Empty<PlayerCommandRetargetRequest>(),
             DefensiveReactionState = executionContext.DefensiveReactionState,
             PassContestState = executionContext.PassContestState,
             OffensiveExchangeState = executionContext.OffensiveExchangeState,
@@ -96,16 +97,26 @@ public sealed class PlayerCommandRuntime
     {
         if (commandDefinition.TriggerRoutine is not (Gameplay.OnField.OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS or Gameplay.OnField.OnFieldRoutine.CHECK_SNAP_PUNT))
         {
-            return null;
+            if (!IsOffensiveExchangeContinuationCommand(commandDefinition.CommandName))
+            {
+                return null;
+            }
         }
 
         return offensiveExchangeDispatcher.Dispatch(new PlayerCommandHandlerContext
         {
-            TriggerRoutine = commandDefinition.TriggerRoutine.Value,
+            TriggerRoutine = commandDefinition.TriggerRoutine ?? Gameplay.OnField.OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS,
             PlayerSlotKey = executionContext.PlayerSlotKey,
             ExecutionContext = executionContext,
             CommandDefinition = commandDefinition,
         });
+    }
+
+    private static bool IsOffensiveExchangeContinuationCommand(string commandName)
+    {
+        return commandName is "BackfieldHandoffCommand"
+            or "PitchBallCommand"
+            or "ReceiveHandoffContinuationCommand";
     }
 
     private PlayerCommandExecutionContext GetOrCreateExecutionContext(string playerSlotKey)

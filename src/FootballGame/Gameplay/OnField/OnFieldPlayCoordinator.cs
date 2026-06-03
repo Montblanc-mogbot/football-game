@@ -1167,19 +1167,66 @@ public sealed class OnFieldPlayCoordinator
 
         PlayerCommandRuntimeHostRequest hostRequest = state.PendingCommandRuntimeRequests[0];
         PlayerCommandDefinition commandDefinition = CreateLiveStepDefinition(hostRequest);
-        PlayerCommandStepResult stepResult = state.CommandRuntimeBoundary.StepPlayerCommand(
-            hostRequest.TriggerRoutine switch
+        string playerSlotKey = hostRequest.TriggerRoutine switch
+        {
+            OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE => "ACTIVE_DEFENDER",
+            OnFieldRoutine.CHECK_SNAP_PUNT => "PUNT_SNAP_GROUP",
+            OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS => "PASS_CONTEST_GROUP",
+            _ => commandDefinition.CommandName switch
             {
-                OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE => "ACTIVE_DEFENDER",
-                OnFieldRoutine.CHECK_SNAP_PUNT => "PUNT_SNAP_GROUP",
-                OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS => "PASS_CONTEST_GROUP",
+                "ReceiveHandoffContinuationCommand" => "RETARGETED_BACKFIELD_RUNNER",
                 _ => "OFFENSE_FIELD_GROUP",
             },
-            commandDefinition);
+        };
+
+        PlayerCommandStepResult stepResult = state.CommandRuntimeBoundary.StepPlayerCommand(playerSlotKey, commandDefinition);
+
+        if (hostRequest.TriggerRoutine == OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS
+            && TryCreateExplicitBackfieldContinuation(state, stepResult, out PlayerCommandStepResult continuationStepResult))
+        {
+            state.CommandRuntimeStepHistory.Add(stepResult);
+            state.CommandRuntimeStepHistory.Add(continuationStepResult);
+            state.PendingCommandRuntimeRequests.RemoveAt(0);
+            state.RecordEvent($"Advanced the live command-runtime seam from {hostRequest.TriggerRoutine} via '{stepResult.CommandName}' and explicit continuation '{continuationStepResult.CommandName}'.");
+            return true;
+        }
 
         state.PendingCommandRuntimeRequests.RemoveAt(0);
         state.CommandRuntimeStepHistory.Add(stepResult);
         state.RecordEvent($"Advanced the live command-runtime seam from {hostRequest.TriggerRoutine} via '{stepResult.CommandName}'.");
+        return true;
+    }
+
+    private static bool TryCreateExplicitBackfieldContinuation(OnFieldGameState state, PlayerCommandStepResult stepResult, out PlayerCommandStepResult continuationStepResult)
+    {
+        continuationStepResult = null!;
+
+        OffensiveExchangeCommandState? exchangeState = stepResult.OffensiveExchangeState;
+        if (stepResult.CommandName != "BackfieldHandoffCommand"
+            || exchangeState?.RetargetedPlayerSlot is null
+            || exchangeState.RetargetedContinuationCommand != "ReceiveHandoffContinuationCommand")
+        {
+            return false;
+        }
+
+        PlayerCommandDefinition continuationDefinition = new()
+        {
+            CommandName = "ReceiveHandoffContinuationCommand",
+            SourceLabel = "RB_RECEIVES_HANDOFF_START",
+            ByteLength = 1,
+            RequiresContinuation = true,
+            SourceNotes =
+            [
+                "Packet 21A explicit continuation: the target runner becomes ball carrier only after the initial handoff command retargets this second player.",
+                "Source: Bank21_22_play_commands_on_field_logic.asm RB_RECEIVES_HANDOFF_START assigns ball-carrier status, retargets manual control/displayed-name ownership, and holds the two-phase receive animation before returning to normal stepping.",
+            ],
+            OperandValues = new Dictionary<string, string>
+            {
+                ["sourceRetargetedBy"] = stepResult.PlayerSlotKey,
+            },
+        };
+
+        continuationStepResult = state.CommandRuntimeBoundary!.StepPlayerCommand(exchangeState.RetargetedPlayerSlot, continuationDefinition);
         return true;
     }
 

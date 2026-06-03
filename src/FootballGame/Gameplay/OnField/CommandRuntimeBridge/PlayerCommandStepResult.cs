@@ -13,6 +13,8 @@ public sealed record PlayerCommandStepResult
 
     public required bool AwaitingContinuation { get; init; }
 
+    public required IReadOnlyList<PlayerCommandRetargetRequest> RetargetRequests { get; init; }
+
     public DefensiveReactionCommandState? DefensiveReactionState { get; init; }
 
     public PassContestCommandState? PassContestState { get; init; }

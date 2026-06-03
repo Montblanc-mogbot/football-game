@@ -34,6 +34,7 @@ public sealed class ReceiverMissedBallInterceptionWindowCommandHandler : IPassCo
         {
             Summary = "Resolved the receiver miss into the ranked defender-only interception window while keeping the source bug path explicit by policy.",
             AwaitingContinuation = true,
+            RetargetRequests = Array.Empty<PlayerCommandRetargetRequest>(),
             DefensiveReactionState = null,
             PassContestState = contestState,
             SourceNotes = context.CommandDefinition.SourceNotes,

@@ -28,6 +28,7 @@ public sealed class MirrorBallCarrierBehindLineCommandHandler : IDefensiveReacti
         {
             Summary = "Mirrored the ball carrier vertically, then held the defender in a patient mirror lane behind the line of scrimmage.",
             AwaitingContinuation = true,
+            RetargetRequests = Array.Empty<PlayerCommandRetargetRequest>(),
             DefensiveReactionState = reactionState,
             SourceNotes = context.CommandDefinition.SourceNotes,
         };

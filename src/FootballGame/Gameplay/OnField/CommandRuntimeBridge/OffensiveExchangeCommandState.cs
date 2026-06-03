@@ -19,5 +19,23 @@ public sealed record OffensiveExchangeCommandState
 
     public bool WaitsForKickRelease { get; init; }
 
+    public bool QuarterbackStoppedForExchange { get; init; }
+
+    public bool QuarterbackReleasedBallCarrierState { get; init; }
+
+    public bool HandoffOrPitchIconTimerStarted { get; init; }
+
+    public string? RetargetedPlayerSlot { get; init; }
+
+    public string? RetargetedContinuationCommand { get; init; }
+
+    public bool RetargetSkippedBecauseTargetInvalid { get; init; }
+
+    public bool FakeExchange { get; init; }
+
+    public bool InFlightBallStateCreated { get; init; }
+
+    public string? ContinuationStage { get; init; }
+
     public int? PostExchangeDelayFrames { get; init; }
 }

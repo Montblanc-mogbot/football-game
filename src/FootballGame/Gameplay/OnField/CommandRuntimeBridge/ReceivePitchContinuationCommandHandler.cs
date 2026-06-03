@@ -3,15 +3,15 @@ using System;
 namespace FootballGame.Gameplay.OnField.CommandRuntimeBridge;
 
 /// <summary>
-/// Source: Bank21_22_play_commands_on_field_logic.asm:2436-2447.
-/// Handles the bounded under-center snap receive step from packet 21A.
+/// Source: Bank21_22_play_commands_on_field_logic.asm:7931-7944.
+/// Handles the target-runner continuation that waits for the pitched ball to arrive.
 /// </summary>
-public sealed class UnderCenterSnapReceiveCommandHandler : IOffensiveExchangeCommandHandler
+public sealed class ReceivePitchContinuationCommandHandler : IOffensiveExchangeCommandHandler
 {
     public bool CanHandle(PlayerCommandDefinition commandDefinition)
     {
         ArgumentNullException.ThrowIfNull(commandDefinition);
-        return commandDefinition.CommandName is "UnderCenterSnapReceiveCommand";
+        return commandDefinition.CommandName is "ReceivePitchContinuationCommand";
     }
 
     public PlayerCommandHandlerResult Handle(PlayerCommandHandlerContext context)
@@ -20,19 +20,18 @@ public sealed class UnderCenterSnapReceiveCommandHandler : IOffensiveExchangeCom
 
         OffensiveExchangeCommandState exchangeState = new()
         {
-            ExchangeKind = "UnderCenterSnapReceive",
-            WaitedForHostSnapGate = true,
+            ExchangeKind = "ReceivePitchContinuation",
             ManualControlRetargeted = true,
             BallCarrierAssigned = true,
-            BallAnimationStarted = false,
+            BallAnimationStarted = true,
             BallAnimationResolved = true,
-            WaitsForKickRelease = false,
-            PostExchangeDelayFrames = 4,
+            ContinuationStage = "WaitForPitchCollision",
+            PostExchangeDelayFrames = 1,
         };
 
         return new PlayerCommandHandlerResult
         {
-            Summary = "Retargeted manual control to the snap receiver, granted ball-carrier ownership after the host snap gate, and held the short receive delay.",
+            Summary = "Repeatedly treated the retargeted runner as the incoming pitch receiver, updated manual-control/display ownership, and completed once ball collision resolved the catch.",
             AwaitingContinuation = true,
             RetargetRequests = Array.Empty<PlayerCommandRetargetRequest>(),
             DefensiveReactionState = null,

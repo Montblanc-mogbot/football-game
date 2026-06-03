@@ -30,6 +30,7 @@ public sealed class ConservativeBallCarrierChaseCommandHandler : IDefensiveReact
         {
             Summary = "Updated the defender into conservative chase steering with carrier-aware turn smoothing before the same dive loop.",
             AwaitingContinuation = true,
+            RetargetRequests = Array.Empty<PlayerCommandRetargetRequest>(),
             DefensiveReactionState = reactionState,
             SourceNotes = context.CommandDefinition.SourceNotes,
         };

@@ -16,6 +16,10 @@ public sealed class OffensiveExchangeCommandDispatcher
         [
             new UnderCenterSnapReceiveCommandHandler(),
             new FieldGoalSnapReceiveCommandHandler(),
+            new HandoffExchangeCommandHandler(),
+            new PitchExchangeCommandHandler(),
+            new RunnerReceiveHandoffCommandHandler(),
+            new ReceivePitchContinuationCommandHandler(),
         ];
     }
 

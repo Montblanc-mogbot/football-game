@@ -34,6 +34,7 @@ public sealed class ManCoverageAssignmentCommandHandler : IDefensiveReactionComm
                 ? "Stored loose man-coverage target/time and handed off to the shared defender coverage loop."
                 : "Stored tight man-coverage target/time and handed off to the shared defender coverage loop.",
             AwaitingContinuation = true,
+            RetargetRequests = Array.Empty<PlayerCommandRetargetRequest>(),
             DefensiveReactionState = reactionState,
             SourceNotes = context.CommandDefinition.SourceNotes,
         };

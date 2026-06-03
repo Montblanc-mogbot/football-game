@@ -29,6 +29,7 @@ public sealed class AggressiveBallCarrierChaseCommandHandler : IDefensiveReactio
         {
             Summary = "Updated the defender into direct ball pursuit with repeated high-pressure dive checks.",
             AwaitingContinuation = true,
+            RetargetRequests = Array.Empty<PlayerCommandRetargetRequest>(),
             DefensiveReactionState = reactionState,
             SourceNotes = context.CommandDefinition.SourceNotes,
         };

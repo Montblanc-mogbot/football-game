@@ -1,0 +1,70 @@
+{
+  "sourceFile": "Bank21_22_play_commands_on_field_logic.asm",
+  "lineCount": 11476,
+  "sectionCount": 164,
+  "constantCount": 117,
+  "categoryCounts": {
+    "constants": 1,
+    "dispatch-and-decoding": 2,
+    "runtime-support": 47,
+    "gameplay-helpers": 53,
+    "command-semantics": 41,
+    "lookup-tables": 7,
+    "presentation-data-and-animation": 13
+  },
+  "commandDispatcher": {
+    "sectionName": "_PLAYER_COMMAND_PROCESSING",
+    "sourceStartLine": 233,
+    "groupCommandCount": 12,
+    "singleCommandCount": 21,
+    "groupDispatchTargets": [
+      "MAN_COVERAGE_TIGHT_COMMAND_START",
+      "MAN_COVERAGE_LOOSE_COMMAND_START",
+      "RANDOM_COMMAND_START",
+      "BLOCK_COMMAND_START",
+      "CHOP_BLOCK_COMMAND_START",
+      "HANDOFF_COMMAND_START",
+      "FAKE_HANDOFF_COMMAND_START",
+      "PITCH_BALL_COMMAND_START",
+      "PRE_SNAP_MOTION_COMMAND_START",
+      "COM_PASS_COMMAND_START",
+      "SET_TARGET_ORDER_COMMAND",
+      "SET_AND_MOVE_KICKOFF_COMMAND_START"
+    ],
+    "singleDispatchTargetsSample": [
+      "QB_DROPBACK_COMMAND_START",
+      "COM_WAIT_TO_PASS_COMMAND_START",
+      "DO_ACTION_IF_COM_COMMAND_START",
+      "COM_JUMP_BASED_ON_JUICE_COMMAND_START",
+      "IF_COM_JUMP_COMMAND_START",
+      "PASS_BLOCK_COMMAND_START",
+      "CENTER_HIKE_COMMAND_START",
+      "SHOTGUN_HIKE_COMMAND_START",
+      "RECEIVE_SNAP_CENTER_COMMAND_START",
+      "RECEIVE_SNAP_SHOTGUN_COMMAND_START",
+      "MOVE_RELATIVE_COMMAND_START",
+      "CHASE_BALL_AGRESSIVE_COMMAND_START",
+      "COM_CONTROL_BALL_CARRIER_COMMAND_START",
+      "MAN_TAKE_CONTROL_COMMAND_START",
+      "KICKOFF_COMMAND_START",
+      "PUNT_COMMAND_START",
+      "KICK_FG_COMMAND_START",
+      "KICK_XP_COMMAND_START",
+      "RETURN_KICK_PUNT_COMMAND_START",
+      "BRANCH_COMMAND_START",
+      "JUMP_COMMAND_START"
+    ]
+  },
+  "bridgeJumpExports": [
+    "BANK_JUMP_DO_NEXT_PLAYER_COMMAND",
+    "BANK_JUMP_DO_MOVEMENT_COLL_LOGIC",
+    "BANK_JUMP_WR_JUMP_DIVE_CHECK_PASS",
+    "BANK_JUMP_DEF_JUMP_DIVE_CHECK_PASS"
+  ],
+  "sourceFaithfulRuntimeBoundary": {
+    "hostBank": "Bank19_20_on_field_gameplay_loop.asm",
+    "contentBank": "Bank5_6_off_def_play_data.asm",
+    "runtimeBank": "Bank21_22_play_commands_on_field_logic.asm",
+    "note": "Bank21_22 hosts the per-player command interpreter and semantic handlers while Bank19_20 controls play-phase orchestration and Bank5_6 supplies scripted content."
+  }
+}

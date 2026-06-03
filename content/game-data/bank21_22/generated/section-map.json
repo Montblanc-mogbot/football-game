@@ -1,0 +1,4352 @@
+{
+  "sourceFile": "Bank21_22_play_commands_on_field_logic.asm",
+  "sectionCount": 164,
+  "sections": [
+    {
+      "section_name": "_PLAYER_ON_FIELD_CONSTANTS",
+      "source_start_line": 2,
+      "source_end_line": 195,
+      "source_start_marker": "_F{_PLAYER_ON_FIELD_CONSTANTS",
+      "source_end_marker": "_F}_PLAYER_ON_FIELD_CONSTANTS",
+      "line_count": 194,
+      "primary_entry_labels": [],
+      "labels": [],
+      "category": "constants",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PLAYER_COMMAND_PROCESSING",
+      "source_start_line": 233,
+      "source_end_line": 419,
+      "source_start_marker": "_F{_PLAYER_COMMAND_PROCESSING                                     ; DONE",
+      "source_end_marker": "_F}_PLAYER_COMMAND_PROCESSING",
+      "line_count": 187,
+      "primary_entry_labels": [
+        "DO_NEXT_PLAYER_COMMAND"
+      ],
+      "labels": [
+        {
+          "label": "DO_NEXT_PLAYER_COMMAND",
+          "line": 240
+        },
+        {
+          "label": "GROUP_COMMAND_TABLE",
+          "line": 331
+        },
+        {
+          "label": "SINGLE_COMMAND_TABLE",
+          "line": 347
+        }
+      ],
+      "category": "dispatch-and-decoding",
+      "notes": "Decodes the next opcode from a player's script cursor, advances the cursor using the command-length tables, and dispatches into Bank21_22 command handlers."
+    },
+    {
+      "section_name": "_RESET_CURRENT_SPEED_TO_INITIAL",
+      "source_start_line": 421,
+      "source_end_line": 436,
+      "source_start_marker": "_F{_RESET_CURRENT_SPEED_TO_INITIAL\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_RESET_CURRENT_SPEED_TO_INITIAL",
+      "line_count": 16,
+      "primary_entry_labels": [
+        "RESET_CURRENT_SPEED_RP_TO_INITIAL_VALUES"
+      ],
+      "labels": [
+        {
+          "label": "RESET_CURRENT_SPEED_RP_TO_INITIAL_VALUES",
+          "line": 423
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_UPDATE_CURRENT_SPEED_AND_ACCEL_COUNTER",
+      "source_start_line": 438,
+      "source_end_line": 477,
+      "source_start_marker": "_F{_UPDATE_CURRENT_SPEED_AND_ACCEL_COUNTER   \t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_UPDATE_CURRENT_SPEED_AND_ACCEL_COUNTER",
+      "line_count": 40,
+      "primary_entry_labels": [
+        "UPDATE_RP_CNT_AND_CUR_SPEED_THEN_COLL_CHECK"
+      ],
+      "labels": [
+        {
+          "label": "UPDATE_RP_CNT_AND_CUR_SPEED_THEN_COLL_CHECK",
+          "line": 440
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CHECK_COLLISION_TYPE",
+      "source_start_line": 479,
+      "source_end_line": 566,
+      "source_start_marker": "_F{_CHECK_COLLISION_TYPE\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_CHECK_COLLISION_TYPE",
+      "line_count": 88,
+      "primary_entry_labels": [
+        "COLL_CHECK_START"
+      ],
+      "labels": [
+        {
+          "label": "COLL_CHECK_START",
+          "line": 484
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_INITIALIZE_COLLISION_ADDRESSES",
+      "source_start_line": 568,
+      "source_end_line": 600,
+      "source_start_marker": "_F{_INITIALIZE_COLLISION_ADDRESSES\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_INITIALIZE_COLLISION_ADDRESSES",
+      "line_count": 33,
+      "primary_entry_labels": [
+        "START_OF_NORMAL_COLLISION_OFF_DEF"
+      ],
+      "labels": [
+        {
+          "label": "START_OF_NORMAL_COLLISION_OFF_DEF",
+          "line": 570
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_COUNT_PRESSES_IF_MAN",
+      "source_start_line": 602,
+      "source_end_line": 630,
+      "source_start_marker": "_F{_COUNT_PRESSES_IF_MAN\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_COUNT_PRESSES_IF_MAN",
+      "line_count": 29,
+      "primary_entry_labels": [
+        "COUNT_PRESSES_GRAPPLE_IF_MAN"
+      ],
+      "labels": [
+        {
+          "label": "COUNT_PRESSES_GRAPPLE_IF_MAN",
+          "line": 606
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_COLLIDE_WITH_COLLIDED_PLAYERS",
+      "source_start_line": 632,
+      "source_end_line": 709,
+      "source_start_marker": "_F{_COLLIDE_WITH_COLLIDED_PLAYERS\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_COLLIDE_WITH_COLLIDED_PLAYERS",
+      "line_count": 78,
+      "primary_entry_labels": [
+        "PLAYER_COLLIDING_COLLIDED_PLAYERS"
+      ],
+      "labels": [
+        {
+          "label": "PLAYER_COLLIDING_COLLIDED_PLAYERS",
+          "line": 635
+        },
+        {
+          "label": "PLAYER_BOUNCES_BACKWARDS_IF_MOVING",
+          "line": 659
+        },
+        {
+          "label": "PLAYER_FALLS_TO_GROUND_OFF_COLLIDED_PLAYERS",
+          "line": 685
+        },
+        {
+          "label": "PLAYER_TACKLES_COLLIDED_BALL_CARRIER",
+          "line": 691
+        },
+        {
+          "label": "INVERT_PLAYER_VELOCITY",
+          "line": 698
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_DIVE_TACKLE_CHOP_BLOCK_COLLISIONS",
+      "source_start_line": 711,
+      "source_end_line": 743,
+      "source_start_marker": "_F{_DIVE_TACKLE_CHOP_BLOCK_COLLISIONS\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_DIVE_TACKLE_CHOP_CLOCK_COLLISIONS",
+      "line_count": 33,
+      "primary_entry_labels": [
+        "OFFENSE_DIVING_FOR_TACKLE"
+      ],
+      "labels": [
+        {
+          "label": "OFFENSE_DIVING_FOR_TACKLE",
+          "line": 713
+        },
+        {
+          "label": "OFFENSIVE_CHOP_BLOCK_COLLISION",
+          "line": 721
+        },
+        {
+          "label": "DEFENDER_DIVE_TACKLES_OFFENSE",
+          "line": 729
+        },
+        {
+          "label": "DEFENDER_CHOP_BLOCK_TACKLE",
+          "line": 736
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CHECK_PLAYER_CONTROL_COLLISION_TYPE",
+      "source_start_line": 745,
+      "source_end_line": 773,
+      "source_start_marker": "_F{_CHECK_PLAYER_CONTROL_COLLISION_TYPE\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_CHECK_PLAYER_CONTROL_COLLISION_TYPE",
+      "line_count": 29,
+      "primary_entry_labels": [
+        "CHECK_COL_TYPE_MAN_OR_COM"
+      ],
+      "labels": [
+        {
+          "label": "CHECK_COL_TYPE_MAN_OR_COM",
+          "line": 749
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_COM_VS_COM_COLLISION_LOGIC",
+      "source_start_line": 775,
+      "source_end_line": 993,
+      "source_start_marker": "_F{_COM_VS_COM_COLLISION_LOGIC\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_COM_VS_COM_COLLISION_LOGIC",
+      "line_count": 219,
+      "primary_entry_labels": [
+        "COM_V_COM_COLLIDED_START"
+      ],
+      "labels": [
+        {
+          "label": "COM_V_COM_COLLIDED_START",
+          "line": 777
+        },
+        {
+          "label": "COM_OFF_HP_GREATER_OR_EQUAL_TO_DEF",
+          "line": 784
+        },
+        {
+          "label": "COM_DEF_HP_MORE_THAN_OFF",
+          "line": 798
+        },
+        {
+          "label": "COM_VS_COM_LONG_GRAPPLE_START",
+          "line": 812
+        },
+        {
+          "label": "COM_VS_COM_SET_RANDOM_GRAPPLE_TIME",
+          "line": 817
+        },
+        {
+          "label": "DEFENSE_WINS_COM_COM_GRAPPLE",
+          "line": 851
+        },
+        {
+          "label": "MEDIUM_CHANCE_DEF_COM_THROWN",
+          "line": 862
+        },
+        {
+          "label": "HIGH_CHANCE_DEF_COM_THROWN",
+          "line": 895
+        },
+        {
+          "label": "DELAY_THEN_NORMAL_GRAPPLE",
+          "line": 922
+        },
+        {
+          "label": "MEDIUM_CHANCE_OFF_COM_THROWN",
+          "line": 926
+        },
+        {
+          "label": "HIGH_CHANCE_OFF_COM_THROWN",
+          "line": 958
+        },
+        {
+          "label": "PAUSE_COLL_CHECK_RECHECK_COLL_TYPE",
+          "line": 987
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_MAN_VS_COM_POPCORN_OR_GRAPPLE",
+      "source_start_line": 995,
+      "source_end_line": 1036,
+      "source_start_marker": "_F{_MAN_VS_COM_POPCORN_OR_GRAPPLE\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_MAN_VS_COM_POPCORN_OR_GRAPPLE",
+      "line_count": 42,
+      "primary_entry_labels": [
+        "MAN_VS_COM_POPCORN_CHECK"
+      ],
+      "labels": [
+        {
+          "label": "MAN_VS_COM_POPCORN_CHECK",
+          "line": 1001
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_MAN_VS_MAN_GRAPPLE",
+      "source_start_line": 1038,
+      "source_end_line": 1076,
+      "source_start_marker": "_F{_MAN_VS_MAN_GRAPPLE\t\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_MAN_VS_MAN_GRAPPLE",
+      "line_count": 39,
+      "primary_entry_labels": [
+        "MAN_VS_MAN_GRAPPLE_START"
+      ],
+      "labels": [
+        {
+          "label": "MAN_VS_MAN_GRAPPLE_START",
+          "line": 1043
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PLAYER_THROWN_RANDOMIZATION",
+      "source_start_line": 1078,
+      "source_end_line": 1204,
+      "source_start_marker": "_F{_PLAYER_THROWN_RANDOMIZATION\t\t\t\t\t\t\t\t\t  ; NEED ROLL ANIMATION ADDRESSES",
+      "source_end_marker": "_F}_PLAYER_THROWN_RANDOMIZATION",
+      "line_count": 127,
+      "primary_entry_labels": [
+        "PLAYER_THROWN_SHORT_0_3_6_CHK_TCKLE"
+      ],
+      "labels": [
+        {
+          "label": "PLAYER_THROWN_SHORT_0_3_6_CHK_TCKLE",
+          "line": 1081
+        },
+        {
+          "label": "PLAYER_THROWN_MED_AFTER_DEF_POP",
+          "line": 1091
+        },
+        {
+          "label": "PLAYER_THROWN_LONG_LARGE_COM_POP",
+          "line": 1104
+        },
+        {
+          "label": "MAN_GRAPPLE_THROWS",
+          "line": 1113
+        },
+        {
+          "label": "PLAYER_ON_GROUND_16_DIR",
+          "line": 1125
+        },
+        {
+          "label": "PLAYER_ON_GRND_CHECK_TACKLE_IF_BALL_CARRIER",
+          "line": 1131
+        },
+        {
+          "label": "PLAYER_ON_GRND_NO_TACKLE_CHECK",
+          "line": 1134
+        },
+        {
+          "label": "FLY_BACK_8_DIR_3_YARDS",
+          "line": 1143
+        },
+        {
+          "label": "ROLLING_TUMBLE_16_DIR",
+          "line": 1158
+        },
+        {
+          "label": "FLY_BACK_8_DIR_6_YARDS",
+          "line": 1173
+        },
+        {
+          "label": "FLY_BACK_AND_ROLL_TUMBLE_8_DIR",
+          "line": 1184
+        },
+        {
+          "label": "DO_CHOP_BLOCK_TUMBLE",
+          "line": 1196
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_UNUSED_THROWS",
+      "source_start_line": 1206,
+      "source_end_line": 1249,
+      "source_start_marker": "_F{_UNUSED_THROWS\t\t\t\t\t\t\t\t\t\t\t\t  ; NEED UNUSED TUMBLE ANIMATION ADDRESSES",
+      "source_end_marker": "_F}_UNUSED_THROWS",
+      "line_count": 44,
+      "primary_entry_labels": [
+        "UNUSED_TUMBLE_ONE"
+      ],
+      "labels": [
+        {
+          "label": "UNUSED_TUMBLE_ONE",
+          "line": 1208
+        },
+        {
+          "label": "UNUSED_TUMBLE_TWO",
+          "line": 1213
+        },
+        {
+          "label": "UNUSED_TUMBLE_THREE",
+          "line": 1218
+        },
+        {
+          "label": "UNUSED_TUMBLE_FOUR",
+          "line": 1224
+        },
+        {
+          "label": "UNUSED_TUMBLE_FIVE",
+          "line": 1229
+        },
+        {
+          "label": "UNUSED_TUMBLE_SIX",
+          "line": 1234
+        },
+        {
+          "label": "UNUSED_TUMBLE_SEVEN",
+          "line": 1239
+        },
+        {
+          "label": "UNUSED_TUMBLE_EIGHT",
+          "line": 1244
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CHECK_FOR_TACKLE_OR_FUMBLE",
+      "source_start_line": 1251,
+      "source_end_line": 1360,
+      "source_start_marker": "_F{_CHECK_FOR_TACKLE_OR_FUMBLE\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_CHECK_FOR_TACKLE_OR_FUMBLE",
+      "line_count": 110,
+      "primary_entry_labels": [
+        "IF_PLAYER_IS_BALL_CARRIER_TACKLE_OR_FUMBLE"
+      ],
+      "labels": [
+        {
+          "label": "IF_PLAYER_IS_BALL_CARRIER_TACKLE_OR_FUMBLE",
+          "line": 1256
+        },
+        {
+          "label": "@ELSE",
+          "line": 1259
+        },
+        {
+          "label": "CHECK_FOR_TACKLE_OR_FUMBLE",
+          "line": 1264
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SWAP_CURRENT_TARGET_PLAYER",
+      "source_start_line": 1362,
+      "source_end_line": 1385,
+      "source_start_marker": "_F{_SWAP_CURRENT_TARGET_PLAYER\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_SWAP_CURRENT_TARGET_PLAYER",
+      "line_count": 24,
+      "primary_entry_labels": [
+        "SAVE_LOCAL_PLAYER_IN_CURRENT_PLAYER_RAM"
+      ],
+      "labels": [
+        {
+          "label": "SAVE_LOCAL_PLAYER_IN_CURRENT_PLAYER_RAM",
+          "line": 1367
+        },
+        {
+          "label": "SAVE_CURRENT_PLAYER_IN_LOCAL_PLAYER_RAM",
+          "line": 1376
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PLAYER_GETTING_UP_OR_NOT_COLLIDED",
+      "source_start_line": 1387,
+      "source_end_line": 1436,
+      "source_start_marker": "_F{_PLAYER_GETTING_UP_OR_NOT_COLLIDED\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_PLAYER_GETTING_UP_OR_NOT_COLLIDED",
+      "line_count": 50,
+      "primary_entry_labels": [
+        "PLAYER_SHAKING_HEAD_GET_OFF_GROUND"
+      ],
+      "labels": [
+        {
+          "label": "PLAYER_SHAKING_HEAD_GET_OFF_GROUND",
+          "line": 1389
+        },
+        {
+          "label": "PLAYER_STANDING_UP",
+          "line": 1396
+        },
+        {
+          "label": "PLAYER_NO_LONGER_COLLIDED",
+          "line": 1404
+        },
+        {
+          "label": "PLAYER_NOT_COLLIDED_TD",
+          "line": 1422
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PLAYER_COMMAND_LENGTH_TABLES",
+      "source_start_line": 1439,
+      "source_end_line": 1450,
+      "source_start_marker": "_F{_PLAYER_COMMAND_LENGTH_TABLES                                  ; DONE",
+      "source_end_marker": "_F}_PLAYER_COMMAND_LENGTH_TABLES",
+      "line_count": 12,
+      "primary_entry_labels": [
+        "MULTI_PLAYER_COMMAND_LENGTH_TABLE"
+      ],
+      "labels": [
+        {
+          "label": "MULTI_PLAYER_COMMAND_LENGTH_TABLE",
+          "line": 1441
+        },
+        {
+          "label": "SINGLE_PLAYER_COMMAND_LENGTH_TABLE",
+          "line": 1444
+        }
+      ],
+      "category": "dispatch-and-decoding",
+      "notes": "Preserves the source byte lengths for group and single command opcodes so the script cursor can advance faithfully."
+    },
+    {
+      "section_name": "_MAN_COVERAGE_COMMAND",
+      "source_start_line": 1453,
+      "source_end_line": 1478,
+      "source_start_marker": "_F{_MAN_COVERAGE_COMMAND\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_MAN_COVERAGE_COMMAND",
+      "line_count": 26,
+      "primary_entry_labels": [
+        "MAN_COVERAGE_TIGHT_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "MAN_COVERAGE_TIGHT_COMMAND_START",
+          "line": 1462
+        },
+        {
+          "label": "SET_MAN_COVERAGE_DEFEND_TIME",
+          "line": 1465
+        },
+        {
+          "label": "MAN_COVERAGE_LOOSE_COMMAND_START",
+          "line": 1473
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Implements man-coverage assignment commands that bind a defender to a target offensive player for a scripted duration."
+    },
+    {
+      "section_name": "_RANDOM_ACTION_COMMAND",
+      "source_start_line": 1480,
+      "source_end_line": 1501,
+      "source_start_marker": "_F{_RANDOM_ACTION_COMMAND\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_RANDOM_ACTION_COMMAND",
+      "line_count": 22,
+      "primary_entry_labels": [
+        "RANDOM_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "RANDOM_COMMAND_START",
+          "line": 1484
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_BLOCK_COMMAND",
+      "source_start_line": 1503,
+      "source_end_line": 1536,
+      "source_start_marker": "_F{_BLOCK_COMMAND\t\t\t\t\t\t\t\t\t\t          ; DONE",
+      "source_end_marker": "_F}_BLOCK_COMMAND",
+      "line_count": 34,
+      "primary_entry_labels": [
+        "BLOCK_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "BLOCK_COMMAND_START",
+          "line": 1508
+        },
+        {
+          "label": "BLOCK_PLAYER",
+          "line": 1511
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CHOP_BLOCK_COMMAND",
+      "source_start_line": 1538,
+      "source_end_line": 1552,
+      "source_start_marker": "_F{_CHOP_BLOCK_COMMAND\t\t\t\t\t\t\t\t\t\t      ; DONE",
+      "source_end_marker": "_F}_CHOP_BLOCK_COMMAND",
+      "line_count": 15,
+      "primary_entry_labels": [
+        "CHOP_BLOCK_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "CHOP_BLOCK_COMMAND_START",
+          "line": 1542
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_HANDOFF_COMMANDS",
+      "source_start_line": 1554,
+      "source_end_line": 1568,
+      "source_start_marker": "_F{_HANDOFF_COMMANDS\t\t\t\t\t\t\t\t\t\t      ; DONE",
+      "source_end_marker": "_F}_HANDOFF_COMMANDS",
+      "line_count": 15,
+      "primary_entry_labels": [
+        "HANDOFF_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "HANDOFF_COMMAND_START",
+          "line": 1559
+        },
+        {
+          "label": "FAKE_HANDOFF_COMMAND_START",
+          "line": 1563
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PITCH_BALL_COMMAND",
+      "source_start_line": 1570,
+      "source_end_line": 1581,
+      "source_start_marker": "_F{_PITCH_BALL_COMMAND\t\t\t\t\t\t\t\t\t\t      ; DONE",
+      "source_end_marker": "_F}_PITCH_BALL_COMMAND",
+      "line_count": 12,
+      "primary_entry_labels": [
+        "PITCH_BALL_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "PITCH_BALL_COMMAND_START",
+          "line": 1575
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_MIRROR_OFF_MOTION_PRE_SNAP_COMMAND",
+      "source_start_line": 1583,
+      "source_end_line": 1640,
+      "source_start_marker": "_F{_MIRROR_OFF_MOTION_PRE_SNAP_COMMAND\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_MIRROR_OFF_MOTION_PRE_SNAP_COMMAND",
+      "line_count": 58,
+      "primary_entry_labels": [
+        "PRE_SNAP_MOTION_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "PRE_SNAP_MOTION_COMMAND_START",
+          "line": 1592
+        },
+        {
+          "label": "PLAYER_FOLLOW_LOOP",
+          "line": 1597
+        },
+        {
+          "label": "EXIT_FOLLOW_MOTION",
+          "line": 1635
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_COM_PASS_COMMAND_START",
+      "source_start_line": 1642,
+      "source_end_line": 1707,
+      "source_start_marker": "_F{_COM_PASS_COMMAND_START\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_COM_PASS_COMMAND_START",
+      "line_count": 66,
+      "primary_entry_labels": [
+        "COM_PASS_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "COM_PASS_COMMAND_START",
+          "line": 1652
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_ROUTE_ORDER_COMMAND",
+      "source_start_line": 1709,
+      "source_end_line": 1725,
+      "source_start_marker": "_F{_ROUTE_ORDER_COMMAND\t\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_ROUTE_ORDER_COMMAND",
+      "line_count": 17,
+      "primary_entry_labels": [
+        "SET_TARGET_ORDER_COMMAND"
+      ],
+      "labels": [
+        {
+          "label": "SET_TARGET_ORDER_COMMAND",
+          "line": 1714
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_KICKOFF_LOC_MOD_KICKOFF_COMMMANDS",
+      "source_start_line": 1727,
+      "source_end_line": 1882,
+      "source_start_marker": "_F{_SET_KICKOFF_LOC_MOD_KICKOFF_COMMMANDS\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_SET_KICKOFF_LOC_MOD_KICKOFF_COMMMANDS",
+      "line_count": 156,
+      "primary_entry_labels": [
+        "SET_AND_MOVE_KICKOFF_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "SET_AND_MOVE_KICKOFF_COMMAND_START",
+          "line": 1750
+        },
+        {
+          "label": "PLAYER_REACHED_FINAL_KICK_COVERAGE_LOC",
+          "line": 1869
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_QB_DROPBACK_COMMAND",
+      "source_start_line": 1884,
+      "source_end_line": 1950,
+      "source_start_marker": "_F{_QB_DROPBACK_COMMAND                                           ; DONE",
+      "source_end_marker": "_F}_QB_DROPBACK_COMMAND",
+      "line_count": 67,
+      "primary_entry_labels": [
+        "QB_DROPBACK_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "QB_DROPBACK_COMMAND_START",
+          "line": 1893
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_QB_WAIT_TO_PASS_COMMAND",
+      "source_start_line": 1952,
+      "source_end_line": 1997,
+      "source_start_marker": "_F{_QB_WAIT_TO_PASS_COMMAND                                       ; DONE",
+      "source_end_marker": "_F}_QB_WAIT_TO_PASS_COMMAND",
+      "line_count": 46,
+      "primary_entry_labels": [
+        "COM_WAIT_TO_PASS_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "COM_WAIT_TO_PASS_COMMAND_START",
+          "line": 1957
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CELEBRATE_COMMAND",
+      "source_start_line": 1999,
+      "source_end_line": 2048,
+      "source_start_marker": "_F{_CELEBRATE_COMMAND                                             ; DONE",
+      "source_end_marker": "_F}_CELEBRATE_COMMAND",
+      "line_count": 50,
+      "primary_entry_labels": [
+        "CELEBRATE_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "CELEBRATE_COMMAND_START",
+          "line": 2004
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CRY_COMMAND",
+      "source_start_line": 2050,
+      "source_end_line": 2140,
+      "source_start_marker": "_F{_CRY_COMMAND                                                   ; DONE",
+      "source_end_marker": "_F}_CRY_COMMAND",
+      "line_count": 91,
+      "primary_entry_labels": [
+        "CRY_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "CRY_COMMAND_START",
+          "line": 2055
+        },
+        {
+          "label": "CHECK_PLAYER_MOVING_COLL_JUMP_DIVE",
+          "line": 2072
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_COM_CONTROLLED_TEAM_BRANCH_COMMANDS",
+      "source_start_line": 2142,
+      "source_end_line": 2197,
+      "source_start_marker": "_F{_COM_CONTROLLED_TEAM_BRANCH_COMMANDS\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_COM_CONTROLLED_TEAM_BRANCH_COMMANDS",
+      "line_count": 56,
+      "primary_entry_labels": [
+        "DO_ACTION_IF_COM_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "DO_ACTION_IF_COM_COMMAND_START",
+          "line": 2148
+        },
+        {
+          "label": "COM_JUMP_BASED_ON_JUICE_COMMAND_START",
+          "line": 2156
+        },
+        {
+          "label": "CHECK_IF_MAN_VS_COM",
+          "line": 2169
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_COVER_NEARBY_PLAYERS_UNUSED_COMMAND",
+      "source_start_line": 2199,
+      "source_end_line": 2221,
+      "source_start_marker": "_F{_COVER_NEARBY_PLAYERS_UNUSED_COMMAND\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_COVER_NEARBY_PLAYERS_UNUSED_COMMAND",
+      "line_count": 23,
+      "primary_entry_labels": [
+        "COVER_NEARBY_PLAYERS_COMMAND_START_UNUSED"
+      ],
+      "labels": [
+        {
+          "label": "COVER_NEARBY_PLAYERS_COMMAND_START_UNUSED",
+          "line": 2205
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_IF_OPP_COM_DO_COMMAND",
+      "source_start_line": 2223,
+      "source_end_line": 2242,
+      "source_start_marker": "_F{_IF_OPP_COM_DO_COMMAND\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_IF_OPP_COM_DO_COMMAND",
+      "line_count": 20,
+      "primary_entry_labels": [
+        "IF_COM_JUMP_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "IF_COM_JUMP_COMMAND_START",
+          "line": 2225
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PASS_BLOCK_COMMAND",
+      "source_start_line": 2244,
+      "source_end_line": 2264,
+      "source_start_marker": "_F{_PASS_BLOCK_COMMAND                                            ; DONE",
+      "source_end_marker": "_F}_PASS_BLOCK_COMMAND",
+      "line_count": 21,
+      "primary_entry_labels": [
+        "PASS_BLOCK_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "PASS_BLOCK_COMMAND_START",
+          "line": 2248
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Represents defensive pass-block behavior and related interaction checks instead of exposing bank-numbered runtime naming."
+    },
+    {
+      "section_name": "_MOVE_AND_BLOCK_RELATIVE_COMMAND",
+      "source_start_line": 2266,
+      "source_end_line": 2358,
+      "source_start_marker": "_F{_MOVE_AND_BLOCK_RELATIVE_COMMAND \t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_MOVE_AND_BLOCK_RELATIVE_COMMAND",
+      "line_count": 93,
+      "primary_entry_labels": [
+        "MOVE_AND_BLOCK_RELATIVE_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "MOVE_AND_BLOCK_RELATIVE_COMMAND_START",
+          "line": 2274
+        },
+        {
+          "label": "MOVE_ALONG_PATH_CHECK_FOR_PLAYER_TO_BLOCK",
+          "line": 2280
+        },
+        {
+          "label": "MOVE_AND_BLOCK_HASH_COMMAND_START",
+          "line": 2310
+        },
+        {
+          "label": "MOVE_AND_BLOCK_REL_BALL_CARRIER_COMMAND_START",
+          "line": 2332
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_SNAP_LOCATION_COMMANDS",
+      "source_start_line": 2360,
+      "source_end_line": 2376,
+      "source_start_marker": "_F{_SET_SNAP_LOCATION_COMMANDS \t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_SET_SNAP_LOCATION_COMMANDS",
+      "line_count": 17,
+      "primary_entry_labels": [
+        "SET_SNAP_LOC_RELATIVE_TO_BALL_COMMAND"
+      ],
+      "labels": [
+        {
+          "label": "SET_SNAP_LOC_RELATIVE_TO_BALL_COMMAND",
+          "line": 2364
+        },
+        {
+          "label": "SET_SNAP_LOC_RELATIVE_TO_MID_COMMAND",
+          "line": 2371
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_HIKE_COMMANDS",
+      "source_start_line": 2378,
+      "source_end_line": 2430,
+      "source_start_marker": "_F{_HIKE_COMMANDS                                                 ; DONE",
+      "source_end_marker": "_F}_HIKE_COMMANDS",
+      "line_count": 53,
+      "primary_entry_labels": [
+        "CENTER_HIKE_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "CENTER_HIKE_COMMAND_START",
+          "line": 2383
+        },
+        {
+          "label": "SHOTGUN_HIKE_COMMAND_START",
+          "line": 2402
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_RECEIVE_SNAP_COMMANDS",
+      "source_start_line": 2432,
+      "source_end_line": 2497,
+      "source_start_marker": "_F{_RECEIVE_SNAP_COMMANDS                                         ; DONE",
+      "source_end_marker": "_F}_RECEIVE_SNAP_COMMANDS",
+      "line_count": 66,
+      "primary_entry_labels": [
+        "RECEIVE_SNAP_CENTER_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "RECEIVE_SNAP_CENTER_COMMAND_START",
+          "line": 2436
+        },
+        {
+          "label": "RECEIVE_SNAP_SHOTGUN_COMMAND_START",
+          "line": 2452
+        },
+        {
+          "label": "SET_SHOTGUN_LOCATION_DO_ANIMATION",
+          "line": 2477
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_FG_XP_SNAP_COMMAND",
+      "source_start_line": 2499,
+      "source_end_line": 2539,
+      "source_start_marker": "_F{_FG_XP_SNAP_COMMAND                                            ; DONE",
+      "source_end_marker": "_F}_FG_XP_SNAP_COMMAND",
+      "line_count": 41,
+      "primary_entry_labels": [
+        "RECEIVE_SNAP_FG_XP_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "RECEIVE_SNAP_FG_XP_COMMAND_START",
+          "line": 2501
+        },
+        {
+          "label": "WAIT_FOR_FG_SNAP",
+          "line": 2507
+        },
+        {
+          "label": "WAIT_UNTIL_HOLDER_HAS_BALL",
+          "line": 2512
+        },
+        {
+          "label": "WAIT_FOR_KICK_LOOP",
+          "line": 2524
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_MOVE_RELATIVE_COMMAND",
+      "source_start_line": 2541,
+      "source_end_line": 2570,
+      "source_start_marker": "_F{_MOVE_RELATIVE_COMMAND                                         ; DONE",
+      "source_end_marker": "_F}_MOVE_RELATIVE_COMMAND",
+      "line_count": 30,
+      "primary_entry_labels": [
+        "MOVE_RELATIVE_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "MOVE_RELATIVE_COMMAND_START",
+          "line": 2547
+        },
+        {
+          "label": "SAVE_LOCATION_TO_MOVE_PLAYER_RAM",
+          "line": 2552
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_MOVE_VS_HASH_COMMAND",
+      "source_start_line": 2572,
+      "source_end_line": 2600,
+      "source_start_marker": "_F{_MOVE_VS_HASH_COMMAND                                          ; DONE",
+      "source_end_marker": "_F}_MOVE_VS_HASH_COMMAND",
+      "line_count": 29,
+      "primary_entry_labels": [
+        "MOVE_ABS_VS_SNAP_LOC_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "MOVE_ABS_VS_SNAP_LOC_COMMAND_START",
+          "line": 2578
+        },
+        {
+          "label": "SET_ABSOLUTE_MOVE_LOCATION",
+          "line": 2583
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_MOVE_VS_MIDDLE_COMMAND",
+      "source_start_line": 2602,
+      "source_end_line": 2611,
+      "source_start_marker": "_F{_MOVE_VS_MIDDLE_COMMAND                                        ; DONE",
+      "source_end_marker": "_F}_MOVE_VS_MIDDLE_COMMAND",
+      "line_count": 10,
+      "primary_entry_labels": [
+        "MOVE_ABS_VS_MIDDLE_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "MOVE_ABS_VS_MIDDLE_COMMAND_START",
+          "line": 2606
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CHASE_BALL_CARRIER_AGRESSIVE_COMMAND",
+      "source_start_line": 2613,
+      "source_end_line": 2637,
+      "source_start_marker": "_F{_CHASE_BALL_CARRIER_AGRESSIVE_COMMAND                          ; DONE",
+      "source_end_marker": "_F}_CHASE_BALL_CARRIER_AGRESSIVE_COMMAND",
+      "line_count": 25,
+      "primary_entry_labels": [
+        "CHASE_BALL_AGRESSIVE_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "CHASE_BALL_AGRESSIVE_COMMAND_START",
+          "line": 2618
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_MIRROR_BALL_CARRIER_BEHIND_LOS_COMMAND",
+      "source_start_line": 2639,
+      "source_end_line": 2689,
+      "source_start_marker": "_F{_MIRROR_BALL_CARRIER_BEHIND_LOS_COMMAND                        ; DONE",
+      "source_end_marker": "_F}_MIRROR_BALL_CARRIER_BEHIND_LOS_COMMAND",
+      "line_count": 51,
+      "primary_entry_labels": [
+        "MIRROR_BALL_CARRIER_WHILE_BEHIND_LOS_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "MIRROR_BALL_CARRIER_WHILE_BEHIND_LOS_COMMAND_START",
+          "line": 2644
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_DC_COMMAND_UNUSED",
+      "source_start_line": 2691,
+      "source_end_line": 2706,
+      "source_start_marker": "_F{_DC_COMMAND_UNUSED                                             ; DONE",
+      "source_end_marker": "_F}_DC_COMMAND_UNUSED",
+      "line_count": 16,
+      "primary_entry_labels": [
+        "DC_COMMAND_UNUSED"
+      ],
+      "labels": [
+        {
+          "label": "DC_COMMAND_UNUSED",
+          "line": 2693
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CONSERVATIVE_CHASE_BALL_COMMAND",
+      "source_start_line": 2708,
+      "source_end_line": 2774,
+      "source_start_marker": "_F{_CONSERVATIVE_CHASE_BALL_COMMAND\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_CONSERVATIVE_CHASE_BALL_COMMAND",
+      "line_count": 67,
+      "primary_entry_labels": [
+        "CHASE_BALL_CARRIER_CONSERVATIVE_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "CHASE_BALL_CARRIER_CONSERVATIVE_COMMAND_START",
+          "line": 2714
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_COM_BALL_CARRIER_MOVE_AI",
+      "source_start_line": 2776,
+      "source_end_line": 3095,
+      "source_start_marker": "_F{_COM_BALL_CARRIER_MOVE_AI\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_COM_BALL_CARRIER_MOVE_AI",
+      "line_count": 320,
+      "primary_entry_labels": [
+        "COM_CONTROL_BALL_CARRIER_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "COM_CONTROL_BALL_CARRIER_COMMAND_START",
+          "line": 2778
+        },
+        {
+          "label": "COM_BALL_CARRIER_MOVE_AI_START",
+          "line": 2832
+        },
+        {
+          "label": "P1_SIDE_COM_BALL_CARRIER_MOVE_LOOP",
+          "line": 2849
+        },
+        {
+          "label": "P2_SIDE_COM_BALL_CARRIER_MOVE_LOOP",
+          "line": 2930
+        },
+        {
+          "label": "CHECK_IF_MORE_DEF_ABOVE_BELOW_COM_RUNNER",
+          "line": 3006
+        },
+        {
+          "label": "CHECK_IF_COM_BALL_CARRIER_NEAR_OOB",
+          "line": 3047
+        },
+        {
+          "label": "CHANGE_COM_BALL_CARRIER_DIRECTION_MAX_OF_NINE_DEGREES",
+          "line": 3065
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CHASE_CONSERVATIVE_TURN_TABLE",
+      "source_start_line": 3100,
+      "source_end_line": 3125,
+      "source_start_marker": "_F{_CHASE_CONSERVATIVE_TURN_TABLE\t\t\t\t\t\t\t\t  ; DONE *** COULD MOVE RIGHT AFTER CHASE FUNCTION",
+      "source_end_marker": "_F}_CHASE_CONSERVATIVE_TURN_TABLE",
+      "line_count": 26,
+      "primary_entry_labels": [
+        "CHASE_CONSERVATIVE_TURN_TABLE"
+      ],
+      "labels": [
+        {
+          "label": "CHASE_CONSERVATIVE_TURN_TABLE",
+          "line": 3102
+        }
+      ],
+      "category": "lookup-tables",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_OR_CHANGE_CURRENT_AND_MAX_SPEED_COMMANDS",
+      "source_start_line": 3127,
+      "source_end_line": 3220,
+      "source_start_marker": "_F{_SET_OR_CHANGE_CURRENT_AND_MAX_SPEED_COMMANDS\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_SET_OR_CHANGE_CURRENT_AND_MAX_SPEED_COMMANDS",
+      "line_count": 94,
+      "primary_entry_labels": [
+        "SET_RS_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "SET_RS_COMMAND_START",
+          "line": 3131
+        },
+        {
+          "label": "SET_MS_COMMAND_START",
+          "line": 3139
+        },
+        {
+          "label": "INCR_DECR_RS_COMMAND_START",
+          "line": 3175
+        },
+        {
+          "label": "SAVE_RS_RP_INDEX_SET_CUR_SPEED_AND_VEL",
+          "line": 3198
+        },
+        {
+          "label": "INCR_DECR_MS_COMMAND_START",
+          "line": 3212
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_MAN_CONTROL",
+      "source_start_line": 3222,
+      "source_end_line": 3417,
+      "source_start_marker": "_F{_MAN_CONTROL                                                \t  ; DONE",
+      "source_end_marker": "_F}_MAN_CONTROL",
+      "line_count": 196,
+      "primary_entry_labels": [
+        "MAN_TAKE_CONTROL_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "MAN_TAKE_CONTROL_COMMAND_START",
+          "line": 3228
+        },
+        {
+          "label": "MAN_CONTROL_START",
+          "line": 3233
+        },
+        {
+          "label": "MAN_CONTROL_DEFENSE_START",
+          "line": 3294
+        },
+        {
+          "label": "UPDATE_DIR_VEL_UNLESS_FG_XP",
+          "line": 3384
+        },
+        {
+          "label": "FG_XP_MAN_CTRL",
+          "line": 3392
+        },
+        {
+          "label": "SKIP_PAST_MAN_CONTROL_COMMAND",
+          "line": 3408
+        },
+        {
+          "label": "SET_PLAYER_STATUS_TO_MAN_CTRL",
+          "line": 3413
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_KICKOFF_COMMAND",
+      "source_start_line": 3419,
+      "source_end_line": 3526,
+      "source_start_marker": "_F{_KICKOFF_COMMAND                                               ; DONE",
+      "source_end_marker": "_F}_KICKOFF_COMMAND",
+      "line_count": 108,
+      "primary_entry_labels": [
+        "KICKOFF_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "KICKOFF_COMMAND_START",
+          "line": 3421
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Handles kickoff meter, launch, and ball-state sequencing within the per-player command runtime."
+    },
+    {
+      "section_name": "_PUNT_COMMAND",
+      "source_start_line": 3528,
+      "source_end_line": 3706,
+      "source_start_marker": "_F{_PUNT_COMMAND \t\t\t\t\t\t\t\t\t\t\t\t   ; DONE",
+      "source_end_marker": "_F}_PUNT_LOGIC",
+      "line_count": 179,
+      "primary_entry_labels": [
+        "PUNT_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "PUNT_COMMAND_START",
+          "line": 3540
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_FG_XP_LOGIC",
+      "source_start_line": 3708,
+      "source_end_line": 4126,
+      "source_start_marker": "_F{_FG_XP_LOGIC",
+      "source_end_marker": "_F}_FG_XP_LOGIC",
+      "line_count": 419,
+      "primary_entry_labels": [
+        "KICK_FG_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "KICK_FG_COMMAND_START",
+          "line": 3716
+        },
+        {
+          "label": "KICK_XP_COMMAND_START",
+          "line": 3720
+        },
+        {
+          "label": "START_OF_FG_XP_KICK",
+          "line": 3723
+        },
+        {
+          "label": "DO_FG_IS_SHORT",
+          "line": 4056
+        },
+        {
+          "label": "KICK_HOLDER_TACKLED",
+          "line": 4078
+        },
+        {
+          "label": "KICK_BLOCKED",
+          "line": 4085
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_WAIT_RANDOM_TIME_UNUSED",
+      "source_start_line": 4128,
+      "source_end_line": 4141,
+      "source_start_marker": "_F{_WAIT_RANDOM_TIME_UNUSED                                       ; DONE",
+      "source_end_marker": "_F}_WAIT_RANDOM_TIME_UNUSED",
+      "line_count": 14,
+      "primary_entry_labels": [
+        "WAIT_RANDOM_TIME_AFTER_SNAP_COMMAND_START_UNUSED"
+      ],
+      "labels": [
+        {
+          "label": "WAIT_RANDOM_TIME_AFTER_SNAP_COMMAND_START_UNUSED",
+          "line": 4130
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PLAYER_STANCE_COMMANDS",
+      "source_start_line": 4143,
+      "source_end_line": 4218,
+      "source_start_marker": "_F{_PLAYER_STANCE_COMMANDS\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_PLAYER_STANCE_COMMANDS",
+      "line_count": 76,
+      "primary_entry_labels": [
+        "THREE_PT_STANCE_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "THREE_PT_STANCE_COMMAND_START",
+          "line": 4148
+        },
+        {
+          "label": "FORMATION_SHIFT_COMMAND_START",
+          "line": 4154
+        },
+        {
+          "label": "TWO_PT_STANCE_COMMAND_START",
+          "line": 4160
+        },
+        {
+          "label": "WAIT_FOR_SNAP",
+          "line": 4165
+        },
+        {
+          "label": "OFF_MOTION_COMMAND_START",
+          "line": 4182
+        },
+        {
+          "label": "DO_PLAYER_FORMATION_SHIFT",
+          "line": 4187
+        },
+        {
+          "label": "QB_PRE_SNAP_STANCE_COMMAND_START",
+          "line": 4215
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_KICK_PUNT_RETURN_LOGIC",
+      "source_start_line": 4220,
+      "source_end_line": 4293,
+      "source_start_marker": "_F{_KICK_PUNT_RETURN_LOGIC\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_KICK_PUNT_RETURN_LOGIC",
+      "line_count": 74,
+      "primary_entry_labels": [
+        "RETURN_KICK_PUNT_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "RETURN_KICK_PUNT_COMMAND_START",
+          "line": 4222
+        },
+        {
+          "label": "UPDATE_PLAYER_NAME_MAN_CTRL_FOR_RETURN",
+          "line": 4229
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Coordinates return-man control handoff and kickoff/punt return sequencing after the ball is fielded."
+    },
+    {
+      "section_name": "_FACE_LOS_COMMAND",
+      "source_start_line": 4295,
+      "source_end_line": 4317,
+      "source_start_marker": "_F{_FACE_LOS_COMMAND\t\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_FACE_LOS_COMMAND",
+      "line_count": 23,
+      "primary_entry_labels": [
+        "FACE_LOS_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "FACE_LOS_COMMAND_START",
+          "line": 4299
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_STAND_FOR_TIME_COMMAND",
+      "source_start_line": 4319,
+      "source_end_line": 4335,
+      "source_start_marker": "_F{_STAND_FOR_TIME_COMMAND\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_STAND_FOR_TIME_COMMAND",
+      "line_count": 17,
+      "primary_entry_labels": [
+        "STAND_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "STAND_COMMAND_START",
+          "line": 4323
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_TURN_TOWARDS_BALL_COMMAND",
+      "source_start_line": 4337,
+      "source_end_line": 4370,
+      "source_start_marker": "_F{_TURN_TOWARDS_BALL_COMMAND\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_TURN_TOWARDS_BALL_COMMAND",
+      "line_count": 34,
+      "primary_entry_labels": [
+        "TURN_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "TURN_COMMAND_START",
+          "line": 4341
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_WAIT_RANDOM_TIME_COMMAND",
+      "source_start_line": 4372,
+      "source_end_line": 4405,
+      "source_start_marker": "_F{_WAIT_RANDOM_TIME_COMMAND\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_WAIT_RANDOM_TIME_COMMAND",
+      "line_count": 34,
+      "primary_entry_labels": [
+        "WAIT_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "WAIT_COMMAND_START",
+          "line": 4374
+        },
+        {
+          "label": "GET_RAND_WAIT_TIME_WITHIN_LIMITS",
+          "line": 4389
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_CHANGE_HP_COMMANDS",
+      "source_start_line": 4407,
+      "source_end_line": 4432,
+      "source_start_marker": "_F{_SET_CHANGE_HP_COMMANDS\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_SET_CHANGE_HP_COMMANDS",
+      "line_count": 26,
+      "primary_entry_labels": [
+        "SET_HITTING_POWER_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "SET_HITTING_POWER_COMMAND_START",
+          "line": 4413
+        },
+        {
+          "label": "CHANGE_HITTING_POWER_COMMAND_START",
+          "line": 4421
+        },
+        {
+          "label": "SAVE_HITTING_POWER",
+          "line": 4427
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CAN_COLLIDE_CAN_BLOCK_COMMANDS",
+      "source_start_line": 4439,
+      "source_end_line": 4457,
+      "source_start_marker": "_F{_CAN_COLLIDE_CAN_BLOCK_COMMANDS\t\t\t\t\t\t\t\t   ; DONE",
+      "source_end_marker": "_F}_CAN_COLLIDE_CAN_BLOCK_COMMANDS",
+      "line_count": 19,
+      "primary_entry_labels": [
+        "CAN_COLLIDE_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "CAN_COLLIDE_COMMAND_START",
+          "line": 4443
+        },
+        {
+          "label": "CAN_BLOCK_COMMAND_START",
+          "line": 4451
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_BRANCH_AND_JUMP_COMMANDS",
+      "source_start_line": 4459,
+      "source_end_line": 4492,
+      "source_start_marker": "_F{_BRANCH_AND_JUMP_COMMANDS\t\t\t\t\t\t\t\t      ; DONE",
+      "source_end_marker": "_F}_BRANCH_AND_JUMP_COMMANDS",
+      "line_count": 34,
+      "primary_entry_labels": [
+        "BRANCH_COMMAND_START"
+      ],
+      "labels": [
+        {
+          "label": "BRANCH_COMMAND_START",
+          "line": 4464
+        },
+        {
+          "label": "JUMP_COMMAND_START",
+          "line": 4479
+        },
+        {
+          "label": "SAVE_NEW_SCRIPT_ADDR",
+          "line": 4482
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Preserves script control-flow semantics such as one-byte branch and two-byte jump retargeting."
+    },
+    {
+      "section_name": "_GET_KICKER_PUNTER_SKILL",
+      "source_start_line": 4494,
+      "source_end_line": 4511,
+      "source_start_marker": "_F{_GET_KICKER_PUNTER_SKILL\t\t\t\t\t\t\t\t\t      ; DONE",
+      "source_end_marker": "_F}_GET_KICKER_PUNTER_SKILL",
+      "line_count": 18,
+      "primary_entry_labels": [
+        "GET_KICKER_PUNTER_SKILL_VALUE"
+      ],
+      "labels": [
+        {
+          "label": "GET_KICKER_PUNTER_SKILL_VALUE",
+          "line": 4500
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_INITIAL_PASS_ON_TARGET_LOGIC",
+      "source_start_line": 4516,
+      "source_end_line": 4683,
+      "source_start_marker": "_F{_INITIAL_PASS_ON_TARGET_LOGIC \t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_INITIAL_PASS_ON_TARGET_LOGIC",
+      "line_count": 168,
+      "primary_entry_labels": [
+        "START_OF_PASS_ATTEMPT"
+      ],
+      "labels": [
+        {
+          "label": "START_OF_PASS_ATTEMPT",
+          "line": 4527
+        },
+        {
+          "label": "PASS_TO_MOVING_TARGET",
+          "line": 4556
+        },
+        {
+          "label": "BALL_NOT_ON_TARGET_PLAYER_MOVING",
+          "line": 4578
+        },
+        {
+          "label": "PASS_TO_STOPPED_TARGET",
+          "line": 4622
+        },
+        {
+          "label": "PASS_TO_STOPPED_TARGET_MISTHROW",
+          "line": 4633
+        },
+        {
+          "label": "PASS_ON_TARGET_PLAYER_STOPPED",
+          "line": 4675
+        },
+        {
+          "label": "BALL_ON_TARGET_PLAYER_MOVING",
+          "line": 4679
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_QB_ARM_ANIMATION_DEFENDERS_CLOSE_TO_BLOCK_CHECK",
+      "source_start_line": 4685,
+      "source_end_line": 4752,
+      "source_start_marker": "_F{_QB_ARM_ANIMATION_DEFENDERS_CLOSE_TO_BLOCK_CHECK\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_QB_ARM_ANIMATION_DEFENDERS_CLOSE_TO_BLOCK_CHECK",
+      "line_count": 68,
+      "primary_entry_labels": [
+        "DO_QB_ARM_ANIMATION_CHECK_DEF_NEAR_BLOCK"
+      ],
+      "labels": [
+        {
+          "label": "DO_QB_ARM_ANIMATION_CHECK_DEF_NEAR_BLOCK",
+          "line": 4692
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_OFFENSE_PASS_DIVE_JUMP_PASS_COLL",
+      "source_start_line": 4754,
+      "source_end_line": 5119,
+      "source_start_marker": "_F{_OFFENSE_PASS_DIVE_JUMP_PASS_COLL\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_OFFENSE_PASS_DIVE_JUMP_PASS_COLL",
+      "line_count": 366,
+      "primary_entry_labels": [
+        "OFFENSE_JUMP_DIVE_CATCH_PASS_START"
+      ],
+      "labels": [
+        {
+          "label": "OFFENSE_JUMP_DIVE_CATCH_PASS_START",
+          "line": 4759
+        },
+        {
+          "label": "PASS_BALL_COLLIDING_WITH_PLAYER",
+          "line": 4847
+        },
+        {
+          "label": "DO_NORMAL_PASS_RESULT_WITH_CUTSCENES",
+          "line": 4878
+        },
+        {
+          "label": "CHECK_FOR_INT_AFTER_WR_MISS_DIVE_CATCH",
+          "line": 4911
+        },
+        {
+          "label": "PASS_RESULT_CUTSCENE_INDEX_TABLE",
+          "line": 4920
+        },
+        {
+          "label": "DO_RECEIVER_PASS_DIVE",
+          "line": 4955
+        },
+        {
+          "label": "DO_RECEIVER_PASS_DIVE_WITH_CUTSCENE",
+          "line": 4980
+        },
+        {
+          "label": "DO_PASS_TARGET_JUMP",
+          "line": 5013
+        },
+        {
+          "label": "OFF_LAND_FROM_JUMP_WAIT_BALL_COLLIDE",
+          "line": 5041
+        },
+        {
+          "label": "DO_LAND_FROM_JUMP_ANIMATION",
+          "line": 5057
+        },
+        {
+          "label": "PASS_TARGET_JUMP_WITH_CUTSCENE",
+          "line": 5062
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_DEFENSE_PASS_DIVE_JUMP_PASS_COLL",
+      "source_start_line": 5121,
+      "source_end_line": 5262,
+      "source_start_marker": "_F{_DEFENSE_PASS_DIVE_JUMP_PASS_COLL\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_DEFENSE_PASS_DIVE_JUMP_PASS_COLL",
+      "line_count": 142,
+      "primary_entry_labels": [
+        "DEFENSE_JUMP_DIVE_CATCH_PASS_START"
+      ],
+      "labels": [
+        {
+          "label": "DEFENSE_JUMP_DIVE_CATCH_PASS_START",
+          "line": 5125
+        },
+        {
+          "label": "CHECK_DEFENDER_CLOSE_TO_PASS_BALL_COLLIDING",
+          "line": 5201
+        },
+        {
+          "label": "PASS_RESULT_ALREADY_DO_NEXT_DEF_COMMAND",
+          "line": 5212
+        },
+        {
+          "label": "DO_DEFENDER_DIVE_FOR_PASS",
+          "line": 5215
+        },
+        {
+          "label": "DO_DEFENDER_JUMP_FOR_PASS",
+          "line": 5235
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_DEFENSE_JUMPING_INT_CALCULATION",
+      "source_start_line": 5264,
+      "source_end_line": 5360,
+      "source_start_marker": "_F{_DEFENSE_JUMPING_INT_CALCULATION\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_DEFENSE_JUMPING_INT_CALCULATION",
+      "line_count": 97,
+      "primary_entry_labels": [
+        "DEFENDER_JUMPING_INT_TIP_WHIFF_CHECK"
+      ],
+      "labels": [
+        {
+          "label": "DEFENDER_JUMPING_INT_TIP_WHIFF_CHECK",
+          "line": 5269
+        },
+        {
+          "label": "DO_END_OF_DEFENDER_JUMP_INTERCEPTS_PASS",
+          "line": 5355
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_DEFENDER_PASS_STATUS_TO_NEAR_BALL",
+      "source_start_line": 5362,
+      "source_end_line": 5377,
+      "source_start_marker": "_F{_SET_DEFENDER_PASS_STATUS_TO_NEAR_BALL\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_SET_DEFENDER_PASS_STATUS_TO_NEAR_BALL",
+      "line_count": 16,
+      "primary_entry_labels": [
+        "SET_DEFENDER_PASS_STATUS_NEAR_BALL"
+      ],
+      "labels": [
+        {
+          "label": "SET_DEFENDER_PASS_STATUS_NEAR_BALL",
+          "line": 5367
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CHECK_FOR_DEFENDERS_IN_CUTSCENE",
+      "source_start_line": 5379,
+      "source_end_line": 5415,
+      "source_start_marker": "_F{_CHECK_FOR_DEFENDERS_IN_CUTSCENE\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_CHECK_FOR_DEFENDERS_IN_CUTSCENE",
+      "line_count": 37,
+      "primary_entry_labels": [
+        "CHECK_FOR_DEFENDERS_IN_CUTSCENE"
+      ],
+      "labels": [
+        {
+          "label": "CHECK_FOR_DEFENDERS_IN_CUTSCENE",
+          "line": 5382
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_PASS_STATUS_FUNCTIONS",
+      "source_start_line": 5417,
+      "source_end_line": 5446,
+      "source_start_marker": "_F{_SET_PASS_STATUS_FUNCTIONS\t\t\t\t\t\t\t\t\t ; DONE",
+      "source_end_marker": "_F}_SET_PASS_STATUS_FUNCTIONS",
+      "line_count": 30,
+      "primary_entry_labels": [
+        "SET_DEFENDER_PASS_STATUS"
+      ],
+      "labels": [
+        {
+          "label": "SET_DEFENDER_PASS_STATUS",
+          "line": 5419
+        },
+        {
+          "label": "SET_TARGET_PASS_STATUS",
+          "line": 5426
+        },
+        {
+          "label": "SET_DEFENDER_ON_GROUND_AFTER_PASS_DIVE",
+          "line": 5437
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_START_OF_PASS_CALCULATIONS",
+      "source_start_line": 5448,
+      "source_end_line": 5477,
+      "source_start_marker": "_F{_START_OF_PASS_CALCULATIONS\t\t\t\t\t\t\t\t     ; DONE",
+      "source_end_marker": "_F}_START_OF_PASS_CALCULATIONS\t\t\t\t\t\t\t\t     ; DONE",
+      "line_count": 30,
+      "primary_entry_labels": [
+        "NORMAL_PASS_RESULT_CALCULATION"
+      ],
+      "labels": [
+        {
+          "label": "NORMAL_PASS_RESULT_CALCULATION",
+          "line": 5454
+        },
+        {
+          "label": "TARGET_JUMP_DIVE_PASS_CALC_START",
+          "line": 5466
+        },
+        {
+          "label": "CHECK_ANY_DEFENDER_CAN_AFFECT_PASS",
+          "line": 5469
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PASS_CALCS_ONLY_WR_NEAR_BALL",
+      "source_start_line": 5479,
+      "source_end_line": 5498,
+      "source_start_marker": "_F{_PASS_CALCS_ONLY_WR_NEAR_BALL\t\t\t\t\t\t\t\t   ; DONE",
+      "source_end_marker": "_F}_PASS_CALCS_ONLY_WR_NEAR_BALL",
+      "line_count": 20,
+      "primary_entry_labels": [
+        "PASS_RESULT_CALCS_NO_DEFENDER_NEAR"
+      ],
+      "labels": [
+        {
+          "label": "PASS_RESULT_CALCS_NO_DEFENDER_NEAR",
+          "line": 5481
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PASS_CALCS_WR_AND_DEFENDER_NEAR_BALL",
+      "source_start_line": 5500,
+      "source_end_line": 5549,
+      "source_start_marker": "_F{_PASS_CALCS_WR_AND_DEFENDER_NEAR_BALL\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_PASS_CALCS_WR_AND_DEFENDER_NEAR_BALL",
+      "line_count": 50,
+      "primary_entry_labels": [
+        "PASS_RESULT_CALCS_DEFENDER_NEAR"
+      ],
+      "labels": [
+        {
+          "label": "PASS_RESULT_CALCS_DEFENDER_NEAR",
+          "line": 5502
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PASS_CALCULATIONS_WR_NOT_NEAR_BALL",
+      "source_start_line": 5551,
+      "source_end_line": 5590,
+      "source_start_marker": "_F{_PASS_CALCULATIONS_WR_NOT_NEAR_BALL\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_PASS_CALCULATIONS_WR_NOT_NEAR_BALL",
+      "line_count": 40,
+      "primary_entry_labels": [
+        "PASS_CALCULATION_TARGET_NOT_CLOSE_TO_BALL"
+      ],
+      "labels": [
+        {
+          "label": "PASS_CALCULATION_TARGET_NOT_CLOSE_TO_BALL",
+          "line": 5554
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PASS_CAUGHT",
+      "source_start_line": 5592,
+      "source_end_line": 5599,
+      "source_start_marker": "_F{_PASS_CAUGHT\t\t\t\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_PASS_CAUGHT",
+      "line_count": 8,
+      "primary_entry_labels": [
+        "RECEPTION_NORMAL"
+      ],
+      "labels": [
+        {
+          "label": "RECEPTION_NORMAL",
+          "line": 5594
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PASS_TIPPED_OR_INCOMPLETE",
+      "source_start_line": 5601,
+      "source_end_line": 5608,
+      "source_start_marker": "_F{_PASS_TIPPED_OR_INCOMPLETE\t\t\t\t\t                  ; DONE",
+      "source_end_marker": "_F}_PASS_TIPPED_OR_INCOMPLETE",
+      "line_count": 8,
+      "primary_entry_labels": [
+        "BALL_TIPPED_OR_INCOMPLETE"
+      ],
+      "labels": [
+        {
+          "label": "BALL_TIPPED_OR_INCOMPLETE",
+          "line": 5603
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PASS_INTERCEPTED",
+      "source_start_line": 5610,
+      "source_end_line": 5652,
+      "source_start_marker": "_F{_PASS_INTERCEPTED\t\t\t\t\t\t  \t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_PASS_INTERCEPTED",
+      "line_count": 43,
+      "primary_entry_labels": [
+        "INTERCEPTION_NORMAL"
+      ],
+      "labels": [
+        {
+          "label": "INTERCEPTION_NORMAL",
+          "line": 5616
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CHECK_FOR_PASS_RESULT_OCCURED_ALREADY",
+      "source_start_line": 5654,
+      "source_end_line": 5670,
+      "source_start_marker": "_F{_CHECK_FOR_PASS_RESULT_OCCURED_ALREADY\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_CHECK_FOR_PASS_RESULT_OCCURED_ALREADY",
+      "line_count": 17,
+      "primary_entry_labels": [
+        "CHECK_FOR_PASS_RESULT_ALREADY"
+      ],
+      "labels": [
+        {
+          "label": "CHECK_FOR_PASS_RESULT_ALREADY",
+          "line": 5657
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_ADD_PASS_CONTROL_AND_RECEPTION_SKILL",
+      "source_start_line": 5672,
+      "source_end_line": 5706,
+      "source_start_marker": "_F{_ADD_PASS_CONTROL_AND_RECEPTION_SKILL\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_ADD_PASS_CONTROL_AND_RECEPTION_SKILL",
+      "line_count": 35,
+      "primary_entry_labels": [
+        "ADD_PASS_CONTROL_SKILL_AND_REC_SKILL"
+      ],
+      "labels": [
+        {
+          "label": "ADD_PASS_CONTROL_SKILL_AND_REC_SKILL",
+          "line": 5675
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PASS_CONTROL_REC_INT_CALC_RANDOM_OUTCOME",
+      "source_start_line": 5708,
+      "source_end_line": 5762,
+      "source_start_marker": "_F{_PASS_CONTROL_REC_INT_CALC_RANDOM_OUTCOME\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_PASS_CONTROL_REC_INT_CALC_RANDOM_OUTCOME",
+      "line_count": 55,
+      "primary_entry_labels": [
+        "PC_REC_INT_ADJUST_BY_RAND_FOR_PASS_OUTCOME"
+      ],
+      "labels": [
+        {
+          "label": "PC_REC_INT_ADJUST_BY_RAND_FOR_PASS_OUTCOME",
+          "line": 5713
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PLAYER_THROWN_ANIMATION_LOGIC",
+      "source_start_line": 5764,
+      "source_end_line": 5968,
+      "source_start_marker": "_F{_PLAYER_THROWN_ANIMATION_LOGIC\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_PLAYER_THROWN_ANIMATION_LOGIC",
+      "line_count": 205,
+      "primary_entry_labels": [
+        "PLAYER_THROWN_ANIMATION_LOOP"
+      ],
+      "labels": [
+        {
+          "label": "PLAYER_THROWN_ANIMATION_LOOP",
+          "line": 5794
+        },
+        {
+          "label": "INITIALIZE_PLAYER_TUMBLE_DATA_ADDR_8_DIR",
+          "line": 5800
+        },
+        {
+          "label": "INITIALIZE_PLAYER_TUMBLE_DATA_ADDR_16_DIR",
+          "line": 5809
+        },
+        {
+          "label": "INITIALIZE_PLAYER_TUMBLE_DATA_ADDR_2_DIR",
+          "line": 5818
+        },
+        {
+          "label": "DO_PLAYER_TUMBLE_ANIMATION",
+          "line": 5855
+        }
+      ],
+      "category": "presentation-data-and-animation",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_GET_PASS_CONTROL_SKILL",
+      "source_start_line": 5970,
+      "source_end_line": 5996,
+      "source_start_marker": "_F{_GET_PASS_CONTROL_SKILL\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_GET_PASS_CONTROL_SKILL",
+      "line_count": 27,
+      "primary_entry_labels": [
+        "GET_PASS_CONTROL_SKILL_VALUE"
+      ],
+      "labels": [
+        {
+          "label": "GET_PASS_CONTROL_SKILL_VALUE",
+          "line": 5972
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PLAYER_LOCATION_VS_THINGS_LIMIT_FUCTIONS",
+      "source_start_line": 5998,
+      "source_end_line": 6227,
+      "source_start_marker": "_F{_PLAYER_LOCATION_VS_THINGS_LIMIT_FUCTIONS                      ; DONE",
+      "source_end_marker": "_F}_PLAYER_LOCATION_VS_THINGS_LIMIT_FUCTIONS",
+      "line_count": 230,
+      "primary_entry_labels": [
+        "CHECK_PLAYER_CLOSE_ENOUGH_TO_BALL"
+      ],
+      "labels": [
+        {
+          "label": "CHECK_PLAYER_CLOSE_ENOUGH_TO_BALL",
+          "line": 6004
+        },
+        {
+          "label": "CHECK_PLAYER_NEAR_BLOCK_DIVE_TACKLE_TARGET",
+          "line": 6071
+        },
+        {
+          "label": "CHECK_IS_PLAYER_WITHIN_LIMITS_OF_LOC",
+          "line": 6126
+        },
+        {
+          "label": "PASS_BLOCK_KICK_BLOCK_LIMIT_CHECK",
+          "line": 6140
+        },
+        {
+          "label": "CHECK_PLAY_OVER_PLAYER_OOB",
+          "line": 6185
+        },
+        {
+          "label": "SET_DEF_VEL_ZERO_IF_NEAR_TOP_BOT_SCREEN",
+          "line": 6202
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_GET_JOY_RAW_OR_PRESS_FUNCTIONS",
+      "source_start_line": 6229,
+      "source_end_line": 6256,
+      "source_start_marker": "_F{_GET_JOY_RAW_OR_PRESS_FUNCTIONS                                ; DONE",
+      "source_end_marker": "_F}_GET_JOY_RAW_OR_PRESS_FUNCTIONS",
+      "line_count": 28,
+      "primary_entry_labels": [
+        "GET_PLAYER_JOY_INPUT_RAW"
+      ],
+      "labels": [
+        {
+          "label": "GET_PLAYER_JOY_INPUT_RAW",
+          "line": 6231
+        },
+        {
+          "label": "GET_P1_JOY_RAW",
+          "line": 6235
+        },
+        {
+          "label": "GET_P2_JOY_RAW",
+          "line": 6239
+        },
+        {
+          "label": "GET_PLAYER_JOY_PRESS",
+          "line": 6243
+        },
+        {
+          "label": "GET_P1_JOY_PRESS",
+          "line": 6247
+        },
+        {
+          "label": "GET_P2_JOY_PRESS",
+          "line": 6251
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_MAN_INPUT_LOGIC",
+      "source_start_line": 6258,
+      "source_end_line": 6297,
+      "source_start_marker": "_F{_MAN_INPUT_LOGIC                                               ; DONE",
+      "source_end_marker": "_F}_PLAYER_INPUT_FUNCTIONS",
+      "line_count": 40,
+      "primary_entry_labels": [
+        "UPDATE_MAN_DIRECTION_VELOCITY"
+      ],
+      "labels": [
+        {
+          "label": "UPDATE_MAN_DIRECTION_VELOCITY",
+          "line": 6263
+        },
+        {
+          "label": "MAN_INPUT_EXIT",
+          "line": 6294
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_COPY_PLAYER_POINTER_FUNCTIONS",
+      "source_start_line": 6299,
+      "source_end_line": 6323,
+      "source_start_marker": "_F{_COPY_PLAYER_POINTER_FUNCTIONS                                 ; DONE",
+      "source_end_marker": "_F}_COPY_PLAYER_POINTER_FUNCTIONS",
+      "line_count": 25,
+      "primary_entry_labels": [
+        "GET_OPP_PLAYER_RAM_ADDR_AND_SAVE_IN_LOCAL"
+      ],
+      "labels": [
+        {
+          "label": "GET_OPP_PLAYER_RAM_ADDR_AND_SAVE_IN_LOCAL",
+          "line": 6306
+        },
+        {
+          "label": "GET_TARGET_RAM_ADDR_AND_SAVE_IN_LOCAL",
+          "line": 6315
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CHECK_COLLIDED_OR_CLOSE_TO_FUNCTIONS",
+      "source_start_line": 6325,
+      "source_end_line": 6465,
+      "source_start_marker": "_F{_CHECK_COLLIDED_OR_CLOSE_TO_FUNCTIONS                          ; DONE",
+      "source_end_marker": "_F}_CHECK_COLLIDED_OR_CLOSE_TO_FUNCTIONS",
+      "line_count": 141,
+      "primary_entry_labels": [
+        "GET_FOUR_CLOSESET_PLAYERS_IF_NOT_COLLIDED"
+      ],
+      "labels": [
+        {
+          "label": "GET_FOUR_CLOSESET_PLAYERS_IF_NOT_COLLIDED",
+          "line": 6329
+        },
+        {
+          "label": "CHECK_IF_OFFENSE_COLLIDED",
+          "line": 6333
+        },
+        {
+          "label": "CHECK_IF_OFFENSE_CLOSE_TO_COLLISION",
+          "line": 6338
+        },
+        {
+          "label": "CHECK_IF_DEF_COLLIDED",
+          "line": 6395
+        },
+        {
+          "label": "CHECK_IF_DEFENSE_CLOSE_TO_COLLISION",
+          "line": 6398
+        },
+        {
+          "label": "CHECK_OFF_OR_DEF_CLOSE_TO_COLLISION",
+          "line": 6449
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_UPDATE_CAN_COLLIDE_CAN_BLOCK",
+      "source_start_line": 6467,
+      "source_end_line": 6630,
+      "source_start_marker": "_F{_UPDATE_CAN_COLLIDE_CAN_BLOCK                                  ; NOT DONE",
+      "source_end_marker": "_F}_UPDATE_CAN_COLLIDE_CAN_BLOCK",
+      "line_count": 164,
+      "primary_entry_labels": [
+        "SET_CAN_COLLIDE_USING_PLAYERS_BITMASK"
+      ],
+      "labels": [
+        {
+          "label": "SET_CAN_COLLIDE_USING_PLAYERS_BITMASK",
+          "line": 6473
+        },
+        {
+          "label": "SET_CAN_BLOCK_USING_PLAYERS_BITMASK",
+          "line": 6485
+        },
+        {
+          "label": "SET_DEFENDER_CAN_COLLIDE_USING_PLAYERS_BITMASK",
+          "line": 6492
+        },
+        {
+          "label": "SET_DEFENDER_CAN_BLOCK_USING_PLAYERS_BITMASK",
+          "line": 6495
+        },
+        {
+          "label": "SET_CAN_BLOCK_STATUSES",
+          "line": 6532
+        },
+        {
+          "label": "SET_PLAYER_ABLE_TO_COLLIDE_SINGLE_DEFENDER",
+          "line": 6548
+        },
+        {
+          "label": "ADD_CAN_BLOCK_USING_PLAYERS_BITMASK",
+          "line": 6561
+        },
+        {
+          "label": "UPDATE_DEFENDER_CAN_COLLIDE",
+          "line": 6570
+        },
+        {
+          "label": "UPDATE_DEFENDER_CAN_BE_BLOCKED",
+          "line": 6573
+        },
+        {
+          "label": "SET_OFF_CAN_CHOP_BLOCK_STATUS",
+          "line": 6604
+        },
+        {
+          "label": "CHECK_IF_PLAYER_ON_OFF_OR_DEF",
+          "line": 6624
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_GET_TEAM_CONTROL_TYPE",
+      "source_start_line": 6632,
+      "source_end_line": 6648,
+      "source_start_marker": "_F{_GET_TEAM_CONTROL_TYPE\t\t\t\t\t\t\t\t\t       ; DONE",
+      "source_end_marker": "_F}_GET_TEAM_CONTROL_TYPE",
+      "line_count": 17,
+      "primary_entry_labels": [
+        "GET_TEAM_CONTROL_TYPE"
+      ],
+      "labels": [
+        {
+          "label": "GET_TEAM_CONTROL_TYPE",
+          "line": 6634
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_DEFENDER_COVERAGE_LOGIC",
+      "source_start_line": 6650,
+      "source_end_line": 6897,
+      "source_start_marker": "_F{_DEFENDER_COVERAGE_LOGIC \t\t\t\t\t\t\t\t\t ; DONE",
+      "source_end_marker": "_F}_DEFENDER_COVERAGE_LOGIC",
+      "line_count": 248,
+      "primary_entry_labels": [
+        "DEFNDER_MAN_TO_MAN_PASS_COVERAGE_START"
+      ],
+      "labels": [
+        {
+          "label": "DEFNDER_MAN_TO_MAN_PASS_COVERAGE_START",
+          "line": 6668
+        },
+        {
+          "label": "LOAD_PLAYER_TO_COVER_ADDR",
+          "line": 6828
+        },
+        {
+          "label": "GET_DISTANCE_TO_GO_PAST_TARGET",
+          "line": 6837
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_FINAL_KICKER_LOCATION",
+      "source_start_line": 6899,
+      "source_end_line": 6929,
+      "source_start_marker": "_F{_SET_FINAL_KICKER_LOCATION\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_SET_FINAL_KICKER_LOCATION",
+      "line_count": 31,
+      "primary_entry_labels": [
+        "SET_FINAL_KICKER_LOCATION"
+      ],
+      "labels": [
+        {
+          "label": "SET_FINAL_KICKER_LOCATION",
+          "line": 6903
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_KICKOFF_LOCATION_DO_ANIMATION",
+      "source_start_line": 6931,
+      "source_end_line": 7086,
+      "source_start_marker": "_F{_SET_KICKOFF_LOCATION_DO_ANIMATION\t\t\t\t\t\t\t ; DONE",
+      "source_end_marker": "_F}_SET_KICKOFF_LOCATION_DO_ANIMATIONC",
+      "line_count": 156,
+      "primary_entry_labels": [
+        "DO_KICKER_KICKOFF"
+      ],
+      "labels": [
+        {
+          "label": "DO_KICKER_KICKOFF",
+          "line": 6941
+        }
+      ],
+      "category": "presentation-data-and-animation",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_UPDATE_KICK_PUNT_BAR",
+      "source_start_line": 7088,
+      "source_end_line": 7332,
+      "source_start_marker": "_F{_UPDATE_KICK_PUNT_BAR                                          ; DONE",
+      "source_end_marker": "_F}_UPDATE_KICK_PUNT_BAR",
+      "line_count": 245,
+      "primary_entry_labels": [
+        "UPDATE_KICK_POWER_BAR"
+      ],
+      "labels": [
+        {
+          "label": "UPDATE_KICK_POWER_BAR",
+          "line": 7104
+        },
+        {
+          "label": "UPDATE_KICK_BAR_LOOP",
+          "line": 7108
+        },
+        {
+          "label": "UPDATE_PUNT_POWER_BAR",
+          "line": 7118
+        },
+        {
+          "label": "UPDATE_PUNT_OR_KICKOFF_POWER_BAR",
+          "line": 7121
+        },
+        {
+          "label": "UPDATE_P1_KICK_BAR",
+          "line": 7141
+        },
+        {
+          "label": "UPDATE_P2_KICK_BAR",
+          "line": 7234
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CLEAR_ONSCREEN_BANNER_SCROLL_IN",
+      "source_start_line": 7334,
+      "source_end_line": 7361,
+      "source_start_marker": "_F{_CLEAR_ONSCREEN_BANNER_SCROLL_IN                               ; DONE",
+      "source_end_marker": "_F}_CLEAR_ONSCREEN_BANNER_SCROLL_IN",
+      "line_count": 28,
+      "primary_entry_labels": [
+        "CLEAR_BANNER_KICKBAR_AREA"
+      ],
+      "labels": [
+        {
+          "label": "CLEAR_BANNER_KICKBAR_AREA",
+          "line": 7341
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_UPDATE_FG_XP_ARROW",
+      "source_start_line": 7363,
+      "source_end_line": 7493,
+      "source_start_marker": "_F{_UPDATE_FG_XP_ARROW                                            ; DONE",
+      "source_end_marker": "_F}_UPDATE_FG_XP_ARROW",
+      "line_count": 131,
+      "primary_entry_labels": [
+        "UPDATE_FG_ARROW_START"
+      ],
+      "labels": [
+        {
+          "label": "UPDATE_FG_ARROW_START",
+          "line": 7372
+        },
+        {
+          "label": "GET_FG_ARROW_SPEED",
+          "line": 7468
+        },
+        {
+          "label": "FG_ARROW_SPEED_ARRAY",
+          "line": 7484
+        },
+        {
+          "label": "FG_ARROW_MAX_DISTANCE_ARRAY",
+          "line": 7487
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CALCULATE_FINAL_BALL_LOCATION_LOGIC",
+      "source_start_line": 7495,
+      "source_end_line": 7725,
+      "source_start_marker": "_F{_CALCULATE_FINAL_BALL_LOCATION_LOGIC\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_CALCULATE_FINAL_BALL_LOCATION_LOGIC",
+      "line_count": 231,
+      "primary_entry_labels": [
+        "CALULATE_FINAL_BALL_LOC_ON_TARGET"
+      ],
+      "labels": [
+        {
+          "label": "CALULATE_FINAL_BALL_LOC_ON_TARGET",
+          "line": 7515
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SWAP_PLAYER_AND_TARGET_ADDR",
+      "source_start_line": 7727,
+      "source_end_line": 7740,
+      "source_start_marker": "_F{_SWAP_PLAYER_AND_TARGET_ADDR\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_SWAP_PLAYER_AND_TARGET_ADDR",
+      "line_count": 14,
+      "primary_entry_labels": [
+        "SWAP_CURRENT_PLAYER_ADDR_WITH_TARGET"
+      ],
+      "labels": [
+        {
+          "label": "SWAP_CURRENT_PLAYER_ADDR_WITH_TARGET",
+          "line": 7729
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_HANDOFF_LOGIC",
+      "source_start_line": 7742,
+      "source_end_line": 7850,
+      "source_start_marker": "_F{_HANDOFF_LOGIC \t\t\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_HANDOFF_LOGIC",
+      "line_count": 109,
+      "primary_entry_labels": [
+        "HANDOFF_COMMAND_LOGIC"
+      ],
+      "labels": [
+        {
+          "label": "HANDOFF_COMMAND_LOGIC",
+          "line": 7748
+        },
+        {
+          "label": "RB_RECEIVES_HANDOFF_START",
+          "line": 7811
+        },
+        {
+          "label": "RB_FAKE_HANDOFF_ANIMATION",
+          "line": 7839
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PITCH_BALL_LOGIC",
+      "source_start_line": 7852,
+      "source_end_line": 7949,
+      "source_start_marker": "_F{_PITCH_BALL_LOGIC\t\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_PITCH_BALL_LOGIC",
+      "line_count": 98,
+      "primary_entry_labels": [
+        "PITCH_COMMAND_LOGIC"
+      ],
+      "labels": [
+        {
+          "label": "PITCH_COMMAND_LOGIC",
+          "line": 7857
+        },
+        {
+          "label": "WAIT_FOR_PLAYER_RECEIVES_PITCH",
+          "line": 7931
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_DIVE_TACKLE_LOGIC",
+      "source_start_line": 7951,
+      "source_end_line": 8092,
+      "source_start_marker": "_F{_DIVE_TACKLE_LOGIC \t\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_DIVE_TACKLE_LOGIC",
+      "line_count": 142,
+      "primary_entry_labels": [],
+      "labels": [],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_PLAYER_NOT_COLLIDED_IF_VALID_STILL_COLLIDED",
+      "source_start_line": 8094,
+      "source_end_line": 8133,
+      "source_start_marker": "_F{_SET_PLAYER_NOT_COLLIDED_IF_VALID_STILL_COLLIDED\t\t\t\t ; DONE",
+      "source_end_marker": "_F}_SET_PLAYER_NOT_COLLIDED_IF_VALID_STILL_COLLIDED",
+      "line_count": 40,
+      "primary_entry_labels": [
+        "SET_PLAYER_NOT_COLLIDED_IF_VALID_STILL_COLLIDED"
+      ],
+      "labels": [
+        {
+          "label": "SET_PLAYER_NOT_COLLIDED_IF_VALID_STILL_COLLIDED",
+          "line": 8100
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_PLAYER_SNAP_LOC_RELATIVE_TO_LOC",
+      "source_start_line": 8135,
+      "source_end_line": 8173,
+      "source_start_marker": "_F{_SET_PLAYER_SNAP_LOC_RELATIVE_TO_LOC\t\t\t\t\t\t\t; DONE",
+      "source_end_marker": "_F}_SET_PLAYER_SNAP_LOC_RELATIVE_TO_LOC",
+      "line_count": 39,
+      "primary_entry_labels": [
+        "SET_PLAYER_SNAP_LOC_RELATIVE_TO_LOC"
+      ],
+      "labels": [
+        {
+          "label": "SET_PLAYER_SNAP_LOC_RELATIVE_TO_LOC",
+          "line": 8140
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_QB_HIKE_ANIMATION",
+      "source_start_line": 8175,
+      "source_end_line": 8236,
+      "source_start_marker": "_F{_QB_HIKE_ANIMATION                                             ; DONE",
+      "source_end_marker": "_F}_QB_HIKE_ANIMATION",
+      "line_count": 62,
+      "primary_entry_labels": [
+        "DO_QB_HUT_ANI_CHECK_FOR_HIKE"
+      ],
+      "labels": [
+        {
+          "label": "DO_QB_HUT_ANI_CHECK_FOR_HIKE",
+          "line": 8181
+        },
+        {
+          "label": "BALL_SNAPPED_QB",
+          "line": 8230
+        }
+      ],
+      "category": "presentation-data-and-animation",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_JUMP_TO_BLOCK_PASS_CHECK",
+      "source_start_line": 8238,
+      "source_end_line": 8295,
+      "source_start_marker": "_F{_JUMP_TO_BLOCK_PASS_CHECK \t\t\t\t\t\t\t\t\t\t; DONE",
+      "source_end_marker": "_F}_JUMP_TO_BLOCK_PASS_CHECK",
+      "line_count": 58,
+      "primary_entry_labels": [
+        "SET_DEFENDERS_JUMPING_TO_BLOCK_PASS"
+      ],
+      "labels": [
+        {
+          "label": "SET_DEFENDERS_JUMPING_TO_BLOCK_PASS",
+          "line": 8244
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_KICK_BLOCK_CHECK",
+      "source_start_line": 8297,
+      "source_end_line": 8362,
+      "source_start_marker": "_F{_KICK_BLOCK_CHECK \t\t\t\t\t\t\t\t\t\t\t ; DONE",
+      "source_end_marker": "_F}_KICK_BLOCK_CHECK",
+      "line_count": 66,
+      "primary_entry_labels": [
+        "CHECK_PLAYER_CLOSE_ENOUGH_BLOCK_KICK"
+      ],
+      "labels": [
+        {
+          "label": "CHECK_PLAYER_CLOSE_ENOUGH_BLOCK_KICK",
+          "line": 8304
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_FINAL_KICK_BLOCK_LOC",
+      "source_start_line": 8364,
+      "source_end_line": 8401,
+      "source_start_marker": "_F{_SET_FINAL_KICK_BLOCK_LOC \t\t\t\t\t\t\t\t\t\t\t ; DONE",
+      "source_end_marker": "_F}_SET_FINAL_KICK_BLOCK_LOC",
+      "line_count": 38,
+      "primary_entry_labels": [
+        "SET_PLAYER_FINAL_LOC_AFTER_KICK_PASS_BLOCK"
+      ],
+      "labels": [
+        {
+          "label": "SET_PLAYER_FINAL_LOC_AFTER_KICK_PASS_BLOCK",
+          "line": 8370
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_FINAL_KICK_PASS_BLOCK_CHECKS_AND_ANIMATIONS",
+      "source_start_line": 8403,
+      "source_end_line": 8489,
+      "source_start_marker": "_F{_FINAL_KICK_PASS_BLOCK_CHECKS_AND_ANIMATIONS\t\t\t\t\t\t; DONE",
+      "source_end_marker": "_F}_FINAL_KICK_PASS_BLOCK_CHECKS_AND_ANIMATIONS",
+      "line_count": 87,
+      "primary_entry_labels": [
+        "CHECK_FOR_PASS_BLOCK"
+      ],
+      "labels": [
+        {
+          "label": "CHECK_FOR_PASS_BLOCK",
+          "line": 8408
+        },
+        {
+          "label": "CHECK_IF_PASS_INTD_CAUGHT_FUMBLED",
+          "line": 8477
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_FUMBLE_KICK_BLOCK_RECOVERY_LOGIC",
+      "source_start_line": 8491,
+      "source_end_line": 8579,
+      "source_start_marker": "_F{_FUMBLE_KICK_BLOCK_RECOVERY_LOGIC\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_FUMBLE_KICK_BLOCK_RECOVERY_LOGIC",
+      "line_count": 89,
+      "primary_entry_labels": [
+        "RECOVER_BALL_LOOP"
+      ],
+      "labels": [
+        {
+          "label": "RECOVER_BALL_LOOP",
+          "line": 8498
+        },
+        {
+          "label": "CHECK_IF_BALL_CAN_BE_RECOVERED",
+          "line": 8534
+        },
+        {
+          "label": "BALL_NOT_RECOVERED",
+          "line": 8546
+        },
+        {
+          "label": "BALL_RECOVERED",
+          "line": 8550
+        },
+        {
+          "label": "BLOCKED_KICK_FUMBLED_BALL_RECOVERED",
+          "line": 8557
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CHOP_BLOCK_LOGIC",
+      "source_start_line": 8581,
+      "source_end_line": 8695,
+      "source_start_marker": "_F{_CHOP_BLOCK_LOGIC                                              ; DONE",
+      "source_end_marker": "_F}_CHOP_BLOCK_LOGIC",
+      "line_count": 115,
+      "primary_entry_labels": [
+        "CHOP_BLOCK_LOGIC_LOOP"
+      ],
+      "labels": [
+        {
+          "label": "CHOP_BLOCK_LOGIC_LOOP",
+          "line": 8589
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_DIVE_SPEED_TABLE",
+      "source_start_line": 8697,
+      "source_end_line": 8742,
+      "source_start_marker": "_F{_DIVE_SPEED_TABLE                                              ; DONE",
+      "source_end_marker": "_F}_DIVE_SPEED_TABLE",
+      "line_count": 46,
+      "primary_entry_labels": [
+        "DIVE_TACKLE_SPEED_TABLE"
+      ],
+      "labels": [
+        {
+          "label": "DIVE_TACKLE_SPEED_TABLE",
+          "line": 8699
+        }
+      ],
+      "category": "lookup-tables",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_KICK_METER_TILE_INFO",
+      "source_start_line": 8744,
+      "source_end_line": 8770,
+      "source_start_marker": "_F{_KICK_METER_TILE_INFO                                          ; DONE",
+      "source_end_marker": "_F}_KICK_METER_TILE_INFO",
+      "line_count": 27,
+      "primary_entry_labels": [
+        "P1_BLUE_KICK_METER_TILES"
+      ],
+      "labels": [
+        {
+          "label": "P1_BLUE_KICK_METER_TILES",
+          "line": 8746
+        },
+        {
+          "label": "P1_RED_KICK_METER_TILES",
+          "line": 8752
+        },
+        {
+          "label": "P2_BLUE_KICK_METER_TILES",
+          "line": 8758
+        },
+        {
+          "label": "P2_RED_KICK_METER_TILES",
+          "line": 8764
+        }
+      ],
+      "category": "presentation-data-and-animation",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_MAN_COVERAGE_ADJUST_TABLE",
+      "source_start_line": 8772,
+      "source_end_line": 8812,
+      "source_start_marker": "_F{_MAN_COVERAGE_ADJUST_TABLE                                     ; DONE",
+      "source_end_marker": "_F}_MAN_COVERAGE_ADJUST_TABLE",
+      "line_count": 41,
+      "primary_entry_labels": [
+        "TIGHTER_COVERAGE_FINAL_LOC_ADJ_TABLE"
+      ],
+      "labels": [
+        {
+          "label": "TIGHTER_COVERAGE_FINAL_LOC_ADJ_TABLE",
+          "line": 8774
+        }
+      ],
+      "category": "lookup-tables",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_DPAD_TO_DIRECTION_ANGLE_TABLE",
+      "source_start_line": 8814,
+      "source_end_line": 8834,
+      "source_start_marker": "_F{_DPAD_TO_DIRECTION_ANGLE_TABLE                                 ; DONE",
+      "source_end_marker": "_F}_DPAD_TO_DIRECTION_ANGLE_TABLE",
+      "line_count": 21,
+      "primary_entry_labels": [
+        "DPAD_TO_ANGLE_LOOKUP_TABLE"
+      ],
+      "labels": [
+        {
+          "label": "DPAD_TO_ANGLE_LOOKUP_TABLE",
+          "line": 8816
+        }
+      ],
+      "category": "lookup-tables",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_DEFENDER_BITMASK_TABLE",
+      "source_start_line": 8836,
+      "source_end_line": 8852,
+      "source_start_marker": "_F{_DEFENDER_BITMASK_TABLE                                       ; DONE",
+      "source_end_marker": "_F}_DEFENDER_BITMASK_TABLE",
+      "line_count": 17,
+      "primary_entry_labels": [
+        "DEFENDER_BITMASK_TABLE"
+      ],
+      "labels": [
+        {
+          "label": "DEFENDER_BITMASK_TABLE",
+          "line": 8838
+        }
+      ],
+      "category": "lookup-tables",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_CHOP_BLOCK_DIVE_SPEED_ARRAY",
+      "source_start_line": 8854,
+      "source_end_line": 8883,
+      "source_start_marker": "_F{_CHOP_BLOCK_DIVE_SPEED_ARRAY                                   ; DONE",
+      "source_end_marker": "_F}_CHOP_BLOCK_DIVE_SPEED_ARRAY",
+      "line_count": 30,
+      "primary_entry_labels": [
+        "CHOP_BLOCK_DIVE_SPEED_ARRAY"
+      ],
+      "labels": [
+        {
+          "label": "CHOP_BLOCK_DIVE_SPEED_ARRAY",
+          "line": 8856
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PASS_KICK_BLOCK_PLAYER_ADJUST_TABLE",
+      "source_start_line": 8885,
+      "source_end_line": 8899,
+      "source_start_marker": "_F{_PASS_KICK_BLOCK_PLAYER_ADJUST_TABLE                           ; DONE",
+      "source_end_marker": "_F}_PASS_KICK_BLOCK_PLAYER_ADJUST_TABLE",
+      "line_count": 15,
+      "primary_entry_labels": [
+        "PASS_KICK_BLOCK_PLAYER_LOC_ADJUST_TABLE"
+      ],
+      "labels": [
+        {
+          "label": "PASS_KICK_BLOCK_PLAYER_LOC_ADJUST_TABLE",
+          "line": 8887
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_KICK_ANIMATION_SPRITE_ADJUST_ARRAY",
+      "source_start_line": 8901,
+      "source_end_line": 8923,
+      "source_start_marker": "_F{_KICK_ANIMATION_SPRITE_ADJUST_ARRAY                            ; DONE",
+      "source_end_marker": "_F}_KICK_ANIMATION_SPRITE_ADJUST_ARRAY",
+      "line_count": 23,
+      "primary_entry_labels": [
+        "KICKER_SPR_Y_ADJUST_ARRAY"
+      ],
+      "labels": [
+        {
+          "label": "KICKER_SPR_Y_ADJUST_ARRAY",
+          "line": 8904
+        }
+      ],
+      "category": "presentation-data-and-animation",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_TARGET_SPEED_VS_PASS_SPEED_ARRAY",
+      "source_start_line": 8925,
+      "source_end_line": 8964,
+      "source_start_marker": "_F{_TARGET_SPEED_VS_PASS_SPEED_ARRAY                              ; DONE",
+      "source_end_marker": "_F}_TARGET_SPEED_VS_PASS_SPEED_ARRAY",
+      "line_count": 40,
+      "primary_entry_labels": [
+        "PASS_SPEED_VS_TARGET_SPEED_ADJUST_TABLE"
+      ],
+      "labels": [
+        {
+          "label": "PASS_SPEED_VS_TARGET_SPEED_ADJUST_TABLE",
+          "line": 8927
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_RETURN_IN_NUM_FRAMES_PLUS_0_TO_3",
+      "source_start_line": 8966,
+      "source_end_line": 8980,
+      "source_start_marker": "_F{_RETURN_IN_NUM_FRAMES_PLUS_0_TO_3                              ; DONE",
+      "source_end_marker": "_F}_RETURN_IN_NUM_FRAMES_PLUS_0_TO_3",
+      "line_count": 15,
+      "primary_entry_labels": [
+        "RETURN_IN_NUM_FRAMES_PLUS_0_TO_3"
+      ],
+      "labels": [
+        {
+          "label": "RETURN_IN_NUM_FRAMES_PLUS_0_TO_3",
+          "line": 8970
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_PLAYER_CAN_CANT_KICK_BALL",
+      "source_start_line": 8982,
+      "source_end_line": 9028,
+      "source_start_marker": "_F{_SET_PLAYER_CAN_CANT_KICK_BALL\t\t\t\t\t\t\t\t; DONE",
+      "source_end_marker": "_F}_SET_PLAYER_CAN_CANT_KICK_BALL",
+      "line_count": 47,
+      "primary_entry_labels": [
+        "SET_PLAYER_CAN_KICK_BALL"
+      ],
+      "labels": [
+        {
+          "label": "SET_PLAYER_CAN_KICK_BALL",
+          "line": 8986
+        },
+        {
+          "label": "SET_PLAYER_CANT_KICK_BALL",
+          "line": 9013
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_UNUSED_KICK_ARRAY",
+      "source_start_line": 9030,
+      "source_end_line": 9042,
+      "source_start_marker": "_F{_UNUSED_KICK_ARRAY                                             ; DONE NOT NEEDED",
+      "source_end_marker": "_F}_UNUSED_KICK_MEMORY_ARRAY",
+      "line_count": 13,
+      "primary_entry_labels": [
+        "UNUSED_KICK_MEMORY_ARRAY"
+      ],
+      "labels": [
+        {
+          "label": "UNUSED_KICK_MEMORY_ARRAY",
+          "line": 9032
+        }
+      ],
+      "category": "lookup-tables",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_WAIT_TO_BLOCK_FUNCTION",
+      "source_start_line": 9044,
+      "source_end_line": 9096,
+      "source_start_marker": "_F{_WAIT_TO_BLOCK_FUNCTION                                        ; DONE",
+      "source_end_marker": "_F}_WAIT_TO_BLOCK_FUNCTION",
+      "line_count": 53,
+      "primary_entry_labels": [
+        "WAIT_FOR_TARGET_OFF_GROUND_NOT_DIVING"
+      ],
+      "labels": [
+        {
+          "label": "WAIT_FOR_TARGET_OFF_GROUND_NOT_DIVING",
+          "line": 9051
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_JUMP_FORWARD_BY_AMOUNT_PLAY_CODE_ADDR",
+      "source_start_line": 9098,
+      "source_end_line": 9111,
+      "source_start_marker": "_F{_JUMP_FORWARD_BY_AMOUNT_PLAY_CODE_ADDR                         ; DONE",
+      "source_end_marker": "_F}_JUMP_FORWARD_BY_AMOUNT_PLAY_CODE_ADDR",
+      "line_count": 14,
+      "primary_entry_labels": [
+        "UPDATE_CUR_PLAYER_PLAY_CODE_ADDR_BY_AMT"
+      ],
+      "labels": [
+        {
+          "label": "UPDATE_CUR_PLAYER_PLAY_CODE_ADDR_BY_AMT",
+          "line": 9100
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_COPY_MAN_PLAY_PTR_TO_TEMP_FUNCTIONS",
+      "source_start_line": 9113,
+      "source_end_line": 9129,
+      "source_start_marker": "_F{_COPY_MAN_PLAY_PTR_TO_TEMP_FUNCTIONS                           ; DONE",
+      "source_end_marker": "_F}_COPY_MAN_PLAY_PTR_TO_TEMP_FUNCTIONS",
+      "line_count": 17,
+      "primary_entry_labels": [
+        "COPY_MAN_PLAYER_ADDR_TO_TEMP"
+      ],
+      "labels": [
+        {
+          "label": "COPY_MAN_PLAYER_ADDR_TO_TEMP",
+          "line": 9117
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_PLAYER_IS_BALL_CARRIER_FUNCTIONS",
+      "source_start_line": 9131,
+      "source_end_line": 9146,
+      "source_start_marker": "_F{_SET_PLAYER_IS_BALL_CARRIER_FUNCTIONS                          ; DONE",
+      "source_end_marker": "_F}_SET_PLAYER_IS_BALL_CARRIER_FUNCTIONS",
+      "line_count": 16,
+      "primary_entry_labels": [
+        "SET_PLAYER_BALL_CARR_UPDATE_POSS_STATUS"
+      ],
+      "labels": [
+        {
+          "label": "SET_PLAYER_BALL_CARR_UPDATE_POSS_STATUS",
+          "line": 9133
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_UPDATE_MAN_CONTROLLED_PLAYER_ADDR",
+      "source_start_line": 9148,
+      "source_end_line": 9162,
+      "source_start_marker": "_F{_UPDATE_MAN_CONTROLLED_PLAYER_ADDR                             ; DONE",
+      "source_end_marker": "_F}_UPDATE_MAN_CONTROLLED_PLAYER_ADDR",
+      "line_count": 15,
+      "primary_entry_labels": [
+        "UPDATE_MAN_CONTROL_PLAYER_PTR"
+      ],
+      "labels": [
+        {
+          "label": "UPDATE_MAN_CONTROL_PLAYER_PTR",
+          "line": 9150
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_UPDATE_DISPLAYED_NAME",
+      "source_start_line": 9164,
+      "source_end_line": 9241,
+      "source_start_marker": "_F{_UPDATE_DISPLAYED_NAME                                         ; DONE",
+      "source_end_marker": "_F}_UPDATE_DISPLAYED_NAME",
+      "line_count": 78,
+      "primary_entry_labels": [
+        "UPDATE_P1_OR_P2_DISPLAYED_NAME"
+      ],
+      "labels": [
+        {
+          "label": "UPDATE_P1_OR_P2_DISPLAYED_NAME",
+          "line": 9169
+        },
+        {
+          "label": "SET_DISPLAYED_NAME_TO_PASS_TARGET",
+          "line": 9186
+        },
+        {
+          "label": "SET_P1_OR_P2_DISPLAYED_NAME_NEEDS_CHANGE",
+          "line": 9204
+        },
+        {
+          "label": "CLEAR_P1_OR_P2_DISPLAYED_NAME",
+          "line": 9227
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_PLAYER_BALL_CARRIER_COLLIDE_ALL",
+      "source_start_line": 9243,
+      "source_end_line": 9254,
+      "source_start_marker": "_F{_SET_PLAYER_BALL_CARRIER_COLLIDE_ALL                           ; DONE",
+      "source_end_marker": "_F}_SET_PLAYER_BALL_CARRIER_COLLIDE_ALL",
+      "line_count": 12,
+      "primary_entry_labels": [
+        "SET_PLAYER_IS_BALL_CARRIER_CAN_COLLIDE_CAN_BLOCK_ALL"
+      ],
+      "labels": [
+        {
+          "label": "SET_PLAYER_IS_BALL_CARRIER_CAN_COLLIDE_CAN_BLOCK_ALL",
+          "line": 9245
+        },
+        {
+          "label": "SET_CAN_COLLIDE_CAN_BLOCK_ALL",
+          "line": 9248
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_PLAYER_TO_COM_CONTROL_NOT_BALL_CARRIER",
+      "source_start_line": 9256,
+      "source_end_line": 9264,
+      "source_start_marker": "_F{_SET_PLAYER_TO_COM_CONTROL_NOT_BALL_CARRIER                    ; DONE",
+      "source_end_marker": "_F}_SET_PLAYER_TO_COM_CONTROL_NOT_BALL_CARRIER",
+      "line_count": 9,
+      "primary_entry_labels": [
+        "SET_PLAYER_NOT_MAN_NOT_BALL_CARRIER"
+      ],
+      "labels": [
+        {
+          "label": "SET_PLAYER_NOT_MAN_NOT_BALL_CARRIER",
+          "line": 9258
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_PLAYER_TO_CANT_COLLIDE_ON_GROUND",
+      "source_start_line": 9266,
+      "source_end_line": 9278,
+      "source_start_marker": "_F{_SET_PLAYER_TO_CANT_COLLIDE_ON_GROUND                          ; DONE",
+      "source_end_marker": "_F}_SET_PLAYER_TO_CANT_COLLIDE_ON_GROUND",
+      "line_count": 13,
+      "primary_entry_labels": [
+        "PAUSE_COLL_CHECK_SET_PLAYER_NOT_COLL"
+      ],
+      "labels": [
+        {
+          "label": "PAUSE_COLL_CHECK_SET_PLAYER_NOT_COLL",
+          "line": 9268
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_UPDATE_COLLIDED_SPRITE_FUNCTIONS",
+      "source_start_line": 9280,
+      "source_end_line": 9330,
+      "source_start_marker": "_F{_UPDATE_COLLIDED_SPRITE_FUNCTIONS                              ; DONE",
+      "source_end_marker": "_F}_UPDATE_COLLIDED_SPRITE_FUNCTIONS",
+      "line_count": 51,
+      "primary_entry_labels": [
+        "TURN_PLAYERS_TOWARDS_EACH_OTHER_COLL"
+      ],
+      "labels": [
+        {
+          "label": "TURN_PLAYERS_TOWARDS_EACH_OTHER_COLL",
+          "line": 9285
+        },
+        {
+          "label": "SET_COLL_SPRITES_NOT_MOVING_UPDATE_SPRITE",
+          "line": 9295
+        }
+      ],
+      "category": "presentation-data-and-animation",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_UPDATE_PLAYER_RAM_ADDR_FUNCTIONS",
+      "source_start_line": 9332,
+      "source_end_line": 9406,
+      "source_start_marker": "_F{_UPDATE_PLAYER_RAM_ADDR_FUNCTIONS                              ; DONE",
+      "source_end_marker": "_F}_UPDATE_PLAYER_RAM_ADDR_FUNCTIONS",
+      "line_count": 75,
+      "primary_entry_labels": [
+        "COPY_ADDR_FROM_PLAYER_RAM_TO_LOCAL"
+      ],
+      "labels": [
+        {
+          "label": "COPY_ADDR_FROM_PLAYER_RAM_TO_LOCAL",
+          "line": 9337
+        },
+        {
+          "label": "UPDATE_CURRENT_PLAYER_COMMAND_ADDR",
+          "line": 9346
+        },
+        {
+          "label": "UPDATE_PLAYER_COLL_ADDR",
+          "line": 9358
+        },
+        {
+          "label": "UPDATE_PLAYER_COMMAND_ADDR_NOT_COL_JUMP_ON_GROUND",
+          "line": 9374
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_ADJUST_PLAYER_FINAL_LOCATION_FOR_PASS",
+      "source_start_line": 9408,
+      "source_end_line": 9418,
+      "source_start_marker": "_F{_ADJUST_PLAYER_FINAL_LOCATION_FOR_PASS                         ; DONE EXCEPT ADDR",
+      "source_end_marker": "_F}_ADJUST_PLAYER_FINAL_LOCATION_FOR_PASS",
+      "line_count": 11,
+      "primary_entry_labels": [
+        "DO_ADJUST_PLAYER_FINAL_LOCATION_PASS"
+      ],
+      "labels": [
+        {
+          "label": "DO_ADJUST_PLAYER_FINAL_LOCATION_PASS",
+          "line": 9410
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_KICKOFF_ANIMATION_LOGIC",
+      "source_start_line": 9420,
+      "source_end_line": 9472,
+      "source_start_marker": "_F{_KICKOFF_ANIMATION_LOGIC                                       ; DONE",
+      "source_end_marker": "_F}_KICKOFF_ANIMATION_LOGIC",
+      "line_count": 53,
+      "primary_entry_labels": [
+        "SET_FINAL_KICK_LOCATION_START_ANIMATION"
+      ],
+      "labels": [
+        {
+          "label": "SET_FINAL_KICK_LOCATION_START_ANIMATION",
+          "line": 9422
+        },
+        {
+          "label": "DO_BALL_KICKED_ANIMATION",
+          "line": 9464
+        },
+        {
+          "label": "UPDATE_PLAY_STATUS_TO_BALL_KICKED",
+          "line": 9468
+        }
+      ],
+      "category": "presentation-data-and-animation",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PLAY_CATCH_SOUND_CLEAR_SPRITES_SET_BALL_NOT_MOVING",
+      "source_start_line": 9474,
+      "source_end_line": 9490,
+      "source_start_marker": "_F{_PLAY_CATCH_SOUND_CLEAR_SPRITES_SET_BALL_NOT_MOVING            ; DONE",
+      "source_end_marker": "_F}_PLAY_CATCH_SOUND_CLEAR_SPRITES_SET_BALL_NOT_MOVING",
+      "line_count": 17,
+      "primary_entry_labels": [
+        "PLAY_CATCH_SOUND_END_BALL_ANI"
+      ],
+      "labels": [
+        {
+          "label": "PLAY_CATCH_SOUND_END_BALL_ANI",
+          "line": 9476
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_FINAL_BALL_LOCATION_TO_TARGET",
+      "source_start_line": 9492,
+      "source_end_line": 9531,
+      "source_start_marker": "_F{_SET_FINAL_BALL_LOCATION_TO_TARGET                             ; DONE",
+      "source_end_marker": "_F}_SET_FINAL_BALL_LOCATION_TO_TARGET",
+      "line_count": 40,
+      "primary_entry_labels": [
+        "SET_CUR_BALL_LOC_FINAL_EQU_TO_TARGET"
+      ],
+      "labels": [
+        {
+          "label": "SET_CUR_BALL_LOC_FINAL_EQU_TO_TARGET",
+          "line": 9496
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_BALL_SPEED_LOFT_BASED_ON_QB_PS",
+      "source_start_line": 9533,
+      "source_end_line": 9547,
+      "source_start_marker": "_F{_BALL_SPEED_LOFT_BASED_ON_QB_PS                                ; DONE",
+      "source_end_marker": "_F}_BALL_SPEED_LOFT_BASED_ON_QB_PS",
+      "line_count": 15,
+      "primary_entry_labels": [
+        "SET_BALL_PASS_SPEED_AND_GRAVITY"
+      ],
+      "labels": [
+        {
+          "label": "SET_BALL_PASS_SPEED_AND_GRAVITY",
+          "line": 9535
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_GET_ABS_VALUE_IF_P2_PLAYER",
+      "source_start_line": 9549,
+      "source_end_line": 9562,
+      "source_start_marker": "_F{_GET_ABS_VALUE_IF_P2_PLAYER                                    ; DONE",
+      "source_end_marker": "_F}_GET_ABS_VALUE_IF_P2_PLAYER",
+      "line_count": 14,
+      "primary_entry_labels": [
+        "INVERT_VALUE_IF_PLAYER_2"
+      ],
+      "labels": [
+        {
+          "label": "INVERT_VALUE_IF_PLAYER_2",
+          "line": 9551
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_VARIOUS_JUMP_FUNCTIONS",
+      "source_start_line": 9564,
+      "source_end_line": 9723,
+      "source_start_marker": "_F{_VARIOUS_JUMP_FUNCTIONS                                        ; DONE",
+      "source_end_marker": "_F}_JUMP_UP_LAND_AND_CHECK_FOR_JUMP_FUNCTIONS",
+      "line_count": 160,
+      "primary_entry_labels": [
+        "CHECK_IF_BALL_CATCHABLE_AFTER_JUMP"
+      ],
+      "labels": [
+        {
+          "label": "CHECK_IF_BALL_CATCHABLE_AFTER_JUMP",
+          "line": 9569
+        },
+        {
+          "label": "JUMP_UP_FOR_BALL",
+          "line": 9602
+        },
+        {
+          "label": "LAND_FROM_JUMP",
+          "line": 9628
+        },
+        {
+          "label": "UPDATE_PLAYER_Y_BY_AMNT",
+          "line": 9651
+        },
+        {
+          "label": "CHECK_IF_PLAYER_CLOSE_ENOUGH_TO_JUMP_FOR_BALL",
+          "line": 9665
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_DIVE_FOR_PASS_LOGIC",
+      "source_start_line": 9725,
+      "source_end_line": 9857,
+      "source_start_marker": "_F{_DIVE_FOR_PASS_LOGIC                                           ; DONE",
+      "source_end_marker": "_F}_DIVE_FOR_PASS_LOGIC",
+      "line_count": 133,
+      "primary_entry_labels": [
+        "DO_PASS_DIVE_ANI_AND_BALL_COLL_CHECK"
+      ],
+      "labels": [
+        {
+          "label": "DO_PASS_DIVE_ANI_AND_BALL_COLL_CHECK",
+          "line": 9731
+        },
+        {
+          "label": "END_OF_PASS_DIVE_CANT_CATCH_BALL",
+          "line": 9796
+        },
+        {
+          "label": "END_OF_PASS_DIVE_BALL_INTERCEPTED",
+          "line": 9830
+        },
+        {
+          "label": "SET_PLAYER_SPEED_ZERO_END_OF_DIVE",
+          "line": 9837
+        },
+        {
+          "label": "GET_UP_FROM_DIVE",
+          "line": 9840
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_BALL_CAUGHT_RECOVERD_BALL_STATUS_FUNCTIONS",
+      "source_start_line": 9859,
+      "source_end_line": 9884,
+      "source_start_marker": "_F{_BALL_CAUGHT_RECOVERD_BALL_STATUS_FUNCTIONS                    ; DONE",
+      "source_end_marker": "_F}_BALL_CAUGHT_RECOVERD_BALL_STATUS_FUNCTIONS",
+      "line_count": 26,
+      "primary_entry_labels": [
+        "DO_END_OF_RECEPTION_INTERCEPTION"
+      ],
+      "labels": [
+        {
+          "label": "DO_END_OF_RECEPTION_INTERCEPTION",
+          "line": 9861
+        },
+        {
+          "label": "SET_BALL_HIT_GROUND_AND_WHO_TOUCHED_LAST",
+          "line": 9873
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_UPDATE_PLAYER_DIRECTION_FUNCTIONS",
+      "source_start_line": 9886,
+      "source_end_line": 10110,
+      "source_start_marker": "_F{_UPDATE_PLAYER_DIRECTION_FUNCTIONS                             ; DONE",
+      "source_end_marker": "_F}_UPDATE_PLAYER_DIRECTION_FUNCTIONS",
+      "line_count": 225,
+      "primary_entry_labels": [
+        "GET_PLAYER_DIRECTION_TOWARDS_LOC"
+      ],
+      "labels": [
+        {
+          "label": "GET_PLAYER_DIRECTION_TOWARDS_LOC",
+          "line": 9895
+        },
+        {
+          "label": "FOUR_DIRECTION_TABLE",
+          "line": 9980
+        },
+        {
+          "label": "GET_DIRECTION_TO_TARGET",
+          "line": 9991
+        },
+        {
+          "label": "GET_NEW_DIRECTION_BASED_ON_DISTANCE",
+          "line": 10015
+        },
+        {
+          "label": "SET_PLAYER_FACING_LEFT_OR_RIGHT",
+          "line": 10059
+        },
+        {
+          "label": "GET_PLAYER_DIRECTION_TOWARDS_BALL",
+          "line": 10070
+        },
+        {
+          "label": "GET_PLAYER_DIRECTION_TOWARDS_FINAL_BALL",
+          "line": 10090
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_UPDATE_PLAYER_SPRITE_FUNCTIONS",
+      "source_start_line": 10112,
+      "source_end_line": 10283,
+      "source_start_marker": "_F{_UPDATE_PLAYER_SPRITE_FUNCTIONS                                ; DONE",
+      "source_end_marker": "_F}_UPDATE_PLAYER_SPRITE_FUNCTIONS",
+      "line_count": 172,
+      "primary_entry_labels": [
+        "UPDATE_PLAYER_SPRITE_NORMAL"
+      ],
+      "labels": [
+        {
+          "label": "UPDATE_PLAYER_SPRITE_NORMAL",
+          "line": 10114
+        },
+        {
+          "label": "UPDATE_SPRITE_8_DIRECTION",
+          "line": 10135
+        },
+        {
+          "label": "UPDATE_SPRITE_LEFT_OR_RIGHT",
+          "line": 10147
+        },
+        {
+          "label": "UPDATE_SPRITE_JUMPING",
+          "line": 10160
+        },
+        {
+          "label": "JUMP_SPRITE_OFFSET_TABLE",
+          "line": 10174
+        },
+        {
+          "label": "UPDATE_CURRENT_PLAYER_SPRITE_TILES",
+          "line": 10187
+        },
+        {
+          "label": "CHECK_FOR_SPR_1800_CHANGE",
+          "line": 10207
+        }
+      ],
+      "category": "presentation-data-and-animation",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_CHECK_PLAYER_FINAL_LOCATION_FUNCTIONS",
+      "source_start_line": 10285,
+      "source_end_line": 10408,
+      "source_start_marker": "_F{_SET_CHECK_PLAYER_FINAL_LOCATION_FUNCTIONS                     ; DONE",
+      "source_end_marker": "_F}_SET_CHECK_PLAYER_FINAL_LOCATION_FUNCTIONS",
+      "line_count": 124,
+      "primary_entry_labels": [
+        "CHECK_IF_PLAYER_FINAL_LOCK_BACK_OF_ENDZONE"
+      ],
+      "labels": [
+        {
+          "label": "CHECK_IF_PLAYER_FINAL_LOCK_BACK_OF_ENDZONE",
+          "line": 10333
+        },
+        {
+          "label": "CHECK_IF_PLAYER_AT_FINAL_LOCATION",
+          "line": 10342
+        },
+        {
+          "label": "CHECK_DEFENDER_REACHED_FINAL_LOC_PASS",
+          "line": 10396
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_UPDATE_PLAYER_VELOCITY_FUNCTIONS",
+      "source_start_line": 10410,
+      "source_end_line": 10732,
+      "source_start_marker": "_F{_UPDATE_PLAYER_VELOCITY_FUNCTIONS                              ; DONE",
+      "source_end_marker": "_F}_UPDATE_PLAYER_VELOCITY_FUNCTIONS",
+      "line_count": 323,
+      "primary_entry_labels": [
+        "STOP_PLAYER_UPDATE_SPRITE_TO_STANDING_STILL"
+      ],
+      "labels": [
+        {
+          "label": "STOP_PLAYER_UPDATE_SPRITE_TO_STANDING_STILL",
+          "line": 10412
+        },
+        {
+          "label": "SET_PLAYER_VEL_ZERO_STATUS_NOT_MOVING",
+          "line": 10416
+        },
+        {
+          "label": "INIT_PLAYER_VELOCITY_CUR_SPEED",
+          "line": 10439
+        },
+        {
+          "label": "ADD_VELOCITY_BASED_ON_DIRECTION",
+          "line": 10574
+        },
+        {
+          "label": "UPDATE_DIR_RESET_SPEED_GRTR_THAN_45DEG_CHANGE",
+          "line": 10693
+        },
+        {
+          "label": "SET_PLAYER_STATUS_TO_MOVING_INIT_RS_RP",
+          "line": 10717
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_GET_GREATER_REMAINING_BALL_DISTANCE_X_OR_Y",
+      "source_start_line": 10734,
+      "source_end_line": 10781,
+      "source_start_marker": "_F{_GET_GREATER_REMAINING_BALL_DISTANCE_X_OR_Y                    ; DONE",
+      "source_end_marker": "_F}_GET_GREATER_REMAINING_BALL_DISTANCE_X_OR_Y",
+      "line_count": 48,
+      "primary_entry_labels": [
+        "GET_LARGER_BALL_DIST_FOR_PASS_DIVE_JUMP_CHECK"
+      ],
+      "labels": [
+        {
+          "label": "GET_LARGER_BALL_DIST_FOR_PASS_DIVE_JUMP_CHECK",
+          "line": 10740
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_CUTSCENE_TO_PLAY",
+      "source_start_line": 10783,
+      "source_end_line": 10801,
+      "source_start_marker": "_F{_SET_CUTSCENE_TO_PLAY                                          ; DONE",
+      "source_end_marker": "_F}_SET_CUTSCENE_TO_PLAY",
+      "line_count": 19,
+      "primary_entry_labels": [
+        "SAVE_PLAYER_ADDR_SET_CUTSCENE_SET_CHANCE_TO_0"
+      ],
+      "labels": [
+        {
+          "label": "SAVE_PLAYER_ADDR_SET_CUTSCENE_SET_CHANCE_TO_0",
+          "line": 10787
+        },
+        {
+          "label": "SAVE_PLAYER_ADDR_SET_CUTSCENE",
+          "line": 10791
+        }
+      ],
+      "category": "runtime-support",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_RETURN_TO_PREVIOUS_COMMAND_ADDR",
+      "source_start_line": 10803,
+      "source_end_line": 10818,
+      "source_start_marker": "_F{_RETURN_TO_PREVIOUS_COMMAND_ADDR                               ; DONE",
+      "source_end_marker": "_F}_RETURN_TO_PREVIOUS_COMMAND_ADDR",
+      "line_count": 16,
+      "primary_entry_labels": [
+        "RETURN_TO_SAVED_COMMAND_ADDR"
+      ],
+      "labels": [
+        {
+          "label": "RETURN_TO_SAVED_COMMAND_ADDR",
+          "line": 10806
+        }
+      ],
+      "category": "command-semantics",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_UNSET_PLAYER_COLLISION_WITH_BALL",
+      "source_start_line": 10820,
+      "source_end_line": 10831,
+      "source_start_marker": "_F{_SET_UNSET_PLAYER_COLLISION_WITH_BALL                          ; DONE",
+      "source_end_marker": "_F}_SET_UNSET_PLAYER_COLLISION_WITH_BALL",
+      "line_count": 12,
+      "primary_entry_labels": [
+        "SET_PLAYER_COLLIDED_WITH_BALL"
+      ],
+      "labels": [
+        {
+          "label": "SET_PLAYER_COLLIDED_WITH_BALL",
+          "line": 10823
+        },
+        {
+          "label": "SET_PLAYER_NOT_COLLIDED_WITH_BALL",
+          "line": 10827
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_SET_BALL_FUMBLED_BLOCKED_FUNCTIONS",
+      "source_start_line": 10834,
+      "source_end_line": 10859,
+      "source_start_marker": "_F{_SET_BALL_FUMBLED_BLOCKED_FUNCTIONS                            ; DONE",
+      "source_end_marker": "_F}_SET_BALL_FUMBLED_BLOCKED_FUNCTIONS",
+      "line_count": 26,
+      "primary_entry_labels": [
+        "SET_BALL_FUMBLED_DO_FUMBLE_ANI"
+      ],
+      "labels": [
+        {
+          "label": "SET_BALL_FUMBLED_DO_FUMBLE_ANI",
+          "line": 10836
+        },
+        {
+          "label": "DO_FUMBLE_ANI",
+          "line": 10838
+        },
+        {
+          "label": "SET_BALL_BLOCKED_DO_BLOCKED_ANI",
+          "line": 10847
+        },
+        {
+          "label": "DO_BALL_BLOCKED_ANI",
+          "line": 10849
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_BALL_LEAVING_HAND_SPRITE_ADJUST_TABLE",
+      "source_start_line": 10861,
+      "source_end_line": 10874,
+      "source_start_marker": "_F{_BALL_LEAVING_HAND_SPRITE_ADJUST_TABLE                         ; DONE",
+      "source_end_marker": "_F}_BALL_LEAVING_HAND_SPRITE_ADJUST_TABLE",
+      "line_count": 14,
+      "primary_entry_labels": [
+        "BALL_LEAVE_HAND_SPR_ADJ_TABLE"
+      ],
+      "labels": [
+        {
+          "label": "BALL_LEAVE_HAND_SPR_ADJ_TABLE",
+          "line": 10863
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_1400_1800_CHR_BANK_TABLES_FOR_PLAYER_SPRITE_CHANGES",
+      "source_start_line": 10876,
+      "source_end_line": 10893,
+      "source_start_marker": "_F{_1400_1800_CHR_BANK_TABLES_FOR_PLAYER_SPRITE_CHANGES           ; DONE",
+      "source_end_marker": "_F}_1400_1800_CHR_BANK_TABLES_FOR_PLAYER_SPRITE_CHANGES",
+      "line_count": 18,
+      "primary_entry_labels": [
+        "X400_X800_CHR_BANKS_SPR_CHG_TABLE"
+      ],
+      "labels": [
+        {
+          "label": "X400_X800_CHR_BANKS_SPR_CHG_TABLE",
+          "line": 10878
+        }
+      ],
+      "category": "presentation-data-and-animation",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PASS_DIVE_SPEED_ARRAY",
+      "source_start_line": 10895,
+      "source_end_line": 10936,
+      "source_start_marker": "_F{_PASS_DIVE_SPEED_ARRAY                                         ; DONE",
+      "source_end_marker": "_F}_PASS_DIVE_SPEED_ARRAY",
+      "line_count": 42,
+      "primary_entry_labels": [
+        "PASS_DIVE_SPEED_ARRAY"
+      ],
+      "labels": [
+        {
+          "label": "PASS_DIVE_SPEED_ARRAY",
+          "line": 10897
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_EIGHT_DIRECTION_SPRITE_DATA",
+      "source_start_line": 10938,
+      "source_end_line": 11070,
+      "source_start_marker": "_F{_EIGHT_DIRECTION_SPRITE_DATA                                   ; DONE",
+      "source_end_marker": "_F}_EIGHT_DIRECTION_SPRITE_DATA",
+      "line_count": 133,
+      "primary_entry_labels": [
+        "PLAYER_STANDING_STILL_SPR_INFO"
+      ],
+      "labels": [
+        {
+          "label": "PLAYER_STANDING_STILL_SPR_INFO",
+          "line": 10951
+        },
+        {
+          "label": "PLAYER_RUNNING_SPR_INFO",
+          "line": 10963
+        },
+        {
+          "label": "READY_TO_DIVE_SPRITE_DATA",
+          "line": 10975
+        },
+        {
+          "label": "FLAT_ON_GROUND_SPRITE_DATA",
+          "line": 10986
+        },
+        {
+          "label": "QB_ARM_IN_MOTION_SPRITE_DATA_8DIR",
+          "line": 10997
+        },
+        {
+          "label": "QB_ARM_EXTENDED_PASS_SPRITE_INFO",
+          "line": 11008
+        },
+        {
+          "label": "COLLIDED_PLAYERS_SPRITE_INFO",
+          "line": 11018
+        },
+        {
+          "label": "RB_TAKES_HANDFOFF_ANI_1_SPRITE_INFO",
+          "line": 11028
+        },
+        {
+          "label": "RB_TAKES_HANDFOFF_ANI_2_SPRITE_INFO",
+          "line": 11038
+        },
+        {
+          "label": "JUMPING_PLAYER_SPRITE_INFO",
+          "line": 11049
+        },
+        {
+          "label": "HEAD_DOWN_CRY_SPRITE_INFO",
+          "line": 11060
+        }
+      ],
+      "category": "presentation-data-and-animation",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_TWO_DIRECTION_SPRITE_DATA",
+      "source_start_line": 11072,
+      "source_end_line": 11206,
+      "source_start_marker": "_F{_TWO_DIRECTION_SPRITE_DATA                                     ; DONE EXCEPT UNUSED",
+      "source_end_marker": "_F}_TWO_DIRECTION_SPRITE_DATA",
+      "line_count": 135,
+      "primary_entry_labels": [
+        "THREE_PT_SPRITE_DATA"
+      ],
+      "labels": [
+        {
+          "label": "THREE_PT_SPRITE_DATA",
+          "line": 11074
+        },
+        {
+          "label": "PLAYER_STANDING_SPRITE_DATA",
+          "line": 11078
+        },
+        {
+          "label": "CENTER_HIKE_SPRITE_DATA",
+          "line": 11082
+        },
+        {
+          "label": "BALL_CARRIER_STANDING_STILL_DUPLICATE_SPRITE_DATA",
+          "line": 11086
+        },
+        {
+          "label": "QB_HEAD_FACING_DOWN_SPRITE_DATA",
+          "line": 11090
+        },
+        {
+          "label": "QB_SNAP_FACING_FORWARD_SPRITE_DATA",
+          "line": 11094
+        },
+        {
+          "label": "QB_SNAP_FACING_UP_SPRITE_DATA",
+          "line": 11098
+        },
+        {
+          "label": "BALL_CARRIER_STOPPED_SPRITE_DATA",
+          "line": 11102
+        },
+        {
+          "label": "QB_ARM_EXTENDED_DUPLICATE_SPRITE_DATA",
+          "line": 11107
+        },
+        {
+          "label": "KICKER_ABOUT_TO_KICK_SPRITE_DATA",
+          "line": 11111
+        },
+        {
+          "label": "KICKER_FOOT_90_SPRITE_DATA",
+          "line": 11115
+        },
+        {
+          "label": "HANDOFF_TOSS_START_SPRITE_INFO",
+          "line": 11119
+        },
+        {
+          "label": "KICKER_FOOT_90_DUPLICATE_SPRITE_DATA",
+          "line": 11123
+        },
+        {
+          "label": "KICK_HOLDER_WAIT_FOR_BALL_SPRITE_DATA",
+          "line": 11127
+        },
+        {
+          "label": "KICK_HOLDER_HAS_BALL_SPRITE_DATA",
+          "line": 11131
+        },
+        {
+          "label": "SUPERMAN_TUMBLE_LEFT_SPRITE_DATA",
+          "line": 11136
+        },
+        {
+          "label": "SUPERMAN_TUMBLE_RIGHT_SPRITE_DATA",
+          "line": 11138
+        },
+        {
+          "label": "CHOP_BLOCK_LEFT_SPRITE_DATA",
+          "line": 11142
+        },
+        {
+          "label": "CHOP_BLOCK_RIGHT_SPRITE_DATA",
+          "line": 11144
+        },
+        {
+          "label": "SPIN_HEAD_DIAG_BOT_RIGHT_SPRITE_DATA",
+          "line": 11147
+        },
+        {
+          "label": "SPIN_HEAD_DIAG_BOT_LEFT_SPRITE_DATA",
+          "line": 11149
+        },
+        {
+          "label": "LYING_ON_GROUND_HEAD_UP_RIGHT_SPRITE_DATA",
+          "line": 11152
+        },
+        {
+          "label": "LYING_ON_GROUND_HEAD_UP_LEFT_SPRITE_DATA",
+          "line": 11154
+        },
+        {
+          "label": "PLAYER_SHAKING_HEAD_SPRITE_INFO",
+          "line": 11159
+        },
+        {
+          "label": "PLAYER_STANDING_UP_SPRITE_INFO",
+          "line": 11163
+        },
+        {
+          "label": "ARMS_EXTENDED_BALL_SPRITE_INFO",
+          "line": 11167
+        },
+        {
+          "label": "SPIN_HEAD_DIAG_TOP_LEFT_SPRITE_DATA",
+          "line": 11174
+        },
+        {
+          "label": "SPIN_HEAD_DIAG_TOP_RIGHT_SPRITE_DATA",
+          "line": 11176
+        },
+        {
+          "label": "SPIN_HEAD_DIAG_BOT_LEFT_FACING_DOWN_SPRITE_DATA",
+          "line": 11179
+        },
+        {
+          "label": "SPIN_HEAD_DIAG_BOT_RIGHT_FACING_DOWN_SPRITE_DATA",
+          "line": 11181
+        },
+        {
+          "label": "SPIN_HEAD_DIAG_TOP_RIGHT_FACING_UP_SPRITE_DATA",
+          "line": 11184
+        },
+        {
+          "label": "SPIN_HEAD_DIAG_TOP_LEFT_FACING_UP_SPRITE_DATA",
+          "line": 11186
+        },
+        {
+          "label": "QB_DROPBACK_1_SPRITE_INFO",
+          "line": 11190
+        },
+        {
+          "label": "QB_DROPBACK_2_SPRITE_INFO",
+          "line": 11194
+        },
+        {
+          "label": "CELEBRATE_1_SPRITE_INFO",
+          "line": 11198
+        },
+        {
+          "label": "CELEBRATE_2_SPRITE_INFO",
+          "line": 11202
+        }
+      ],
+      "category": "presentation-data-and-animation",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_THROWN_ON_TO_BACK_SPRITE_DATA",
+      "source_start_line": 11208,
+      "source_end_line": 11262,
+      "source_start_marker": "_F{_THROWN_ON_TO_BACK_SPRITE_DATA \t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_THROWN_ON_TO_BACK_SPRITE_DATA",
+      "line_count": 55,
+      "primary_entry_labels": [
+        "THROWN_TO_BACK_LEFT_1"
+      ],
+      "labels": [
+        {
+          "label": "THROWN_TO_BACK_LEFT_1",
+          "line": 11212
+        },
+        {
+          "label": "THROWN_TO_BACK_LEFT_2",
+          "line": 11214
+        },
+        {
+          "label": "THROWN_TO_BACK_UP_LEFT_1",
+          "line": 11217
+        },
+        {
+          "label": "THROWN_TO_BACK_UP_LEFT_2",
+          "line": 11219
+        },
+        {
+          "label": "THROWN_TO_BACK_UP_1",
+          "line": 11222
+        },
+        {
+          "label": "THROWN_TO_BACK_UP_2",
+          "line": 11224
+        },
+        {
+          "label": "THROWN_TO_BACK_UP_RIGHT_1",
+          "line": 11227
+        },
+        {
+          "label": "THROWN_TO_BACK_UP_RIGHT_2",
+          "line": 11229
+        },
+        {
+          "label": "THROWN_TO_BACK_RIGHT_1",
+          "line": 11232
+        },
+        {
+          "label": "THROWN_TO_BACK_RIGHT_2",
+          "line": 11234
+        },
+        {
+          "label": "THROWN_TO_BACK_DOWN_RIGHT_1",
+          "line": 11237
+        },
+        {
+          "label": "THROWN_TO_BACK_DOWN_RIGHT_2",
+          "line": 11239
+        },
+        {
+          "label": "THROWN_TO_BACK_DOWN_1",
+          "line": 11242
+        },
+        {
+          "label": "THROWN_TO_BACK_DOWN_2",
+          "line": 11244
+        },
+        {
+          "label": "THROWN_TO_BACK_DOWN_LEFT_1",
+          "line": 11247
+        },
+        {
+          "label": "THROWN_TO_BACK_DOWN_LEFT_2",
+          "line": 11249
+        },
+        {
+          "label": "DOWN_RIGHT_TUMBLE_START",
+          "line": 11252
+        },
+        {
+          "label": "DOWN_LEFT_TUMBLE_START",
+          "line": 11254
+        },
+        {
+          "label": "LYING_ON_GROUND_LEFT_SIDE",
+          "line": 11257
+        },
+        {
+          "label": "LYING_ON_GROUND_RIGHT_SIDE",
+          "line": 11259
+        }
+      ],
+      "category": "presentation-data-and-animation",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_TUMBLING_SPRITE_DATA",
+      "source_start_line": 11264,
+      "source_end_line": 11301,
+      "source_start_marker": "_F{_TUMBLING_SPRITE_DATA\t\t\t\t\t\t\t\t\t\t  ; DONE",
+      "source_end_marker": "_F}_TUMBLING_SPRITE_DATA",
+      "line_count": 38,
+      "primary_entry_labels": [
+        "ROLLING_TUMBLE_LEFT"
+      ],
+      "labels": [
+        {
+          "label": "ROLLING_TUMBLE_LEFT",
+          "line": 11268
+        },
+        {
+          "label": "ROLLING_TUMBLE_ON_GROUND_LEFT",
+          "line": 11270
+        },
+        {
+          "label": "ROLLING_TUMBLE_UP_LEFT",
+          "line": 11274
+        },
+        {
+          "label": "ROLLING_TUMBLE_ON_GROUND_UP_LEFT",
+          "line": 11276
+        },
+        {
+          "label": "ROLLING_TUMBLE_UP_RIGHT",
+          "line": 11280
+        },
+        {
+          "label": "ROLLING_TUMBLE_ON_GROUND_UP_RIGHT",
+          "line": 11282
+        },
+        {
+          "label": "ROLLING_TUMBLE_RIGHT",
+          "line": 11286
+        },
+        {
+          "label": "ROLLING_TUMBLE_RIGHT_ON_GROUND",
+          "line": 11288
+        },
+        {
+          "label": "ROLLING_TUMBLE_DOWN_LEFT",
+          "line": 11291
+        },
+        {
+          "label": "ROLLING_TUMBLE_ON_GROUND_DOWN_LEFT",
+          "line": 11293
+        },
+        {
+          "label": "ROLLING_TUMBLE_DOWN_RIGHT",
+          "line": 11296
+        },
+        {
+          "label": "ROLLING_TUMBLE_ON_GROUND_DOWN_RIGHT",
+          "line": 11298
+        }
+      ],
+      "category": "presentation-data-and-animation",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PASS_CONTROL_OVERTHROW_MISTHROW_TABLES",
+      "source_start_line": 11303,
+      "source_end_line": 11356,
+      "source_start_marker": "_F{_PASS_CONTROL_OVERTHROW_MISTHROW_TABLES                        ; DONE",
+      "source_end_marker": "_F}_PASS_CONTROL_OVERTHROW_MISTHROW_TABLE",
+      "line_count": 54,
+      "primary_entry_labels": [
+        "OVERTHROW_ADJUST_TABLE"
+      ],
+      "labels": [
+        {
+          "label": "OVERTHROW_ADJUST_TABLE",
+          "line": 11306
+        },
+        {
+          "label": "OVERTHROW_ADJUST_TABLE_END",
+          "line": 11330
+        },
+        {
+          "label": "PASS_CONTROL_VALUES_TABLE",
+          "line": 11332
+        }
+      ],
+      "category": "gameplay-helpers",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    },
+    {
+      "section_name": "_PLAYER_SKILL_TABLES_AND_FG_XP_CUTSCENE_INDEX",
+      "source_start_line": 11358,
+      "source_end_line": 11474,
+      "source_start_marker": "_F{_PLAYER_SKILL_TABLES_AND_FG_XP_CUTSCENE_INDEX                  ; DONE",
+      "source_end_marker": "_F}_PLAYER_SKILL_TABLES_AND_FG_XP_CUTSCENE_INDEX",
+      "line_count": 117,
+      "primary_entry_labels": [
+        "PASSING_SPEED_VALUES_TABLE"
+      ],
+      "labels": [
+        {
+          "label": "PASSING_SPEED_VALUES_TABLE",
+          "line": 11360
+        },
+        {
+          "label": "PASSING_GRAVITY_VALUES_TABLE",
+          "line": 11363
+        },
+        {
+          "label": "RUSHING_POWER_VALUES_TABLE",
+          "line": 11366
+        },
+        {
+          "label": "RUNNING_SPEED_VALUES_TABLE",
+          "line": 11369
+        },
+        {
+          "label": "FG_XP_CUTSCENCE_SEQUENCE_INDEX_TABLE",
+          "line": 11372
+        },
+        {
+          "label": "P2_FG_FG_XP_CUTSCENCE_SEQUENCE_BYTES",
+          "line": 11414
+        },
+        {
+          "label": "AVOID_PASS_BLOCK_VALUES_TABLE",
+          "line": 11456
+        },
+        {
+          "label": "AVOID_KICK_BLOCK_VALUES_TABLE",
+          "line": 11459
+        },
+        {
+          "label": "BALL_CONTROL_VALUES_TABLE",
+          "line": 11462
+        },
+        {
+          "label": "PASSING_VALUES_TABLE",
+          "line": 11465
+        },
+        {
+          "label": "RECEPTION_VALUES_TABLE",
+          "line": 11468
+        },
+        {
+          "label": "INTERCEPTION_VALUES_TABLE",
+          "line": 11471
+        }
+      ],
+      "category": "lookup-tables",
+      "notes": "Source-faithful Bank21_22 runtime section kept so later MonoGame command/runtime ownership can stay traceable without bank-numbered production names."
+    }
+  ]
+}

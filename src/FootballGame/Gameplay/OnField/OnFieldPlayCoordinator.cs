@@ -1326,16 +1326,16 @@ public sealed class OnFieldPlayCoordinator
             },
             OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS => new PlayerCommandDefinition
             {
-                CommandName = "ReceiverMissedBallInterceptionWindowCommand",
-                SourceLabel = "CHECK_FOR_INT_AFTER_WR_MISS_DIVE_CATCH",
+                CommandName = "OffensiveJumpDiveCatchPassCommand",
+                SourceLabel = "OFFENSE_JUMP_DIVE_CATCH_PASS_START",
                 ByteLength = 1,
                 RequiresContinuation = true,
                 SourceNotes =
                 [
-                    "Packet 21C live seam: host-side pass-target ordering still owns receiver/defender ranking before the runtime resolves the receiver-miss interception window.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:4911-4919 pauses the receiver unless BALL_CAUGHT_BITFLAG is set after the miss-dive branch.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:5552-5588 enters PASS_CALCULATION_TARGET_NOT_CLOSE_TO_BALL and checks the ranked defenders in order.",
-                    "Source-visible bug policy remains explicit: PASS_CALCULATION_TARGET_NOT_CLOSE_TO_BALL carries the '***MAJOR BUG!! $DC NOT LOADED WITH PASS CONTROL VALUE' note.",
+                    "Packet 21C live seam: host-side pass-target ordering still owns receiver/defender ranking before the runtime enters the receiver jump/dive contest family.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:4759-4848 primes the receiver rushing-power counter, updates direction/speed, and loops on ball-collision plus jump/dive eligibility checks before the stationary wait/collision resolution path.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:4911-4919 provides the follow-on miss/interception continuation branch after the offensive jump/dive family resolves into the miss path.",
+                    "Source-visible bug policy remains explicit for the later miss continuation: PASS_CALCULATION_TARGET_NOT_CLOSE_TO_BALL carries the '***MAJOR BUG!! $DC NOT LOADED WITH PASS CONTROL VALUE' note.",
                 ],
                 OperandValues = new Dictionary<string, string>
                 {

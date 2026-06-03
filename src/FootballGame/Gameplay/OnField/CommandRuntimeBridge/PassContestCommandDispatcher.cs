@@ -14,6 +14,7 @@ public sealed class PassContestCommandDispatcher
     {
         this.handlers = handlers ??
         [
+            new OffensiveJumpDiveCatchPassCommandHandler(),
             new ReceiverMissedBallInterceptionWindowCommandHandler(),
         ];
     }

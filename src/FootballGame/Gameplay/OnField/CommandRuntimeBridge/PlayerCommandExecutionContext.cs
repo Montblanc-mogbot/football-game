@@ -28,6 +28,10 @@ public sealed class PlayerCommandExecutionContext
 
     public DefensiveReactionCommandState? DefensiveReactionState { get; private set; }
 
+    public PassContestCommandState? PassContestState { get; private set; }
+
+    public OffensiveExchangeCommandState? OffensiveExchangeState { get; private set; }
+
     public void InstallPointer(PlayerCommandPointer pointer, string? pendingCommandName)
     {
         Pointer = pointer;
@@ -43,6 +47,8 @@ public sealed class PlayerCommandExecutionContext
         PendingCommandName = commandDefinition.CommandName;
         IsAwaitingCompletion = handlerResult?.AwaitingContinuation ?? commandDefinition.RequiresContinuation;
         DefensiveReactionState = handlerResult?.DefensiveReactionState;
+        PassContestState = handlerResult?.PassContestState;
+        OffensiveExchangeState = handlerResult?.OffensiveExchangeState;
         Pointer = Pointer.Advance(commandDefinition.ByteLength);
         LastStepSummary = handlerResult?.Summary ?? $"Stepped {commandDefinition.CommandName} from {commandDefinition.SourceLabel} (+{commandDefinition.ByteLength} bytes).";
     }

@@ -13,5 +13,9 @@ public sealed record PlayerCommandHandlerResult
 
     public DefensiveReactionCommandState? DefensiveReactionState { get; init; }
 
+    public PassContestCommandState? PassContestState { get; init; }
+
+    public OffensiveExchangeCommandState? OffensiveExchangeState { get; init; }
+
     public required IReadOnlyList<string> SourceNotes { get; init; }
 }

@@ -1212,26 +1212,34 @@ public sealed class OnFieldPlayCoordinator
                 SourceLabel = "RECEIVE_SNAP_FG_XP_COMMAND_START",
                 ByteLength = 1,
                 RequiresContinuation = true,
-                SourceNotes = ["Punt/FG snap gate hands off into the first bounded Bank21_22 receive step."],
-                OperandValues = new Dictionary<string, string>(),
+                SourceNotes =
+                [
+                    "Packet 21A live seam: the special-teams snap gate still lives in Bank19_20 before the runtime resolves the holder long-snap receive sequence.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:2501-2534 waits for the snapped bit, starts the long-snap ball animation, assigns the holder as ball carrier, then waits for the kick release before returning to normal stepping.",
+                ],
+                OperandValues = new Dictionary<string, string>
+                {
+                    ["postKickDelayFrames"] = "60",
+                },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },
             OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS => new PlayerCommandDefinition
             {
-                CommandName = "ConservativeBallCarrierChaseCommand",
-                SourceLabel = "CHASE_BALL_CARRIER_CONSERVATIVE_COMMAND_START",
+                CommandName = "ReceiverMissedBallInterceptionWindowCommand",
+                SourceLabel = "CHECK_FOR_INT_AFTER_WR_MISS_DIVE_CATCH",
                 ByteLength = 1,
                 RequiresContinuation = true,
                 SourceNotes =
                 [
-                    "Packet 21B live seam: host-side pass-target ordering still owns candidate ranking before the runtime resumes defensive reaction handling.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:2714-2772 uses carrier-aware steering before the repeated dive loop.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:3368-3383 provides the 16-entry CHASE_CONSERVATIVE_TURN_TABLE used to smooth turn adjustments.",
+                    "Packet 21C live seam: host-side pass-target ordering still owns receiver/defender ranking before the runtime resolves the receiver-miss interception window.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:4911-4919 pauses the receiver unless BALL_CAUGHT_BITFLAG is set after the miss-dive branch.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:5552-5588 enters PASS_CALCULATION_TARGET_NOT_CLOSE_TO_BALL and checks the ranked defenders in order.",
+                    "Source-visible bug policy remains explicit: PASS_CALCULATION_TARGET_NOT_CLOSE_TO_BALL carries the '***MAJOR BUG!! $DC NOT LOADED WITH PASS CONTROL VALUE' note.",
                 ],
                 OperandValues = new Dictionary<string, string>
                 {
-                    ["turnTableEntries"] = "16",
-                    ["diveDelayFrames"] = "5",
+                    ["rankedDefenderWindowSize"] = "3",
+                    ["bugPolicy"] = "PreserveExplicitlyUntilParityDecision",
                 },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },
@@ -1241,8 +1249,15 @@ public sealed class OnFieldPlayCoordinator
                 SourceLabel = "RECEIVE_SNAP_CENTER_COMMAND_START",
                 ByteLength = 1,
                 RequiresContinuation = true,
-                SourceNotes = ["Script installation now feeds one bounded live Bank21_22 step after the host declares the ball snapped."],
-                OperandValues = new Dictionary<string, string>(),
+                SourceNotes =
+                [
+                    "Packet 21A live seam: script installation now feeds a bounded snap-receive continuation after Bank19_20 owns the snapped-state transition.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:2436-2447 retargets manual control to the current player, waits for the snapped bit, assigns ball-carrier ownership, then holds a four-frame receive delay before resuming normal stepping.",
+                ],
+                OperandValues = new Dictionary<string, string>
+                {
+                    ["receiveDelayFrames"] = "4",
+                },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },
         };

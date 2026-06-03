@@ -14,4 +14,8 @@ public sealed record PlayerCommandStepResult
     public required bool AwaitingContinuation { get; init; }
 
     public DefensiveReactionCommandState? DefensiveReactionState { get; init; }
+
+    public PassContestCommandState? PassContestState { get; init; }
+
+    public OffensiveExchangeCommandState? OffensiveExchangeState { get; init; }
 }

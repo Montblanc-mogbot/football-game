@@ -11,10 +11,17 @@ public sealed class PlayerCommandRuntime
 {
     private readonly Dictionary<string, PlayerCommandExecutionContext> executionContexts = new(StringComparer.Ordinal);
     private readonly DefensiveReactionCommandDispatcher defensiveReactionDispatcher;
+    private readonly PassContestCommandDispatcher passContestDispatcher;
+    private readonly OffensiveExchangeCommandDispatcher offensiveExchangeDispatcher;
 
-    public PlayerCommandRuntime(DefensiveReactionCommandDispatcher? defensiveReactionDispatcher = null)
+    public PlayerCommandRuntime(
+        DefensiveReactionCommandDispatcher? defensiveReactionDispatcher = null,
+        PassContestCommandDispatcher? passContestDispatcher = null,
+        OffensiveExchangeCommandDispatcher? offensiveExchangeDispatcher = null)
     {
         this.defensiveReactionDispatcher = defensiveReactionDispatcher ?? new DefensiveReactionCommandDispatcher();
+        this.passContestDispatcher = passContestDispatcher ?? new PassContestCommandDispatcher();
+        this.offensiveExchangeDispatcher = offensiveExchangeDispatcher ?? new OffensiveExchangeCommandDispatcher();
     }
 
     public IReadOnlyCollection<PlayerCommandExecutionContext> ExecutionContexts => executionContexts.Values;
@@ -36,7 +43,9 @@ public sealed class PlayerCommandRuntime
         ArgumentNullException.ThrowIfNull(commandDefinition);
 
         PlayerCommandExecutionContext executionContext = GetOrCreateExecutionContext(playerSlotKey);
-        PlayerCommandHandlerResult? handlerResult = TryDispatchDefensiveReaction(executionContext, commandDefinition);
+        PlayerCommandHandlerResult? handlerResult = TryDispatchDefensiveReaction(executionContext, commandDefinition)
+            ?? TryDispatchPassContest(executionContext, commandDefinition)
+            ?? TryDispatchOffensiveExchange(executionContext, commandDefinition);
         executionContext.RecordStep(commandDefinition, handlerResult);
 
         return new PlayerCommandStepResult
@@ -46,17 +55,51 @@ public sealed class PlayerCommandRuntime
             AwaitingContinuation = executionContext.IsAwaitingCompletion,
             Summary = executionContext.LastStepSummary ?? $"Stepped {commandDefinition.CommandName}.",
             DefensiveReactionState = executionContext.DefensiveReactionState,
+            PassContestState = executionContext.PassContestState,
+            OffensiveExchangeState = executionContext.OffensiveExchangeState,
         };
     }
 
     private PlayerCommandHandlerResult? TryDispatchDefensiveReaction(PlayerCommandExecutionContext executionContext, PlayerCommandDefinition commandDefinition)
     {
-        if (commandDefinition.TriggerRoutine is not (Gameplay.OnField.OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE or Gameplay.OnField.OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS))
+        if (commandDefinition.TriggerRoutine is not Gameplay.OnField.OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE)
         {
             return null;
         }
 
         return defensiveReactionDispatcher.Dispatch(new PlayerCommandHandlerContext
+        {
+            TriggerRoutine = commandDefinition.TriggerRoutine.Value,
+            PlayerSlotKey = executionContext.PlayerSlotKey,
+            ExecutionContext = executionContext,
+            CommandDefinition = commandDefinition,
+        });
+    }
+
+    private PlayerCommandHandlerResult? TryDispatchPassContest(PlayerCommandExecutionContext executionContext, PlayerCommandDefinition commandDefinition)
+    {
+        if (commandDefinition.TriggerRoutine is not Gameplay.OnField.OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS)
+        {
+            return null;
+        }
+
+        return passContestDispatcher.Dispatch(new PlayerCommandHandlerContext
+        {
+            TriggerRoutine = commandDefinition.TriggerRoutine.Value,
+            PlayerSlotKey = executionContext.PlayerSlotKey,
+            ExecutionContext = executionContext,
+            CommandDefinition = commandDefinition,
+        });
+    }
+
+    private PlayerCommandHandlerResult? TryDispatchOffensiveExchange(PlayerCommandExecutionContext executionContext, PlayerCommandDefinition commandDefinition)
+    {
+        if (commandDefinition.TriggerRoutine is not (Gameplay.OnField.OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS or Gameplay.OnField.OnFieldRoutine.CHECK_SNAP_PUNT))
+        {
+            return null;
+        }
+
+        return offensiveExchangeDispatcher.Dispatch(new PlayerCommandHandlerContext
         {
             TriggerRoutine = commandDefinition.TriggerRoutine.Value,
             PlayerSlotKey = executionContext.PlayerSlotKey,

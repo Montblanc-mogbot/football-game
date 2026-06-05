@@ -4,31 +4,35 @@ using System.Collections.Generic;
 namespace FootballGame.Gameplay.OnField.CommandRuntimeBridge;
 
 /// <summary>
-/// Source: Bank21_22_play_commands_on_field_logic.asm:2547-2570.
-/// Handles the bounded relative-movement command family.
+/// Source: Bank21_22_play_commands_on_field_logic.asm:2578-2595.
+/// Handles the bounded move-vs-line-of-scrimmage command family.
 /// </summary>
-public sealed class MoveRelativeCommandHandler : IMovementCommandHandler
+public sealed class MoveAbsoluteVsSnapLocationCommandHandler : IMovementCommandHandler
 {
     public bool CanHandle(PlayerCommandDefinition commandDefinition)
     {
         ArgumentNullException.ThrowIfNull(commandDefinition);
-        return commandDefinition.CommandName is "MoveRelativeCommand";
+        return commandDefinition.CommandName is "MoveAbsoluteVsSnapLocationCommand";
     }
 
     public PlayerCommandHandlerResult Handle(PlayerCommandHandlerContext context)
     {
         ArgumentNullException.ThrowIfNull(context);
 
-        int relativeY = GetIntOperand(context.CommandDefinition, "relativeY", 0);
+        int relativeYToSnap = GetIntOperand(context.CommandDefinition, "relativeYToSnap", 0);
+        int lineOfScrimmageY = GetIntOperand(context.CommandDefinition, "lineOfScrimmageY", 0);
         int rawRelativeX = GetIntOperand(context.CommandDefinition, "relativeX", 0);
+        int lineOfScrimmageX = GetIntOperand(context.CommandDefinition, "lineOfScrimmageX", 0);
         bool invertXForPlayerTwo = GetBoolOperand(context.CommandDefinition, "invertXForPlayerTwo", false);
         bool isPlayerTwo = GetBoolOperand(context.CommandDefinition, "isPlayerTwo", false);
         bool appliedPlayerTwoXInversion = invertXForPlayerTwo && isPlayerTwo;
         int resolvedRelativeX = appliedPlayerTwoXInversion ? -rawRelativeX : rawRelativeX;
+        int absoluteTargetY = lineOfScrimmageY + relativeYToSnap;
+        int absoluteTargetX = lineOfScrimmageX + resolvedRelativeX;
 
         return new PlayerCommandHandlerResult
         {
-            Summary = $"Captured the Bank21_22 relative-move target ({resolvedRelativeX}, {relativeY}), queued the facing/speed refresh, and left the command awaiting its move-until-arrival continuation loop.",
+            Summary = $"Translated the Bank21_22 move-vs-snap target into an absolute destination ({absoluteTargetX}, {absoluteTargetY}), then queued the shared facing/speed refresh and move-until-arrival loop.",
             AwaitingContinuation = true,
             RetargetRequests = Array.Empty<PlayerCommandRetargetRequest>(),
             DefensiveReactionState = null,
@@ -36,12 +40,12 @@ public sealed class MoveRelativeCommandHandler : IMovementCommandHandler
             OffensiveExchangeState = null,
             MovementCommandState = new MovementCommandState
             {
-                CommandKind = "RelativeMove",
-                AnchorKind = "CurrentLocation",
+                CommandKind = "AbsoluteMoveVsSnapLocation",
+                AnchorKind = "LineOfScrimmage",
                 RelativeX = resolvedRelativeX,
-                RelativeY = relativeY,
-                AbsoluteTargetX = null,
-                AbsoluteTargetY = null,
+                RelativeY = relativeYToSnap,
+                AbsoluteTargetX = absoluteTargetX,
+                AbsoluteTargetY = absoluteTargetY,
                 AppliedPlayerTwoXInversion = appliedPlayerTwoXInversion,
                 QueuedDirectionUpdate = true,
                 QueuedVelocityInitialization = true,

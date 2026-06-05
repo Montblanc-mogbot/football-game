@@ -7,9 +7,15 @@ public sealed record MovementCommandState
 {
     public required string CommandKind { get; init; }
 
+    public required string AnchorKind { get; init; }
+
     public required int RelativeX { get; init; }
 
     public required int RelativeY { get; init; }
+
+    public int? AbsoluteTargetX { get; init; }
+
+    public int? AbsoluteTargetY { get; init; }
 
     public required bool AppliedPlayerTwoXInversion { get; init; }
 

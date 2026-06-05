@@ -4,31 +4,33 @@ using System.Collections.Generic;
 namespace FootballGame.Gameplay.OnField.CommandRuntimeBridge;
 
 /// <summary>
-/// Source: Bank21_22_play_commands_on_field_logic.asm:2547-2570.
-/// Handles the bounded relative-movement command family.
+/// Source: Bank21_22_play_commands_on_field_logic.asm:2606-2608.
+/// Handles the bounded move-vs-middle-of-field command family.
 /// </summary>
-public sealed class MoveRelativeCommandHandler : IMovementCommandHandler
+public sealed class MoveAbsoluteVsMiddleCommandHandler : IMovementCommandHandler
 {
     public bool CanHandle(PlayerCommandDefinition commandDefinition)
     {
         ArgumentNullException.ThrowIfNull(commandDefinition);
-        return commandDefinition.CommandName is "MoveRelativeCommand";
+        return commandDefinition.CommandName is "MoveAbsoluteVsMiddleCommand";
     }
 
     public PlayerCommandHandlerResult Handle(PlayerCommandHandlerContext context)
     {
         ArgumentNullException.ThrowIfNull(context);
 
-        int relativeY = GetIntOperand(context.CommandDefinition, "relativeY", 0);
+        int relativeYToMiddle = GetIntOperand(context.CommandDefinition, "relativeYToMiddle", 0);
+        int middleOfFieldY = GetIntOperand(context.CommandDefinition, "middleOfFieldY", 0);
         int rawRelativeX = GetIntOperand(context.CommandDefinition, "relativeX", 0);
         bool invertXForPlayerTwo = GetBoolOperand(context.CommandDefinition, "invertXForPlayerTwo", false);
         bool isPlayerTwo = GetBoolOperand(context.CommandDefinition, "isPlayerTwo", false);
         bool appliedPlayerTwoXInversion = invertXForPlayerTwo && isPlayerTwo;
         int resolvedRelativeX = appliedPlayerTwoXInversion ? -rawRelativeX : rawRelativeX;
+        int absoluteTargetY = middleOfFieldY + relativeYToMiddle;
 
         return new PlayerCommandHandlerResult
         {
-            Summary = $"Captured the Bank21_22 relative-move target ({resolvedRelativeX}, {relativeY}), queued the facing/speed refresh, and left the command awaiting its move-until-arrival continuation loop.",
+            Summary = $"Translated the Bank21_22 move-vs-middle target into an absolute Y destination ({absoluteTargetY}) while reusing the shared absolute-move setup path and arrival loop.",
             AwaitingContinuation = true,
             RetargetRequests = Array.Empty<PlayerCommandRetargetRequest>(),
             DefensiveReactionState = null,
@@ -36,12 +38,12 @@ public sealed class MoveRelativeCommandHandler : IMovementCommandHandler
             OffensiveExchangeState = null,
             MovementCommandState = new MovementCommandState
             {
-                CommandKind = "RelativeMove",
-                AnchorKind = "CurrentLocation",
+                CommandKind = "AbsoluteMoveVsMiddle",
+                AnchorKind = "FieldMiddle",
                 RelativeX = resolvedRelativeX,
-                RelativeY = relativeY,
+                RelativeY = relativeYToMiddle,
                 AbsoluteTargetX = null,
-                AbsoluteTargetY = null,
+                AbsoluteTargetY = absoluteTargetY,
                 AppliedPlayerTwoXInversion = appliedPlayerTwoXInversion,
                 QueuedDirectionUpdate = true,
                 QueuedVelocityInitialization = true,

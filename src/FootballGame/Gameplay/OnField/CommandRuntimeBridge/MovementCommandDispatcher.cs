@@ -15,6 +15,8 @@ public sealed class MovementCommandDispatcher
         this.handlers = handlers ??
         [
             new MoveRelativeCommandHandler(),
+            new MoveAbsoluteVsSnapLocationCommandHandler(),
+            new MoveAbsoluteVsMiddleCommandHandler(),
         ];
     }
 

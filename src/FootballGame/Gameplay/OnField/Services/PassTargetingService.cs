@@ -30,6 +30,28 @@ public sealed class PassTargetingService
         state.RecordEvent("Ordered receiver/defender pass-collision candidates for the current pass attempt.");
     }
 
+    public void RecordPassTargetPriority(OnFieldGameState state, string receiverSlotKey, int priorityIndex, bool setAsCurrentPassTarget)
+    {
+        if (state.PassTargetPriorityOrder.Count <= priorityIndex)
+        {
+            while (state.PassTargetPriorityOrder.Count <= priorityIndex)
+            {
+                state.PassTargetPriorityOrder.Add(string.Empty);
+            }
+        }
+
+        state.PassTargetPriorityOrder[priorityIndex] = receiverSlotKey;
+        if (setAsCurrentPassTarget)
+        {
+            state.CurrentPassTargetSlotKey = receiverSlotKey;
+        }
+
+        state.RecordEvent(setAsCurrentPassTarget
+            ? $"Recorded '{receiverSlotKey}' as pass-target priority #{priorityIndex} and updated the current pass-target slot."
+            : $"Recorded '{receiverSlotKey}' as pass-target priority #{priorityIndex}."
+        );
+    }
+
     private static void QueueRuntimeRequest(OnFieldGameState state)
     {
         if (state.CommandRuntimeBoundary is null)

@@ -1176,6 +1176,7 @@ public sealed class OnFieldPlayCoordinator
         };
 
         PlayerCommandStepResult stepResult = state.CommandRuntimeBoundary.StepPlayerCommand(playerSlotKey, commandDefinition);
+        ApplyHostSideCommandEffects(state, playerSlotKey, commandDefinition, stepResult);
 
         if (hostRequest.TriggerRoutine == OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS
             && TryCreateExplicitRetargetContinuation(state, stepResult, out PlayerCommandStepResult continuationStepResult))
@@ -1281,26 +1282,46 @@ public sealed class OnFieldPlayCoordinator
         };
     }
 
+    private void ApplyHostSideCommandEffects(OnFieldGameState state, string playerSlotKey, PlayerCommandDefinition commandDefinition, PlayerCommandStepResult stepResult)
+    {
+        if (stepResult.PreSnapTargetingCommandState?.CommandKind is "PreSnapMotion")
+        {
+            state.LiveMotionPlayerSlotKey = stepResult.PreSnapTargetingCommandState.MirrorTargetPlayerSlot;
+            return;
+        }
+
+        if (stepResult.PreSnapTargetingCommandState?.CommandKind is "SetTargetOrder"
+            && stepResult.PreSnapTargetingCommandState.TargetPriorityIndex is int priorityIndex)
+        {
+            passTargetingService.RecordPassTargetPriority(
+                state,
+                playerSlotKey,
+                priorityIndex,
+                stepResult.PreSnapTargetingCommandState.SetAsCurrentPassTarget);
+        }
+    }
+
     private static PlayerCommandDefinition CreateLiveStepDefinition(PlayerCommandRuntimeHostRequest hostRequest)
     {
         return hostRequest.TriggerRoutine switch
         {
             OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE => new PlayerCommandDefinition
             {
-                CommandName = "ManCoverageAssignmentCommand",
-                SourceLabel = "MAN_COVERAGE_TIGHT_COMMAND_START",
+                CommandName = "PreSnapMotionCommand",
+                SourceLabel = "PRE_SNAP_MOTION_COMMAND_START",
                 ByteLength = 2,
                 RequiresContinuation = true,
                 SourceNotes =
                 [
-                    "Packet 21B live seam: pre-snap defender handoff now enters the defensive reaction family instead of reusing the packet 21A snap family.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:1462-1476 stores player_to_defend in EXTRA_PLAYER_RAM_1 and defend_time in EXTRA_PLAYER_RAM_3 before jumping into DEFNDER_MAN_TO_MAN_PASS_COVERAGE_START.",
-                    "The loose variant sets the loose-coverage high bit before the same shared jump.",
+                    "Packet 21D live seam: the current pre-snap defender handoff now samples the defender-follow-motion command instead of reusing only the man-coverage setup path.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:1592-1638 stores the offensive motion target in EXTRA_PLAYER_RAM_3, waits in repeating 9-12 frame slices, exits immediately when the host-side ball-snapped bit is set, and otherwise mirrors the target vertically until the defender is within the 0x0A Y-distance window.",
+                    "The hold branch explicitly resets facing left/right and restores a standing sprite before the follow loop repeats, so the runtime keeps that loop ownership instead of burying it in Bank19_20 host flags.",
                 ],
                 OperandValues = new Dictionary<string, string>
                 {
-                    ["playerToDefend"] = "TARGET_RECEIVER",
-                    ["defendTimeSelector"] = "13",
+                    ["mirrorTargetPlayerSlot"] = "WR_MOTION_TARGET",
+                    ["followDelayFrames"] = "9",
+                    ["verticalProximityLimit"] = "10",
                 },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },
@@ -1326,19 +1347,19 @@ public sealed class OnFieldPlayCoordinator
             },
             OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS => new PlayerCommandDefinition
             {
-                CommandName = "DefensiveJumpDiveCatchPassCommand",
-                SourceLabel = "DEFENSE_JUMP_DIVE_CATCH_PASS_START",
-                ByteLength = 1,
-                RequiresContinuation = true,
+                CommandName = "SetTargetOrderCommand",
+                SourceLabel = "SET_TARGET_ORDER_COMMAND",
+                ByteLength = 2,
+                RequiresContinuation = false,
                 SourceNotes =
                 [
-                    "Packet 21C live seam: host-side pass-target ordering still owns receiver/defender ranking before the runtime enters the defender jump/dive contest family.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:5125-5211 updates the defender movement/speed loop, checks ball-collision plus jump/dive timing windows, and stops the defender at the final pass location when needed.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:5212-5459 resolves the defender-side near-ball, dive, jump, and landing branches before returning to normal command stepping.",
+                    "Packet 21D live seam: pass-target ordering now samples the direct Bank21_22 route-priority write before the later jump/dive contest work begins.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:1714-1723 writes the current player's position id into PASS_TARGETS indexed by target_priority and only updates CURRENT_PASS_TARGET when the priority slot is zero.",
+                    "This keeps PassTargetingService as the host-side owner of the ranking/query seam while the runtime now carries the exact first-target side effect instead of flattening it into a generic pass-selection flag.",
                 ],
                 OperandValues = new Dictionary<string, string>
                 {
-                    ["rankedDefenderWindowSize"] = "3",
+                    ["targetPriorityIndex"] = "0",
                 },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },

@@ -74,6 +74,12 @@ public sealed class OnFieldGameState
 
     public bool BallSnapped { get; set; }
 
+    public string? LiveMotionPlayerSlotKey { get; set; }
+
+    public string? CurrentPassTargetSlotKey { get; set; }
+
+    public IList<string> PassTargetPriorityOrder { get; } = new List<string>();
+
     public PlayerCommandRuntimeBoundary? CommandRuntimeBoundary { get; set; }
 
     public IList<PlayerCommandRuntimeHostRequest> PendingCommandRuntimeRequests { get; } = new List<PlayerCommandRuntimeHostRequest>();

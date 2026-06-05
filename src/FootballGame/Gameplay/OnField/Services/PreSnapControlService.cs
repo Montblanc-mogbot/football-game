@@ -23,6 +23,7 @@ public sealed class PreSnapControlService
         state.RecordRoutine(OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE);
         state.Phase = OnFieldPhase.PreSnap;
         state.BallSnapped = false;
+        state.LiveMotionPlayerSlotKey ??= "WR_MOTION_TARGET";
         QueueRuntimeRequest(state, OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE, "ACTIVE_DEFENDER", "DEFENDER_PRE_SNAP_CONTROL");
         state.RecordEvent($"Prepared defender-change and snap-gating flow for {offenseTeam} before the hike.");
     }
@@ -39,6 +40,7 @@ public sealed class PreSnapControlService
     public void MarkBallSnapped(OnFieldGameState state)
     {
         state.BallSnapped = true;
+        state.LiveMotionPlayerSlotKey = null;
         state.RecordEvent("Marked the host-side snapped-ball state so Bank21_22 command stepping can proceed.");
     }
 

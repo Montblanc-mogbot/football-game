@@ -23,6 +23,8 @@ public sealed record PlayerCommandHandlerResult
 
     public PlayerControlCommandState? PlayerControlCommandState { get; init; }
 
+    public PreSnapTargetingCommandState? PreSnapTargetingCommandState { get; init; }
+
     public ControlFlowCommandState? ControlFlowState { get; init; }
 
     public PlayerCommandPointer? PointerOverride { get; init; }

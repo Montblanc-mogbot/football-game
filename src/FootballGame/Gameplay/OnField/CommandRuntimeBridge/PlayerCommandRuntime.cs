@@ -15,6 +15,7 @@ public sealed class PlayerCommandRuntime
     private readonly OffensiveExchangeCommandDispatcher offensiveExchangeDispatcher;
     private readonly MovementCommandDispatcher movementCommandDispatcher;
     private readonly PlayerControlCommandDispatcher playerControlCommandDispatcher;
+    private readonly PreSnapTargetingCommandDispatcher preSnapTargetingCommandDispatcher;
     private readonly ControlFlowCommandDispatcher controlFlowDispatcher;
 
     public PlayerCommandRuntime(
@@ -23,6 +24,7 @@ public sealed class PlayerCommandRuntime
         OffensiveExchangeCommandDispatcher? offensiveExchangeDispatcher = null,
         MovementCommandDispatcher? movementCommandDispatcher = null,
         PlayerControlCommandDispatcher? playerControlCommandDispatcher = null,
+        PreSnapTargetingCommandDispatcher? preSnapTargetingCommandDispatcher = null,
         ControlFlowCommandDispatcher? controlFlowDispatcher = null)
     {
         this.defensiveReactionDispatcher = defensiveReactionDispatcher ?? new DefensiveReactionCommandDispatcher();
@@ -30,6 +32,7 @@ public sealed class PlayerCommandRuntime
         this.offensiveExchangeDispatcher = offensiveExchangeDispatcher ?? new OffensiveExchangeCommandDispatcher();
         this.movementCommandDispatcher = movementCommandDispatcher ?? new MovementCommandDispatcher();
         this.playerControlCommandDispatcher = playerControlCommandDispatcher ?? new PlayerControlCommandDispatcher();
+        this.preSnapTargetingCommandDispatcher = preSnapTargetingCommandDispatcher ?? new PreSnapTargetingCommandDispatcher();
         this.controlFlowDispatcher = controlFlowDispatcher ?? new ControlFlowCommandDispatcher();
     }
 
@@ -57,6 +60,7 @@ public sealed class PlayerCommandRuntime
             ?? TryDispatchOffensiveExchange(executionContext, commandDefinition)
             ?? TryDispatchMovement(executionContext, commandDefinition)
             ?? TryDispatchPlayerControl(executionContext, commandDefinition)
+            ?? TryDispatchPreSnapTargeting(executionContext, commandDefinition)
             ?? TryDispatchControlFlow(executionContext, commandDefinition);
         executionContext.RecordStep(commandDefinition, handlerResult);
 
@@ -72,6 +76,7 @@ public sealed class PlayerCommandRuntime
             OffensiveExchangeState = executionContext.OffensiveExchangeState,
             MovementCommandState = executionContext.MovementCommandState,
             PlayerControlCommandState = executionContext.PlayerControlCommandState,
+            PreSnapTargetingCommandState = executionContext.PreSnapTargetingCommandState,
             ControlFlowState = executionContext.ControlFlowState,
             ResultingPointer = executionContext.Pointer,
         };
@@ -142,6 +147,17 @@ public sealed class PlayerCommandRuntime
     private PlayerCommandHandlerResult? TryDispatchPlayerControl(PlayerCommandExecutionContext executionContext, PlayerCommandDefinition commandDefinition)
     {
         return playerControlCommandDispatcher.Dispatch(new PlayerCommandHandlerContext
+        {
+            TriggerRoutine = commandDefinition.TriggerRoutine ?? Gameplay.OnField.OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS,
+            PlayerSlotKey = executionContext.PlayerSlotKey,
+            ExecutionContext = executionContext,
+            CommandDefinition = commandDefinition,
+        });
+    }
+
+    private PlayerCommandHandlerResult? TryDispatchPreSnapTargeting(PlayerCommandExecutionContext executionContext, PlayerCommandDefinition commandDefinition)
+    {
+        return preSnapTargetingCommandDispatcher.Dispatch(new PlayerCommandHandlerContext
         {
             TriggerRoutine = commandDefinition.TriggerRoutine ?? Gameplay.OnField.OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS,
             PlayerSlotKey = executionContext.PlayerSlotKey,

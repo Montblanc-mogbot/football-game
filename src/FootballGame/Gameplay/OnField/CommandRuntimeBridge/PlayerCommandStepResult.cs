@@ -25,6 +25,8 @@ public sealed record PlayerCommandStepResult
 
     public PlayerControlCommandState? PlayerControlCommandState { get; init; }
 
+    public PreSnapTargetingCommandState? PreSnapTargetingCommandState { get; init; }
+
     public ControlFlowCommandState? ControlFlowState { get; init; }
 
     public required PlayerCommandPointer ResultingPointer { get; init; }

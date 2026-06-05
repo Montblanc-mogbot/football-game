@@ -14,6 +14,8 @@ public sealed class OffensiveExchangeCommandDispatcher
     {
         this.handlers = handlers ??
         [
+            new CenterSnapInitiatorCommandHandler(),
+            new ShotgunSnapInitiatorCommandHandler(),
             new UnderCenterSnapReceiveCommandHandler(),
             new ShotgunSnapReceiveCommandHandler(),
             new FieldGoalSnapReceiveCommandHandler(),

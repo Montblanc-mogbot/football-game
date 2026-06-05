@@ -1306,21 +1306,20 @@ public sealed class OnFieldPlayCoordinator
             },
             OnFieldRoutine.CHECK_SNAP_PUNT => new PlayerCommandDefinition
             {
-                CommandName = "ShotgunSnapReceiveCommand",
-                SourceLabel = "RECEIVE_SNAP_SHOTGUN_COMMAND_START",
+                CommandName = "ShotgunSnapInitiatorCommand",
+                SourceLabel = "SHOTGUN_HIKE_COMMAND_START",
                 ByteLength = 1,
                 RequiresContinuation = true,
                 SourceNotes =
                 [
-                    "Packet 21A live seam: the current CHECK_SNAP_PUNT host/runtime boundary now samples the missing shotgun receive variant before the separate FG/XP holder receive path.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:2450-2472 waits for the snapped bit, starts SET_SHOTGUN_LOCATION_DO_ANIMATION, then loops until BALL_COLLISION reports the ball reached the quarterback before assigning ball-carrier ownership.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:2474-2498 sets shotgun loft/speed, starts the moving-ball task, marks the special shotgun-snap state, then returns to the shared four-frame receive delay.",
+                    "Packet 21A live seam: the current CHECK_SNAP_PUNT host/runtime boundary can safely model the snapper-side shotgun hike gate before the later receiver-side possession transfer.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:2402-2435 stages the long snap by marking BALL_COLLISION ready-to-leave-hand, seeding the ball from the center location, waiting for PLAY_STATUS snapped, then holding the 30-frame shotgun travel window before continuing.",
+                    "This preserves the existing Bank19_20 snap gate while making the runtime own the snap-release timing instead of skipping directly to the quarterback receive command.",
                 ],
                 OperandValues = new Dictionary<string, string>
                 {
-                    ["ballLoft"] = "6",
-                    ["ballSpeed"] = "64",
-                    ["postReceiveDelayFrames"] = "4",
+                    ["ballReadyToLeaveHand"] = bool.TrueString,
+                    ["shotgunSnapDelayFrames"] = "30",
                 },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },

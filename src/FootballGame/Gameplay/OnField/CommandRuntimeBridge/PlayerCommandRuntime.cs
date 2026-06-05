@@ -163,7 +163,9 @@ public sealed class PlayerCommandRuntime
 
     private static bool IsOffensiveExchangeContinuationCommand(string commandName)
     {
-        return commandName is "UnderCenterSnapReceiveCommand"
+        return commandName is "CenterSnapInitiatorCommand"
+            or "ShotgunSnapInitiatorCommand"
+            or "UnderCenterSnapReceiveCommand"
             or "ShotgunSnapReceiveCommand"
             or "FieldGoalSnapReceiveCommand"
             or "BackfieldHandoffCommand"

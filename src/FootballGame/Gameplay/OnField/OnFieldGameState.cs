@@ -114,6 +114,22 @@ public sealed class OnFieldGameState
 
     public int? PendingSpecialTeamsDelayFrames { get; set; }
 
+    public PlayerPresentationCommandState? LastPlayerPresentationCommandState { get; set; }
+
+    public string? ActivePlayerStanceKind { get; set; }
+
+    public string? ActivePlayerFacingDirectionKind { get; set; }
+
+    public int? PendingPlayerWaitFramesMinimum { get; set; }
+
+    public int? PendingPlayerWaitFramesMaximum { get; set; }
+
+    public string? PendingPlayerStatMutationKind { get; set; }
+
+    public int? PendingPlayerStatMutationAmount { get; set; }
+
+    public int? PendingPlayerTargetStatValue { get; set; }
+
     public int? PendingNextSnapYardLine { get; set; }
 
     public bool IsSpecialTeamsPlay => PlayType is OnFieldPlayType.Kickoff or OnFieldPlayType.Punt or OnFieldPlayType.FieldGoal or OnFieldPlayType.ExtraPoint;

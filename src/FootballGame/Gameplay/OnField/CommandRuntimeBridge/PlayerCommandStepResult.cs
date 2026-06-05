@@ -35,5 +35,7 @@ public sealed record PlayerCommandStepResult
 
     public SpecialTeamsCommandState? SpecialTeamsCommandState { get; init; }
 
+    public PlayerPresentationCommandState? PlayerPresentationCommandState { get; init; }
+
     public required PlayerCommandPointer ResultingPointer { get; init; }
 }

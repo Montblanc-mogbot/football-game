@@ -1287,6 +1287,23 @@ public sealed class OnFieldPlayCoordinator
                 state.BallKicked = true;
             }
         }
+
+        if (stepResult.PlayerPresentationCommandState is not null)
+        {
+            state.LastPlayerPresentationCommandState = stepResult.PlayerPresentationCommandState;
+            state.ActivePlayerStanceKind = stepResult.PlayerPresentationCommandState.StanceKind;
+            state.ActivePlayerFacingDirectionKind = stepResult.PlayerPresentationCommandState.FacingDirectionKind;
+            state.PendingPlayerWaitFramesMinimum = stepResult.PlayerPresentationCommandState.WaitFramesMinimum ?? stepResult.PlayerPresentationCommandState.WaitFrames;
+            state.PendingPlayerWaitFramesMaximum = stepResult.PlayerPresentationCommandState.WaitFramesMaximum ?? stepResult.PlayerPresentationCommandState.WaitFrames;
+            state.PendingPlayerStatMutationKind = stepResult.PlayerPresentationCommandState.StatMutationKind;
+            state.PendingPlayerStatMutationAmount = stepResult.PlayerPresentationCommandState.StatMutationAmount;
+            state.PendingPlayerTargetStatValue = stepResult.PlayerPresentationCommandState.TargetStatValue;
+
+            if (stepResult.PlayerPresentationCommandState.CommandKind is "CenterHikeCommand" or "ShotgunHikeCommand")
+            {
+                state.BallSnapped = true;
+            }
+        }
     }
 
     private static PlayerCommandDefinition CreateRetargetContinuationDefinition(

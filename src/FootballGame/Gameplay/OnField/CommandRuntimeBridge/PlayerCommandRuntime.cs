@@ -20,6 +20,7 @@ public sealed class PlayerCommandRuntime
     private readonly TargetingCommandDispatcher targetingCommandDispatcher;
     private readonly QuarterbackPassCommandDispatcher quarterbackPassCommandDispatcher;
     private readonly SpecialTeamsCommandDispatcher specialTeamsCommandDispatcher;
+    private readonly PlayerPresentationCommandDispatcher playerPresentationCommandDispatcher;
 
     public PlayerCommandRuntime(
         DefensiveReactionCommandDispatcher? defensiveReactionDispatcher = null,
@@ -31,7 +32,8 @@ public sealed class PlayerCommandRuntime
         PreSnapCommandDispatcher? preSnapCommandDispatcher = null,
         TargetingCommandDispatcher? targetingCommandDispatcher = null,
         QuarterbackPassCommandDispatcher? quarterbackPassCommandDispatcher = null,
-        SpecialTeamsCommandDispatcher? specialTeamsCommandDispatcher = null)
+        SpecialTeamsCommandDispatcher? specialTeamsCommandDispatcher = null,
+        PlayerPresentationCommandDispatcher? playerPresentationCommandDispatcher = null)
     {
         this.defensiveReactionDispatcher = defensiveReactionDispatcher ?? new DefensiveReactionCommandDispatcher();
         this.passContestDispatcher = passContestDispatcher ?? new PassContestCommandDispatcher();
@@ -43,6 +45,7 @@ public sealed class PlayerCommandRuntime
         this.targetingCommandDispatcher = targetingCommandDispatcher ?? new TargetingCommandDispatcher();
         this.quarterbackPassCommandDispatcher = quarterbackPassCommandDispatcher ?? new QuarterbackPassCommandDispatcher();
         this.specialTeamsCommandDispatcher = specialTeamsCommandDispatcher ?? new SpecialTeamsCommandDispatcher();
+        this.playerPresentationCommandDispatcher = playerPresentationCommandDispatcher ?? new PlayerPresentationCommandDispatcher();
     }
 
     public IReadOnlyCollection<PlayerCommandExecutionContext> ExecutionContexts => executionContexts.Values;
@@ -73,7 +76,8 @@ public sealed class PlayerCommandRuntime
             ?? TryDispatchPreSnap(executionContext, commandDefinition)
             ?? TryDispatchTargeting(executionContext, commandDefinition)
             ?? TryDispatchQuarterbackPass(executionContext, commandDefinition)
-            ?? TryDispatchSpecialTeams(executionContext, commandDefinition);
+            ?? TryDispatchSpecialTeams(executionContext, commandDefinition)
+            ?? TryDispatchPlayerPresentation(executionContext, commandDefinition);
         executionContext.RecordStep(commandDefinition, handlerResult);
 
         return new PlayerCommandStepResult
@@ -93,6 +97,7 @@ public sealed class PlayerCommandRuntime
             PassTargetOrderCommandState = executionContext.PassTargetOrderCommandState,
             QuarterbackPassCommandState = executionContext.QuarterbackPassCommandState,
             SpecialTeamsCommandState = executionContext.SpecialTeamsCommandState,
+            PlayerPresentationCommandState = executionContext.PlayerPresentationCommandState,
             ResultingPointer = executionContext.Pointer,
         };
     }
@@ -217,6 +222,17 @@ public sealed class PlayerCommandRuntime
     private PlayerCommandHandlerResult? TryDispatchSpecialTeams(PlayerCommandExecutionContext executionContext, PlayerCommandDefinition commandDefinition)
     {
         return specialTeamsCommandDispatcher.Dispatch(new PlayerCommandHandlerContext
+        {
+            TriggerRoutine = commandDefinition.TriggerRoutine ?? Gameplay.OnField.OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS,
+            PlayerSlotKey = executionContext.PlayerSlotKey,
+            ExecutionContext = executionContext,
+            CommandDefinition = commandDefinition,
+        });
+    }
+
+    private PlayerCommandHandlerResult? TryDispatchPlayerPresentation(PlayerCommandExecutionContext executionContext, PlayerCommandDefinition commandDefinition)
+    {
+        return playerPresentationCommandDispatcher.Dispatch(new PlayerCommandHandlerContext
         {
             TriggerRoutine = commandDefinition.TriggerRoutine ?? Gameplay.OnField.OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS,
             PlayerSlotKey = executionContext.PlayerSlotKey,

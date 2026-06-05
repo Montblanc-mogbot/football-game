@@ -33,6 +33,8 @@ public sealed record PlayerCommandHandlerResult
 
     public SpecialTeamsCommandState? SpecialTeamsCommandState { get; init; }
 
+    public PlayerPresentationCommandState? PlayerPresentationCommandState { get; init; }
+
     public PlayerCommandPointer? PointerOverride { get; init; }
 
     public required IReadOnlyList<string> SourceNotes { get; init; }

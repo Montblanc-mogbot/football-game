@@ -46,6 +46,8 @@ public sealed class PlayerCommandExecutionContext
 
     public SpecialTeamsCommandState? SpecialTeamsCommandState { get; private set; }
 
+    public PlayerPresentationCommandState? PlayerPresentationCommandState { get; private set; }
+
     public void InstallPointer(PlayerCommandPointer pointer, string? pendingCommandName)
     {
         Pointer = pointer;
@@ -70,6 +72,7 @@ public sealed class PlayerCommandExecutionContext
         PassTargetOrderCommandState = handlerResult?.PassTargetOrderCommandState;
         QuarterbackPassCommandState = handlerResult?.QuarterbackPassCommandState;
         SpecialTeamsCommandState = handlerResult?.SpecialTeamsCommandState;
+        PlayerPresentationCommandState = handlerResult?.PlayerPresentationCommandState;
         Pointer = handlerResult?.PointerOverride ?? Pointer.Advance(commandDefinition.ByteLength);
         LastStepSummary = handlerResult?.Summary ?? $"Stepped {commandDefinition.CommandName} from {commandDefinition.SourceLabel} (+{commandDefinition.ByteLength} bytes).";
     }

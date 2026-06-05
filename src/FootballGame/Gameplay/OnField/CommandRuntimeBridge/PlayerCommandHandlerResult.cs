@@ -25,6 +25,14 @@ public sealed record PlayerCommandHandlerResult
 
     public ControlFlowCommandState? ControlFlowState { get; init; }
 
+    public PreSnapCommandState? PreSnapCommandState { get; init; }
+
+    public PassTargetOrderCommandState? PassTargetOrderCommandState { get; init; }
+
+    public QuarterbackPassCommandState? QuarterbackPassCommandState { get; init; }
+
+    public SpecialTeamsCommandState? SpecialTeamsCommandState { get; init; }
+
     public PlayerCommandPointer? PointerOverride { get; init; }
 
     public required IReadOnlyList<string> SourceNotes { get; init; }

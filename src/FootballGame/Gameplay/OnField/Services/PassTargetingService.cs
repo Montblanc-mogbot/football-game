@@ -17,9 +17,24 @@ public sealed class PassTargetingService
         OnFieldRoutine.UPDATE_PASS_TARGET_AND_INDICATOR_ON_PRESS,
     ];
 
+    public void QueueQuarterbackPassControl(OnFieldGameState state)
+    {
+        state.RecordRoutine(OnFieldRoutine.UPDATE_PASS_TARGET_AND_INDICATOR_ON_PRESS);
+        QueueRuntimeRequest(state, OnFieldRoutine.UPDATE_PASS_TARGET_AND_INDICATOR_ON_PRESS, "CPU_QUARTERBACK", "CPU_PASS_CONTROL");
+        state.RecordEvent("Primed the host/runtime seam for the Bank21_22 QB pass-control family while updating the visible pass-target indicator timing.");
+    }
+
     public void UpdatePassTargetIndicator(OnFieldGameState state)
     {
         state.RecordRoutine(OnFieldRoutine.UPDATE_PASS_TARGET_AND_INDICATOR_ON_PRESS);
+
+        if (state.CurrentPassTargetPriority.HasValue
+            && state.PassTargets.TryGetValue(state.CurrentPassTargetPriority.Value, out string? currentTarget))
+        {
+            state.RecordEvent($"Updated the current pass target and target-indicator state to '{currentTarget}' (priority {state.CurrentPassTargetPriority.Value}).");
+            return;
+        }
+
         state.RecordEvent("Updated the current pass target and target-indicator state.");
     }
 
@@ -32,6 +47,11 @@ public sealed class PassTargetingService
 
     private static void QueueRuntimeRequest(OnFieldGameState state)
     {
+        QueueRuntimeRequest(state, OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS, "PASS_CONTEST_GROUP", "PASS_CONTEST_GROUP");
+    }
+
+    private static void QueueRuntimeRequest(OnFieldGameState state, OnFieldRoutine triggerRoutine, string playerSlotKey, string scriptFamilyKey)
+    {
         if (state.CommandRuntimeBoundary is null)
         {
             return;
@@ -39,7 +59,7 @@ public sealed class PassTargetingService
 
         foreach (PlayerCommandRuntimeHostRequest hostRequest in CommandRuntimeBoundaryHoldingArea.CreateHostRequests(state))
         {
-            if (hostRequest.TriggerRoutine != OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS)
+            if (hostRequest.TriggerRoutine != triggerRoutine)
             {
                 continue;
             }
@@ -47,10 +67,10 @@ public sealed class PassTargetingService
             state.PendingCommandRuntimeRequests.Add(hostRequest);
             state.CommandRuntimeBoundary.PrimeExecutionContext(
                 hostRequest,
-                "PASS_CONTEST_GROUP",
+                playerSlotKey,
                 new PlayerCommandPointer
                 {
-                    ScriptFamilyKey = hostRequest.BridgeSymbol ?? "PASS_CONTEST_GROUP",
+                    ScriptFamilyKey = scriptFamilyKey,
                     InstructionOffset = 0,
                     ResumeLabel = hostRequest.BridgeSymbol,
                 });

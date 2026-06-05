@@ -16,6 +16,7 @@ public static class CommandRuntimeBoundaryHoldingArea
         OnFieldRoutine.CHECK_SNAP_PUNT,
         OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS,
         OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS,
+        OnFieldRoutine.UPDATE_PASS_TARGET_AND_INDICATOR_ON_PRESS,
     ];
 
     public static IReadOnlyList<string> BridgeSymbols { get; } =
@@ -49,6 +50,12 @@ public static class CommandRuntimeBoundaryHoldingArea
                 OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS,
                 "PassTargetingService ranks the nearby receiver/defender set and primes the jump/dive command-runtime jump targets.",
                 bridgeSymbol: "JUMP_WR_JUMP_DIVE_CHECK_PASS",
+                offenseTeam: state.PossessionTeam,
+                defenseTeam: GetOpposingTeam(state.PossessionTeam)),
+            CreateHostRequest(
+                OnFieldRoutine.UPDATE_PASS_TARGET_AND_INDICATOR_ON_PRESS,
+                "PassTargetingService exposes the live pass-target indicator timing seam while the runtime owns the bounded quarterback CPU pass-selection and throw-start semantics.",
+                bridgeSymbol: "JUMP_DO_NEXT_PLAYER_COMMAND",
                 offenseTeam: state.PossessionTeam,
                 defenseTeam: GetOpposingTeam(state.PossessionTeam)),
         ];

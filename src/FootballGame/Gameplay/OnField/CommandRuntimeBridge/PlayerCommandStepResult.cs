@@ -27,5 +27,13 @@ public sealed record PlayerCommandStepResult
 
     public ControlFlowCommandState? ControlFlowState { get; init; }
 
+    public PreSnapCommandState? PreSnapCommandState { get; init; }
+
+    public PassTargetOrderCommandState? PassTargetOrderCommandState { get; init; }
+
+    public QuarterbackPassCommandState? QuarterbackPassCommandState { get; init; }
+
+    public SpecialTeamsCommandState? SpecialTeamsCommandState { get; init; }
+
     public required PlayerCommandPointer ResultingPointer { get; init; }
 }

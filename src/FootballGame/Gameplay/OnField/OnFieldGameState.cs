@@ -44,6 +44,8 @@ public sealed class OnFieldGameState
 
     public bool BallReceivedByReturnTeam { get; set; }
 
+    public bool ReturnerAwaitingCatch { get; set; }
+
     public bool BallRecovered { get; set; }
 
     public bool RecoveredByPossessingTeam { get; set; }
@@ -74,11 +76,43 @@ public sealed class OnFieldGameState
 
     public bool BallSnapped { get; set; }
 
+    public bool SpecialTeamsKickMeterActive { get; set; }
+
+    public bool SpecialTeamsKickArrowActive { get; set; }
+
     public PlayerCommandRuntimeBoundary? CommandRuntimeBoundary { get; set; }
 
     public IList<PlayerCommandRuntimeHostRequest> PendingCommandRuntimeRequests { get; } = new List<PlayerCommandRuntimeHostRequest>();
 
     public IList<PlayerCommandStepResult> CommandRuntimeStepHistory { get; } = new List<PlayerCommandStepResult>();
+
+    public IDictionary<int, string> PassTargets { get; } = new Dictionary<int, string>();
+
+    public int? CurrentPassTargetPriority { get; set; }
+
+    public int? QuarterbackDropbackTargetY { get; set; }
+
+    public int? QuarterbackDropbackRelativeX { get; set; }
+
+    public int? QuarterbackPassWaitFrames { get; set; }
+
+    public bool QuarterbackWaitsForPassPressure { get; set; }
+
+    public int? QuarterbackSackChanceThreshold { get; set; }
+
+    public string? PendingCpuPassTargetSlotKey { get; set; }
+
+    public int? PendingCpuPassTargetPriority { get; set; }
+
+    public string? ActiveDefenderSlotKey { get; set; }
+
+    public string? MotionFollowTargetSlotKey { get; set; }
+
+    public SpecialTeamsCommandState? LastSpecialTeamsCommandState { get; set; }
+
+    public string? ActiveReturnerSlotKey { get; set; }
+
+    public int? PendingSpecialTeamsDelayFrames { get; set; }
 
     public int? PendingNextSnapYardLine { get; set; }
 

@@ -348,6 +348,12 @@ public sealed class OnFieldPlayCoordinator
     {
         passTargetingService.UpdatePassTargetIndicator(state);
 
+        if (!state.PassAttempted)
+        {
+            passTargetingService.QueueQuarterbackPassControl(state);
+            TryAdvanceLiveCommandRuntime(state);
+        }
+
         if (state.BallCarrierPastLineOfScrimmage && !state.PassAttempted)
         {
             TransitionPassPlayToScramble(state);
@@ -1182,6 +1188,8 @@ public sealed class OnFieldPlayCoordinator
         {
             state.CommandRuntimeStepHistory.Add(stepResult);
             state.CommandRuntimeStepHistory.Add(continuationStepResult);
+            ApplyRuntimeStateToHost(state, stepResult);
+            ApplyRuntimeStateToHost(state, continuationStepResult);
             state.PendingCommandRuntimeRequests.RemoveAt(0);
             state.RecordEvent($"Advanced the live command-runtime seam from {hostRequest.TriggerRoutine} via '{stepResult.CommandName}' and explicit continuation '{continuationStepResult.CommandName}'.");
             return true;
@@ -1189,6 +1197,7 @@ public sealed class OnFieldPlayCoordinator
 
         state.PendingCommandRuntimeRequests.RemoveAt(0);
         state.CommandRuntimeStepHistory.Add(stepResult);
+        ApplyRuntimeStateToHost(state, stepResult);
         state.RecordEvent($"Advanced the live command-runtime seam from {hostRequest.TriggerRoutine} via '{stepResult.CommandName}'.");
         return true;
     }
@@ -1206,6 +1215,78 @@ public sealed class OnFieldPlayCoordinator
         PlayerCommandDefinition continuationDefinition = CreateRetargetContinuationDefinition(stepResult, retargetRequest);
         continuationStepResult = state.CommandRuntimeBoundary!.StepPlayerCommand(retargetRequest.TargetPlayerSlotKey, continuationDefinition);
         return true;
+    }
+
+    private static void ApplyRuntimeStateToHost(OnFieldGameState state, PlayerCommandStepResult stepResult)
+    {
+        if (stepResult.PreSnapCommandState is not null)
+        {
+            state.MotionFollowTargetSlotKey = stepResult.PreSnapCommandState.FollowTargetPlayerSlot;
+
+            if (!string.IsNullOrWhiteSpace(state.ActiveDefenderSlotKey))
+            {
+                state.RecordEvent($"Runtime preserved pre-snap motion tracking between defender '{state.ActiveDefenderSlotKey}' and motion target '{stepResult.PreSnapCommandState.FollowTargetPlayerSlot}'.");
+            }
+        }
+
+        if (stepResult.PassTargetOrderCommandState is not null)
+        {
+            state.PassTargets[stepResult.PassTargetOrderCommandState.TargetPriorityIndex] = stepResult.PassTargetOrderCommandState.ReceiverPlayerSlot;
+
+            if (stepResult.PassTargetOrderCommandState.BecameCurrentPassTarget)
+            {
+                state.CurrentPassTargetPriority = stepResult.PassTargetOrderCommandState.TargetPriorityIndex;
+            }
+        }
+
+        if (stepResult.QuarterbackPassCommandState is not null)
+        {
+            state.QuarterbackDropbackRelativeX = stepResult.QuarterbackPassCommandState.RelativeDropbackX;
+            state.QuarterbackDropbackTargetY = stepResult.QuarterbackPassCommandState.TargetY;
+            state.QuarterbackPassWaitFrames = stepResult.QuarterbackPassCommandState.WaitingFrames;
+            state.QuarterbackWaitsForPassPressure = stepResult.QuarterbackPassCommandState.WaitsForNearbyPressure;
+            state.QuarterbackSackChanceThreshold = stepResult.QuarterbackPassCommandState.SackChanceThreshold;
+            state.PendingCpuPassTargetSlotKey = stepResult.QuarterbackPassCommandState.SelectedTargetPlayerSlot;
+            state.PendingCpuPassTargetPriority = stepResult.QuarterbackPassCommandState.SelectedTargetPriorityIndex;
+
+            if (stepResult.QuarterbackPassCommandState.StartedPassAttempt)
+            {
+                state.PassAttempted = true;
+            }
+        }
+
+        if (stepResult.SpecialTeamsCommandState is not null)
+        {
+            state.SpecialTeamsKickMeterActive = stepResult.SpecialTeamsCommandState.KickMeterStarted;
+            state.SpecialTeamsKickArrowActive = stepResult.SpecialTeamsCommandState.KickArrowControlStarted;
+            state.ReturnerAwaitingCatch = stepResult.SpecialTeamsCommandState.ReturnerWaitsForCatch;
+
+            if (stepResult.SpecialTeamsCommandState.CommandKind is "Kickoff" or "Punt" or "FieldGoalKick" or "ExtraPointKick")
+            {
+                state.BallKicked = true;
+            }
+
+            if (stepResult.SpecialTeamsCommandState.CommandKind == "ReturnKickOrPunt")
+            {
+                state.BallReceivedByReturnTeam = true;
+            }
+        }
+
+        if (stepResult.SpecialTeamsCommandState is not null)
+        {
+            state.LastSpecialTeamsCommandState = stepResult.SpecialTeamsCommandState;
+            state.PendingSpecialTeamsDelayFrames = stepResult.SpecialTeamsCommandState.PostKickDelayFrames;
+
+            if (stepResult.SpecialTeamsCommandState.SetsManualControlToReturner)
+            {
+                state.ActiveReturnerSlotKey = stepResult.SpecialTeamsCommandState.TargetPlayerSlot;
+            }
+
+            if (stepResult.SpecialTeamsCommandState.StartsKickAttempt)
+            {
+                state.BallKicked = true;
+            }
+        }
     }
 
     private static PlayerCommandDefinition CreateRetargetContinuationDefinition(
@@ -1287,77 +1368,101 @@ public sealed class OnFieldPlayCoordinator
         {
             OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE => new PlayerCommandDefinition
             {
-                CommandName = "ManCoverageAssignmentCommand",
-                SourceLabel = "MAN_COVERAGE_TIGHT_COMMAND_START",
+                CommandName = "PreSnapMotionCommand",
+                SourceLabel = "PRE_SNAP_MOTION_COMMAND_START",
                 ByteLength = 2,
                 RequiresContinuation = true,
                 SourceNotes =
                 [
-                    "Packet 21B live seam: pre-snap defender handoff now enters the defensive reaction family instead of reusing the packet 21A snap family.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:1462-1476 stores player_to_defend in EXTRA_PLAYER_RAM_1 and defend_time in EXTRA_PLAYER_RAM_3 before jumping into DEFNDER_MAN_TO_MAN_PASS_COVERAGE_START.",
-                    "The loose variant sets the loose-coverage high bit before the same shared jump.",
+                    "Packet 21A/22A adjacent presnap seam: the active defender now enters the source-visible motion-follow loop instead of sampling only the later man-coverage assignment family.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:1592-1631 stores position_id_to_mirror in PLAYER_RAM_MIRROR_ID_INDEX, waits 9 frames between checks, exits only once the ball is snapped, and otherwise either stops the defender when already within the +/-0.5-yard Y threshold or requeues direction/speed updates toward the moving target.",
+                    "This stays host-seam-first: PreSnapControlService still owns the defender-switch/snap gate, while the runtime now captures the bounded follow-motion command semantics that sit directly under that seam.",
                 ],
                 OperandValues = new Dictionary<string, string>
                 {
-                    ["playerToDefend"] = "TARGET_RECEIVER",
-                    ["defendTimeSelector"] = "13",
+                    ["followTargetPlayerSlot"] = "MOTION_RECEIVER",
+                    ["followDelayFrames"] = "9",
+                    ["nearMotionPlayerYThreshold"] = "10",
                 },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },
             OnFieldRoutine.CHECK_SNAP_PUNT => new PlayerCommandDefinition
             {
-                CommandName = "ShotgunSnapReceiveCommand",
-                SourceLabel = "RECEIVE_SNAP_SHOTGUN_COMMAND_START",
+                CommandName = "PuntCommand",
+                SourceLabel = "PUNT_COMMAND_START",
                 ByteLength = 1,
                 RequiresContinuation = true,
                 SourceNotes =
                 [
-                    "Packet 21A live seam: the current CHECK_SNAP_PUNT host/runtime boundary now samples the missing shotgun receive variant before the separate FG/XP holder receive path.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:2450-2472 waits for the snapped bit, starts SET_SHOTGUN_LOCATION_DO_ANIMATION, then loops until BALL_COLLISION reports the ball reached the quarterback before assigning ball-carrier ownership.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:2474-2498 sets shotgun loft/speed, starts the moving-ball task, marks the special shotgun-snap state, then returns to the shared four-frame receive delay.",
+                    "Special-teams seam: after the Bank19_20 punt snap gate clears, the live host/runtime seam now samples the bounded Bank21_22 punt family instead of reusing a quarterback path.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:3499-3608 saves punter HP/sprite state, waits for the snap, runs the long-snap/holder receive staging, holds an 8-frame post-snap delay, then branches into manual-or-computer punt timing before the kick attempt.",
+                    "This keeps PreSnapControlService as the owner of the snap gate while the runtime now carries the bounded punter/holder receive-and-kick semantics that sit directly under that seam.",
                 ],
                 OperandValues = new Dictionary<string, string>
                 {
-                    ["ballLoft"] = "6",
-                    ["ballSpeed"] = "64",
-                    ["postReceiveDelayFrames"] = "4",
+                    ["manualKick"] = bool.FalseString,
+                    ["preKickDelayFrames"] = "8",
                 },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },
             OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS => new PlayerCommandDefinition
             {
-                CommandName = "DefensiveJumpDiveCatchPassCommand",
-                SourceLabel = "DEFENSE_JUMP_DIVE_CATCH_PASS_START",
+                CommandName = "SetTargetOrderCommand",
+                SourceLabel = "SET_TARGET_ORDER_COMMAND",
                 ByteLength = 1,
-                RequiresContinuation = true,
+                RequiresContinuation = false,
                 SourceNotes =
                 [
-                    "Packet 21C live seam: host-side pass-target ordering still owns receiver/defender ranking before the runtime enters the defender jump/dive contest family.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:5125-5211 updates the defender movement/speed loop, checks ball-collision plus jump/dive timing windows, and stops the defender at the final pass location when needed.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:5212-5459 resolves the defender-side near-ball, dive, jump, and landing branches before returning to normal command stepping.",
+                    "Packet 21A/22A adjacent targeting seam: host-side pass-target ordering still owns the broader ranking/setup moment, but the runtime now captures the direct per-receiver target-priority write performed by SET_TARGET_ORDER_COMMAND.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:1714-1725 loads PLAYER_COMMAND_ARG1 as the route priority, stores the current player position into PASS_TARGETS,X, and sets CURRENT_PASS_TARGET to the first-target slot only when X == 0 before returning immediately to DO_NEXT_PLAYER_COMMAND.",
+                    "This keeps PassTargetingService as the owner of when ranking/priming happens while representing the exact Bank21_22 target-order side effect in the runtime layer.",
                 ],
                 OperandValues = new Dictionary<string, string>
                 {
-                    ["rankedDefenderWindowSize"] = "3",
+                    ["targetPriorityIndex"] = "0",
+                },
+                TriggerRoutine = hostRequest.TriggerRoutine,
+            },
+            OnFieldRoutine.UPDATE_PASS_TARGET_AND_INDICATOR_ON_PRESS => new PlayerCommandDefinition
+            {
+                CommandName = "ComputerPassCommand",
+                SourceLabel = "COM_PASS_COMMAND_START",
+                ByteLength = 4,
+                RequiresContinuation = true,
+                SourceNotes =
+                [
+                    "Packet 21A/22A quarterback/pass-control seam: this host-side pass-target update moment now samples the Bank21_22 CPU pass-selection/throw-start command rather than leaving that QB ownership implicit.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:1652-1704 checks that the quarterback still owns the ball, walks the packed receiver chance table until the random accumulator picks one target, updates the play-code pointer by receiver-count + 4 bytes, starts the pass attempt, waits 8 frames, and only then returns to DO_NEXT_PLAYER_COMMAND.",
+                    "This keeps PassTargetingService as the owner of the host-side target indicator timing while the runtime now carries the source-visible CPU throw decision and pass-attempt kickoff semantics.",
+                ],
+                OperandValues = new Dictionary<string, string>
+                {
+                    ["targetReceiverCount"] = "4",
+                    ["selectedTargetPriorityIndex"] = "0",
+                    ["selectedTargetPlayerSlot"] = "PRIMARY_RECEIVER",
+                    ["postThrowDelayFrames"] = "8",
+                    ["quarterbackHasBall"] = bool.TrueString,
                 },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },
             _ => new PlayerCommandDefinition
             {
-                CommandName = "BackfieldHandoffCommand",
-                SourceLabel = "FAKE_HANDOFF_COMMAND_START",
+                CommandName = "SetAndMoveKickoffCoverageCommand",
+                SourceLabel = "SET_AND_MOVE_KICKOFF_COMMAND_START",
                 ByteLength = 2,
                 RequiresContinuation = true,
                 SourceNotes =
                 [
-                    "Packet 21A live seam: the normal offense field-group seam now samples the fake-handoff branch so the live runtime exercises the runner-side fake exchange continuation without transferring possession.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:1563-1567 sets the fake-handoff high bit and drops into the shared HANDOFF_COMMAND_LOGIC.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:7748-7848 preserves quarterback exchange timing, restores displayed-name status, and retargets the runner into RB_FAKE_HANDOFF_ANIMATION instead of RB_RECEIVES_HANDOFF_START.",
+                    "Special-teams live seam: the normal offense field-group seam now samples the kickoff coverage setup/move family so the runtime carries the source-visible pre-kick alignment and post-kick move-relative-to-ball semantics under the existing host/runtime seam.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:1762-1890 either places the player at a snap-relative kickoff alignment or, for the move branch, waits for BALL KICKED, computes distance versus the final ball landing spot, refreshes direction/speed, and loops until the player reaches the final coverage location or back-of-end-zone boundary.",
+                    "This stays seam-first: PlayAssignmentService still owns script-family installation while the runtime now captures one bounded kickoff-coverage command family instead of inventing a parallel special-teams integration path.",
                 ],
                 OperandValues = new Dictionary<string, string>
                 {
-                    ["targetPlayerSlot"] = "RB1",
-                    ["fakeExchange"] = bool.TrueString,
+                    ["moveDuringKickoff"] = bool.TrueString,
+                    ["relativeY"] = "24",
+                    ["relativeX"] = "0",
+                    ["invertXForPlayerTwo"] = bool.FalseString,
                 },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },

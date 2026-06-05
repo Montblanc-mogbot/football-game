@@ -23,8 +23,10 @@ public sealed class PreSnapControlService
         state.RecordRoutine(OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE);
         state.Phase = OnFieldPhase.PreSnap;
         state.BallSnapped = false;
-        QueueRuntimeRequest(state, OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE, "ACTIVE_DEFENDER", "DEFENDER_PRE_SNAP_CONTROL");
-        state.RecordEvent($"Prepared defender-change and snap-gating flow for {offenseTeam} before the hike.");
+        state.ActiveDefenderSlotKey = "ACTIVE_DEFENDER";
+        state.MotionFollowTargetSlotKey = "MOTION_RECEIVER";
+        QueueRuntimeRequest(state, OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE, state.ActiveDefenderSlotKey, "DEFENDER_PRE_SNAP_CONTROL");
+        state.RecordEvent($"Prepared defender-change and snap-gating flow for {offenseTeam} before the hike, including the active defender pre-snap motion-follow seam.");
     }
 
     public void PreparePuntForSnap(OnFieldGameState state, OnFieldTeam puntingTeam)

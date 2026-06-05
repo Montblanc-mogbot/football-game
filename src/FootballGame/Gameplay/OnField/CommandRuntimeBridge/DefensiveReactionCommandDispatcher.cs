@@ -41,7 +41,12 @@ public sealed class DefensiveReactionCommandDispatcher
             DefensiveReactionState = null,
             PassContestState = null,
             OffensiveExchangeState = null,
+            MovementCommandState = null,
+            PlayerControlCommandState = null,
             ControlFlowState = null,
+            PreSnapCommandState = null,
+            PassTargetOrderCommandState = null,
+            QuarterbackPassCommandState = null,
             PointerOverride = null,
             SourceNotes = context.CommandDefinition.SourceNotes,
         };

@@ -19,5 +19,9 @@ public sealed record PlayerCommandHandlerResult
 
     public OffensiveExchangeCommandState? OffensiveExchangeState { get; init; }
 
+    public ControlFlowCommandState? ControlFlowState { get; init; }
+
+    public PlayerCommandPointer? PointerOverride { get; init; }
+
     public required IReadOnlyList<string> SourceNotes { get; init; }
 }

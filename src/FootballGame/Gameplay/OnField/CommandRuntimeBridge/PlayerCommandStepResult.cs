@@ -20,4 +20,8 @@ public sealed record PlayerCommandStepResult
     public PassContestCommandState? PassContestState { get; init; }
 
     public OffensiveExchangeCommandState? OffensiveExchangeState { get; init; }
+
+    public ControlFlowCommandState? ControlFlowState { get; init; }
+
+    public required PlayerCommandPointer ResultingPointer { get; init; }
 }

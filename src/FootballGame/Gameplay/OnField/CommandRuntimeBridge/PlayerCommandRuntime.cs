@@ -13,15 +13,18 @@ public sealed class PlayerCommandRuntime
     private readonly DefensiveReactionCommandDispatcher defensiveReactionDispatcher;
     private readonly PassContestCommandDispatcher passContestDispatcher;
     private readonly OffensiveExchangeCommandDispatcher offensiveExchangeDispatcher;
+    private readonly ControlFlowCommandDispatcher controlFlowDispatcher;
 
     public PlayerCommandRuntime(
         DefensiveReactionCommandDispatcher? defensiveReactionDispatcher = null,
         PassContestCommandDispatcher? passContestDispatcher = null,
-        OffensiveExchangeCommandDispatcher? offensiveExchangeDispatcher = null)
+        OffensiveExchangeCommandDispatcher? offensiveExchangeDispatcher = null,
+        ControlFlowCommandDispatcher? controlFlowDispatcher = null)
     {
         this.defensiveReactionDispatcher = defensiveReactionDispatcher ?? new DefensiveReactionCommandDispatcher();
         this.passContestDispatcher = passContestDispatcher ?? new PassContestCommandDispatcher();
         this.offensiveExchangeDispatcher = offensiveExchangeDispatcher ?? new OffensiveExchangeCommandDispatcher();
+        this.controlFlowDispatcher = controlFlowDispatcher ?? new ControlFlowCommandDispatcher();
     }
 
     public IReadOnlyCollection<PlayerCommandExecutionContext> ExecutionContexts => executionContexts.Values;
@@ -45,7 +48,8 @@ public sealed class PlayerCommandRuntime
         PlayerCommandExecutionContext executionContext = GetOrCreateExecutionContext(playerSlotKey);
         PlayerCommandHandlerResult? handlerResult = TryDispatchDefensiveReaction(executionContext, commandDefinition)
             ?? TryDispatchPassContest(executionContext, commandDefinition)
-            ?? TryDispatchOffensiveExchange(executionContext, commandDefinition);
+            ?? TryDispatchOffensiveExchange(executionContext, commandDefinition)
+            ?? TryDispatchControlFlow(executionContext, commandDefinition);
         executionContext.RecordStep(commandDefinition, handlerResult);
 
         return new PlayerCommandStepResult
@@ -58,6 +62,8 @@ public sealed class PlayerCommandRuntime
             DefensiveReactionState = executionContext.DefensiveReactionState,
             PassContestState = executionContext.PassContestState,
             OffensiveExchangeState = executionContext.OffensiveExchangeState,
+            ControlFlowState = executionContext.ControlFlowState,
+            ResultingPointer = executionContext.Pointer,
         };
     }
 
@@ -104,6 +110,17 @@ public sealed class PlayerCommandRuntime
         }
 
         return offensiveExchangeDispatcher.Dispatch(new PlayerCommandHandlerContext
+        {
+            TriggerRoutine = commandDefinition.TriggerRoutine ?? Gameplay.OnField.OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS,
+            PlayerSlotKey = executionContext.PlayerSlotKey,
+            ExecutionContext = executionContext,
+            CommandDefinition = commandDefinition,
+        });
+    }
+
+    private PlayerCommandHandlerResult? TryDispatchControlFlow(PlayerCommandExecutionContext executionContext, PlayerCommandDefinition commandDefinition)
+    {
+        return controlFlowDispatcher.Dispatch(new PlayerCommandHandlerContext
         {
             TriggerRoutine = commandDefinition.TriggerRoutine ?? Gameplay.OnField.OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS,
             PlayerSlotKey = executionContext.PlayerSlotKey,

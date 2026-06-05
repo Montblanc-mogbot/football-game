@@ -22,4 +22,13 @@ public sealed record PlayerCommandPointer
     {
         return this with { InstructionOffset = InstructionOffset + byteLength };
     }
+
+    public PlayerCommandPointer SetInstructionOffset(int instructionOffset, string? resumeLabel = null)
+    {
+        return this with
+        {
+            InstructionOffset = instructionOffset,
+            ResumeLabel = resumeLabel,
+        };
+    }
 }

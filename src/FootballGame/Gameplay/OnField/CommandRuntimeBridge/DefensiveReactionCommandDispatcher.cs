@@ -37,7 +37,12 @@ public sealed class DefensiveReactionCommandDispatcher
         {
             Summary = $"No defensive-reaction handler matched '{context.CommandDefinition.CommandName}'.",
             AwaitingContinuation = context.CommandDefinition.RequiresContinuation,
+            RetargetRequests = Array.Empty<PlayerCommandRetargetRequest>(),
             DefensiveReactionState = null,
+            PassContestState = null,
+            OffensiveExchangeState = null,
+            ControlFlowState = null,
+            PointerOverride = null,
             SourceNotes = context.CommandDefinition.SourceNotes,
         };
     }

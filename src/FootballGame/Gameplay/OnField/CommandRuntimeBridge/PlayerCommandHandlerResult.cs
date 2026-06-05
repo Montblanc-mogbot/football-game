@@ -19,6 +19,8 @@ public sealed record PlayerCommandHandlerResult
 
     public OffensiveExchangeCommandState? OffensiveExchangeState { get; init; }
 
+    public MovementCommandState? MovementCommandState { get; init; }
+
     public ControlFlowCommandState? ControlFlowState { get; init; }
 
     public PlayerCommandPointer? PointerOverride { get; init; }

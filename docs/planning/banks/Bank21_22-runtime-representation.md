@@ -187,7 +187,7 @@ Move these responsibilities into the future command runtime layer:
 - command-length advancement
 - typed opcode dispatch
 - multi-frame resumable command execution
-- branch/jump/control-flow semantics
+- branch/jump/control-flow semantics *(bounded live slice now implemented for `DO_ACTION_IF_COM`, `COM_JUMP_BASED_ON_JUICE`, `IF_COM_JUMP`, `BRANCH`, and `JUMP`; see `docs/planning/validation/Bank21_22-control-flow-command-runtime-validation.md`)*
 - command-local wait/timer/continuation state
 
 ## Integration shape to target next

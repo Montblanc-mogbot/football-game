@@ -32,6 +32,8 @@ public sealed class PlayerCommandExecutionContext
 
     public OffensiveExchangeCommandState? OffensiveExchangeState { get; private set; }
 
+    public MovementCommandState? MovementCommandState { get; private set; }
+
     public ControlFlowCommandState? ControlFlowState { get; private set; }
 
     public void InstallPointer(PlayerCommandPointer pointer, string? pendingCommandName)
@@ -51,6 +53,7 @@ public sealed class PlayerCommandExecutionContext
         DefensiveReactionState = handlerResult?.DefensiveReactionState;
         PassContestState = handlerResult?.PassContestState;
         OffensiveExchangeState = handlerResult?.OffensiveExchangeState;
+        MovementCommandState = handlerResult?.MovementCommandState;
         ControlFlowState = handlerResult?.ControlFlowState;
         Pointer = handlerResult?.PointerOverride ?? Pointer.Advance(commandDefinition.ByteLength);
         LastStepSummary = handlerResult?.Summary ?? $"Stepped {commandDefinition.CommandName} from {commandDefinition.SourceLabel} (+{commandDefinition.ByteLength} bytes).";

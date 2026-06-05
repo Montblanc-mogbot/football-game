@@ -13,17 +13,20 @@ public sealed class PlayerCommandRuntime
     private readonly DefensiveReactionCommandDispatcher defensiveReactionDispatcher;
     private readonly PassContestCommandDispatcher passContestDispatcher;
     private readonly OffensiveExchangeCommandDispatcher offensiveExchangeDispatcher;
+    private readonly MovementCommandDispatcher movementCommandDispatcher;
     private readonly ControlFlowCommandDispatcher controlFlowDispatcher;
 
     public PlayerCommandRuntime(
         DefensiveReactionCommandDispatcher? defensiveReactionDispatcher = null,
         PassContestCommandDispatcher? passContestDispatcher = null,
         OffensiveExchangeCommandDispatcher? offensiveExchangeDispatcher = null,
+        MovementCommandDispatcher? movementCommandDispatcher = null,
         ControlFlowCommandDispatcher? controlFlowDispatcher = null)
     {
         this.defensiveReactionDispatcher = defensiveReactionDispatcher ?? new DefensiveReactionCommandDispatcher();
         this.passContestDispatcher = passContestDispatcher ?? new PassContestCommandDispatcher();
         this.offensiveExchangeDispatcher = offensiveExchangeDispatcher ?? new OffensiveExchangeCommandDispatcher();
+        this.movementCommandDispatcher = movementCommandDispatcher ?? new MovementCommandDispatcher();
         this.controlFlowDispatcher = controlFlowDispatcher ?? new ControlFlowCommandDispatcher();
     }
 
@@ -49,6 +52,7 @@ public sealed class PlayerCommandRuntime
         PlayerCommandHandlerResult? handlerResult = TryDispatchDefensiveReaction(executionContext, commandDefinition)
             ?? TryDispatchPassContest(executionContext, commandDefinition)
             ?? TryDispatchOffensiveExchange(executionContext, commandDefinition)
+            ?? TryDispatchMovement(executionContext, commandDefinition)
             ?? TryDispatchControlFlow(executionContext, commandDefinition);
         executionContext.RecordStep(commandDefinition, handlerResult);
 
@@ -62,6 +66,7 @@ public sealed class PlayerCommandRuntime
             DefensiveReactionState = executionContext.DefensiveReactionState,
             PassContestState = executionContext.PassContestState,
             OffensiveExchangeState = executionContext.OffensiveExchangeState,
+            MovementCommandState = executionContext.MovementCommandState,
             ControlFlowState = executionContext.ControlFlowState,
             ResultingPointer = executionContext.Pointer,
         };
@@ -110,6 +115,17 @@ public sealed class PlayerCommandRuntime
         }
 
         return offensiveExchangeDispatcher.Dispatch(new PlayerCommandHandlerContext
+        {
+            TriggerRoutine = commandDefinition.TriggerRoutine ?? Gameplay.OnField.OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS,
+            PlayerSlotKey = executionContext.PlayerSlotKey,
+            ExecutionContext = executionContext,
+            CommandDefinition = commandDefinition,
+        });
+    }
+
+    private PlayerCommandHandlerResult? TryDispatchMovement(PlayerCommandExecutionContext executionContext, PlayerCommandDefinition commandDefinition)
+    {
+        return movementCommandDispatcher.Dispatch(new PlayerCommandHandlerContext
         {
             TriggerRoutine = commandDefinition.TriggerRoutine ?? Gameplay.OnField.OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS,
             PlayerSlotKey = executionContext.PlayerSlotKey,

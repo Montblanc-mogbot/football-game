@@ -14,6 +14,7 @@ public sealed class PlayerCommandRuntime
     private readonly PassContestCommandDispatcher passContestDispatcher;
     private readonly OffensiveExchangeCommandDispatcher offensiveExchangeDispatcher;
     private readonly MovementCommandDispatcher movementCommandDispatcher;
+    private readonly PlayerControlCommandDispatcher playerControlCommandDispatcher;
     private readonly ControlFlowCommandDispatcher controlFlowDispatcher;
 
     public PlayerCommandRuntime(
@@ -21,12 +22,14 @@ public sealed class PlayerCommandRuntime
         PassContestCommandDispatcher? passContestDispatcher = null,
         OffensiveExchangeCommandDispatcher? offensiveExchangeDispatcher = null,
         MovementCommandDispatcher? movementCommandDispatcher = null,
+        PlayerControlCommandDispatcher? playerControlCommandDispatcher = null,
         ControlFlowCommandDispatcher? controlFlowDispatcher = null)
     {
         this.defensiveReactionDispatcher = defensiveReactionDispatcher ?? new DefensiveReactionCommandDispatcher();
         this.passContestDispatcher = passContestDispatcher ?? new PassContestCommandDispatcher();
         this.offensiveExchangeDispatcher = offensiveExchangeDispatcher ?? new OffensiveExchangeCommandDispatcher();
         this.movementCommandDispatcher = movementCommandDispatcher ?? new MovementCommandDispatcher();
+        this.playerControlCommandDispatcher = playerControlCommandDispatcher ?? new PlayerControlCommandDispatcher();
         this.controlFlowDispatcher = controlFlowDispatcher ?? new ControlFlowCommandDispatcher();
     }
 
@@ -53,6 +56,7 @@ public sealed class PlayerCommandRuntime
             ?? TryDispatchPassContest(executionContext, commandDefinition)
             ?? TryDispatchOffensiveExchange(executionContext, commandDefinition)
             ?? TryDispatchMovement(executionContext, commandDefinition)
+            ?? TryDispatchPlayerControl(executionContext, commandDefinition)
             ?? TryDispatchControlFlow(executionContext, commandDefinition);
         executionContext.RecordStep(commandDefinition, handlerResult);
 
@@ -67,6 +71,7 @@ public sealed class PlayerCommandRuntime
             PassContestState = executionContext.PassContestState,
             OffensiveExchangeState = executionContext.OffensiveExchangeState,
             MovementCommandState = executionContext.MovementCommandState,
+            PlayerControlCommandState = executionContext.PlayerControlCommandState,
             ControlFlowState = executionContext.ControlFlowState,
             ResultingPointer = executionContext.Pointer,
         };
@@ -126,6 +131,17 @@ public sealed class PlayerCommandRuntime
     private PlayerCommandHandlerResult? TryDispatchMovement(PlayerCommandExecutionContext executionContext, PlayerCommandDefinition commandDefinition)
     {
         return movementCommandDispatcher.Dispatch(new PlayerCommandHandlerContext
+        {
+            TriggerRoutine = commandDefinition.TriggerRoutine ?? Gameplay.OnField.OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS,
+            PlayerSlotKey = executionContext.PlayerSlotKey,
+            ExecutionContext = executionContext,
+            CommandDefinition = commandDefinition,
+        });
+    }
+
+    private PlayerCommandHandlerResult? TryDispatchPlayerControl(PlayerCommandExecutionContext executionContext, PlayerCommandDefinition commandDefinition)
+    {
+        return playerControlCommandDispatcher.Dispatch(new PlayerCommandHandlerContext
         {
             TriggerRoutine = commandDefinition.TriggerRoutine ?? Gameplay.OnField.OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS,
             PlayerSlotKey = executionContext.PlayerSlotKey,

@@ -21,6 +21,8 @@ public sealed record PlayerCommandHandlerResult
 
     public MovementCommandState? MovementCommandState { get; init; }
 
+    public PlayerControlCommandState? PlayerControlCommandState { get; init; }
+
     public ControlFlowCommandState? ControlFlowState { get; init; }
 
     public PlayerCommandPointer? PointerOverride { get; init; }

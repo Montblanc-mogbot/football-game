@@ -23,6 +23,8 @@ public sealed record PlayerCommandStepResult
 
     public MovementCommandState? MovementCommandState { get; init; }
 
+    public PlayerControlCommandState? PlayerControlCommandState { get; init; }
+
     public ControlFlowCommandState? ControlFlowState { get; init; }
 
     public required PlayerCommandPointer ResultingPointer { get; init; }

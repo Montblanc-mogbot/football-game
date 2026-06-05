@@ -27,5 +27,7 @@ public sealed record PlayerCommandStepResult
 
     public ControlFlowCommandState? ControlFlowState { get; init; }
 
+    public SpecialTeamsCommandState? SpecialTeamsCommandState { get; init; }
+
     public required PlayerCommandPointer ResultingPointer { get; init; }
 }

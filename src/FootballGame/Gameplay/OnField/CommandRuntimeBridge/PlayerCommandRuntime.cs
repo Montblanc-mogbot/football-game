@@ -16,6 +16,7 @@ public sealed class PlayerCommandRuntime
     private readonly MovementCommandDispatcher movementCommandDispatcher;
     private readonly PlayerControlCommandDispatcher playerControlCommandDispatcher;
     private readonly ControlFlowCommandDispatcher controlFlowDispatcher;
+    private readonly SpecialTeamsCommandDispatcher specialTeamsCommandDispatcher;
 
     public PlayerCommandRuntime(
         DefensiveReactionCommandDispatcher? defensiveReactionDispatcher = null,
@@ -23,7 +24,8 @@ public sealed class PlayerCommandRuntime
         OffensiveExchangeCommandDispatcher? offensiveExchangeDispatcher = null,
         MovementCommandDispatcher? movementCommandDispatcher = null,
         PlayerControlCommandDispatcher? playerControlCommandDispatcher = null,
-        ControlFlowCommandDispatcher? controlFlowDispatcher = null)
+        ControlFlowCommandDispatcher? controlFlowDispatcher = null,
+        SpecialTeamsCommandDispatcher? specialTeamsCommandDispatcher = null)
     {
         this.defensiveReactionDispatcher = defensiveReactionDispatcher ?? new DefensiveReactionCommandDispatcher();
         this.passContestDispatcher = passContestDispatcher ?? new PassContestCommandDispatcher();
@@ -31,6 +33,7 @@ public sealed class PlayerCommandRuntime
         this.movementCommandDispatcher = movementCommandDispatcher ?? new MovementCommandDispatcher();
         this.playerControlCommandDispatcher = playerControlCommandDispatcher ?? new PlayerControlCommandDispatcher();
         this.controlFlowDispatcher = controlFlowDispatcher ?? new ControlFlowCommandDispatcher();
+        this.specialTeamsCommandDispatcher = specialTeamsCommandDispatcher ?? new SpecialTeamsCommandDispatcher();
     }
 
     public IReadOnlyCollection<PlayerCommandExecutionContext> ExecutionContexts => executionContexts.Values;
@@ -57,7 +60,8 @@ public sealed class PlayerCommandRuntime
             ?? TryDispatchOffensiveExchange(executionContext, commandDefinition)
             ?? TryDispatchMovement(executionContext, commandDefinition)
             ?? TryDispatchPlayerControl(executionContext, commandDefinition)
-            ?? TryDispatchControlFlow(executionContext, commandDefinition);
+            ?? TryDispatchControlFlow(executionContext, commandDefinition)
+            ?? TryDispatchSpecialTeams(executionContext, commandDefinition);
         executionContext.RecordStep(commandDefinition, handlerResult);
 
         return new PlayerCommandStepResult
@@ -73,6 +77,7 @@ public sealed class PlayerCommandRuntime
             MovementCommandState = executionContext.MovementCommandState,
             PlayerControlCommandState = executionContext.PlayerControlCommandState,
             ControlFlowState = executionContext.ControlFlowState,
+            SpecialTeamsCommandState = executionContext.SpecialTeamsCommandState,
             ResultingPointer = executionContext.Pointer,
         };
     }
@@ -153,6 +158,17 @@ public sealed class PlayerCommandRuntime
     private PlayerCommandHandlerResult? TryDispatchControlFlow(PlayerCommandExecutionContext executionContext, PlayerCommandDefinition commandDefinition)
     {
         return controlFlowDispatcher.Dispatch(new PlayerCommandHandlerContext
+        {
+            TriggerRoutine = commandDefinition.TriggerRoutine ?? Gameplay.OnField.OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS,
+            PlayerSlotKey = executionContext.PlayerSlotKey,
+            ExecutionContext = executionContext,
+            CommandDefinition = commandDefinition,
+        });
+    }
+
+    private PlayerCommandHandlerResult? TryDispatchSpecialTeams(PlayerCommandExecutionContext executionContext, PlayerCommandDefinition commandDefinition)
+    {
+        return specialTeamsCommandDispatcher.Dispatch(new PlayerCommandHandlerContext
         {
             TriggerRoutine = commandDefinition.TriggerRoutine ?? Gameplay.OnField.OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS,
             PlayerSlotKey = executionContext.PlayerSlotKey,

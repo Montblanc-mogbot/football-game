@@ -56,6 +56,17 @@ public sealed class PreSnapControlService
                 continue;
             }
 
+            if (triggerRoutine == OnFieldRoutine.CHECK_SNAP_PUNT && hostRequest.LiveCommandNameOverride is not null)
+            {
+                bool wantsPunt = state.PlayType == OnFieldPlayType.Punt && hostRequest.LiveCommandNameOverride == "PuntCommand";
+                bool wantsFieldGoal = state.PlayType == OnFieldPlayType.FieldGoal && hostRequest.LiveCommandNameOverride == "FieldGoalKickCommand";
+                bool wantsExtraPoint = state.PlayType == OnFieldPlayType.ExtraPoint && hostRequest.LiveCommandNameOverride == "ExtraPointKickCommand";
+                if (!wantsPunt && !wantsFieldGoal && !wantsExtraPoint)
+                {
+                    continue;
+                }
+            }
+
             state.PendingCommandRuntimeRequests.Add(hostRequest);
             state.CommandRuntimeBoundary.PrimeExecutionContext(
                 hostRequest,

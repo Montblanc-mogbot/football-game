@@ -1167,12 +1167,16 @@ public sealed class OnFieldPlayCoordinator
 
         PlayerCommandRuntimeHostRequest hostRequest = state.PendingCommandRuntimeRequests[0];
         PlayerCommandDefinition commandDefinition = CreateLiveStepDefinition(hostRequest);
-        string playerSlotKey = hostRequest.TriggerRoutine switch
+        string playerSlotKey = hostRequest.LiveCommandNameOverride switch
         {
-            OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE => "ACTIVE_DEFENDER",
-            OnFieldRoutine.CHECK_SNAP_PUNT => "PUNT_SNAP_GROUP",
-            OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS => "PASS_CONTEST_GROUP",
-            _ => "OFFENSE_FIELD_GROUP",
+            "ReturnKickPuntCommand" => state.PlayType == OnFieldPlayType.Punt ? "PUNT_RETURN_GROUP" : "DEFENSE_FIELD_GROUP",
+            _ => hostRequest.TriggerRoutine switch
+            {
+                OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE => "ACTIVE_DEFENDER",
+                OnFieldRoutine.CHECK_SNAP_PUNT => "PUNT_SNAP_GROUP",
+                OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS => "PASS_CONTEST_GROUP",
+                _ => "OFFENSE_FIELD_GROUP",
+            },
         };
 
         PlayerCommandStepResult stepResult = state.CommandRuntimeBoundary.StepPlayerCommand(playerSlotKey, commandDefinition);
@@ -1283,6 +1287,24 @@ public sealed class OnFieldPlayCoordinator
 
     private static PlayerCommandDefinition CreateLiveStepDefinition(PlayerCommandRuntimeHostRequest hostRequest)
     {
+        if (hostRequest.LiveCommandNameOverride is not null && hostRequest.LiveSourceLabelOverride is not null)
+        {
+            return new PlayerCommandDefinition
+            {
+                CommandName = hostRequest.LiveCommandNameOverride,
+                SourceLabel = hostRequest.LiveSourceLabelOverride,
+                ByteLength = 1,
+                RequiresContinuation = true,
+                SourceNotes =
+                [
+                    $"Live Bank21_22 special-teams seam entry from {hostRequest.TriggerRoutine}.",
+                    hostRequest.TriggerDescription,
+                ],
+                OperandValues = hostRequest.LiveOperandOverrides ?? new Dictionary<string, string>(),
+                TriggerRoutine = hostRequest.TriggerRoutine,
+            };
+        }
+
         return hostRequest.TriggerRoutine switch
         {
             OnFieldRoutine.DEFENDER_CHANGE_BEFORE_HIKE => new PlayerCommandDefinition

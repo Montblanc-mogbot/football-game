@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 using FootballGame.Gameplay.OnField;
 
 namespace FootballGame.Gameplay.OnField.CommandRuntimeBridge;
@@ -16,4 +18,10 @@ public sealed record PlayerCommandRuntimeHostRequest
     public OnFieldTeam? OffenseTeam { get; init; }
 
     public OnFieldTeam? DefenseTeam { get; init; }
+
+    public string? LiveCommandNameOverride { get; init; }
+
+    public string? LiveSourceLabelOverride { get; init; }
+
+    public IReadOnlyDictionary<string, string>? LiveOperandOverrides { get; init; }
 }

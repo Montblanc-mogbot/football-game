@@ -122,6 +122,11 @@ public sealed class PlayAssignmentService
                 continue;
             }
 
+            if (!IsRelevantLoadUpdateRequest(state, hostRequest, playerSlotKey))
+            {
+                continue;
+            }
+
             state.PendingCommandRuntimeRequests.Add(hostRequest);
             state.CommandRuntimeBoundary.PrimeExecutionContext(
                 hostRequest,
@@ -134,6 +139,21 @@ public sealed class PlayAssignmentService
                 });
             return;
         }
+    }
+
+    private static bool IsRelevantLoadUpdateRequest(OnFieldGameState state, PlayerCommandRuntimeHostRequest hostRequest, string playerSlotKey)
+    {
+        if (hostRequest.LiveCommandNameOverride is null)
+        {
+            return playerSlotKey is "OFFENSE_FIELD_GROUP";
+        }
+
+        return hostRequest.LiveCommandNameOverride switch
+        {
+            "SetAndMoveKickoffCommand" => state.PlayType == OnFieldPlayType.Kickoff && playerSlotKey == "OFFENSE_FIELD_GROUP",
+            "ReturnKickPuntCommand" => state.IsSpecialTeamsPlay && playerSlotKey is "DEFENSE_FIELD_GROUP" or "PUNT_RETURN_GROUP" or "ONSIDE_RETURN_GROUP",
+            _ => false,
+        };
     }
 
     private static OnFieldTeam GetOpposingTeam(OnFieldTeam team)

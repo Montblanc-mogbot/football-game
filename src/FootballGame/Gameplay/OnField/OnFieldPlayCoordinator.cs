@@ -1177,6 +1177,16 @@ public sealed class OnFieldPlayCoordinator
 
         PlayerCommandStepResult stepResult = state.CommandRuntimeBoundary.StepPlayerCommand(playerSlotKey, commandDefinition);
 
+        if (hostRequest.TriggerRoutine == OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS
+            && TryCreateQuarterbackPassContinuation(state, stepResult, out PlayerCommandStepResult quarterbackContinuationStepResult))
+        {
+            state.CommandRuntimeStepHistory.Add(stepResult);
+            state.CommandRuntimeStepHistory.Add(quarterbackContinuationStepResult);
+            state.PendingCommandRuntimeRequests.RemoveAt(0);
+            state.RecordEvent($"Advanced the live command-runtime seam from {hostRequest.TriggerRoutine} via '{stepResult.CommandName}' and quarterback follow-up '{quarterbackContinuationStepResult.CommandName}'.");
+            return true;
+        }
+
         if (hostRequest.TriggerRoutine == OnFieldRoutine.LOAD_UPDATE_PLAY_CODE_FUNCTIONS
             && TryCreateExplicitRetargetContinuation(state, stepResult, out PlayerCommandStepResult continuationStepResult))
         {
@@ -1206,6 +1216,66 @@ public sealed class OnFieldPlayCoordinator
         PlayerCommandDefinition continuationDefinition = CreateRetargetContinuationDefinition(stepResult, retargetRequest);
         continuationStepResult = state.CommandRuntimeBoundary!.StepPlayerCommand(retargetRequest.TargetPlayerSlotKey, continuationDefinition);
         return true;
+    }
+
+    private static bool TryCreateQuarterbackPassContinuation(OnFieldGameState state, PlayerCommandStepResult stepResult, out PlayerCommandStepResult continuationStepResult)
+    {
+        continuationStepResult = null!;
+
+        if (stepResult.CommandName == "QuarterbackDropbackCommand")
+        {
+            PlayerCommandDefinition waitToPassDefinition = new()
+            {
+                CommandName = "CpuWaitToPassCommand",
+                SourceLabel = "COM_WAIT_TO_PASS_COMMAND_START",
+                ByteLength = 3,
+                RequiresContinuation = true,
+                SourceNotes =
+                [
+                    "Packet 21D adjacent continuation: after the quarterback reaches the dropback spot, the source immediately seeds a randomized wait-to-pass timer and may throw early if collision pressure appears.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:1957-1994 stores the randomized wait time in EXTRA_PLAYER_RAM_3, optionally watches CHECK_OFF_OR_DEF_CLOSE_TO_COLLISION, and exits to the next pass command when the timer or pressure gate resolves.",
+                ],
+                OperandValues = new Dictionary<string, string>
+                {
+                    ["waitFrames"] = "18",
+                    ["takeSackChance"] = "48",
+                    ["throwWhenCollisionThreatened"] = bool.TrueString,
+                },
+                TriggerRoutine = OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS,
+            };
+
+            continuationStepResult = state.CommandRuntimeBoundary!.StepPlayerCommand(stepResult.PlayerSlotKey, waitToPassDefinition);
+            return true;
+        }
+
+        if (stepResult.CommandName == "CpuWaitToPassCommand")
+        {
+            PlayerCommandDefinition cpuPassDefinition = new()
+            {
+                CommandName = "CpuPassCommand",
+                SourceLabel = "COM_PASS_COMMAND_START",
+                ByteLength = 4,
+                RequiresContinuation = false,
+                SourceNotes =
+                [
+                    "Packet 21D adjacent continuation: once the wait gate clears, the quarterback scans the packed receiver table, picks one target, advances past the target list, and starts the pass attempt.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:1652-1704 loops until the quarterback still owns the ball, computes the random throw bucket, selects the receiver nibble, updates the play-code pointer by target-count + 4 bytes, calls START_OF_PASS_ATTEMPT, then waits eight frames before returning to normal stepping.",
+                ],
+                OperandValues = new Dictionary<string, string>
+                {
+                    ["quarterbackHasBall"] = bool.TrueString,
+                    ["targetCount"] = "3",
+                    ["selectedTargetPlayerSlot"] = "WR2",
+                    ["postPassDelayFrames"] = "8",
+                },
+                TriggerRoutine = OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS,
+            };
+
+            continuationStepResult = state.CommandRuntimeBoundary!.StepPlayerCommand(stepResult.PlayerSlotKey, cpuPassDefinition);
+            return true;
+        }
+
+        return false;
     }
 
     private static PlayerCommandDefinition CreateRetargetContinuationDefinition(
@@ -1326,19 +1396,23 @@ public sealed class OnFieldPlayCoordinator
             },
             OnFieldRoutine.SET_PLAYERS_CLOSE_TO_PASS => new PlayerCommandDefinition
             {
-                CommandName = "DefensiveJumpDiveCatchPassCommand",
-                SourceLabel = "DEFENSE_JUMP_DIVE_CATCH_PASS_START",
-                ByteLength = 1,
+                CommandName = "QuarterbackDropbackCommand",
+                SourceLabel = "QB_DROPBACK_COMMAND_START",
+                ByteLength = 3,
                 RequiresContinuation = true,
                 SourceNotes =
                 [
-                    "Packet 21C live seam: host-side pass-target ordering still owns receiver/defender ranking before the runtime enters the defender jump/dive contest family.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:5125-5211 updates the defender movement/speed loop, checks ball-collision plus jump/dive timing windows, and stops the defender at the final pass location when needed.",
-                    "Source: Bank21_22_play_commands_on_field_logic.asm:5212-5459 resolves the defender-side near-ball, dive, jump, and landing branches before returning to normal command stepping.",
+                    "Packet 21D live seam: the host-side pass-target ordering seam now samples the quarterback dropback / wait-to-pass / CPU pass family so the runtime carries the source-visible pre-throw quarterback control loop instead of jumping straight to catch-contest resolution.",
+                    "Source: Bank21_22_play_commands_on_field_logic.asm:1893-1955 saves the dropback target, inverts X for player two, queues the direction/speed refresh, then loops alternating QB_DROPBACK_1/2 sprites until the quarterback reaches the final/back-of-end-zone-safe location.",
+                    "The adjacent follow-up commands at :1957-1994 and :1652-1704 keep the quarterback waiting for the randomized throw window / pressure gate, then select the scripted receiver and call START_OF_PASS_ATTEMPT before returning to normal stepping.",
                 ],
                 OperandValues = new Dictionary<string, string>
                 {
-                    ["rankedDefenderWindowSize"] = "3",
+                    ["targetY"] = "120",
+                    ["dropbackX"] = "20",
+                    ["invertXForPlayerTwo"] = bool.TrueString,
+                    ["isPlayerTwo"] = bool.FalseString,
+                    ["animationDelayFrames"] = "12",
                 },
                 TriggerRoutine = hostRequest.TriggerRoutine,
             },

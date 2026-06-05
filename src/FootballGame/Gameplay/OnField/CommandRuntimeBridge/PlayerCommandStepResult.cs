@@ -27,5 +27,7 @@ public sealed record PlayerCommandStepResult
 
     public ControlFlowCommandState? ControlFlowState { get; init; }
 
+    public QuarterbackPassCommandState? QuarterbackPassCommandState { get; init; }
+
     public required PlayerCommandPointer ResultingPointer { get; init; }
 }

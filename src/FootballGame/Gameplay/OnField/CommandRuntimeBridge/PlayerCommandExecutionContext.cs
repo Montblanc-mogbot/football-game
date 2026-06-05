@@ -38,6 +38,8 @@ public sealed class PlayerCommandExecutionContext
 
     public ControlFlowCommandState? ControlFlowState { get; private set; }
 
+    public QuarterbackPassCommandState? QuarterbackPassCommandState { get; private set; }
+
     public void InstallPointer(PlayerCommandPointer pointer, string? pendingCommandName)
     {
         Pointer = pointer;
@@ -58,6 +60,7 @@ public sealed class PlayerCommandExecutionContext
         MovementCommandState = handlerResult?.MovementCommandState;
         PlayerControlCommandState = handlerResult?.PlayerControlCommandState;
         ControlFlowState = handlerResult?.ControlFlowState;
+        QuarterbackPassCommandState = handlerResult?.QuarterbackPassCommandState;
         Pointer = handlerResult?.PointerOverride ?? Pointer.Advance(commandDefinition.ByteLength);
         LastStepSummary = handlerResult?.Summary ?? $"Stepped {commandDefinition.CommandName} from {commandDefinition.SourceLabel} (+{commandDefinition.ByteLength} bytes).";
     }
